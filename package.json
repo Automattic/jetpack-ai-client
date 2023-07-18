@@ -15,17 +15,22 @@
 	"license": "GPL-2.0-or-later",
 	"author": "Automattic",
 	"scripts": {
+		"build": "pnpm run compile-ts",
+		"compile-ts": "tsc --pretty",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest"
 	},
 	"type": "module",
 	"devDependencies": {
 		"jest": "*",
-		"jest-environment-jsdom": "29.5.0"
+		"jest-environment-jsdom": "29.5.0",
+		"typescript": "5.0.4"
 	},
 	"exports": {
-		".": "./index.js"
+		".": "./index.ts"
 	},
 	"dependencies": {
+		"@automattic/jetpack-connection": "workspace:*",
+		"@automattic/jetpack-shared-extension-utils": "^0.10.9",
 		"@microsoft/fetch-event-source": "2.0.1",
 		"@wordpress/api-fetch": "6.34.0",
 		"debug": "4.3.4"
