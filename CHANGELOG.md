@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Added
 - Add Jetpack AI Client
+- AI Client: export SuggestionsEventSource updated library
 - AI Client: update and expose JWT library
 
 ### Changed
