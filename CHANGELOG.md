@@ -15,4 +15,5 @@ This is an alpha version! The changes listed here are not final.
 - AI Client: update and expose JWT library
 
 ### Changed
+- AI Client: stop using smart document visibility handling on the fetchEventSource library, so it does not restart the completion when changing tabs.
 - Updated package dependencies.
