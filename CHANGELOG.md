@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - AI Client: Add useAiSuggestions() react custom hook
 
+### Changed
+- AI Client: handle properly passing the post_id parameter to endpoint
+
 ## 0.1.0 - 2023-07-25
 ### Added
 - Add Jetpack AI Client [#30855]
