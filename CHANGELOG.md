@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Added
 - Add AI Client icon components
+- AI Client: add AI Assistant data context
 - AI Client: Add useAiSuggestions() react custom hook
 
 ### Changed
