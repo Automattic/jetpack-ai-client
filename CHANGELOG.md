@@ -13,6 +13,7 @@ This is an alpha version! The changes listed here are not final.
 - Add AI Client icon components
 - AI Client: add AI Assistant data context
 - AI Client: Add useAiSuggestions() react custom hook
+- AI Client: introduce withAiDataProvider HOC
 
 ### Changed
 - AI Client: handle properly passing the post_id parameter to endpoint
