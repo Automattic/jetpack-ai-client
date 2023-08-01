@@ -20,6 +20,9 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - AI Client: handle properly passing the post_id parameter to endpoint
 
+### Removed
+- AI Client: remove unused image library
+
 ## 0.1.0 - 2023-07-25
 ### Added
 - Add Jetpack AI Client [#30855]
