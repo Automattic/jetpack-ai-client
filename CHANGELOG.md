@@ -20,6 +20,7 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - AI Client: add Icon suffix to icon components
 - AI Client: handle properly passing the post_id parameter to endpoint
+- AI Client: replace using CSS modules with the regular way
 
 ### Removed
 - AI Client: remove unused image library
