@@ -14,6 +14,7 @@ This is an alpha version! The changes listed here are not final.
 - AI Client: add AI Assistant data context
 - AI Client: add useAiContext() react hook
 - AI Client: Add useAiSuggestions() react custom hook
+- AI Client: Introduce AI Control component
 - AI Client: introduce withAiDataProvider HOC
 
 ### Changed
