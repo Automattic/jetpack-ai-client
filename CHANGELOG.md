@@ -18,6 +18,7 @@ This is an alpha version! The changes listed here are not final.
 - AI Client: introduce withAiDataProvider HOC
 
 ### Changed
+- AI Client: add Icon suffix to icon components
 - AI Client: handle properly passing the post_id parameter to endpoint
 
 ### Removed
