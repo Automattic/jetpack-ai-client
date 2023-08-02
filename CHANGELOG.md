@@ -14,6 +14,9 @@ This is an alpha version! The changes listed here are not final.
 - AI Client: add onError() response support
 - AI Client: Export types
 
+### Fixed
+- AI Client: Fix wrong disabled state condition.
+
 ## [0.1.1] - 2023-08-01
 ### Added
 - Add AI Client icon components [#32079]
