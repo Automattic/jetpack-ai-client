@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Added
 - AI Assistant: Add options parameter to request function on useAiSuggestions hook
+- AI Client: add onError() response support
 - AI Client: Export types
 
 ## [0.1.1] - 2023-08-01
