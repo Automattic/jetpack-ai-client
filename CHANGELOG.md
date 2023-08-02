@@ -12,6 +12,7 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - AI Assistant: Add options parameter to request function on useAiSuggestions hook
 - AI Client: add @wordpress/compose dependency
+- AI Client: Add keyboard shortcut to AIControl
 - AI Client: add onError() response support
 - AI Client: Export types
 
