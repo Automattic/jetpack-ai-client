@@ -15,6 +15,7 @@ This is an alpha version! The changes listed here are not final.
 - AI Client: Add keyboard shortcut to AIControl
 - AI Client: add onError() response support
 - AI Client: Export types
+- AI Control: introduce AiStatusIndicator component
 
 ### Fixed
 - AI Client: Fix wrong disabled state condition.
