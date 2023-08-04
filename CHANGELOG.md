@@ -18,6 +18,9 @@ This is an alpha version! The changes listed here are not final.
 - AI Client: Export types
 - AI Control: introduce AiStatusIndicator component
 
+### Changed
+- AI Client: rename the prop name of the requesting state of the AiStatusIndicator component
+
 ### Fixed
 - AI Client: Fix wrong disabled state condition.
 
