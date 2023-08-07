@@ -20,6 +20,7 @@ This is an alpha version! The changes listed here are not final.
 - AI Control: introduce AiStatusIndicator component
 
 ### Changed
+- AI Client: complete/update/improve doc
 - AI Client: rename the prop name of the requesting state of the AiStatusIndicator component
 
 ### Fixed
