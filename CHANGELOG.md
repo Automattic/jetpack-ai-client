@@ -25,6 +25,7 @@ This is an alpha version! The changes listed here are not final.
 - AI Client: rename the prop name of the requesting state of the AiStatusIndicator component
 
 ### Fixed
+- AI Client: fix TS type definition issue
 - AI Client: Fix wrong disabled state condition.
 
 ## [0.1.1] - 2023-08-01
