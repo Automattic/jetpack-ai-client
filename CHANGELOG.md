@@ -14,6 +14,7 @@ This is an alpha version! The changes listed here are not final.
 - AI Control: Add guideline message
 
 ### Changed
+- AI Client: Handle token fetching errors by dispatching an event from the SuggestionsEventSource class.
 - AI Control: Clean up props
 - Updated package dependencies.
 
