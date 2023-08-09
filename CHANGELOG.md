@@ -18,6 +18,7 @@ This is an alpha version! The changes listed here are not final.
 - AI Client: Export types
 - AI Client: Introduce disabled prop in AI Control
 - AI Client: Start supporting request options on requestSuggestion callback.
+- AI Control: Add guideline message
 - AI Control: introduce AiStatusIndicator component
 
 ### Changed
