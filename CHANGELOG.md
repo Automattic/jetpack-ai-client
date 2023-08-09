@@ -24,6 +24,7 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - AI Client: complete/update/improve doc
 - AI Client: rename the prop name of the requesting state of the AiStatusIndicator component
+- AI Control: Clean up props
 - Updated package dependencies.
 
 ### Fixed
