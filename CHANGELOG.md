@@ -15,6 +15,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - AI Client: Handle token fetching errors by dispatching an event from the SuggestionsEventSource class.
+- AI Client: tweak layout and styles to make AI Control mobile friendly
 - AI Control: Clean up props
 - Updated package dependencies.
 
