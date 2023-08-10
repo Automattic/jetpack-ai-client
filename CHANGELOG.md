@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This is an alpha version! The changes listed here are not final.
 
 ### Added
+- AI Client: Export AiStatusIndicator
 - AI Client: import base styles in the AI stauts indicator component
 - AI Control: Import jetpack-base-styles
 
