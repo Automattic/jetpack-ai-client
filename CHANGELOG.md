@@ -18,6 +18,9 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - AI Client: Expose stopSuggestion function on useAiSuggestions hook so the consumer can stop a suggestion in the middle.
 
+### Removed
+- AI Client: Remove redundant switch case
+
 ## [0.1.3] - 2023-08-09
 ### Added
 - AI Client: Introduce disabled prop in AI Control. [#32326]
