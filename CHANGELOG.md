@@ -12,6 +12,7 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - AI Client: Export AiStatusIndicator
 - AI Client: import base styles in the AI stauts indicator component
+- AI Control: Forward ref to consumer
 - AI Control: Import jetpack-base-styles
 
 ### Changed
