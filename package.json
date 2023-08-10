@@ -32,6 +32,7 @@
 		".": "./index.ts"
 	},
 	"dependencies": {
+		"@automattic/jetpack-base-styles": "^0.6.5",
 		"@automattic/jetpack-connection": "workspace:*",
 		"@automattic/jetpack-shared-extension-utils": "^0.11.1",
 		"@microsoft/fetch-event-source": "2.0.1",
