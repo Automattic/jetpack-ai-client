@@ -14,6 +14,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - AI Assistant: Change messages to turn content optional and start supporting a context property.
+- AI Extension: Add showClearButton prop to AIControl component and fix names
 - AI Extension: Specify input background color
 - Updated package dependencies.
 
