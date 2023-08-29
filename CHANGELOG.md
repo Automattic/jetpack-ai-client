@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This is an alpha version! The changes listed here are not final.
 
+### Added
+- AI Client: add player stop button icon
+
 ### Removed
 - Remove unnecessary files from mirror repo and published package.
 
