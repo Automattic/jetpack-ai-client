@@ -12,6 +12,7 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - AI Client: add play and pause icons
 - AI Client: add player stop button icon
+- AI Client: create blob audio data. Introduce onDone() callback
 - AI Client: introduce useMediaRecording() hook
 
 ### Changed
