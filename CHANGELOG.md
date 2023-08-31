@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Added
 - AI Client: add player stop button icon
+- AI Client: introduce useMediaRecording() hook
 
 ### Removed
 - Remove unnecessary files from mirror repo and published package.
