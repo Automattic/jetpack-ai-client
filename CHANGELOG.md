@@ -19,6 +19,9 @@ This is an alpha version! The changes listed here are not final.
 ### Removed
 - Remove unnecessary files from mirror repo and published package.
 
+### Fixed
+- AI Client: fix mic icon visual issue in Safari
+
 ## [0.1.5] - 2023-08-28
 ### Added
 - AI Client: add mic icon [#32665]
