@@ -18,6 +18,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - AI Client: minor change in useMediaRecording() hook example
+- Updated package dependencies.
 
 ### Removed
 - Remove unnecessary files from mirror repo and published package.
