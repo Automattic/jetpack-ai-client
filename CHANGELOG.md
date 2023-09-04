@@ -5,27 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.6-alpha] - unreleased
+## [0.1.7-alpha] - unreleased
 
 This is an alpha version! The changes listed here are not final.
 
 ### Added
-- AI Client: add play and pause icons
-- AI Client: add player stop button icon
-- AI Client: create blob audio data. Introduce onDone() callback
-- AI Client: improve useMediaRecorder() timeslice recording option
 - AI Client: introduce audio duration display component
-- AI Client: introduce useMediaRecording() hook
+
+## [0.1.6] - 2023-09-04
+### Added
+- AI Client: add play and pause icons [#32788]
+- AI Client: add player stop button icon [#32728]
+- AI Client: create blob audio data. Introduce onDone() callback [#32791]
+- AI Client: improve useMediaRecorder() timeslice recording option [#32805]
+- AI Client: introduce useMediaRecording() hook [#32767]
 
 ### Changed
-- AI Client: minor change in useMediaRecording() hook example
-- Updated package dependencies.
+- AI Client: minor change in useMediaRecording() hook example [#32769]
+- Updated package dependencies. [#32803]
 
 ### Removed
-- Remove unnecessary files from mirror repo and published package.
+- Remove unnecessary files from mirror repo and published package. [#32674]
 
 ### Fixed
-- AI Client: fix mic icon visual issue in Safari
+- AI Client: fix mic icon visual issue in Safari [#32787]
 
 ## [0.1.5] - 2023-08-28
 ### Added
@@ -114,7 +117,8 @@ This is an alpha version! The changes listed here are not final.
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
-[0.1.6-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.1.5...v0.1.6-alpha
+[0.1.7-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.1.6...v0.1.7-alpha
+[0.1.6]: https://github.com/Automattic/jetpack-ai-client/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/Automattic/jetpack-ai-client/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/Automattic/jetpack-ai-client/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/Automattic/jetpack-ai-client/compare/v0.1.2...v0.1.3
