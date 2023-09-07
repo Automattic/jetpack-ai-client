@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This is an alpha version! The changes listed here are not final.
 
 ### Added
+- AI Client: add and expose reset() from useAiSuggestions() hook
 - AI Client: introduce audio duration display component
 
 ## [0.1.6] - 2023-09-04
