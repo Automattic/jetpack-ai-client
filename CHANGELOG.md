@@ -5,13 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.7-alpha] - unreleased
-
-This is an alpha version! The changes listed here are not final.
-
+## [0.1.7] - 2023-09-11
 ### Added
-- AI Client: add and expose reset() from useAiSuggestions() hook
-- AI Client: introduce audio duration display component
+- AI Client: add and expose reset() from useAiSuggestions() hook [#32886]
+- AI Client: introduce audio duration display component [#32825]
 
 ## [0.1.6] - 2023-09-04
 ### Added
@@ -118,7 +115,7 @@ This is an alpha version! The changes listed here are not final.
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
-[0.1.7-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.1.6...v0.1.7-alpha
+[0.1.7]: https://github.com/Automattic/jetpack-ai-client/compare/v0.1.6...v0.1.7
 [0.1.6]: https://github.com/Automattic/jetpack-ai-client/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/Automattic/jetpack-ai-client/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/Automattic/jetpack-ai-client/compare/v0.1.3...v0.1.4
