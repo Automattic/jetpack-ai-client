@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - AI Client: Introduce blockListBlockWithAiDataProvider() function
 
+### Fixed
+- AI Client: check media record ref of the useMediaRecording() hook before to remove the listeners
+
 ## [0.1.7] - 2023-09-11
 ### Added
 - AI Client: add and expose reset() from useAiSuggestions() hook [#32886]
