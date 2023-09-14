@@ -13,6 +13,9 @@ This is an alpha version! The changes listed here are not final.
 - AI Client: Add support for the jetpack-ai role on the prompt messages.
 - AI Client: Introduce blockListBlockWithAiDataProvider() function
 
+### Changed
+- AI Client: Move showGuideLine to AIControl component props
+
 ### Fixed
 - AI Client: check media record ref of the useMediaRecording() hook before to remove the listeners
 
