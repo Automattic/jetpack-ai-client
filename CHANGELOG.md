@@ -12,6 +12,7 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - AI Client: Add support for the jetpack-ai role on the prompt messages.
 - AI Client: add `model` param to request helpers
+- AI Client: Emit specific error for large context error on SuggestionsEventSource
 - AI Client: Introduce blockListBlockWithAiDataProvider() function
 
 ### Changed
