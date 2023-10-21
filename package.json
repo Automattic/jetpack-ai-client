@@ -33,7 +33,7 @@
 	},
 	"dependencies": {
 		"@automattic/jetpack-base-styles": "^0.6.11",
-		"@automattic/jetpack-connection": "^0.30.4",
+		"@automattic/jetpack-connection": "^0.30.5-alpha",
 		"@automattic/jetpack-shared-extension-utils": "^0.12.4",
 		"@microsoft/fetch-event-source": "2.0.1",
 		"@wordpress/api-fetch": "6.41.0",
