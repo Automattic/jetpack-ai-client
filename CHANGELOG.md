@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - Updated package dependencies.
 
+### Removed
+- AI Client: remove obsolete blockListBlockWithAiDataProvider() HOC component
+
 ## [0.1.12] - 2023-10-16
 ### Changed
 - Updated package dependencies. [#33584]
