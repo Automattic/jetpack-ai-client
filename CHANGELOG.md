@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - AI Assistant: change shadow for a better sense of depth
+- Updated package dependencies.
 
 ## [0.2.0] - 2023-11-20
 ### Changed
