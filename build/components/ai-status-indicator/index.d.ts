@@ -12,4 +12,4 @@ export type AiStatusIndicatorProps = {
  * @param {AiStatusIndicatorProps} props - component props.
  * @returns {React.ReactElement} - rendered component.
  */
-export default function AiStatusIndicator({ state, size, }: AiStatusIndicatorProps): React.ReactElement;
+export default function AiStatusIndicator({ state }: AiStatusIndicatorProps): React.ReactElement;
