@@ -64,9 +64,9 @@ export default class SuggestionsEventSource extends EventTarget {
             }
         }
         const bodyData = {};
-        // Populate body data with post id
-        if (options?.postId) {
-            bodyData.post_id = options.postId;
+        // Populate body data with post id only if it is an integer
+        if (Number.isInteger(parseInt(options.postId))) {
+            bodyData.post_id = +options.postId;
         }
         // If the url is not provided, we use the default one
         if (!url) {

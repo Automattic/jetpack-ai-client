@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - AI Client: introduce bannerComponent prop, React.Element, to render on top of the AI Control
 
+### Fixed
+- Jetpack AI: Check for post id type and only include numbers
+
 ## [0.3.1] - 2024-01-04
 ### Changed
 - Updated package dependencies. [#34815]

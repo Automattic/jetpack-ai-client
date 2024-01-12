@@ -8,7 +8,7 @@ type SuggestionsEventSourceConstructorArgs = {
     question: PromptProp;
     token?: string;
     options?: {
-        postId?: number;
+        postId?: number | string;
         feature?: 'ai-assistant-experimental' | string | undefined;
         fromCache?: boolean;
         functions?: Array<object>;
