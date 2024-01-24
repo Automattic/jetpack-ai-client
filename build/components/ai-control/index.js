@@ -60,7 +60,6 @@ export function AIControl({ disabled = false, value = '', placeholder = '', show
     }, [lastValue, state]);
     const discardHandler = useCallback(() => {
         onDiscard?.();
-        onAccept?.();
     }, []);
     const cancelEdit = useCallback(() => {
         onChange(lastValue || '');
