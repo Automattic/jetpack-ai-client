@@ -25,6 +25,7 @@ type AiControlProps = {
     onDiscard?: () => void;
     showRemove?: boolean;
     bannerComponent?: React.ReactElement;
+    errorComponent?: React.ReactElement;
 };
 /**
  * AI Control component.
@@ -33,6 +34,6 @@ type AiControlProps = {
  * @param {React.MutableRefObject} ref - Ref to the component.
  * @returns {React.ReactElement}         Rendered component.
  */
-export declare function AIControl({ disabled, value, placeholder, showAccept, acceptLabel, showButtonLabels, isTransparent, state, showGuideLine, customFooter, onChange, onSend, onStop, onAccept, onDiscard, showRemove, bannerComponent, }: AiControlProps, ref: React.MutableRefObject<null>): React.ReactElement;
+export declare function AIControl({ disabled, value, placeholder, showAccept, acceptLabel, showButtonLabels, isTransparent, state, showGuideLine, customFooter, onChange, onSend, onStop, onAccept, onDiscard, showRemove, bannerComponent, errorComponent, }: AiControlProps, ref: React.MutableRefObject<null>): React.ReactElement;
 declare const _default: React.ForwardRefExoticComponent<AiControlProps & React.RefAttributes<null>>;
 export default _default;
