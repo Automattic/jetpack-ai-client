@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - Jetpack AI: Support floating error messaging on the AI Control component.
 
+### Changed
+- Updated package dependencies.
+
 ## [0.5.1] - 2024-01-29
 ### Changed
 - Update dependencies. [#35170]
