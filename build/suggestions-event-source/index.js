@@ -6,12 +6,12 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
-import { getErrorData } from '../hooks/use-ai-suggestions';
-import requestJwt from '../jwt';
+import { getErrorData } from '../hooks/use-ai-suggestions/index.js';
+import requestJwt from '../jwt/index.js';
 /*
  * Types & constants
  */
-import { ERROR_CONTEXT_TOO_LARGE, ERROR_MODERATION, ERROR_NETWORK, ERROR_QUOTA_EXCEEDED, ERROR_RESPONSE, ERROR_SERVICE_UNAVAILABLE, ERROR_UNCLEAR_PROMPT, } from '../types';
+import { ERROR_CONTEXT_TOO_LARGE, ERROR_MODERATION, ERROR_NETWORK, ERROR_QUOTA_EXCEEDED, ERROR_RESPONSE, ERROR_SERVICE_UNAVAILABLE, ERROR_UNCLEAR_PROMPT, } from '../types.js';
 const debug = debugFactory('jetpack-ai-client:suggestions-event-source');
 /**
  * SuggestionsEventSource is a wrapper around EvenTarget that emits

@@ -14,8 +14,8 @@ import React from 'react';
  * Internal dependencies
  */
 import './style.scss';
-import AiStatusIndicator from '../ai-status-indicator';
-import { GuidelineMessage } from './message';
+import AiStatusIndicator from '../ai-status-indicator/index.js';
+import { GuidelineMessage } from './message.js';
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const noop = () => { };
 /**

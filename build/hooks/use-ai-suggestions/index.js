@@ -7,8 +7,8 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
-import askQuestion from '../../ask-question';
-import { ERROR_MODERATION, ERROR_NETWORK, ERROR_QUOTA_EXCEEDED, ERROR_SERVICE_UNAVAILABLE, ERROR_UNCLEAR_PROMPT, } from '../../types';
+import askQuestion from '../../ask-question/index.js';
+import { ERROR_MODERATION, ERROR_NETWORK, ERROR_QUOTA_EXCEEDED, ERROR_SERVICE_UNAVAILABLE, ERROR_UNCLEAR_PROMPT, } from '../../types.js';
 const debug = debugFactory('jetpack-ai-client:use-suggestion');
 /**
  * Get the error data for a given error code.

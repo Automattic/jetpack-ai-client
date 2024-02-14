@@ -2,7 +2,7 @@
  * External dependencies
  */
 import debugFactory from 'debug';
-import SuggestionsEventSource from '../suggestions-event-source';
+import SuggestionsEventSource from '../suggestions-event-source/index.js';
 const debug = debugFactory('jetpack-ai-client:ask-question');
 /**
  * An asynchronous function that asks a question

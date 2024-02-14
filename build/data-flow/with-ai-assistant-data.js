@@ -7,8 +7,8 @@ import { useMemo } from '@wordpress/element';
 /**
  * Internal Dependencies
  */
-import useAiSuggestions from '../hooks/use-ai-suggestions';
-import { AiDataContextProvider } from '.';
+import useAiSuggestions from '../hooks/use-ai-suggestions/index.js';
+import { AiDataContextProvider } from './index.js';
 /**
  * High Order Component that provides the
  * AI Assistant Data context to the wrapped component.

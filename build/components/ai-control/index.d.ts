@@ -6,7 +6,7 @@ import './style.scss';
 /**
  * Types
  */
-import type { RequestingStateProp } from '../../types';
+import type { RequestingStateProp } from '../../types.js';
 type AiControlProps = {
     disabled?: boolean;
     value: string;

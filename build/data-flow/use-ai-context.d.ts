@@ -1,12 +1,12 @@
 /**
  * Internal dependencies
  */
-import { RequestingErrorProps } from '../types';
+import { RequestingErrorProps } from '../types.js';
 /**
  * Types & constants
  */
-import type { AiDataContextProps } from './context';
-import type { AskQuestionOptionsArgProps } from '../ask-question';
+import type { AiDataContextProps } from './context.js';
+import type { AskQuestionOptionsArgProps } from '../ask-question/index.js';
 export type UseAiContextOptions = {
     askQuestionOptions?: AskQuestionOptionsArgProps;
     onDone?: (content: string) => void;

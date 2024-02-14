@@ -5,8 +5,8 @@ import { useCallback, useContext, useEffect } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import { ERROR_RESPONSE } from '../types';
-import { AiDataContext } from '.';
+import { ERROR_RESPONSE } from '../types.js';
+import { AiDataContext } from './index.js';
 /**
  * useAiContext hook to provide access to
  * the AI Assistant data (from context),

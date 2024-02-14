@@ -1,4 +1,4 @@
-import type { RequestingStateProp } from '../../types';
+import type { RequestingStateProp } from '../../types.js';
 export type AiStatusIndicatorIconSize = 24 | 32 | 48 | 64;
 import type React from 'react';
 import './style.scss';

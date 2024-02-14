@@ -13,8 +13,8 @@ export type PromptItemProps = {
 };
 export type PromptMessagesProp = Array<PromptItemProps>;
 export type PromptProp = PromptMessagesProp | string;
-export type { UseAiContextOptions } from './data-flow/use-ai-context';
-export type { RequestingErrorProps } from './hooks/use-ai-suggestions';
+export type { UseAiContextOptions } from './data-flow/use-ai-context.js';
+export type { RequestingErrorProps } from './hooks/use-ai-suggestions/index.js';
 export declare const REQUESTING_STATES: readonly ["init", "requesting", "suggesting", "done", "error"];
 export type RequestingStateProp = (typeof REQUESTING_STATES)[number];
 export declare const AI_MODEL_GPT_3_5_Turbo_16K: "gpt-3.5-turbo-16k";
