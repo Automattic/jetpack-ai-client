@@ -2,10 +2,12 @@
  * External dependencies
  */
 import { isSimpleSite } from '@automattic/jetpack-shared-extension-utils';
-import apiFetchMod from '@wordpress/api-fetch';
 import debugFactory from 'debug';
+/**
+ * Internal dependencies
+ */
+import apiFetch from '../api-fetch/index.js';
 const debug = debugFactory('jetpack-ai-client:jwt');
-const apiFetch = (apiFetchMod.default ?? apiFetchMod);
 const JWT_TOKEN_ID = 'jetpack-ai-jwt';
 const JWT_TOKEN_EXPIRATION_TIME = 2 * 60 * 1000; // 2 minutes
 /**
