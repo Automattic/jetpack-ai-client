@@ -9,9 +9,16 @@ export declare function getDuration(url: string): Promise<number>;
 type FormatTimeOptions = {
     /**
      * Whether to add the decimal part to the formatted time.
-     *
      */
     addDecimalPart?: boolean;
+    /**
+     * Whether to show the minutes part of the formatted time even when it's 0.
+     */
+    showMinutes?: boolean;
+    /**
+     * Whether to show the hours part of the formatted time even when it's 0.
+     */
+    showHours?: boolean;
 };
 /**
  * Formats the given time in milliseconds into a string with the format HH:MM:SS.DD,
@@ -25,5 +32,5 @@ type FormatTimeOptions = {
  * const formattedTime2 = formatTime( 45123 );                         // Returns "45.12"
  * const formattedTime3 = formatTime( 64, { addDecimalPart: false } ); // Returns "01:04"
  */
-export declare function formatTime(time: number, { addDecimalPart }?: FormatTimeOptions): string;
+export declare function formatTime(time: number, { addDecimalPart, showMinutes, showHours }?: FormatTimeOptions): string;
 export {};

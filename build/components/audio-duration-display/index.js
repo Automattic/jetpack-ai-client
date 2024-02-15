@@ -13,7 +13,7 @@ import { formatTime, getDuration } from './lib/media.js';
  * @param {AudioDurationDisplayProps} props - Component props.
  * @returns {React.ReactElement}              Rendered component.
  */
-export default function AudioDurationDisplay({ url, }) {
+export default function AudioDurationDisplay({ url, className, }) {
     const [duration, setDuration] = useState(0);
     useEffect(() => {
         if (!url) {
@@ -21,5 +21,5 @@ export default function AudioDurationDisplay({ url, }) {
         }
         getDuration(url).then(setDuration);
     }, [url]);
-    return _jsx("span", { children: formatTime(duration, { addDecimalPart: false }) });
+    return _jsx("span", { className: className, children: formatTime(duration, { addDecimalPart: false }) });
 }

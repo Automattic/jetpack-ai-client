@@ -135,9 +135,11 @@ export default function useMediaRecording({ onDone, } = {}) {
         state,
         blob,
         url: blob ? URL.createObjectURL(blob) : null,
-        start,
-        pause,
-        resume,
-        stop,
+        controls: {
+            start,
+            pause,
+            resume,
+            stop,
+        },
     };
 }

@@ -34,15 +34,15 @@ export function getDuration(url) {
  * const formattedTime2 = formatTime( 45123 );                         // Returns "45.12"
  * const formattedTime3 = formatTime( 64, { addDecimalPart: false } ); // Returns "01:04"
  */
-export function formatTime(time, { addDecimalPart = true } = {}) {
+export function formatTime(time, { addDecimalPart = true, showMinutes = true, showHours = false } = {}) {
     time = time * 1000;
     const hours = Math.floor(time / 3600000);
     const minutes = Math.floor(time / 60000) % 60;
     const seconds = Math.floor(time / 1000) % 60;
     const deciseconds = Math.floor(time / 10) % 100;
     const parts = [
-        hours > 0 ? hours.toString().padStart(2, '0') + ':' : '',
-        hours > 0 || minutes > 0 ? minutes.toString().padStart(2, '0') + ':' : '',
+        hours > 0 || showHours ? hours.toString().padStart(2, '0') + ':' : '',
+        hours > 0 || minutes > 0 || showMinutes ? minutes.toString().padStart(2, '0') + ':' : '',
         seconds.toString().padStart(2, '0'),
     ];
     if (addDecimalPart) {

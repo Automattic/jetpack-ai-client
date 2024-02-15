@@ -15,22 +15,24 @@ type UseMediaRecordingReturn = {
      * The recorded blob url
      */
     url: string | null;
-    /**
-     * `start` recording handler
-     */
-    start: (timeslice?: number) => void;
-    /**
-     * `pause` recording handler
-     */
-    pause: () => void;
-    /**
-     * `resume` recording handler
-     */
-    resume: () => void;
-    /**
-     * `stop` recording handler
-     */
-    stop: () => void;
+    controls: {
+        /**
+         * `start` recording handler
+         */
+        start: (timeslice?: number) => void;
+        /**
+         * `pause` recording handler
+         */
+        pause: () => void;
+        /**
+         * `resume` recording handler
+         */
+        resume: () => void;
+        /**
+         * `stop` recording handler
+         */
+        stop: () => void;
+    };
 };
 /**
  * react custom hook to handle media recording.

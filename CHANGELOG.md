@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This is an alpha version! The changes listed here are not final.
 
 ### Changed
+- AI Client: Update voice to content feature
 - Make build usable in projects using tsc with `moduleResolution` set to 'nodenext'.
 
 ## [0.6.1] - 2024-02-13
