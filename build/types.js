@@ -6,6 +6,10 @@ export const ERROR_NETWORK = 'error_network';
 export const ERROR_UNCLEAR_PROMPT = 'error_unclear_prompt';
 export const ERROR_RESPONSE = 'error_response';
 /*
+ * Hook constants
+ */
+export { TRANSCRIPTION_POST_PROCESSING_ACTION_SIMPLE_DRAFT } from './hooks/use-transcription-post-processing/index.js';
+/*
  * Requests types
  */
 const REQUESTING_STATE_INIT = 'init';

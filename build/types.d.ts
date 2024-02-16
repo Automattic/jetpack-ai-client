@@ -16,6 +16,8 @@ export type PromptProp = PromptMessagesProp | string;
 export type { UseAiContextOptions } from './data-flow/use-ai-context.js';
 export type { RequestingErrorProps } from './hooks/use-ai-suggestions/index.js';
 export type { UseAudioTranscriptionProps, UseAudioTranscriptionReturn, } from './hooks/use-audio-transcription/index.js';
+export type { UseTranscriptionPostProcessingProps, UseTranscriptionPostProcessingReturn, PostProcessingAction, } from './hooks/use-transcription-post-processing/index.js';
+export { TRANSCRIPTION_POST_PROCESSING_ACTION_SIMPLE_DRAFT } from './hooks/use-transcription-post-processing/index.js';
 export declare const REQUESTING_STATES: readonly ["init", "requesting", "suggesting", "done", "error"];
 export type RequestingStateProp = (typeof REQUESTING_STATES)[number];
 export declare const AI_MODEL_GPT_3_5_Turbo_16K: "gpt-3.5-turbo-16k";

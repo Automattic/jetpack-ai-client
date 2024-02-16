@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Added
 - AI Client: add support for audio transcriptions.
+- AI Client: add support for transcription post-processing.
 
 ### Changed
 - AI Client: Update voice to content feature
