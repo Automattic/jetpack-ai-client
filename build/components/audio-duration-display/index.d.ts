@@ -1,6 +1,6 @@
 import type React from 'react';
 type AudioDurationDisplayProps = {
-    url: string;
+    duration: number;
     className?: string | null;
 };
 /**
@@ -9,5 +9,5 @@ type AudioDurationDisplayProps = {
  * @param {AudioDurationDisplayProps} props - Component props.
  * @returns {React.ReactElement}              Rendered component.
  */
-export default function AudioDurationDisplay({ url, className, }: AudioDurationDisplayProps): React.ReactElement;
+export default function AudioDurationDisplay({ duration, className, }: AudioDurationDisplayProps): React.ReactElement;
 export {};

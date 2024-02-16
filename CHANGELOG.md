@@ -15,6 +15,7 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - AI Client: Update voice to content feature
 - Make build usable in projects using tsc with `moduleResolution` set to 'nodenext'.
+- Voice to Content: Add states and refactor duration calculation
 
 ## [0.6.1] - 2024-02-13
 ### Changed
