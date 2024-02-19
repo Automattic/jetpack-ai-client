@@ -5,18 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.7.0-alpha] - unreleased
-
-This is an alpha version! The changes listed here are not final.
-
+## [0.7.0] - 2024-02-19
 ### Added
-- AI Client: add support for audio transcriptions.
-- AI Client: add support for transcription post-processing.
+- AI Client: add support for audio transcriptions. [#35691]
+- AI Client: add support for transcription post-processing. [#35734]
 
 ### Changed
-- AI Client: Update voice to content feature
-- Make build usable in projects using tsc with `moduleResolution` set to 'nodenext'.
-- Voice to Content: Add states and refactor duration calculation
+- AI Client: Update voice to content feature [#35698]
+- Make build usable in projects using tsc with `moduleResolution` set to 'nodenext'. [#35453]
+- Voice to Content: Add states and refactor duration calculation [#35717]
 
 ## [0.6.1] - 2024-02-13
 ### Changed
@@ -223,7 +220,7 @@ This is an alpha version! The changes listed here are not final.
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
-[0.7.0-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.6.1...v0.7.0-alpha
+[0.7.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.6.1...v0.7.0
 [0.6.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.5.1...v0.6.0
 [0.5.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.5.0...v0.5.1
