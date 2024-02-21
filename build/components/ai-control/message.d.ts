@@ -27,4 +27,14 @@ export default function Message({ severity, icon, children, }: MessageProps): Re
  * @returns {React.ReactElement } - Message component.
  */
 export declare function GuidelineMessage(): React.ReactElement;
+/**
+ * React component to render a upgrade message.
+ *
+ * @param {number} requestsRemaining - Number of requests remaining.
+ * @returns {React.ReactElement } - Message component.
+ */
+export declare function UpgradeMessage({ requestsRemaining, onUpgradeClick, }: {
+    requestsRemaining: number;
+    onUpgradeClick: () => void;
+}): React.ReactElement;
 export {};
