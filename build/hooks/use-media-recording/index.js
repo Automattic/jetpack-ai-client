@@ -126,6 +126,10 @@ export default function useMediaRecording({ onDone, } = {}) {
         setError(typeof err === 'string' ? err : err.message);
         setState('error');
     }, []);
+    // manually set the state to `processing` for the file upload case
+    const onProcessing = useCallback(() => {
+        setState('processing');
+    }, []);
     /**
      * `start` event listener for the media recorder instance.
      */
@@ -198,6 +202,7 @@ export default function useMediaRecording({ onDone, } = {}) {
         error,
         duration,
         onError,
+        onProcessing,
         controls: {
             start,
             pause,

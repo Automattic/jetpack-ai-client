@@ -14,6 +14,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - Updated package dependencies.
+- Voice to Content: Make transcriptions cancelable and add onProcess callback
 
 ## [0.7.0] - 2024-02-19
 ### Added

@@ -29,16 +29,23 @@ export default function useAudioTranscription({ feature, onReady, onError, }) {
         /**
          * Call the audio transcription library.
          */
-        transcribeAudio(audio, feature)
+        const promise = transcribeAudio(audio, feature)
             .then(transcriptionText => {
+            if (promise.canceled) {
+                return;
+            }
             setTranscriptionResult(transcriptionText);
             onReady?.(transcriptionText);
         })
             .catch(error => {
+            if (promise.canceled) {
+                return;
+            }
             setTranscriptionError(error.message);
             onError?.(error.message);
         })
             .finally(() => setIsTranscribingAudio(false));
+        return promise;
     }, [transcribeAudio, setTranscriptionResult, setTranscriptionError, setIsTranscribingAudio]);
     return {
         transcriptionResult,

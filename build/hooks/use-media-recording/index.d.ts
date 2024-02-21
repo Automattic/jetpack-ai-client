@@ -27,6 +27,10 @@ type UseMediaRecordingReturn = {
      * The error handler
      */
     onError: (err: string | Error) => void;
+    /**
+     * The processing handler
+     */
+    onProcessing: () => void;
     controls: {
         /**
          * `start` recording handler

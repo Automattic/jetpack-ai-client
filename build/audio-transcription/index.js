@@ -15,7 +15,9 @@ const debug = debugFactory('jetpack-ai-client:audio-transcription');
  * @param {string} feature - The feature name that is calling the transcription.
  * @returns {Promise<string>} - The promise of a string containing the transcribed audio.
  */
-export default async function transcribeAudio(audio, feature) {
+export default async function transcribeAudio(audio, feature
+// @ts-expect-error Promises are not cancelable by default
+) {
     debug('Transcribing audio: %o. Feature: %o', audio, feature);
     // Get a token to use the transcription service
     let token = '';
