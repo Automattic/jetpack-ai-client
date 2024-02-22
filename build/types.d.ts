@@ -23,6 +23,7 @@ export type RequestingStateProp = (typeof REQUESTING_STATES)[number];
 export declare const AI_MODEL_GPT_3_5_Turbo_16K: "gpt-3.5-turbo-16k";
 export declare const AI_MODEL_GPT_4: "gpt-4";
 export type AiModelTypeProp = typeof AI_MODEL_GPT_3_5_Turbo_16K | typeof AI_MODEL_GPT_4;
+export type { RecordingState } from './hooks/use-media-recording/index.js';
 export type CancelablePromise<T = void> = Promise<T> & {
     canceled?: boolean;
 };

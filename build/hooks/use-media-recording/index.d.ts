@@ -1,20 +1,16 @@
-type RecordingStateProp = 'inactive' | 'recording' | 'paused' | 'processing' | 'error';
+export type RecordingState = 'inactive' | 'recording' | 'paused' | 'processing' | 'error';
 type UseMediaRecordingProps = {
-    onDone?: (blob: Blob, url: string) => void;
+    onDone?: (blob: Blob) => void;
 };
 type UseMediaRecordingReturn = {
     /**
      * The current recording state
      */
-    state: RecordingStateProp;
+    state: RecordingState;
     /**
      * The recorded blob
      */
     blob: Blob | null;
-    /**
-     * The recorded blob url
-     */
-    url: string | null;
     /**
      * The error message
      */
@@ -23,6 +19,10 @@ type UseMediaRecordingReturn = {
      * The duration of the recorded audio
      */
     duration: number;
+    /**
+     * The audio analyser node
+     */
+    analyser?: AnalyserNode;
     /**
      * The error handler
      */

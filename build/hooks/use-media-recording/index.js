@@ -24,6 +24,7 @@ export default function useMediaRecording({ onDone, } = {}) {
     // Store the recorded chunks
     const recordedChunks = useRef([]).current;
     const [error, setError] = useState(null);
+    const analyser = useRef(null);
     /**
      * Get the recorded blob.
      *
@@ -104,10 +105,14 @@ export default function useMediaRecording({ onDone, } = {}) {
         if (!navigator.mediaDevices?.getUserMedia) {
             return;
         }
+        const audioCtx = new AudioContext();
+        analyser.current = audioCtx.createAnalyser();
         const constraints = { audio: true };
         navigator.mediaDevices
             .getUserMedia(constraints)
             .then(stream => {
+            const source = audioCtx.createMediaStreamSource(stream);
+            source.connect(analyser.current);
             mediaRecordRef.current = new MediaRecorder(stream);
             mediaRecordRef.current.addEventListener('start', onStartListener);
             mediaRecordRef.current.addEventListener('stop', onStopListener);
@@ -145,8 +150,7 @@ export default function useMediaRecording({ onDone, } = {}) {
     function onStopListener() {
         setState('processing');
         const lastBlob = getBlob();
-        const url = URL.createObjectURL(lastBlob);
-        onDone?.(lastBlob, url);
+        onDone?.(lastBlob);
         // Clear the recorded chunks
         recordedChunks.length = 0;
     }
@@ -198,9 +202,9 @@ export default function useMediaRecording({ onDone, } = {}) {
     return {
         state,
         blob,
-        url: blob ? URL.createObjectURL(blob) : null,
         error,
         duration,
+        analyser: analyser.current,
         onError,
         onProcessing,
         controls: {
