@@ -5,10 +5,11 @@ import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-run
 import { PlainText } from '@wordpress/block-editor';
 import { Button, ButtonGroup } from '@wordpress/components';
 import { useKeyboardShortcut } from '@wordpress/compose';
-import { forwardRef, useImperativeHandle, useRef, useEffect, useCallback, } from '@wordpress/element';
+import { useImperativeHandle, useRef, useEffect, useCallback } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { Icon, closeSmall, check, arrowUp, trash, reusableBlock } from '@wordpress/icons';
 import classNames from 'classnames';
+import { forwardRef } from 'react';
 import React from 'react';
 /**
  * Internal dependencies
@@ -23,10 +24,9 @@ const noop = () => { };
  *
  * @param {AiControlProps} props       - Component props.
  * @param {React.MutableRefObject} ref - Ref to the component.
- * @returns {React.ReactElement}         Rendered component.
+ * @returns {ReactElement}         Rendered component.
  */
-export function AIControl({ disabled = false, value = '', placeholder = '', showAccept = false, acceptLabel = __('Accept', 'jetpack-ai-client'), showButtonLabels = true, isTransparent = false, state = 'init', showGuideLine = false, customFooter = null, onChange = noop, onSend = noop, onStop = noop, onAccept = noop, onDiscard = null, showRemove = false, bannerComponent = null, errorComponent = null, }, ref // eslint-disable-line @typescript-eslint/ban-types
-) {
+export function AIControl({ disabled = false, value = '', placeholder = '', showAccept = false, acceptLabel = __('Accept', 'jetpack-ai-client'), showButtonLabels = true, isTransparent = false, state = 'init', showGuideLine = false, customFooter = null, onChange = noop, onSend = noop, onStop = noop, onAccept = noop, onDiscard = null, showRemove = false, bannerComponent = null, errorComponent = null, }, ref) {
     const promptUserInputRef = useRef(null);
     const loading = state === 'requesting' || state === 'suggesting';
     const [editRequest, setEditRequest] = React.useState(false);

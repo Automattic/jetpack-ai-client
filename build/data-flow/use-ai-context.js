@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { useCallback, useContext, useEffect } from '@wordpress/element';
+import { useCallback, useContext, useEffect } from 'react';
 /**
  * Internal dependencies
  */

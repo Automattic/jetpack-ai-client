@@ -1,3 +1,6 @@
+/**
+ * External dependencies
+ */
 import React from 'react';
 /**
  * Types & Constants
@@ -24,7 +27,7 @@ type AiDataContextProviderProps = {
  *
  * @returns {AiDataContextProps} Context.
  */
-export declare const AiDataContext: React.Context<AiDataContextProps>;
+export declare const AiDataContext: React.Context<object | AiDataContextProps>;
 /**
  * AI Data Context Provider
  *

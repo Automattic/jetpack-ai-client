@@ -2,7 +2,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
 /**
  * External dependencies
  */
-import { createContext } from '@wordpress/element';
+import { createContext } from 'react';
 /**
  * AI Data Context
  *
