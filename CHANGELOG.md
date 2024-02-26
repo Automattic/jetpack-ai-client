@@ -5,17 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.8.0-alpha] - unreleased
-
-This is an alpha version! The changes listed here are not final.
-
+## [0.8.0] - 2024-02-26
 ### Added
-- Add upgrade message for free tier
+- Add upgrade message for free tier [#35794]
 
 ### Changed
-- Updated package dependencies.
-- Voice to Content: Add audio analyser to media recording hook
-- Voice to Content: Make transcriptions cancelable and add onProcess callback
+- Updated package dependencies. [#35793]
+- Voice to Content: Add audio analyser to media recording hook [#35877]
+- Voice to Content: Make transcriptions cancelable and add onProcess callback [#35737]
 
 ## [0.7.0] - 2024-02-19
 ### Added
@@ -232,7 +229,7 @@ This is an alpha version! The changes listed here are not final.
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
-[0.8.0-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.7.0...v0.8.0-alpha
+[0.8.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.6.1...v0.7.0
 [0.6.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.5.1...v0.6.0
