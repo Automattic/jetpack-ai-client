@@ -5,12 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.8.1-alpha] - unreleased
-
-This is an alpha version! The changes listed here are not final.
-
+## [0.8.1] - 2024-02-27
 ### Changed
-- AI Client: support audio transcription and transcription post-processing canceling.
+- AI Client: support audio transcription and transcription post-processing canceling. [#35923]
 
 ## [0.8.0] - 2024-02-26
 ### Added
@@ -236,7 +233,7 @@ This is an alpha version! The changes listed here are not final.
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
-[0.8.1-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.8.0...v0.8.1-alpha
+[0.8.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.6.1...v0.7.0
 [0.6.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.6.0...v0.6.1
