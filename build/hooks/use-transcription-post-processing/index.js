@@ -38,7 +38,7 @@ export default function useTranscriptionPostProcessing({ feature, onReady, onErr
         setPostProcessingError(errorData.message);
         onError?.(errorData.message);
     }, [setPostProcessingError, onError]);
-    const { request } = useAiSuggestions({
+    const { request, stopSuggestion } = useAiSuggestions({
         autoRequest: false,
         onSuggestion: handleOnSuggestion,
         onDone: handleOnDone,
@@ -75,10 +75,18 @@ export default function useTranscriptionPostProcessing({ feature, onReady, onErr
         request,
         feature,
     ]);
+    const handleTranscriptionPostProcessingCancel = useCallback(() => {
+        /*
+         * Stop the suggestion streaming.
+         */
+        stopSuggestion();
+        setIsProcessingTranscription(false);
+    }, [stopSuggestion, setIsProcessingTranscription]);
     return {
         postProcessingResult,
         isProcessingTranscription,
         postProcessingError,
         processTranscription: handleTranscriptionPostProcessing,
+        cancelTranscriptionProcessing: handleTranscriptionPostProcessingCancel,
     };
 }

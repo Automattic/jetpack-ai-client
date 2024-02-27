@@ -11,6 +11,7 @@ export type UseTranscriptionPostProcessingReturn = {
     isProcessingTranscription: boolean;
     postProcessingError: string;
     processTranscription: (action: PostProcessingAction, transcription: string) => void;
+    cancelTranscriptionProcessing: () => void;
 };
 /**
  * The props for the transcription post-processing hook.

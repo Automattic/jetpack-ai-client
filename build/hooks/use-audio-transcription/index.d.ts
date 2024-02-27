@@ -1,15 +1,12 @@
 /**
- * Types
- */
-import type { CancelablePromise } from '../../types.js';
-/**
  * The response from the audio transcription hook.
  */
 export type UseAudioTranscriptionReturn = {
     transcriptionResult: string;
     isTranscribingAudio: boolean;
     transcriptionError: string;
-    transcribeAudio: (audio: Blob) => CancelablePromise;
+    transcribeAudio: (audio: Blob) => void;
+    cancelTranscription: () => void;
 };
 /**
  * The props for the audio transcription hook.

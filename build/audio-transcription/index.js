@@ -13,11 +13,10 @@ const debug = debugFactory('jetpack-ai-client:audio-transcription');
  *
  * @param {Blob} audio - The audio to be transcribed, from a recording or from a file.
  * @param {string} feature - The feature name that is calling the transcription.
+ * @param {AbortSignal} requestAbortSignal - The signal to abort the request.
  * @returns {Promise<string>} - The promise of a string containing the transcribed audio.
  */
-export default async function transcribeAudio(audio, feature
-// @ts-expect-error Promises are not cancelable by default
-) {
+export default async function transcribeAudio(audio, feature, requestAbortSignal) {
     debug('Transcribing audio: %o. Feature: %o', audio, feature);
     // Get a token to use the transcription service
     let token = '';
@@ -40,6 +39,7 @@ export default async function transcribeAudio(audio, feature
             method: 'POST',
             body: formData,
             headers,
+            signal: requestAbortSignal ?? undefined,
         });
         debug('Transcription response: %o', response);
         return response.text;
