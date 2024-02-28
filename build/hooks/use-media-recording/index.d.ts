@@ -1,4 +1,4 @@
-export type RecordingState = 'inactive' | 'recording' | 'paused' | 'processing' | 'error';
+export type RecordingState = 'inactive' | 'recording' | 'paused' | 'error';
 type UseMediaRecordingProps = {
     onDone?: (blob: Blob) => void;
 };
@@ -27,10 +27,6 @@ type UseMediaRecordingReturn = {
      * The error handler
      */
     onError: (err: string | Error) => void;
-    /**
-     * The processing handler
-     */
-    onProcessing: () => void;
     controls: {
         /**
          * `start` recording handler

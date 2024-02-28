@@ -27,6 +27,7 @@ export type { RecordingState } from './hooks/use-media-recording/index.js';
 export type CancelablePromise<T = void> = Promise<T> & {
     canceled?: boolean;
 };
+export type TranscriptionState = RecordingState | 'processing' | 'error';
 interface JPConnectionInitialState {
     apiNonce: string;
     siteSuffix: string;

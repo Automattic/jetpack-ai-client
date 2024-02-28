@@ -11,7 +11,7 @@ import { useRef, useState, useEffect, useCallback } from '@wordpress/element';
 export default function useMediaRecording({ onDone, } = {}) {
     // Reference to the media recorder instance
     const mediaRecordRef = useRef(null);
-    // Recording state: `inactive`, `recording`, `paused`, `processing`, `error`
+    // Recording state: `inactive`, `recording`, `paused`, `error`
     const [state, setState] = useState('inactive');
     // reference to the paused state to be used in the `onDataAvailable` event listener,
     // as the `mediaRecordRef.current.state` is already `inactive` when the recorder is stopped,
@@ -131,10 +131,6 @@ export default function useMediaRecording({ onDone, } = {}) {
         setError(typeof err === 'string' ? err : err.message);
         setState('error');
     }, []);
-    // manually set the state to `processing` for the file upload case
-    const onProcessing = useCallback(() => {
-        setState('processing');
-    }, []);
     /**
      * `start` event listener for the media recorder instance.
      */
@@ -148,7 +144,6 @@ export default function useMediaRecording({ onDone, } = {}) {
      * @returns {void}
      */
     function onStopListener() {
-        setState('processing');
         const lastBlob = getBlob();
         onDone?.(lastBlob);
         // Clear the recorded chunks
@@ -206,7 +201,6 @@ export default function useMediaRecording({ onDone, } = {}) {
         duration,
         analyser: analyser.current,
         onError,
-        onProcessing,
         controls: {
             start,
             pause,
