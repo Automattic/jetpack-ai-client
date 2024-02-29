@@ -6,6 +6,7 @@ export { default as useAiSuggestions } from './hooks/use-ai-suggestions/index.js
 export { default as useMediaRecording } from './hooks/use-media-recording/index.js';
 export { default as useAudioTranscription } from './hooks/use-audio-transcription/index.js';
 export { default as useTranscriptionPostProcessing } from './hooks/use-transcription-post-processing/index.js';
+export { default as useAudioValidation } from './hooks/use-audio-validation/index.js';
 export * from './icons/index.js';
 export * from './components/index.js';
 export * from './data-flow/index.js';

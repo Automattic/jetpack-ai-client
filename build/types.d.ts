@@ -17,6 +17,7 @@ export type { UseAiContextOptions } from './data-flow/use-ai-context.js';
 export type { RequestingErrorProps } from './hooks/use-ai-suggestions/index.js';
 export type { UseAudioTranscriptionProps, UseAudioTranscriptionReturn, } from './hooks/use-audio-transcription/index.js';
 export type { UseTranscriptionPostProcessingProps, UseTranscriptionPostProcessingReturn, PostProcessingAction, } from './hooks/use-transcription-post-processing/index.js';
+export type { UseAudioValidationReturn } from './hooks/use-audio-validation/index.js';
 export { TRANSCRIPTION_POST_PROCESSING_ACTION_SIMPLE_DRAFT } from './hooks/use-transcription-post-processing/index.js';
 export declare const REQUESTING_STATES: readonly ["init", "requesting", "suggesting", "done", "error"];
 export type RequestingStateProp = (typeof REQUESTING_STATES)[number];
@@ -27,7 +28,7 @@ export type { RecordingState } from './hooks/use-media-recording/index.js';
 export type CancelablePromise<T = void> = Promise<T> & {
     canceled?: boolean;
 };
-export type TranscriptionState = RecordingState | 'processing' | 'error';
+export type TranscriptionState = RecordingState | 'validating' | 'processing' | 'error';
 interface JPConnectionInitialState {
     apiNonce: string;
     siteSuffix: string;

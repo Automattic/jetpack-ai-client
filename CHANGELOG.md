@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This is an alpha version! The changes listed here are not final.
 
+### Added
+- AI Client: add audio validation hook.
+
 ### Changed
 - AI Client: change loading and error state handling on media recording hook.
 
