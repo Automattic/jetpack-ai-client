@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Added
 - AI Client: add audio validation hook.
+- Voice to Content: Close audio stream on hook destruction
 
 ### Changed
 - AI Client: change loading and error state handling on media recording hook.

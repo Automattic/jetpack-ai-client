@@ -19,6 +19,7 @@ export default function useMediaRecording({ onDone, } = {}) {
     const isPaused = useRef(false);
     const recordStartTimestamp = useRef(0);
     const [duration, setDuration] = useState(0);
+    const audioStream = useRef(null);
     // The recorded blob
     const [blob, setBlob] = useState(null);
     // Store the recorded chunks
@@ -111,6 +112,7 @@ export default function useMediaRecording({ onDone, } = {}) {
         navigator.mediaDevices
             .getUserMedia(constraints)
             .then(stream => {
+            audioStream.current = stream;
             const source = audioCtx.createMediaStreamSource(stream);
             source.connect(analyser.current);
             mediaRecordRef.current = new MediaRecorder(stream);
@@ -187,10 +189,20 @@ export default function useMediaRecording({ onDone, } = {}) {
             });
         }
     }
+    /**
+     * Close the audio stream
+     */
+    function closeStream() {
+        if (audioStream.current) {
+            const tracks = audioStream.current.getTracks();
+            tracks.forEach(track => track.stop());
+        }
+    }
     // Remove listeners and clear the recorded chunks
     useEffect(() => {
         reset();
         return () => {
+            closeStream();
             clearListeners();
         };
     }, []);
