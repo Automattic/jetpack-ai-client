@@ -5,7 +5,6 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
-import apiFetch from '../api-fetch/index.js';
 import requestJwt from '../jwt/index.js';
 const debug = debugFactory('jetpack-ai-client:audio-transcription');
 /**
@@ -34,15 +33,19 @@ export default async function transcribeAudio(audio, feature, requestAbortSignal
         const headers = {
             Authorization: `Bearer ${token}`,
         };
-        const response = await apiFetch({
-            url: `https://public-api.wordpress.com/wpcom/v2/jetpack-ai-transcription${feature ? `?feature=${feature}` : ''}`,
+        const URL = `https://public-api.wordpress.com/wpcom/v2/jetpack-ai-transcription${feature ? `?feature=${feature}` : ''}`;
+        return fetch(URL, {
             method: 'POST',
             body: formData,
             headers,
             signal: requestAbortSignal ?? undefined,
+        }).then(response => {
+            debug('Transcription response: %o', response);
+            if (response.ok) {
+                return response.json().then(data => data?.text);
+            }
+            return response.json().then(data => Promise.reject(data));
         });
-        debug('Transcription response: %o', response);
-        return response.text;
     }
     catch (error) {
         debug('Transcription error response: %o', error);

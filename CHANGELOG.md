@@ -15,6 +15,9 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - AI Client: change loading and error state handling on media recording hook.
 
+### Fixed
+- AI Client: fixed transcription request from P2 editor
+
 ## [0.8.1] - 2024-02-27
 ### Changed
 - AI Client: support audio transcription and transcription post-processing canceling. [#35923]
