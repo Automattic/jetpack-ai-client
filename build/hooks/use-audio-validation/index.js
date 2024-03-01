@@ -34,7 +34,8 @@ export default function useAudioValidation() {
             return errorCallback(__('The audio file is too large. The maximum file size is 25MB.', 'jetpack-ai-client'));
         }
         // When it's a file, check the media type
-        if (audio instanceof File) {
+        const isFile = audio instanceof File;
+        if (isFile) {
             if (!ALLOWED_MEDIA_TYPES.includes(audio.type)) {
                 setIsValidatingAudio(false);
                 return errorCallback(__('The audio file type is not supported. Please use a supported audio file type.', 'jetpack-ai-client'));
@@ -52,7 +53,7 @@ export default function useAudioValidation() {
                     return errorCallback(__('The audio file is too long. The maximum recording time is 25 minutes.', 'jetpack-ai-client'));
                 }
                 setIsValidatingAudio(false);
-                return successCallback();
+                return successCallback({ duration, isFile, size: audio?.size });
             });
         });
     }, [setIsValidatingAudio]);
