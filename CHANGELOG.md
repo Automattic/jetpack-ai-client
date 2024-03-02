@@ -16,6 +16,7 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - AI Client: change loading and error state handling on media recording hook.
 - AI Client: publish audio information on the validation success callback of the audio validation hook.
+- Updated package dependencies.
 
 ### Fixed
 - AI Client: fixed transcription request from P2 editor
