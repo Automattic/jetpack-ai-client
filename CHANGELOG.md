@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - Fix typescript errors
 
+### Fixed
+- AI Client: Fix audio recording where WebM is not supported (iOS for example).
+
 ## [0.8.2] - 2024-03-04
 ### Added
 - AI Client: add audio validation hook. [#36043]

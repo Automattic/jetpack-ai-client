@@ -3,6 +3,12 @@
  */
 import { useRef, useState, useEffect, useCallback } from '@wordpress/element';
 /**
+ * Media types
+ */
+const MEDIA_TYPE_MP4_MP4A = 'audio/mp4;codecs=mp4a';
+const MEDIA_TYPE_MP4 = 'audio/mp4';
+const MEDIA_TYPE_WEBM = 'audio/webm';
+/**
  * react custom hook to handle media recording.
  *
  * @param {UseMediaRecordingProps} props - The props
@@ -32,9 +38,10 @@ export default function useMediaRecording({ onDone, } = {}) {
      * @returns {Blob} The recorded blob
      */
     function getBlob() {
-        return new Blob(recordedChunks, {
-            type: 'audio/webm',
-        });
+        if (MediaRecorder.isTypeSupported(MEDIA_TYPE_MP4_MP4A)) {
+            return new Blob(recordedChunks, { type: MEDIA_TYPE_MP4 }); // omit the codecs parameter
+        }
+        return new Blob(recordedChunks, { type: MEDIA_TYPE_WEBM });
     }
     // `start` recording handler
     const start = useCallback((timeslice) => {
@@ -115,7 +122,15 @@ export default function useMediaRecording({ onDone, } = {}) {
             audioStream.current = stream;
             const source = audioCtx.createMediaStreamSource(stream);
             source.connect(analyser.current);
-            mediaRecordRef.current = new MediaRecorder(stream);
+            /**
+             * Special handling for iOS devices.
+             */
+            if (MediaRecorder.isTypeSupported(MEDIA_TYPE_MP4_MP4A)) {
+                mediaRecordRef.current = new MediaRecorder(stream, { mimeType: MEDIA_TYPE_MP4_MP4A });
+            }
+            else {
+                mediaRecordRef.current = new MediaRecorder(stream, { mimeType: MEDIA_TYPE_WEBM });
+            }
             mediaRecordRef.current.addEventListener('start', onStartListener);
             mediaRecordRef.current.addEventListener('stop', onStopListener);
             mediaRecordRef.current.addEventListener('pause', onPauseListener);
