@@ -29,15 +29,3 @@ export type CancelablePromise<T = void> = Promise<T> & {
     canceled?: boolean;
 };
 export type TranscriptionState = RecordingState | 'validating' | 'processing' | 'error';
-interface JPConnectionInitialState {
-    apiNonce: string;
-    siteSuffix: string;
-    connectionStatus: {
-        isActive: boolean;
-    };
-}
-declare global {
-    interface Window {
-        JP_CONNECTION_INITIAL_STATE: JPConnectionInitialState;
-    }
-}
