@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - Fix typescript errors
+- Updated package dependencies.
 
 ### Fixed
 - AI Client: Fix audio recording where WebM is not supported (iOS for example).
