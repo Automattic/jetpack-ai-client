@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - AI Client: include prompt to generate featured image based on post content.
 
+### Fixed
+- AI Client: set request content type as JSON on image generation hook and use rectangular images instead of square images.
+
 ## [0.10.1] - 2024-03-27
 ### Changed
 - Updated package dependencies. [#36539, #36585]
