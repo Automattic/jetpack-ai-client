@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.2-alpha] - unreleased
+
+This is an alpha version! The changes listed here are not final.
+
+### Added
+- AI Client: include prompt to generate featured image based on post content.
+
 ## [0.10.1] - 2024-03-27
 ### Changed
 - Updated package dependencies. [#36539, #36585]
@@ -263,6 +270,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
+[0.10.2-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.10.1...v0.10.2-alpha
 [0.10.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.10.0...v0.10.1
 [0.10.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.8.2...v0.9.0

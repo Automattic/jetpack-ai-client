@@ -1,6 +1,7 @@
 declare const useImageGenerator: () => {
-    generateImage: ({ feature, }: {
+    generateImage: ({ feature, postContent, }: {
         feature: string;
+        postContent: string;
     }) => Promise<{
         data: Array<{
             url: string;
