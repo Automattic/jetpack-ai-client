@@ -8,7 +8,7 @@ import debugFactory from 'debug';
 import requestJwt from '../../jwt/index.js';
 const debug = debugFactory('ai-client:use-image-generator');
 const useImageGenerator = () => {
-    const generateImage = async function ({ feature, postContent, }) {
+    const generateImage = async function ({ feature, postContent, responseFormat = 'url', }) {
         let token = '';
         try {
             token = (await requestJwt()).token;
@@ -36,7 +36,7 @@ This is the post content:
             const URL = 'https://public-api.wordpress.com/wpcom/v2/jetpack-ai-image';
             const body = {
                 prompt: imageGenerationPrompt,
-                response_format: 'url',
+                response_format: responseFormat,
                 feature,
                 size: '1792x1024',
             };
