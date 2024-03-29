@@ -9,8 +9,8 @@ import { useImperativeHandle, useRef, useEffect, useCallback } from '@wordpress/
 import { __ } from '@wordpress/i18n';
 import { Icon, closeSmall, check, arrowUp, trash, reusableBlock } from '@wordpress/icons';
 import classNames from 'classnames';
-import { forwardRef } from 'react';
-import React from 'react';
+import debugFactory from 'debug';
+import React, { forwardRef } from 'react';
 /**
  * Internal dependencies
  */
@@ -19,6 +19,7 @@ import AiStatusIndicator from '../ai-status-indicator/index.js';
 import { GuidelineMessage } from './message.js';
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const noop = () => { };
+const debug = debugFactory('jetpack-ai-client:ai-control');
 /**
  * AI Control component.
  *
@@ -35,10 +36,7 @@ export function AIControl({ disabled = false, value = '', placeholder = '', show
         if (editRequest) {
             promptUserInputRef?.current?.focus();
         }
-        if (!editRequest && lastValue !== null && value !== lastValue) {
-            onChange?.(lastValue);
-        }
-    }, [editRequest, lastValue, value]);
+    }, [editRequest]);
     const sendRequest = useCallback(() => {
         setLastValue(value);
         setEditRequest(false);
@@ -62,6 +60,7 @@ export function AIControl({ disabled = false, value = '', placeholder = '', show
         onDiscard?.();
     }, []);
     const cancelEdit = useCallback(() => {
+        debug('cancelEdit, revert to last value', lastValue);
         onChange(lastValue || '');
         setEditRequest(false);
     }, [lastValue]);

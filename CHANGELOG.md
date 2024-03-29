@@ -14,6 +14,7 @@ This is an alpha version! The changes listed here are not final.
 - Support different responses in image hook
 
 ### Fixed
+- AI Client: fix a bug where quick prompts would not work after getting suggested content
 - AI Client: set request content type as JSON on image generation hook and use rectangular images instead of square images.
 
 ## [0.10.1] - 2024-03-27
