@@ -49,10 +49,15 @@ This is the post content:
                 headers,
                 body: JSON.stringify(body),
             }).then(response => response.json());
+            if (data?.data?.status && data?.data?.status > 200) {
+                debug('Error generating image: %o', data);
+                return Promise.reject(data);
+            }
             return data;
         }
         catch (error) {
-            return;
+            debug('Error generating image: %o', error);
+            return Promise.reject(error);
         }
     };
     return {
