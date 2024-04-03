@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.11.1-alpha] - unreleased
+
+This is an alpha version! The changes listed here are not final.
+
+### Fixed
+- AI Featured Image: handle posts longer than the limit of Dall-e generation prompt.
+
 ## [0.11.0] - 2024-04-01
 ### Added
 - AI Client: include prompt to generate featured image based on post content. [#36591]
@@ -272,6 +279,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
+[0.11.1-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.11.0...v0.11.1-alpha
 [0.11.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.10.1...v0.11.0
 [0.10.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.10.0...v0.10.1
 [0.10.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.9.0...v0.10.0
