@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - Add error rejection in image generation
 
+### Changed
+- Updated package dependencies.
+
 ### Fixed
 - AI Featured Image: handle posts longer than the limit of Dall-e generation prompt.
 
