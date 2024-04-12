@@ -39,7 +39,6 @@ export default function useTranscriptionPostProcessing({ feature, onReady, onErr
         onError?.(errorData.message);
     }, [setPostProcessingError, onError]);
     const { request, stopSuggestion } = useAiSuggestions({
-        autoRequest: false,
         onSuggestion: handleOnSuggestion,
         onDone: handleOnDone,
         onError: handleOnError,

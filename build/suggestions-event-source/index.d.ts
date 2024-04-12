@@ -49,7 +49,6 @@ export default class SuggestionsEventSource extends EventTarget {
     checkForUnclearPrompt(): void;
     close(): void;
     processEvent(e: EventSourceMessage): void;
-    processConnectionError(response: any): void;
     processErrorEvent(e: any): void;
 }
 export {};

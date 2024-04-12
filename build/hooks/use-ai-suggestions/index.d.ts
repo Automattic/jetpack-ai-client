@@ -17,9 +17,12 @@ type useAiSuggestionsOptions = {
      * AskQuestion options.
      */
     askQuestionOptions?: AskQuestionOptionsArgProps;
+    initialRequestingState?: RequestingStateProp;
     onSuggestion?: (suggestion: string) => void;
     onDone?: (content: string) => void;
+    onStop?: () => void;
     onError?: (error: RequestingErrorProps) => void;
+    onAllErrors?: (error: RequestingErrorProps) => void;
 };
 type useAiSuggestionsProps = {
     suggestion: string;
@@ -29,6 +32,7 @@ type useAiSuggestionsProps = {
     request: (prompt: PromptProp, options?: AskQuestionOptionsArgProps) => Promise<void>;
     reset: () => void;
     stopSuggestion: () => void;
+    handleErrorQuotaExceededError: () => void;
 };
 /**
  * Get the error data for a given error code.
@@ -44,5 +48,5 @@ export declare function getErrorData(errorCode: SuggestionErrorCode): Requesting
  * @param {useAiSuggestionsOptions} options - The options for the hook.
  * @returns {useAiSuggestionsProps}           The props for the hook.
  */
-export default function useAiSuggestions({ prompt, autoRequest, askQuestionOptions, onSuggestion, onDone, onError, }?: useAiSuggestionsOptions): useAiSuggestionsProps;
+export default function useAiSuggestions({ prompt, autoRequest, askQuestionOptions, initialRequestingState, onSuggestion, onDone, onStop, onError, onAllErrors, }?: useAiSuggestionsOptions): useAiSuggestionsProps;
 export {};
