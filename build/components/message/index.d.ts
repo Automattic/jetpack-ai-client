@@ -1,8 +1,11 @@
 /**
+ * Internal dependencies
+ */
+import './style.scss';
+/**
  * Types
  */
 import type React from 'react';
-import './style.scss';
 export declare const MESSAGE_SEVERITY_WARNING = "warning";
 export declare const MESSAGE_SEVERITY_ERROR = "error";
 export declare const MESSAGE_SEVERITY_SUCCESS = "success";
@@ -11,8 +14,18 @@ declare const messageSeverityTypes: readonly ["warning", "error", "success", "in
 export type MessageSeverityProp = (typeof messageSeverityTypes)[number] | null;
 export type MessageProps = {
     icon?: React.ReactNode;
+    severity?: MessageSeverityProp;
+    showSidebarIcon?: boolean;
+    onSidebarIconClick?: () => void;
     children: React.ReactNode;
-    severity: MessageSeverityProp;
+};
+export type UpgradeMessageProps = {
+    requestsRemaining: number;
+    onUpgradeClick: () => void;
+};
+export type ErrorMessageProps = {
+    error?: string;
+    onTryAgainClick: () => void;
 };
 /**
  * React component to render a block message.
@@ -20,7 +33,7 @@ export type MessageProps = {
  * @param {MessageProps} props - Component props.
  * @returns {React.ReactElement }    Banner component.
  */
-export default function Message({ severity, icon, children, }: MessageProps): React.ReactElement;
+export default function Message({ severity, icon, showSidebarIcon, onSidebarIconClick, children, }: MessageProps): React.ReactElement;
 /**
  * React component to render a guideline message.
  *
@@ -28,13 +41,17 @@ export default function Message({ severity, icon, children, }: MessageProps): Re
  */
 export declare function GuidelineMessage(): React.ReactElement;
 /**
- * React component to render a upgrade message.
+ * React component to render an upgrade message for free tier users
  *
  * @param {number} requestsRemaining - Number of requests remaining.
  * @returns {React.ReactElement } - Message component.
  */
-export declare function UpgradeMessage({ requestsRemaining, onUpgradeClick, }: {
-    requestsRemaining: number;
-    onUpgradeClick: () => void;
-}): React.ReactElement;
+export declare function UpgradeMessage({ requestsRemaining, onUpgradeClick, }: UpgradeMessageProps): React.ReactElement;
+/**
+ * React component to render an error message
+ *
+ * @param {number} requestsRemaining - Number of requests remaining.
+ * @returns {React.ReactElement } - Message component.
+ */
+export declare function ErrorMessage({ error, onTryAgainClick }: ErrorMessageProps): React.ReactElement;
 export {};

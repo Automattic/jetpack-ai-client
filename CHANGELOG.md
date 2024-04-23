@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - AI Client: Add Markdown and HTML conversions
 
+### Changed
+- AI Client: Separate AIControl UI from block logic
+
 ## [0.12.1] - 2024-04-15
 ### Added
 - AI Client: Add callbacks, initial requesting state and change error handling. [#36869]
