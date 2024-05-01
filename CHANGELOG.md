@@ -13,6 +13,9 @@ This is an alpha version! The changes listed here are not final.
 - AI Client: Add wrapper ref to AI Control
 - AI Featured Image: support custom user prompt on the image generation.
 
+### Changed
+- Updated package dependencies.
+
 ## [0.12.4] - 2024-04-29
 ### Added
 - AI Client: Export ExtensionAIControl. [#37087]
