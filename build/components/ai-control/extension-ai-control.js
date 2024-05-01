@@ -21,7 +21,7 @@ import './style.scss';
  * @param {React.MutableRefObject} ref     - Ref to the component
  * @returns {ReactElement}                 Rendered component
  */
-export function ExtensionAIControl({ disabled = false, value = '', placeholder = '', showButtonLabels = true, isTransparent = false, state = 'init', showGuideLine = false, error, requestsRemaining, showUpgradeMessage = false, onChange, onSend, onStop, onClose, onUndo, onUpgrade, }, ref) {
+export function ExtensionAIControl({ disabled = false, value = '', placeholder = '', showButtonLabels = true, isTransparent = false, state = 'init', showGuideLine = false, error, requestsRemaining, showUpgradeMessage = false, wrapperRef, onChange, onSend, onStop, onClose, onUndo, onUpgrade, }, ref) {
     const loading = state === 'requesting' || state === 'suggesting';
     const [editRequest, setEditRequest] = useState(false);
     const [lastValue, setLastValue] = useState(value || null);
@@ -81,6 +81,6 @@ export function ExtensionAIControl({ disabled = false, value = '', placeholder =
     else if (showGuideLine) {
         message = _jsx(GuidelineMessage, {});
     }
-    return (_jsx(AIControl, { disabled: disabled || loading, value: value, placeholder: placeholder, isTransparent: isTransparent, state: state, onChange: changeHandler, actions: actions, message: message, promptUserInputRef: promptUserInputRef }));
+    return (_jsx(AIControl, { disabled: disabled || loading, value: value, placeholder: placeholder, isTransparent: isTransparent, state: state, onChange: changeHandler, actions: actions, message: message, promptUserInputRef: promptUserInputRef, wrapperRef: wrapperRef }));
 }
 export default forwardRef(ExtensionAIControl);

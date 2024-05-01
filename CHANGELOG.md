@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This is an alpha version! The changes listed here are not final.
 
 ### Added
+- AI Client: Add wrapper ref to AI Control
 - AI Featured Image: support custom user prompt on the image generation.
 
 ## [0.12.4] - 2024-04-29
