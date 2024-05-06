@@ -14,6 +14,7 @@ This is an alpha version! The changes listed here are not final.
 - AI Featured Image: support custom user prompt on the image generation.
 
 ### Changed
+- AI Client: Add event to upgrade handler function of Extension AI Control
 - Updated package dependencies.
 
 ## [0.12.4] - 2024-04-29

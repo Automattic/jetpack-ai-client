@@ -4,7 +4,7 @@ import './style.scss';
  * Types
  */
 import type { RequestingStateProp } from '../../types.js';
-import type { ReactElement } from 'react';
+import type { ReactElement, MouseEvent } from 'react';
 type ExtensionAIControlProps = {
     disabled?: boolean;
     value: string;
@@ -22,7 +22,7 @@ type ExtensionAIControlProps = {
     onStop?: () => void;
     onClose?: () => void;
     onUndo?: () => void;
-    onUpgrade?: () => void;
+    onUpgrade?: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 /**
  * ExtensionAIControl component. Used by the AI Assistant inline extensions, adding logic and components to the base AIControl component.

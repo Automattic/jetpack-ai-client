@@ -61,8 +61,8 @@ export function ExtensionAIControl({ disabled = false, value = '', placeholder =
     const undoHandler = useCallback(() => {
         onUndo?.();
     }, [onUndo]);
-    const upgradeHandler = useCallback(() => {
-        onUpgrade?.();
+    const upgradeHandler = useCallback((event) => {
+        onUpgrade?.(event);
     }, [onUpgrade]);
     useKeyboardShortcut('enter', e => {
         e.preventDefault();
