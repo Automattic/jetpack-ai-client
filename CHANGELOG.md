@@ -5,17 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.13.0-alpha] - unreleased
+## [0.13.1-alpha] - unreleased
 
 This is an alpha version! The changes listed here are not final.
 
-### Added
-- AI Client: Add wrapper ref to AI Control
-- AI Featured Image: support custom user prompt on the image generation.
-
 ### Changed
 - AI Client: Add event to upgrade handler function of Extension AI Control
-- Updated package dependencies.
+
+## [0.13.0] - 2024-05-06
+### Added
+- AI Client: Add wrapper ref to AI Control. [#37145]
+- AI Featured Image: Support custom user prompt on the image generation. [#37086]
+
+### Changed
+- Updated package dependencies. [#37147] [#37148] [#37160]
 
 ## [0.12.4] - 2024-04-29
 ### Added
@@ -310,7 +313,8 @@ This is an alpha version! The changes listed here are not final.
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
-[0.13.0-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.12.4...v0.13.0-alpha
+[0.13.1-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.13.0...v0.13.1-alpha
+[0.13.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.12.4...v0.13.0
 [0.12.4]: https://github.com/Automattic/jetpack-ai-client/compare/v0.12.3...v0.12.4
 [0.12.3]: https://github.com/Automattic/jetpack-ai-client/compare/v0.12.2...v0.12.3
 [0.12.2]: https://github.com/Automattic/jetpack-ai-client/compare/v0.12.1...v0.12.2
