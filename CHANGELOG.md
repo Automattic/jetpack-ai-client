@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This is an alpha version! The changes listed here are not final.
 
+### Added
+- AI Client: Add try again prop on Extension AI Control
+
 ### Changed
 - AI Client: Add event to upgrade handler function of Extension AI Control
 
