@@ -65,5 +65,5 @@ export function ErrorMessage({ error, onTryAgainClick }) {
     const errorMessage = error || __('Something went wrong', 'jetpack-ai-client');
     return (_jsxs(Message, { severity: MESSAGE_SEVERITY_ERROR, children: [_jsx("span", { children: sprintf(
                 // translators: %1$d: A dynamic error message
-                __('Error: %1$s.', 'jetpack-ai-client'), errorMessage) }), _jsx(Button, { variant: "link", onClick: onTryAgainClick, children: __('Try Again', 'jetpack-ai-client') })] }));
+                __('Error: %1$s', 'jetpack-ai-client'), errorMessage) }), _jsx(Button, { variant: "link", onClick: onTryAgainClick, children: __('Try Again', 'jetpack-ai-client') })] }));
 }
