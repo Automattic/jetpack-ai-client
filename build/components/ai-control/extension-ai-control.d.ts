@@ -6,6 +6,7 @@ import './style.scss';
 import type { RequestingStateProp } from '../../types.js';
 import type { ReactElement, MouseEvent } from 'react';
 type ExtensionAIControlProps = {
+    className?: string;
     disabled?: boolean;
     value: string;
     placeholder?: string;
@@ -32,6 +33,6 @@ type ExtensionAIControlProps = {
  * @param {React.MutableRefObject} ref     - Ref to the component
  * @returns {ReactElement}                 Rendered component
  */
-export declare function ExtensionAIControl({ disabled, value, placeholder, showButtonLabels, isTransparent, state, showGuideLine, error, requestsRemaining, showUpgradeMessage, wrapperRef, onChange, onSend, onStop, onClose, onUndo, onUpgrade, onTryAgain, }: ExtensionAIControlProps, ref: React.MutableRefObject<HTMLInputElement>): ReactElement;
+export declare function ExtensionAIControl({ className, disabled, value, placeholder, showButtonLabels, isTransparent, state, showGuideLine, error, requestsRemaining, showUpgradeMessage, wrapperRef, onChange, onSend, onStop, onClose, onUndo, onUpgrade, onTryAgain, }: ExtensionAIControlProps, ref: React.MutableRefObject<HTMLInputElement>): ReactElement;
 declare const _default: React.ForwardRefExoticComponent<ExtensionAIControlProps & React.RefAttributes<HTMLInputElement>>;
 export default _default;

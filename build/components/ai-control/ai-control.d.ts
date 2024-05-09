@@ -6,6 +6,7 @@ import './style.scss';
 import type { RequestingStateProp } from '../../types.js';
 import type { ReactElement } from 'react';
 type AIControlProps = {
+    className?: string;
     disabled?: boolean;
     value: string;
     placeholder?: string;
@@ -25,5 +26,5 @@ type AIControlProps = {
  * @param {AIControlProps} props - Component props
  * @returns {ReactElement}       Rendered component
  */
-export default function AIControl({ disabled, value, placeholder, isTransparent, state, onChange, banner, error, actions, message, promptUserInputRef, wrapperRef, }: AIControlProps): ReactElement;
+export default function AIControl({ className, disabled, value, placeholder, isTransparent, state, onChange, banner, error, actions, message, promptUserInputRef, wrapperRef, }: AIControlProps): ReactElement;
 export {};
