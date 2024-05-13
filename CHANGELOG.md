@@ -5,16 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.13.1-alpha] - unreleased
-
-This is an alpha version! The changes listed here are not final.
-
+## [0.13.1] - 2024-05-13
 ### Added
-- AI Client: Add className to AI Control component
-- AI Client: Add try again prop on Extension AI Control
+- AI Client: Add className to AI Control component. [#37322]
+- AI Client: Add "try again" prop on Extension AI Control. [#37250]
 
 ### Changed
-- AI Client: Add event to upgrade handler function of Extension AI Control
+- AI Client: Add event to upgrade handler function of Extension AI Control. [#37224]
 
 ## [0.13.0] - 2024-05-06
 ### Added
@@ -317,7 +314,7 @@ This is an alpha version! The changes listed here are not final.
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
-[0.13.1-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.13.0...v0.13.1-alpha
+[0.13.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.13.0...v0.13.1
 [0.13.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.12.4...v0.13.0
 [0.12.4]: https://github.com/Automattic/jetpack-ai-client/compare/v0.12.3...v0.12.4
 [0.12.3]: https://github.com/Automattic/jetpack-ai-client/compare/v0.12.2...v0.12.3
