@@ -5,6 +5,7 @@ import './style.scss';
 /**
  * Types
  */
+import type { SuggestionErrorCode } from '../../types.js';
 import type React from 'react';
 export declare const MESSAGE_SEVERITY_WARNING = "warning";
 export declare const MESSAGE_SEVERITY_ERROR = "error";
@@ -19,13 +20,17 @@ export type MessageProps = {
     onSidebarIconClick?: () => void;
     children: React.ReactNode;
 };
+export type OnUpgradeClick = (event?: React.MouseEvent<HTMLButtonElement>) => void;
 export type UpgradeMessageProps = {
     requestsRemaining: number;
-    onUpgradeClick: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+    severity?: MessageSeverityProp;
+    onUpgradeClick: OnUpgradeClick;
 };
 export type ErrorMessageProps = {
     error?: string;
+    code?: SuggestionErrorCode;
     onTryAgainClick: () => void;
+    onUpgradeClick: OnUpgradeClick;
 };
 /**
  * React component to render a block message.
@@ -46,12 +51,12 @@ export declare function GuidelineMessage(): React.ReactElement;
  * @param {number} requestsRemaining - Number of requests remaining.
  * @returns {React.ReactElement } - Message component.
  */
-export declare function UpgradeMessage({ requestsRemaining, onUpgradeClick, }: UpgradeMessageProps): React.ReactElement;
+export declare function UpgradeMessage({ requestsRemaining, severity, onUpgradeClick, }: UpgradeMessageProps): React.ReactElement;
 /**
  * React component to render an error message
  *
  * @param {number} requestsRemaining - Number of requests remaining.
  * @returns {React.ReactElement } - Message component.
  */
-export declare function ErrorMessage({ error, onTryAgainClick }: ErrorMessageProps): React.ReactElement;
+export declare function ErrorMessage({ error, code, onTryAgainClick, onUpgradeClick, }: ErrorMessageProps): React.ReactElement;
 export {};

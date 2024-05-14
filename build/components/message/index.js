@@ -11,6 +11,7 @@ import classNames from 'classnames';
  */
 import './style.scss';
 import errorExclamation from '../../icons/error-exclamation.js';
+import { ERROR_QUOTA_EXCEEDED } from '../../types.js';
 export const MESSAGE_SEVERITY_WARNING = 'warning';
 export const MESSAGE_SEVERITY_ERROR = 'error';
 export const MESSAGE_SEVERITY_SUCCESS = 'success';
@@ -50,8 +51,12 @@ export function GuidelineMessage() {
  * @param {number} requestsRemaining - Number of requests remaining.
  * @returns {React.ReactElement } - Message component.
  */
-export function UpgradeMessage({ requestsRemaining, onUpgradeClick, }) {
-    return (_jsxs(Message, { severity: MESSAGE_SEVERITY_WARNING, children: [_jsx("span", { children: sprintf(
+export function UpgradeMessage({ requestsRemaining, severity, onUpgradeClick, }) {
+    let messageSeverity = severity;
+    if (messageSeverity == null) {
+        messageSeverity = requestsRemaining > 0 ? MESSAGE_SEVERITY_INFO : MESSAGE_SEVERITY_WARNING;
+    }
+    return (_jsxs(Message, { severity: messageSeverity, children: [_jsx("span", { children: sprintf(
                 // translators: %1$d: number of requests remaining
                 __('You have %1$d free requests remaining.', 'jetpack-ai-client'), requestsRemaining) }), _jsx(Button, { variant: "link", onClick: onUpgradeClick, children: __('Upgrade now', 'jetpack-ai-client') })] }));
 }
@@ -61,9 +66,9 @@ export function UpgradeMessage({ requestsRemaining, onUpgradeClick, }) {
  * @param {number} requestsRemaining - Number of requests remaining.
  * @returns {React.ReactElement } - Message component.
  */
-export function ErrorMessage({ error, onTryAgainClick }) {
+export function ErrorMessage({ error, code, onTryAgainClick, onUpgradeClick, }) {
     const errorMessage = error || __('Something went wrong', 'jetpack-ai-client');
     return (_jsxs(Message, { severity: MESSAGE_SEVERITY_ERROR, children: [_jsx("span", { children: sprintf(
                 // translators: %1$d: A dynamic error message
-                __('Error: %1$s', 'jetpack-ai-client'), errorMessage) }), _jsx(Button, { variant: "link", onClick: onTryAgainClick, children: __('Try Again', 'jetpack-ai-client') })] }));
+                __('Error: %1$s', 'jetpack-ai-client'), errorMessage) }), code === ERROR_QUOTA_EXCEEDED ? (_jsx(Button, { variant: "link", onClick: onUpgradeClick, children: __('Upgrade now', 'jetpack-ai-client') })) : (_jsx(Button, { variant: "link", onClick: onTryAgainClick, children: __('Try again', 'jetpack-ai-client') }))] }));
 }

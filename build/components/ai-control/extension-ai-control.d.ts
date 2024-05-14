@@ -3,7 +3,7 @@ import './style.scss';
 /**
  * Types
  */
-import type { RequestingStateProp } from '../../types.js';
+import type { RequestingErrorProps, RequestingStateProp } from '../../types.js';
 import type { ReactElement, MouseEvent } from 'react';
 type ExtensionAIControlProps = {
     className?: string;
@@ -14,7 +14,7 @@ type ExtensionAIControlProps = {
     isTransparent?: boolean;
     state?: RequestingStateProp;
     showGuideLine?: boolean;
-    error?: string;
+    error?: RequestingErrorProps;
     requestsRemaining?: number;
     showUpgradeMessage?: boolean;
     wrapperRef?: React.MutableRefObject<HTMLDivElement | null>;
