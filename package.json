@@ -43,8 +43,8 @@
 	"types": "./build/index.d.ts",
 	"dependencies": {
 		"@automattic/jetpack-base-styles": "^0.6.24",
-		"@automattic/jetpack-connection": "^0.33.10",
-		"@automattic/jetpack-shared-extension-utils": "^0.14.12",
+		"@automattic/jetpack-connection": "^0.33.11-alpha",
+		"@automattic/jetpack-shared-extension-utils": "^0.14.13-alpha",
 		"@microsoft/fetch-event-source": "2.0.1",
 		"@types/react": "18.3.1",
 		"@wordpress/api-fetch": "6.53.0",
