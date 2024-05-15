@@ -39,3 +39,4 @@ export type Block = {
     originalContent?: string;
 };
 export type TranscriptionState = RecordingState | 'validating' | 'processing' | 'error';
+export type { RenderHTMLRules } from './libs/index.js';

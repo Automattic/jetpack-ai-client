@@ -7,9 +7,10 @@ import MarkdownToHTML from './markdown-to-html.js';
  * Types
  */
 import type { Fix as HTMLFix } from './markdown-to-html.js';
+export type RenderHTMLRules = 'all' | Array<HTMLFix>;
 declare const renderHTMLFromMarkdown: ({ content, rules, }: {
     content: string;
-    rules?: Array<HTMLFix> | 'all';
+    rules?: RenderHTMLRules;
 }) => string;
 declare const renderMarkdownFromHTML: ({ content }: {
     content: string;
