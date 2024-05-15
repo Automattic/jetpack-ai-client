@@ -14,6 +14,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - AI Client: Change default behavior of Message components
+- Updated package dependencies.
 
 ## [0.13.1] - 2024-05-13
 ### Added
