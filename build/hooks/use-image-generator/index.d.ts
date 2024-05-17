@@ -9,5 +9,14 @@ declare const useImageGenerator: () => {
             [key: string]: string;
         }[];
     }>;
+    generateImageWithStableDiffusion: ({ feature, postContent, userPrompt, }: {
+        feature: string;
+        postContent: string;
+        userPrompt?: string;
+    }) => Promise<{
+        data: {
+            [key: string]: string;
+        }[];
+    }>;
 };
 export default useImageGenerator;
