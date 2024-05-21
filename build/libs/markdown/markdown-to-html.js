@@ -7,6 +7,10 @@ const fixes = {
         // Fix list indentation
         return content.replace(/<li>\s+<p>/g, '<li>').replace(/<\/p>\s+<\/li>/g, '</li>');
     },
+    paragraph: (content) => {
+        // Fix encoding of <br /> tags
+        return content.replaceAll(/\s*&lt;br \/&gt;\s*/g, '<br />');
+    },
 };
 const defaultMarkdownItOptions = {
     breaks: true,

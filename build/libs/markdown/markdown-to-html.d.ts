@@ -6,7 +6,7 @@ import MarkdownIt from 'markdown-it';
  * Types
  */
 import type { Options } from 'markdown-it';
-export type Fix = 'list';
+export type Fix = 'list' | 'paragraph';
 export default class MarkdownToHTML {
     markdownConverter: MarkdownIt;
     constructor(options?: Options);

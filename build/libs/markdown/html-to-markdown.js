@@ -2,6 +2,12 @@
  * External dependencies
  */
 import TurndownService from 'turndown';
+const fixesList = {
+    paragraph: (content) => {
+        // Keep <br> tags to prevent paragraphs from being split
+        return content.replaceAll('\n', '<br />');
+    },
+};
 const defaultTurndownOptions = { emDelimiter: '_', headingStyle: 'atx' };
 const defaultTurndownRules = {
     strikethrough: {
@@ -13,10 +19,15 @@ const defaultTurndownRules = {
 };
 export default class HTMLToMarkdown {
     turndownService;
-    constructor(options = defaultTurndownOptions, rules = defaultTurndownRules) {
-        this.turndownService = new TurndownService(options);
-        for (const rule in rules) {
-            this.turndownService.addRule(rule, rules[rule]);
+    fixes;
+    constructor({ options = {}, rules = {}, keep = [], remove = [], fixes = [], } = {}) {
+        this.fixes = fixes;
+        this.turndownService = new TurndownService({ ...defaultTurndownOptions, ...options });
+        this.turndownService.keep(keep);
+        this.turndownService.remove(remove);
+        const allRules = { ...defaultTurndownRules, ...rules };
+        for (const rule in allRules) {
+            this.turndownService.addRule(rule, allRules[rule]);
         }
     }
     /**
@@ -26,6 +37,9 @@ export default class HTMLToMarkdown {
      * @returns {string}                 The rendered Markdown content
      */
     render({ content }) {
-        return this.turndownService.turndown(content);
+        const rendered = this.turndownService.turndown(content);
+        return this.fixes.reduce((renderedContent, fix) => {
+            return fixesList[fix](renderedContent);
+        }, rendered);
     }
 }

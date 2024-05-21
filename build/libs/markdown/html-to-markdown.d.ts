@@ -5,11 +5,19 @@ import TurndownService from 'turndown';
 /**
  * Types
  */
-import type { Options, Rule } from 'turndown';
+import type { Options, Rule, Filter } from 'turndown';
+export type Fix = 'paragraph';
 export default class HTMLToMarkdown {
     turndownService: TurndownService;
-    constructor(options?: Options, rules?: {
-        [key: string]: Rule;
+    fixes: Fix[];
+    constructor({ options, rules, keep, remove, fixes, }?: {
+        options?: Options;
+        rules?: {
+            [key: string]: Rule;
+        };
+        keep?: Filter;
+        remove?: Filter;
+        fixes?: Fix[];
     });
     /**
      * Renders HTML from Markdown content with specified processing rules.
