@@ -1,7 +1,6 @@
 /**
  * External dependencies
  */
-import { __ } from '@wordpress/i18n';
 import debugFactory from 'debug';
 /**
  * Internal dependencies
@@ -130,70 +129,7 @@ const getStableDiffusionImageGenerationPrompt = async (postContent, userPrompt, 
     return data.choices?.[0]?.message?.content;
 };
 const useImageGenerator = () => {
-    const generateImageWithStableDiffusion = async function ({ feature, postContent, userPrompt, }) {
-        let token = null;
-        try {
-            token = await requestJwt();
-        }
-        catch (error) {
-            debug('Error getting token: %o', error);
-            return Promise.reject(error);
-        }
-        try {
-            debug('Generating image with Stable Diffusion');
-            const prompt = await getStableDiffusionImageGenerationPrompt(postContent, userPrompt, feature);
-            const data = {
-                prompt,
-                style: 'photographic',
-                token: token.token,
-                width: 1024,
-                height: 768,
-            };
-            const response = await fetch(`https://public-api.wordpress.com/wpcom/v2/sites/${token.blogId}/ai-image`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
-            if (!response?.ok) {
-                debug('Error generating image: %o', response);
-                return Promise.reject({
-                    data: {
-                        status: response.status,
-                    },
-                    message: __('Error generating image. Please try again later.', 'jetpack-ai-client'),
-                });
-            }
-            const blob = await response.blob();
-            /**
-             * Convert the blob to base64 to keep the same format as the Dalle API.
-             */
-            const base64 = await new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onloadend = () => {
-                    const base64data = reader.result;
-                    return resolve(base64data.replace(/^data:image\/(png|jpg);base64,/, ''));
-                };
-                reader.onerror = reject;
-                reader.readAsDataURL(blob);
-            });
-            // Return the Dalle API format
-            return {
-                data: [
-                    {
-                        b64_json: base64,
-                        revised_prompt: prompt,
-                    },
-                ],
-            };
-        }
-        catch (error) {
-            debug('Error generating image: %o', error);
-            return Promise.reject(error);
-        }
-    };
-    const generateImage = async function ({ feature, postContent, responseFormat = 'url', userPrompt, }) {
+    const executeImageGeneration = async function (parameters) {
         let token = '';
         try {
             token = (await requestJwt()).token;
@@ -203,15 +139,7 @@ const useImageGenerator = () => {
             return Promise.reject(error);
         }
         try {
-            debug('Generating image');
-            const imageGenerationPrompt = getDalleImageGenerationPrompt(postContent, userPrompt);
             const URL = 'https://public-api.wordpress.com/wpcom/v2/jetpack-ai-image';
-            const body = {
-                prompt: imageGenerationPrompt,
-                response_format: responseFormat,
-                feature,
-                size: '1792x1024',
-            };
             const headers = {
                 Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json',
@@ -219,12 +147,48 @@ const useImageGenerator = () => {
             const data = await fetch(URL, {
                 method: 'POST',
                 headers,
-                body: JSON.stringify(body),
+                body: JSON.stringify(parameters),
             }).then(response => response.json());
             if (data?.data?.status && data?.data?.status > 200) {
                 debug('Error generating image: %o', data);
                 return Promise.reject(data);
             }
+            return data;
+        }
+        catch (error) {
+            debug('Error generating image: %o', error);
+            return Promise.reject(error);
+        }
+    };
+    const generateImageWithStableDiffusion = async function ({ feature, postContent, userPrompt, }) {
+        try {
+            debug('Generating image with Stable Diffusion');
+            const prompt = await getStableDiffusionImageGenerationPrompt(postContent, userPrompt, feature);
+            const parameters = {
+                prompt,
+                feature,
+                model: 'stable-diffusion',
+                style: 'photographic',
+            };
+            const data = await executeImageGeneration(parameters);
+            return data;
+        }
+        catch (error) {
+            debug('Error generating image: %o', error);
+            return Promise.reject(error);
+        }
+    };
+    const generateImage = async function ({ feature, postContent, responseFormat = 'url', userPrompt, }) {
+        try {
+            debug('Generating image');
+            const imageGenerationPrompt = getDalleImageGenerationPrompt(postContent, userPrompt);
+            const parameters = {
+                prompt: imageGenerationPrompt,
+                response_format: responseFormat,
+                feature,
+                size: '1792x1024',
+            };
+            const data = await executeImageGeneration(parameters);
             return data;
         }
         catch (error) {

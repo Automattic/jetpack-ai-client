@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - AI Client: Add paragraph tweaks to Markdown conversion libs
+- AI Featured Image: add type info.
 
 ## [0.14.0] - 2024-05-20
 ### Added
