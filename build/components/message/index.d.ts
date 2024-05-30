@@ -25,12 +25,14 @@ export type UpgradeMessageProps = {
     requestsRemaining: number;
     severity?: MessageSeverityProp;
     onUpgradeClick: OnUpgradeClick;
+    upgradeUrl?: string;
 };
 export type ErrorMessageProps = {
     error?: string;
     code?: SuggestionErrorCode;
     onTryAgainClick: () => void;
     onUpgradeClick: OnUpgradeClick;
+    upgradeUrl?: string;
 };
 /**
  * React component to render a block message.
@@ -51,12 +53,12 @@ export declare function GuidelineMessage(): React.ReactElement;
  * @param {number} requestsRemaining - Number of requests remaining.
  * @returns {React.ReactElement } - Message component.
  */
-export declare function UpgradeMessage({ requestsRemaining, severity, onUpgradeClick, }: UpgradeMessageProps): React.ReactElement;
+export declare function UpgradeMessage({ requestsRemaining, severity, onUpgradeClick, upgradeUrl, }: UpgradeMessageProps): React.ReactElement;
 /**
  * React component to render an error message
  *
  * @param {number} requestsRemaining - Number of requests remaining.
  * @returns {React.ReactElement } - Message component.
  */
-export declare function ErrorMessage({ error, code, onTryAgainClick, onUpgradeClick, }: ErrorMessageProps): React.ReactElement;
+export declare function ErrorMessage({ error, code, onTryAgainClick, onUpgradeClick, upgradeUrl, }: ErrorMessageProps): React.ReactElement;
 export {};

@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Added
 - AI Client: Add List-related fixes on MarkdownToHTML conversion
+- Jetpack AI: support upgrade links on the AI Control that will open on a new tab
 
 ## [0.14.1] - 2024-05-27
 ### Changed
