@@ -5,13 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.14.2-alpha] - unreleased
-
-This is an alpha version! The changes listed here are not final.
-
+## [0.14.2] - 2024-06-03
 ### Added
-- AI Client: Add List-related fixes on MarkdownToHTML conversion
-- Jetpack AI: support upgrade links on the AI Control that will open on a new tab
+- AI Client: Add list-related fixes on MarkdownToHTML conversion. [#37564]
+- Jetpack AI: Support upgrade links on the AI Control that will open on a new tab. [#37629]
 
 ## [0.14.1] - 2024-05-27
 ### Changed
@@ -336,7 +333,7 @@ This is an alpha version! The changes listed here are not final.
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
-[0.14.2-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.14.1...v0.14.2-alpha
+[0.14.2]: https://github.com/Automattic/jetpack-ai-client/compare/v0.14.1...v0.14.2
 [0.14.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.14.0...v0.14.1
 [0.14.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.13.1...v0.14.0
 [0.13.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.13.0...v0.13.1
