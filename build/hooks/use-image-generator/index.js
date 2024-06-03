@@ -199,6 +199,7 @@ const useImageGenerator = () => {
     return {
         generateImage,
         generateImageWithStableDiffusion,
+        generateImageWithParameters: executeImageGeneration,
     };
 };
 export default useImageGenerator;

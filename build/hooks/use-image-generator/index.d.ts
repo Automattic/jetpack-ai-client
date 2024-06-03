@@ -18,5 +18,6 @@ declare const useImageGenerator: () => {
         postContent: string;
         userPrompt?: string;
     }) => Promise<ImageGenerationResponse>;
+    generateImageWithParameters: (parameters: object) => Promise<ImageGenerationResponse>;
 };
 export default useImageGenerator;
