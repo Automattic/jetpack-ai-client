@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - AI Featured Image: export generic image generation request function.
+- Updated package dependencies.
 
 ## [0.14.2] - 2024-06-03
 ### Added
