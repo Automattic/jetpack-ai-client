@@ -5,7 +5,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { ExternalLink, Button } from '@wordpress/components';
 import { __, sprintf } from '@wordpress/i18n';
 import { Icon, check, arrowRight } from '@wordpress/icons';
-import classNames from 'classnames';
+import clsx from 'clsx';
 /**
  * Internal dependencies
  */
@@ -35,7 +35,7 @@ const messageIconsMap = {
  * @returns {React.ReactElement }    Banner component.
  */
 export default function Message({ severity = MESSAGE_SEVERITY_INFO, icon = null, showSidebarIcon = false, onSidebarIconClick = () => { }, children, }) {
-    return (_jsxs("div", { className: classNames('jetpack-ai-assistant__message', `jetpack-ai-assistant__message-severity-${severity}`), children: [(messageIconsMap[severity] || icon) && (_jsx(Icon, { icon: messageIconsMap[severity] || icon })), _jsx("div", { className: "jetpack-ai-assistant__message-content", children: children }), showSidebarIcon && (_jsx(Button, { className: "jetpack-ai-assistant__message-sidebar", onClick: onSidebarIconClick, children: _jsx(Icon, { size: 20, icon: arrowRight }) }))] }));
+    return (_jsxs("div", { className: clsx('jetpack-ai-assistant__message', `jetpack-ai-assistant__message-severity-${severity}`), children: [(messageIconsMap[severity] || icon) && (_jsx(Icon, { icon: messageIconsMap[severity] || icon })), _jsx("div", { className: "jetpack-ai-assistant__message-content", children: children }), showSidebarIcon && (_jsx(Button, { className: "jetpack-ai-assistant__message-sidebar", onClick: onSidebarIconClick, children: _jsx(Icon, { size: 20, icon: arrowRight }) }))] }));
 }
 /**
  * React component to render a guideline message.
