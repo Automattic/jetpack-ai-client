@@ -5,14 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.14.3-alpha] - unreleased
+## [0.14.4-alpha] - unreleased
 
 This is an alpha version! The changes listed here are not final.
 
 ### Changed
-- AI Featured Image: export generic image generation request function.
-- Change codebase to use clsx instead of classnames.
 - Updated package dependencies.
+
+## [0.14.3] - 2024-06-10
+### Changed
+- AI Featured Image: export generic image generation request function. [#37668]
+- Change codebase to use clsx instead of classnames. [#37708]
+- Updated package dependencies. [#37669]
 
 ## [0.14.2] - 2024-06-03
 ### Added
@@ -342,7 +346,8 @@ This is an alpha version! The changes listed here are not final.
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
-[0.14.3-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.14.2...v0.14.3-alpha
+[0.14.4-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.14.3...v0.14.4-alpha
+[0.14.3]: https://github.com/Automattic/jetpack-ai-client/compare/v0.14.2...v0.14.3
 [0.14.2]: https://github.com/Automattic/jetpack-ai-client/compare/v0.14.1...v0.14.2
 [0.14.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.14.0...v0.14.1
 [0.14.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.13.1...v0.14.0
