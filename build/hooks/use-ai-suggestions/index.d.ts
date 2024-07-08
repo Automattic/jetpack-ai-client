@@ -42,6 +42,13 @@ type useAiSuggestionsProps = {
  */
 export declare function getErrorData(errorCode: SuggestionErrorCode): RequestingErrorProps;
 /**
+ * Remove the llama artifact from a suggestion.
+ *
+ * @param {string} suggestion - The suggestion.
+ * @returns {string}            The suggestion without the llama artifact.
+ */
+export declare function removeLlamaArtifact(suggestion: string): string;
+/**
  * React custom hook to get suggestions from AI,
  * by hitting the query endpoint.
  *
