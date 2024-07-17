@@ -19,7 +19,7 @@ const addListComments = (content) => {
         .replaceAll('<ul>', '<!-- wp:list --><ul>')
         .replaceAll('</ul>', '</ul><!-- /wp:list -->'));
 };
-const fixes = {
+export const fixes = {
     list: (content, extension = false) => {
         // Fix list indentation
         const fixedIndentation = content
@@ -42,6 +42,15 @@ const fixes = {
         }
         // Fix encoding of <br /> tags
         return content.replaceAll(/\s*&lt;br \/&gt;\s*/g, '<br />');
+    },
+    table: (content, extension = false, { hasFixedLayout = false }) => {
+        if (!extension) {
+            return content;
+        }
+        if (content.startsWith('<!-- wp:table')) {
+            return content;
+        }
+        return `<!-- wp:table { "hasFixedLayout":${hasFixedLayout ? 'true' : 'false'} } -->${content}<!-- /wp:table -->`;
     },
 };
 const defaultMarkdownItOptions = {

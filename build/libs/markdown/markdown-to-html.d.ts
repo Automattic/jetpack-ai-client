@@ -6,7 +6,13 @@ import MarkdownIt from 'markdown-it';
  * Types
  */
 import type { Options } from 'markdown-it';
-export type Fix = 'list' | 'paragraph' | 'listItem';
+export type Fix = 'list' | 'paragraph' | 'listItem' | 'table';
+type Fixes = {
+    [key in Fix]: (content: string, extension?: boolean, options?: {
+        [key: string]: unknown;
+    }) => string;
+};
+export declare const fixes: Fixes;
 export default class MarkdownToHTML {
     markdownConverter: MarkdownIt;
     constructor(options?: Options);
@@ -24,3 +30,4 @@ export default class MarkdownToHTML {
         extension?: boolean;
     }): string;
 }
+export {};

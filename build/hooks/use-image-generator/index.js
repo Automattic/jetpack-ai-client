@@ -126,7 +126,7 @@ const getStableDiffusionImageGenerationPrompt = async (postContent, userPrompt, 
      * Request the prompt on the AI Assistant endpoint
      */
     const data = await askQuestionSync(prompt, { feature });
-    return data.choices?.[0]?.message?.content;
+    return data;
 };
 const useImageGenerator = () => {
     const executeImageGeneration = async function (parameters) {

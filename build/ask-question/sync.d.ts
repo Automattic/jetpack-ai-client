@@ -3,13 +3,7 @@ import type { PromptProp } from '../types.js';
 /**
  * The response data from the AI assistant when doing a sync, not-streamed question.
  */
-export type ResponseData = {
-    choices: Array<{
-        message: {
-            content: string;
-        };
-    }>;
-};
+export type ResponseData = string;
 /**
  * A function that asks a question without streaming.
  *
@@ -27,4 +21,4 @@ export type ResponseData = {
  *    const content = responseData.choices[ 0 ].message.content;
  * } );
  */
-export default function askQuestionSync(question: PromptProp, { postId, feature, model }?: AskQuestionOptionsArgProps): Promise<ResponseData>;
+export default function askQuestionSync(question: PromptProp, options?: AskQuestionOptionsArgProps): Promise<ResponseData>;

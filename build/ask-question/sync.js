@@ -24,12 +24,8 @@ const debug = debugFactory('jetpack-ai-client:ask-question-sync');
  *    const content = responseData.choices[ 0 ].message.content;
  * } );
  */
-export default async function askQuestionSync(question, { postId = null, feature, model } = {}) {
-    debug('Asking question with no streaming: %o. options: %o', question, {
-        postId,
-        feature,
-        model,
-    });
+export default async function askQuestionSync(question, options = {}) {
+    debug('Asking question with no streaming: %o. options: %o', question, options);
     /**
      * The URL to the AI assistant query endpoint.
      */
@@ -42,25 +38,30 @@ export default async function askQuestionSync(question, { postId = null, feature
         debug('Error getting token: %o', error);
         return Promise.reject(error);
     }
+    const messages = Array.isArray(question) ? { messages: question } : { question: question };
     const body = {
-        question: question,
+        ...messages,
+        ...options,
         stream: false,
-        postId,
-        feature,
-        model,
     };
     const headers = {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
     };
-    const data = await fetch(URL, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(body),
-    }).then(response => response.json());
-    if (data?.data?.status && data?.data?.status > 200) {
-        debug('Error generating prompt: %o', data);
-        return Promise.reject(data);
+    try {
+        const data = await fetch(URL, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(body),
+        }).then(response => response.json());
+        if (data?.data?.status && data?.data?.status > 200) {
+            debug('Error generating prompt: %o', data);
+            return Promise.reject(data);
+        }
+        return data.choices?.[0]?.message?.content;
     }
-    return data;
+    catch (error) {
+        debug('Error asking question: %o', error);
+        return Promise.reject(error);
+    }
 }

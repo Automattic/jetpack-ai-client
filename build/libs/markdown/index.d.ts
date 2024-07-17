@@ -2,7 +2,7 @@
  * Internal dependencies
  */
 import HTMLToMarkdown from './html-to-markdown.js';
-import MarkdownToHTML from './markdown-to-html.js';
+import MarkdownToHTML, { fixes } from './markdown-to-html.js';
 /**
  * Types
  */
@@ -16,4 +16,4 @@ declare const renderHTMLFromMarkdown: ({ content, rules, extension, }: {
 declare const renderMarkdownFromHTML: ({ content }: {
     content: string;
 }) => string;
-export { MarkdownToHTML, HTMLToMarkdown, renderHTMLFromMarkdown, renderMarkdownFromHTML };
+export { MarkdownToHTML, HTMLToMarkdown, renderHTMLFromMarkdown, renderMarkdownFromHTML, fixes };

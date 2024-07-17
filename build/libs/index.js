@@ -1,1 +1,1 @@
-export { MarkdownToHTML, HTMLToMarkdown, renderHTMLFromMarkdown, renderMarkdownFromHTML, } from './markdown/index.js';
+export { MarkdownToHTML, HTMLToMarkdown, renderHTMLFromMarkdown, renderMarkdownFromHTML, fixes, } from './markdown/index.js';
