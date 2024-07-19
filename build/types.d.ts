@@ -1,3 +1,4 @@
+import type * as BlockEditorSelectors from '@wordpress/block-editor/store/selectors.js';
 export declare const ERROR_SERVICE_UNAVAILABLE: "error_service_unavailable";
 export declare const ERROR_QUOTA_EXCEEDED: "error_quota_exceeded";
 export declare const ERROR_MODERATION: "error_moderation";
@@ -40,3 +41,8 @@ export type Block = {
 };
 export type TranscriptionState = RecordingState | 'validating' | 'processing' | 'error';
 export type { RenderHTMLRules } from './libs/index.js';
+export interface BlockEditorStore {
+    selectors: {
+        [key in keyof typeof BlockEditorSelectors]: (typeof BlockEditorSelectors)[key];
+    };
+}

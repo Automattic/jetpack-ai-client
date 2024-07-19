@@ -14,3 +14,4 @@ export * from './components/index.js';
 export * from './data-flow/index.js';
 export * from './types.js';
 export * from './libs/index.js';
+export * from './logo-generator/index.js';

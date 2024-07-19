@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This is an alpha version! The changes listed here are not final.
 
+### Added
+- Jetpack AI: add logo generator codebase to the ai-client package.
+
 ### Changed
 - Update and export askQuestionSync
 
