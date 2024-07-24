@@ -78,7 +78,7 @@ Site description: ${description}`;
             setFirstLogoPromptFetchError(error);
             throw error;
         }
-    }, [setFirstLogoPromptFetchError, increaseAiAssistantRequestsCount]);
+    }, [setFirstLogoPromptFetchError, increaseAiAssistantRequestsCount, name, description]);
     const enhancePrompt = async function ({ prompt }) {
         setEnhancePromptFetchError(null);
         increaseAiAssistantRequestsCount();
