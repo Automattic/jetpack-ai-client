@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Fixed
 - AI Logo Generator: make the initial prompt update when the site name and description are fully laoded from store.
+- AI Logo Generator: provide the saved media ID on the save logo callback.
 
 ## [0.15.0] - 2024-07-22
 ### Added

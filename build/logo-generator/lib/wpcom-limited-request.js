@@ -7,7 +7,6 @@ import apiFetch from '../../api-fetch/index.js';
  */
 const MAX_CONCURRENT_REQUESTS = 5;
 let concurrentCounter = 0;
-let lastCallTimestamp = null;
 /**
  * Concurrency-limited request to wpcom-proxy-request.
  * @param { object } params - The request params, as expected by apiFetch.
@@ -20,13 +19,6 @@ export default async function wpcomLimitedRequest(params) {
         concurrentCounter -= 1;
         throw new Error('Too many requests');
     }
-    const now = Date.now();
-    // Check if the last call was made less than 100 milliseconds ago
-    if (lastCallTimestamp && now - lastCallTimestamp < 100) {
-        concurrentCounter -= 1;
-        throw new Error('Too many requests');
-    }
-    lastCallTimestamp = now; // Update the timestamp
     return apiFetch(params).finally(() => {
         concurrentCounter -= 1;
     });
