@@ -13,7 +13,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 /**
  * Internal dependencies
  */
-import { DEFAULT_LOGO_COST, EVENT_MODAL_OPEN, EVENT_FEEDBACK, EVENT_MODAL_CLOSE, EVENT_PLACEMENT_QUICK_LINKS, EVENT_GENERATE, } from '../constants.js';
+import { DEFAULT_LOGO_COST, EVENT_MODAL_OPEN, EVENT_FEEDBACK, EVENT_MODAL_CLOSE, EVENT_GENERATE, } from '../constants.js';
 import useLogoGenerator from '../hooks/use-logo-generator.js';
 import useRequestErrors from '../hooks/use-request-errors.js';
 import { isLogoHistoryEmpty, clearDeletedMedia } from '../lib/logo-storage.js';
@@ -27,7 +27,7 @@ import { UpgradeScreen } from './upgrade-screen.js';
 import { VisitSiteBanner } from './visit-site-banner.js';
 import './generator-modal.scss';
 const debug = debugFactory('jetpack-ai-calypso:generator-modal');
-export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, siteDetails, context, }) => {
+export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, siteDetails, context, placement, }) => {
     const { tracks } = useAnalytics();
     const { recordEvent: recordTracksEvent } = tracks;
     const { setSiteDetails, fetchAiAssistantFeature, loadLogoHistory } = useDispatch(STORE_NAME);
@@ -114,9 +114,9 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, siteDetails, cont
     ]);
     const handleModalOpen = useCallback(async () => {
         setContext(context);
-        recordTracksEvent(EVENT_MODAL_OPEN, { context, placement: EVENT_PLACEMENT_QUICK_LINKS });
+        recordTracksEvent(EVENT_MODAL_OPEN, { context, placement });
         initializeModal();
-    }, [setContext, context, initializeModal]);
+    }, [setContext, context, placement, initializeModal]);
     const closeModal = () => {
         // Reset the state when the modal is closed, so we trigger the modal initialization again when it's opened.
         needsToHandleModalOpen.current = true;
@@ -126,7 +126,7 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, siteDetails, cont
         setNeedsMoreRequests(false);
         clearErrors();
         setLogoAccepted(false);
-        recordTracksEvent(EVENT_MODAL_CLOSE, { context, placement: EVENT_PLACEMENT_QUICK_LINKS });
+        recordTracksEvent(EVENT_MODAL_CLOSE, { context, placement });
     };
     const handleApplyLogo = (mediaId) => {
         setLogoAccepted(true);
