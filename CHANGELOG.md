@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - AI Logo Generator: support placement property on the generator modal, for tracking purposes.
 
+### Changed
+- AI Logo Generator: fix UI issues.
+
 ### Fixed
 - AI Logo Generator: make the initial prompt update when the site name and description are fully laoded from store.
 - AI Logo Generator: provide the saved media ID on the save logo callback.
