@@ -4,7 +4,7 @@ import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-run
  */
 import { useAnalytics } from '@automattic/jetpack-shared-extension-utils';
 import { Modal, Button } from '@wordpress/components';
-import { useDispatch } from '@wordpress/data';
+import { useDispatch, select } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import { external, Icon } from '@wordpress/icons';
 import clsx from 'clsx';
@@ -28,10 +28,11 @@ import { UpgradeScreen } from './upgrade-screen.js';
 import { VisitSiteBanner } from './visit-site-banner.js';
 import './generator-modal.scss';
 const debug = debugFactory('jetpack-ai-calypso:generator-modal');
-export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, siteDetails, context, placement, }) => {
+export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDetails, context, placement, }) => {
     const { tracks } = useAnalytics();
     const { recordEvent: recordTracksEvent } = tracks;
     const { setSiteDetails, fetchAiAssistantFeature, loadLogoHistory } = useDispatch(STORE_NAME);
+    const { getIsRequestingAiAssistantFeature } = select(STORE_NAME);
     const [loadingState, setLoadingState] = useState(null);
     const [initialPrompt, setInitialPrompt] = useState();
     const needsToHandleModalOpen = useRef(true);
@@ -140,10 +141,13 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, siteDetails, cont
         }
         // When the site details are set, we need to fetch the feature data.
         if (!requestedFeatureData.current) {
-            requestedFeatureData.current = true;
-            fetchAiAssistantFeature();
+            const isRequestingFeature = getIsRequestingAiAssistantFeature();
+            if (!isRequestingFeature) {
+                requestedFeatureData.current = true;
+                fetchAiAssistantFeature();
+            }
         }
-    }, [siteId, siteDetails, setSiteDetails]);
+    }, [siteId, siteDetails, setSiteDetails, getIsRequestingAiAssistantFeature]);
     // Handles modal opening logic
     useEffect(() => {
         // While the modal is not open, the siteId is not set, or the feature data is not available, do nothing.
@@ -161,7 +165,10 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, siteDetails, cont
         body = _jsx(FirstLoadScreen, { state: loadingState });
     }
     else if (featureFetchError || firstLogoPromptFetchError) {
-        body = _jsx(FeatureFetchFailureScreen, { onCancel: closeModal, onRetry: initializeModal });
+        body = (_jsx(FeatureFetchFailureScreen, { onCancel: closeModal, onRetry: () => {
+                closeModal();
+                onReload?.();
+            } }));
     }
     else if (needsFeature || needsMoreRequests) {
         body = (_jsx(UpgradeScreen, { onCancel: closeModal, upgradeURL: upgradeURL, reason: needsFeature ? 'feature' : 'requests' }));
