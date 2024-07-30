@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - AI Logo Generator: fix UI issues.
+- Fixup versions
 
 ## [0.16.0] - 2024-07-29
 ### Added
