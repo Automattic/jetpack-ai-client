@@ -13,6 +13,9 @@ This is an alpha version! The changes listed here are not final.
 - AI Logo Generator: fix UI issues.
 - Fixup versions
 
+### Fixed
+- AI Logo Generator: fix upgrade URLs so they work on any site type.
+
 ## [0.16.0] - 2024-07-29
 ### Added
 - AI Logo Generator: support placement property on the generator modal, for tracking purposes. [#38574]

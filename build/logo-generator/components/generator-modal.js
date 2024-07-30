@@ -14,6 +14,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
  * Internal dependencies
  */
 import { DEFAULT_LOGO_COST, EVENT_MODAL_OPEN, EVENT_FEEDBACK, EVENT_MODAL_CLOSE, EVENT_GENERATE, } from '../constants.js';
+import { useCheckout } from '../hooks/use-checkout.js';
 import useLogoGenerator from '../hooks/use-logo-generator.js';
 import useRequestErrors from '../hooks/use-request-errors.js';
 import { isLogoHistoryEmpty, clearDeletedMedia } from '../lib/logo-storage.js';
@@ -37,11 +38,11 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, siteDetails, cont
     const requestedFeatureData = useRef(false);
     const [needsFeature, setNeedsFeature] = useState(false);
     const [needsMoreRequests, setNeedsMoreRequests] = useState(false);
-    const [upgradeURL, setUpgradeURL] = useState('');
     const { selectedLogo, getAiAssistantFeature, generateFirstPrompt, generateLogo, setContext } = useLogoGenerator();
     const { featureFetchError, firstLogoPromptFetchError, clearErrors } = useRequestErrors();
     const siteId = siteDetails?.ID;
     const [logoAccepted, setLogoAccepted] = useState(false);
+    const { nextTierCheckoutURL: upgradeURL } = useCheckout();
     // First fetch the feature data so we have the most up-to-date info from the backend.
     const feature = getAiAssistantFeature();
     const generateFirstLogo = useCallback(async () => {
@@ -79,13 +80,10 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, siteDetails, cont
                 !hasNoNextTier &&
                 !hasHistory &&
                 currentLimit - currentUsage < logoCost + promptCreationCost;
-            // If the site requires an upgrade, set the upgrade URL and show the upgrade screen immediately.
+            // If the site requires an upgrade, show the upgrade screen immediately.
             setNeedsFeature(!feature?.hasFeature ?? true);
             setNeedsMoreRequests(siteNeedsMoreRequests);
             if (!feature?.hasFeature || siteNeedsMoreRequests) {
-                const siteUpgradeURL = new URL(`${location.origin}/checkout/${siteDetails?.domain}/${feature?.nextTier?.slug}`);
-                siteUpgradeURL.searchParams.set('redirect_to', location.href);
-                setUpgradeURL(siteUpgradeURL.toString());
                 setLoadingState(null);
                 return;
             }
