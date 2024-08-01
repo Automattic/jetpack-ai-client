@@ -15,6 +15,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Fixed
 - AI Logo Generator: fix multiple feature requests error + retry handling.
+- AI Logo Generator: fix small UI issues.
 - AI Logo Generator: fix upgrade URLs so they work on any site type.
 
 ## [0.16.0] - 2024-07-29
