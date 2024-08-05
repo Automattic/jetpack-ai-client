@@ -5,19 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.16.1-alpha] - unreleased
-
-This is an alpha version! The changes listed here are not final.
-
+## [0.16.1] - 2024-08-05
 ### Changed
-- AI Logo Generator: fix UI issues.
-- Fixup versions
+- AI Logo Generator: fix UI issues. [#38590]
+- Fixup versions [#38612]
 
 ### Fixed
-- AI Logo Generator: fix multiple feature requests error + retry handling.
-- AI Logo Generator: fix small UI issues.
-- AI Logo Generator: fix upgrade URLs so they work on any site type.
-- AI Logo Generator: update upgrade message.
+- AI Logo Generator: fix multiple feature requests error + retry handling. [#38630]
+- AI Logo Generator: fix small UI issues. [#38676]
+- AI Logo Generator: fix upgrade URLs so they work on any site type. [#38598]
+- AI Logo Generator: update upgrade message. [#38690]
 
 ## [0.16.0] - 2024-07-29
 ### Added
@@ -380,7 +377,7 @@ This is an alpha version! The changes listed here are not final.
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
-[0.16.1-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.16.0...v0.16.1-alpha
+[0.16.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.16.0...v0.16.1
 [0.16.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.15.0...v0.16.0
 [0.15.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.14.6...v0.15.0
 [0.14.6]: https://github.com/Automattic/jetpack-ai-client/compare/v0.14.5...v0.14.6
