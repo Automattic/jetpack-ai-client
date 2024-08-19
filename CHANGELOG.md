@@ -5,16 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.16.2-alpha] - unreleased
-
-This is an alpha version! The changes listed here are not final.
-
+## [0.16.2] - 2024-08-19
 ### Changed
-- Update dependencies.
-- Updated package dependencies.
+- Update dependencies. [#38861] [#38662] [#38665] [#38893]
 
 ### Fixed
-- Lossless image optimization for images (should improve performance with no visible changes).
+- Lossless image optimization for images (should improve performance with no visible changes). [#38750]
 
 ## [0.16.1] - 2024-08-05
 ### Changed
@@ -388,7 +384,7 @@ This is an alpha version! The changes listed here are not final.
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
-[0.16.2-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.16.1...v0.16.2-alpha
+[0.16.2]: https://github.com/Automattic/jetpack-ai-client/compare/v0.16.1...v0.16.2
 [0.16.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.16.0...v0.16.1
 [0.16.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.15.0...v0.16.0
 [0.15.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.14.6...v0.15.0
