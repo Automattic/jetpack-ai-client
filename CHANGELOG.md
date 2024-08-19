@@ -13,6 +13,9 @@ This is an alpha version! The changes listed here are not final.
 - Update dependencies.
 - Updated package dependencies.
 
+### Fixed
+- Lossless image optimization for images (should improve performance with no visible changes).
+
 ## [0.16.1] - 2024-08-05
 ### Changed
 - AI Logo Generator: fix UI issues. [#38590]
