@@ -30,9 +30,9 @@ type ExtensionAIControlProps = {
 /**
  * ExtensionAIControl component. Used by the AI Assistant inline extensions, adding logic and components to the base AIControl component.
  *
- * @param {ExtensionAIControlProps} props  - Component props
- * @param {React.MutableRefObject} ref     - Ref to the component
- * @returns {ReactElement}                 Rendered component
+ * @param {ExtensionAIControlProps} props - Component props
+ * @param {React.MutableRefObject}  ref   - Ref to the component
+ * @return {ReactElement}                 Rendered component
  */
 export declare function ExtensionAIControl({ className, disabled, value, placeholder, showButtonLabels, isTransparent, state, showGuideLine, error, requestsRemaining, showUpgradeMessage, upgradeUrl, wrapperRef, onChange, onSend, onStop, onClose, onUndo, onUpgrade, onTryAgain, }: ExtensionAIControlProps, ref: React.MutableRefObject<HTMLInputElement>): ReactElement;
 declare const _default: React.ForwardRefExoticComponent<ExtensionAIControlProps & React.RefAttributes<HTMLInputElement>>;

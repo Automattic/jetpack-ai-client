@@ -38,14 +38,14 @@ type useAiSuggestionsProps = {
  * Get the error data for a given error code.
  *
  * @param {SuggestionErrorCode} errorCode - The error code.
- * @returns {RequestingErrorProps}          The error data.
+ * @return {RequestingErrorProps}          The error data.
  */
 export declare function getErrorData(errorCode: SuggestionErrorCode): RequestingErrorProps;
 /**
  * Remove the llama artifact from a suggestion.
  *
  * @param {string} suggestion - The suggestion.
- * @returns {string}            The suggestion without the llama artifact.
+ * @return {string}            The suggestion without the llama artifact.
  */
 export declare function removeLlamaArtifact(suggestion: string): string;
 /**
@@ -53,7 +53,7 @@ export declare function removeLlamaArtifact(suggestion: string): string;
  * by hitting the query endpoint.
  *
  * @param {useAiSuggestionsOptions} options - The options for the hook.
- * @returns {useAiSuggestionsProps}           The props for the hook.
+ * @return {useAiSuggestionsProps}           The props for the hook.
  */
 export default function useAiSuggestions({ prompt, autoRequest, askQuestionOptions, initialRequestingState, onSuggestion, onDone, onStop, onError, onAllErrors, }?: useAiSuggestionsOptions): useAiSuggestionsProps;
 export {};

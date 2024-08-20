@@ -13,7 +13,7 @@ type TokenDataProps = {
  * Request a token from the Jetpack site.
  *
  * @param {RequestTokenOptions} options - Options
- * @returns {Promise<TokenDataProps>}     The token and the blogId
+ * @return {Promise<TokenDataProps>}     The token and the blogId
  */
 export default function requestJwt({ apiNonce, siteId, expirationTime, }?: RequestTokenOptions): Promise<TokenDataProps>;
 export {};

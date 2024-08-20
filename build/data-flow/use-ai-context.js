@@ -13,7 +13,7 @@ import { AiDataContext } from './index.js';
  * and to subscribe to the request events (onDone, onSuggestion).
  *
  * @param {UseAiContextOptions} options - the hook options.
- * @returns {AiDataContextProps}          the AI Assistant data context.
+ * @return {AiDataContextProps}          the AI Assistant data context.
  */
 export default function useAiContext({ onDone, onSuggestion, onError, } = {}) {
     const context = useContext(AiDataContext);

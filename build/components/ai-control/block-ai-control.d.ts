@@ -28,9 +28,9 @@ type BlockAIControlProps = {
 /**
  * BlockAIControl component. Used by the AI Assistant block, adding logic and components to the base AIControl component.
  *
- * @param {BlockAIControlProps} props  - Component props
- * @param {React.MutableRefObject} ref - Ref to the component
- * @returns {ReactElement}             Rendered component
+ * @param {BlockAIControlProps}    props - Component props
+ * @param {React.MutableRefObject} ref   - Ref to the component
+ * @return {ReactElement}             Rendered component
  */
 export declare function BlockAIControl({ disabled, value, placeholder, showAccept, acceptLabel, showButtonLabels, isTransparent, state, showGuideLine, customFooter, onChange, onSend, onStop, onAccept, onDiscard, showRemove, banner, error, }: BlockAIControlProps, ref: React.MutableRefObject<HTMLInputElement>): ReactElement;
 declare const _default: React.ForwardRefExoticComponent<BlockAIControlProps & React.RefAttributes<HTMLInputElement>>;

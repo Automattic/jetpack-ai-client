@@ -20,6 +20,6 @@ export type UseAudioTranscriptionProps = {
  * A hook to handle audio transcription.
  *
  * @param {string} feature - The feature name that is calling the transcription.
- * @returns {UseAudioTranscriptionReturn} - Object with properties to get the transcription data.
+ * @return {UseAudioTranscriptionReturn} - Object with properties to get the transcription data.
  */
 export default function useAudioTranscription({ feature, onReady, onError, }: UseAudioTranscriptionProps): UseAudioTranscriptionReturn;

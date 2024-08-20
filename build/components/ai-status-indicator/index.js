@@ -9,7 +9,7 @@ import './style.scss';
  * AiStatusIndicator component.
  *
  * @param {AiStatusIndicatorProps} props - component props.
- * @returns {React.ReactElement} - rendered component.
+ * @return {React.ReactElement} - rendered component.
  */
 export default function AiStatusIndicator({ state }) {
     return (_jsx("div", { className: clsx('jetpack-ai-status-indicator__icon-wrapper', {

@@ -12,7 +12,7 @@ import { ERROR_CONTEXT_TOO_LARGE, ERROR_MODERATION, ERROR_NETWORK, ERROR_QUOTA_E
  * Get the error data for a given error code.
  *
  * @param {SuggestionErrorCode} errorCode - The error code.
- * @returns {RequestingErrorProps}          The error data.
+ * @return {RequestingErrorProps}          The error data.
  */
 export function getErrorData(errorCode) {
     switch (errorCode) {
@@ -59,7 +59,7 @@ export function getErrorData(errorCode) {
  * Remove the llama artifact from a suggestion.
  *
  * @param {string} suggestion - The suggestion.
- * @returns {string}            The suggestion without the llama artifact.
+ * @return {string}            The suggestion without the llama artifact.
  */
 export function removeLlamaArtifact(suggestion) {
     return suggestion.replace(/^<\|start_header_id\|>assistant<\|end_header_id\|>[\n]+/, '');
@@ -69,7 +69,7 @@ export function removeLlamaArtifact(suggestion) {
  * by hitting the query endpoint.
  *
  * @param {useAiSuggestionsOptions} options - The options for the hook.
- * @returns {useAiSuggestionsProps}           The props for the hook.
+ * @return {useAiSuggestionsProps}           The props for the hook.
  */
 export default function useAiSuggestions({ prompt, autoRequest = false, askQuestionOptions = {}, initialRequestingState = 'init', onSuggestion, onDone, onStop, onError, onAllErrors, } = {}) {
     const [requestingState, setRequestingState] = useState(initialRequestingState);
@@ -81,7 +81,7 @@ export default function useAiSuggestions({ prompt, autoRequest = false, askQuest
      * onSuggestion function handler.
      *
      * @param {string} suggestion - The suggestion.
-     * @returns {void}
+     * @return {void}
      */
     const handleSuggestion = useCallback((event) => {
         const partialSuggestion = removeLlamaArtifact(event?.detail);
@@ -95,7 +95,7 @@ export default function useAiSuggestions({ prompt, autoRequest = false, askQuest
      * onDone function handler.
      *
      * @param {string} content - The content.
-     * @returns {void}
+     * @return {void}
      */
     const handleDone = useCallback((event) => {
         closeEventSource();
@@ -120,9 +120,9 @@ export default function useAiSuggestions({ prompt, autoRequest = false, askQuest
     /**
      * Request handler.
      *
-     * @param {PromptProp} promptArg               - The messages array of the prompt.
-     * @param {AskQuestionOptionsArgProps} options - The options for the askQuestion request. Uses the hook's askQuestionOptions by default.
-     * @returns {Promise<void>} The promise.
+     * @param {PromptProp}                 promptArg - The messages array of the prompt.
+     * @param {AskQuestionOptionsArgProps} options   - The options for the askQuestion request. Uses the hook's askQuestionOptions by default.
+     * @return {Promise<void>} The promise.
      */
     const request = useCallback(async (promptArg, options = { ...askQuestionOptions }) => {
         // Clear any error.
@@ -157,7 +157,7 @@ export default function useAiSuggestions({ prompt, autoRequest = false, askQuest
     /**
      * Reset the request state.
      *
-     * @returns {void}
+     * @return {void}
      */
     const reset = useCallback(() => {
         setRequestingState('init');
@@ -167,7 +167,7 @@ export default function useAiSuggestions({ prompt, autoRequest = false, askQuest
     /**
      * Close the event source connection.
      *
-     * @returns {void}
+     * @return {void}
      */
     const closeEventSource = useCallback(() => {
         if (!eventSourceRef?.current) {
@@ -198,7 +198,7 @@ export default function useAiSuggestions({ prompt, autoRequest = false, askQuest
     /**
      * Stop suggestion handler.
      *
-     * @returns {void}
+     * @return {void}
      */
     const stopSuggestion = useCallback(() => {
         closeEventSource();

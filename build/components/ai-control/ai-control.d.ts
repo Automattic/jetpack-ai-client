@@ -24,7 +24,7 @@ type AIControlProps = {
  * Base AIControl component. Contains the main structure of the control component and slots for banner, error, actions and message.
  *
  * @param {AIControlProps} props - Component props
- * @returns {ReactElement}       Rendered component
+ * @return {ReactElement}       Rendered component
  */
 export default function AIControl({ className, disabled, value, placeholder, isTransparent, state, onChange, banner, error, actions, message, promptUserInputRef, wrapperRef, }: AIControlProps): ReactElement;
 export {};

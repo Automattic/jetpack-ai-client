@@ -6,7 +6,7 @@ const selectors = {
     /**
      * Return the AI Assistant feature.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {Partial<AiFeatureProps>}      The AI Assistant feature data.
+     * @return {Partial<AiFeatureProps>}      The AI Assistant feature data.
      */
     getAiAssistantFeature(state) {
         // Clean up the _meta property.
@@ -16,8 +16,8 @@ const selectors = {
     },
     /**
      * Return the site details.
-     * @param {LogoGeneratorStateProp} state       - The app state tree.
-     * @returns {Partial<SiteDetails> | undefined}   The site details.
+     * @param {LogoGeneratorStateProp} state - The app state tree.
+     * @return {Partial<SiteDetails> | undefined}   The site details.
      */
     getSiteDetails(state) {
         return state.siteDetails;
@@ -25,7 +25,7 @@ const selectors = {
     /**
      * Get the isRequesting flag for the AI Assistant feature.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {boolean}                      The isRequesting flag.
+     * @return {boolean}                      The isRequesting flag.
      */
     getIsRequestingAiAssistantFeature(state) {
         return state.features.aiAssistantFeature?._meta?.isRequesting ?? false;
@@ -33,7 +33,7 @@ const selectors = {
     /**
      * Get the logos history.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {Array<Logo>}                  The logos history array.
+     * @return {Array<Logo>}                  The logos history array.
      */
     getLogos(state) {
         return state.history ?? [];
@@ -41,7 +41,7 @@ const selectors = {
     /**
      * Get the selected logo index.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {number | null}                The selected logo index.
+     * @return {number | null}                The selected logo index.
      */
     getSelectedLogoIndex(state) {
         return state.selectedLogoIndex ?? null;
@@ -49,7 +49,7 @@ const selectors = {
     /**
      * Get the selected logo.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {Logo}                         The selected logo.
+     * @return {Logo}                         The selected logo.
      */
     getSelectedLogo(state) {
         return state.history?.[state.selectedLogoIndex] ?? null;
@@ -57,7 +57,7 @@ const selectors = {
     /**
      * Get the isSavingToLibrary flag.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {boolean}                      The isSavingToLibrary flag.
+     * @return {boolean}                      The isSavingToLibrary flag.
      */
     getIsSavingLogoToLibrary(state) {
         return state._meta?.isSavingLogoToLibrary ?? false;
@@ -65,7 +65,7 @@ const selectors = {
     /**
      * Get the isApplyingLogo flag.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {boolean}                      The isApplyingLogo flag.
+     * @return {boolean}                      The isApplyingLogo flag.
      */
     getIsApplyingLogo(state) {
         return state._meta?.isApplyingLogo ?? false;
@@ -73,7 +73,7 @@ const selectors = {
     /**
      * Get the isEnhancingPrompt flag.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {boolean}                      The isEnhancingPrompt flag.
+     * @return {boolean}                      The isEnhancingPrompt flag.
      */
     getIsEnhancingPrompt(state) {
         return state._meta?.isEnhancingPrompt ?? false;
@@ -81,7 +81,7 @@ const selectors = {
     /**
      * Get the isRequestingImage flag.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {boolean}                      The isRequestingImage flag.
+     * @return {boolean}                      The isRequestingImage flag.
      */
     getIsRequestingImage(state) {
         return state._meta?.isRequestingImage ?? false;
@@ -89,7 +89,7 @@ const selectors = {
     /**
      * Get an aggregated isBusy flag, based on the loading states of the app.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {boolean}                      The isBusy flag.
+     * @return {boolean}                      The isBusy flag.
      */
     getIsBusy(state) {
         return (selectors.getIsApplyingLogo(state) ||
@@ -100,7 +100,7 @@ const selectors = {
     /**
      * Get the requireUpgrade value from aiAssistantFeature
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {boolean}                      The requireUpgrade flag.
+     * @return {boolean}                      The requireUpgrade flag.
      */
     getRequireUpgrade(state) {
         const feature = state.features.aiAssistantFeature;
@@ -116,7 +116,7 @@ const selectors = {
     /**
      * Get the featureFetchError value.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {RequestError}                 The featureFetchError value.
+     * @return {RequestError}                 The featureFetchError value.
      */
     getFeatureFetchError(state) {
         return state._meta?.featureFetchError ?? null;
@@ -124,7 +124,7 @@ const selectors = {
     /**
      * Get the firstLogoPromptFetchError value.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {RequestError}                 The firstLogoPromptFetchError value.
+     * @return {RequestError}                 The firstLogoPromptFetchError value.
      */
     getFirstLogoPromptFetchError(state) {
         return state._meta?.firstLogoPromptFetchError ?? null;
@@ -132,7 +132,7 @@ const selectors = {
     /**
      * Get the enhancePromptFetchError value.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {RequestError}                 The enhancePromptFetchError value.
+     * @return {RequestError}                 The enhancePromptFetchError value.
      */
     getEnhancePromptFetchError(state) {
         return state._meta?.enhancePromptFetchError ?? null;
@@ -140,7 +140,7 @@ const selectors = {
     /**
      * Get the logoFetchError value.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {RequestError}                 The logoFetchError value.
+     * @return {RequestError}                 The logoFetchError value.
      */
     getLogoFetchError(state) {
         return state._meta?.logoFetchError ?? null;
@@ -148,7 +148,7 @@ const selectors = {
     /**
      * Get the saveToLibraryError value.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {RequestError}                 The saveToLibraryError value.
+     * @return {RequestError}                 The saveToLibraryError value.
      */
     getSaveToLibraryError(state) {
         return state._meta?.saveToLibraryError ?? null;
@@ -156,7 +156,7 @@ const selectors = {
     /**
      * Get the logoUpdateError value.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {RequestError}                 The logoUpdateError value.
+     * @return {RequestError}                 The logoUpdateError value.
      */
     getLogoUpdateError(state) {
         return state._meta?.logoUpdateError ?? null;
@@ -164,7 +164,7 @@ const selectors = {
     /**
      * Get the context value.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {string}                       The context value.
+     * @return {string}                       The context value.
      */
     getContext(state) {
         return state._meta?.context ?? '';

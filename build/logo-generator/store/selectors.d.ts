@@ -4,115 +4,115 @@ declare const selectors: {
     /**
      * Return the AI Assistant feature.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {Partial<AiFeatureProps>}      The AI Assistant feature data.
+     * @return {Partial<AiFeatureProps>}      The AI Assistant feature data.
      */
     getAiAssistantFeature(state: LogoGeneratorStateProp): Partial<AiFeatureProps>;
     /**
      * Return the site details.
-     * @param {LogoGeneratorStateProp} state       - The app state tree.
-     * @returns {Partial<SiteDetails> | undefined}   The site details.
+     * @param {LogoGeneratorStateProp} state - The app state tree.
+     * @return {Partial<SiteDetails> | undefined}   The site details.
      */
     getSiteDetails(state: LogoGeneratorStateProp): Partial<SiteDetails> | undefined;
     /**
      * Get the isRequesting flag for the AI Assistant feature.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {boolean}                      The isRequesting flag.
+     * @return {boolean}                      The isRequesting flag.
      */
     getIsRequestingAiAssistantFeature(state: LogoGeneratorStateProp): boolean;
     /**
      * Get the logos history.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {Array<Logo>}                  The logos history array.
+     * @return {Array<Logo>}                  The logos history array.
      */
     getLogos(state: LogoGeneratorStateProp): Array<Logo>;
     /**
      * Get the selected logo index.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {number | null}                The selected logo index.
+     * @return {number | null}                The selected logo index.
      */
     getSelectedLogoIndex(state: LogoGeneratorStateProp): number | null;
     /**
      * Get the selected logo.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {Logo}                         The selected logo.
+     * @return {Logo}                         The selected logo.
      */
     getSelectedLogo(state: LogoGeneratorStateProp): Logo;
     /**
      * Get the isSavingToLibrary flag.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {boolean}                      The isSavingToLibrary flag.
+     * @return {boolean}                      The isSavingToLibrary flag.
      */
     getIsSavingLogoToLibrary(state: LogoGeneratorStateProp): boolean;
     /**
      * Get the isApplyingLogo flag.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {boolean}                      The isApplyingLogo flag.
+     * @return {boolean}                      The isApplyingLogo flag.
      */
     getIsApplyingLogo(state: LogoGeneratorStateProp): boolean;
     /**
      * Get the isEnhancingPrompt flag.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {boolean}                      The isEnhancingPrompt flag.
+     * @return {boolean}                      The isEnhancingPrompt flag.
      */
     getIsEnhancingPrompt(state: LogoGeneratorStateProp): boolean;
     /**
      * Get the isRequestingImage flag.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {boolean}                      The isRequestingImage flag.
+     * @return {boolean}                      The isRequestingImage flag.
      */
     getIsRequestingImage(state: LogoGeneratorStateProp): boolean;
     /**
      * Get an aggregated isBusy flag, based on the loading states of the app.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {boolean}                      The isBusy flag.
+     * @return {boolean}                      The isBusy flag.
      */
     getIsBusy(state: LogoGeneratorStateProp): boolean;
     /**
      * Get the requireUpgrade value from aiAssistantFeature
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {boolean}                      The requireUpgrade flag.
+     * @return {boolean}                      The requireUpgrade flag.
      */
     getRequireUpgrade(state: LogoGeneratorStateProp): boolean;
     /**
      * Get the featureFetchError value.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {RequestError}                 The featureFetchError value.
+     * @return {RequestError}                 The featureFetchError value.
      */
     getFeatureFetchError(state: LogoGeneratorStateProp): RequestError;
     /**
      * Get the firstLogoPromptFetchError value.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {RequestError}                 The firstLogoPromptFetchError value.
+     * @return {RequestError}                 The firstLogoPromptFetchError value.
      */
     getFirstLogoPromptFetchError(state: LogoGeneratorStateProp): RequestError;
     /**
      * Get the enhancePromptFetchError value.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {RequestError}                 The enhancePromptFetchError value.
+     * @return {RequestError}                 The enhancePromptFetchError value.
      */
     getEnhancePromptFetchError(state: LogoGeneratorStateProp): RequestError;
     /**
      * Get the logoFetchError value.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {RequestError}                 The logoFetchError value.
+     * @return {RequestError}                 The logoFetchError value.
      */
     getLogoFetchError(state: LogoGeneratorStateProp): RequestError;
     /**
      * Get the saveToLibraryError value.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {RequestError}                 The saveToLibraryError value.
+     * @return {RequestError}                 The saveToLibraryError value.
      */
     getSaveToLibraryError(state: LogoGeneratorStateProp): RequestError;
     /**
      * Get the logoUpdateError value.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {RequestError}                 The logoUpdateError value.
+     * @return {RequestError}                 The logoUpdateError value.
      */
     getLogoUpdateError(state: LogoGeneratorStateProp): RequestError;
     /**
      * Get the context value.
      * @param {LogoGeneratorStateProp} state - The app state tree.
-     * @returns {string}                       The context value.
+     * @return {string}                       The context value.
      */
     getContext(state: LogoGeneratorStateProp): string;
 };

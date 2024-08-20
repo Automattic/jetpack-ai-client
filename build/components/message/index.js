@@ -32,7 +32,7 @@ const messageIconsMap = {
  * React component to render a block message.
  *
  * @param {MessageProps} props - Component props.
- * @returns {React.ReactElement }    Banner component.
+ * @return {React.ReactElement }    Banner component.
  */
 export default function Message({ severity = MESSAGE_SEVERITY_INFO, icon = null, showSidebarIcon = false, onSidebarIconClick = () => { }, children, }) {
     return (_jsxs("div", { className: clsx('jetpack-ai-assistant__message', `jetpack-ai-assistant__message-severity-${severity}`), children: [(messageIconsMap[severity] || icon) && (_jsx(Icon, { icon: messageIconsMap[severity] || icon })), _jsx("div", { className: "jetpack-ai-assistant__message-content", children: children }), showSidebarIcon && (_jsx(Button, { className: "jetpack-ai-assistant__message-sidebar", onClick: onSidebarIconClick, children: _jsx(Icon, { size: 20, icon: arrowRight }) }))] }));
@@ -40,7 +40,7 @@ export default function Message({ severity = MESSAGE_SEVERITY_INFO, icon = null,
 /**
  * React component to render a guideline message.
  *
- * @returns {React.ReactElement } - Message component.
+ * @return {React.ReactElement } - Message component.
  */
 export function GuidelineMessage() {
     return (_jsxs(Message, { children: [_jsx("span", { children: __('AI-generated content could be inaccurate or biased.', 'jetpack-ai-client') }), _jsx(ExternalLink, { href: "https://automattic.com/ai-guidelines", children: __('Learn more', 'jetpack-ai-client') })] }));
@@ -49,7 +49,7 @@ export function GuidelineMessage() {
  * React component to render an upgrade message for free tier users
  *
  * @param {number} requestsRemaining - Number of requests remaining.
- * @returns {React.ReactElement } - Message component.
+ * @return {React.ReactElement } - Message component.
  */
 export function UpgradeMessage({ requestsRemaining, severity, onUpgradeClick, upgradeUrl, }) {
     let messageSeverity = severity;
@@ -64,7 +64,7 @@ export function UpgradeMessage({ requestsRemaining, severity, onUpgradeClick, up
  * React component to render an error message
  *
  * @param {number} requestsRemaining - Number of requests remaining.
- * @returns {React.ReactElement } - Message component.
+ * @return {React.ReactElement } - Message component.
  */
 export function ErrorMessage({ error, code, onTryAgainClick, onUpgradeClick, upgradeUrl, }) {
     const errorMessage = error || __('Something went wrong', 'jetpack-ai-client');

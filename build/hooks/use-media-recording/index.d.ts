@@ -54,7 +54,7 @@ type UseMediaRecordingReturn = {
  * react custom hook to handle media recording.
  *
  * @param {UseMediaRecordingProps} props - The props
- * @returns {UseMediaRecordingReturn} The media recorder instance
+ * @return {UseMediaRecordingReturn} The media recorder instance
  */
 export default function useMediaRecording({ onDone, }?: UseMediaRecordingProps): UseMediaRecordingReturn;
 export {};

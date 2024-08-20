@@ -19,9 +19,9 @@ const debug = debugFactory('jetpack-ai-client:block-ai-control');
 /**
  * BlockAIControl component. Used by the AI Assistant block, adding logic and components to the base AIControl component.
  *
- * @param {BlockAIControlProps} props  - Component props
- * @param {React.MutableRefObject} ref - Ref to the component
- * @returns {ReactElement}             Rendered component
+ * @param {BlockAIControlProps}    props - Component props
+ * @param {React.MutableRefObject} ref   - Ref to the component
+ * @return {ReactElement}             Rendered component
  */
 export function BlockAIControl({ disabled = false, value = '', placeholder = '', showAccept = false, acceptLabel = __('Accept', 'jetpack-ai-client'), showButtonLabels = true, isTransparent = false, state = 'init', showGuideLine = false, customFooter = null, onChange, onSend, onStop, onAccept, onDiscard, showRemove = false, banner = null, error = null, }, ref) {
     const loading = state === 'requesting' || state === 'suggesting';

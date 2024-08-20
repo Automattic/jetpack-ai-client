@@ -26,6 +26,6 @@ export type UseTranscriptionPostProcessingProps = {
  * A hook to handle transcription post-processing.
  *
  * @param {string} feature - The feature name that is calling the post-processing actions.
- * @returns {UseTranscriptionPostProcessingReturn} - Object with properties to get the post-processing results.
+ * @return {UseTranscriptionPostProcessingReturn} - Object with properties to get the post-processing results.
  */
 export default function useTranscriptionPostProcessing({ feature, onReady, onError, onUpdate, }: UseTranscriptionPostProcessingProps): UseTranscriptionPostProcessingReturn;

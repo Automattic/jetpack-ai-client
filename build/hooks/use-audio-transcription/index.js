@@ -12,7 +12,7 @@ const debug = debugFactory('jetpack-ai-client:use-audio-transcription');
 /**
  * Map error response to a string.
  * @param {Error | string | AudioTranscriptionErrorResponse} error - The error response from the audio transcription service.
- * @returns {string} the translated error message
+ * @return {string} the translated error message
  */
 const mapErrorResponse = (error) => {
     if (typeof error === 'string') {
@@ -45,7 +45,7 @@ const mapErrorResponse = (error) => {
  * A hook to handle audio transcription.
  *
  * @param {string} feature - The feature name that is calling the transcription.
- * @returns {UseAudioTranscriptionReturn} - Object with properties to get the transcription data.
+ * @return {UseAudioTranscriptionReturn} - Object with properties to get the transcription data.
  */
 export default function useAudioTranscription({ feature, onReady, onError, }) {
     const [transcriptionResult, setTranscriptionResult] = useState('');

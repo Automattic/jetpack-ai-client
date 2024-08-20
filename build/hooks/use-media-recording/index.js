@@ -12,7 +12,7 @@ const MEDIA_TYPE_WEBM = 'audio/webm';
  * react custom hook to handle media recording.
  *
  * @param {UseMediaRecordingProps} props - The props
- * @returns {UseMediaRecordingReturn} The media recorder instance
+ * @return {UseMediaRecordingReturn} The media recorder instance
  */
 export default function useMediaRecording({ onDone, } = {}) {
     // Reference to the media recorder instance
@@ -35,7 +35,7 @@ export default function useMediaRecording({ onDone, } = {}) {
     /**
      * Get the recorded blob.
      *
-     * @returns {Blob} The recorded blob
+     * @return {Blob} The recorded blob
      */
     function getBlob() {
         if (MediaRecorder.isTypeSupported(MEDIA_TYPE_MP4_MP4A)) {
@@ -158,7 +158,7 @@ export default function useMediaRecording({ onDone, } = {}) {
      * `stop` event listener for the media recorder instance.
      * Happens after the last `dataavailable` event.
      *
-     * @returns {void}
+     * @return {void}
      */
     function onStopListener() {
         const lastBlob = getBlob();
@@ -182,7 +182,7 @@ export default function useMediaRecording({ onDone, } = {}) {
      * `dataavailable` event listener for the media recorder instance.
      *
      * @param {MediaRecorderEvent} event - The event object
-     * @returns {void}
+     * @return {void}
      */
     function onDataAvailableListener(event) {
         const { data } = event;

@@ -15,9 +15,9 @@ export type AskQuestionOptionsArgProps = {
  * An asynchronous function that asks a question
  * and returns an event source with suggestions.
  *
- * @param {PromptProp} question - The question to ask. It can be a simple string or an array of PromptMessageItemProps objects.
- * @param {AskQuestionOptionsArgProps} options - An optional object for additional configuration:
- * @returns {Promise<SuggestionsEventSource>}    A promise that resolves to an instance of the SuggestionsEventSource
+ * @param {PromptProp}                 question - The question to ask. It can be a simple string or an array of PromptMessageItemProps objects.
+ * @param {AskQuestionOptionsArgProps} options  - An optional object for additional configuration:
+ * @return {Promise<SuggestionsEventSource>}    A promise that resolves to an instance of the SuggestionsEventSource
  * @example
  *  const question = "What is the meaning of life?";
  *  const options = {

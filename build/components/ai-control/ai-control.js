@@ -13,7 +13,7 @@ import './style.scss';
  * Base AIControl component. Contains the main structure of the control component and slots for banner, error, actions and message.
  *
  * @param {AIControlProps} props - Component props
- * @returns {ReactElement}       Rendered component
+ * @return {ReactElement}       Rendered component
  */
 export default function AIControl({ className, disabled = false, value = '', placeholder = '', isTransparent = false, state = 'init', onChange, banner = null, error = null, actions = null, message = null, promptUserInputRef = null, wrapperRef = null, }) {
     return (_jsxs("div", { className: clsx('jetpack-components-ai-control__container-wrapper', className), ref: wrapperRef, children: [error, _jsxs("div", { className: "jetpack-components-ai-control__container", children: [banner, _jsxs("div", { className: clsx('jetpack-components-ai-control__wrapper', {
