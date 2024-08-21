@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.16.4-alpha] - unreleased
+
+This is an alpha version! The changes listed here are not final.
+
+### Changed
+- Updated package dependencies.
+
 ## [0.16.3] - 2024-08-21
 ### Fixed
 - Revert recent SVG image optimizations. [#38981]
@@ -388,6 +395,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
+[0.16.4-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.16.3...v0.16.4-alpha
 [0.16.3]: https://github.com/Automattic/jetpack-ai-client/compare/v0.16.2...v0.16.3
 [0.16.2]: https://github.com/Automattic/jetpack-ai-client/compare/v0.16.1...v0.16.2
 [0.16.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.16.0...v0.16.1
