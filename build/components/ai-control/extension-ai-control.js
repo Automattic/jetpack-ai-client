@@ -11,7 +11,7 @@ import { forwardRef } from 'react';
 /**
  * Internal dependencies
  */
-import { GuidelineMessage, ErrorMessage, UpgradeMessage } from '../message/index.js';
+import { GuidelineMessage, ErrorMessage, UpgradeMessage, FairUsageLimitMessage, } from '../message/index.js';
 import AIControl from './ai-control.js';
 import './style.scss';
 /**
@@ -21,7 +21,7 @@ import './style.scss';
  * @param {React.MutableRefObject}  ref   - Ref to the component
  * @return {ReactElement}                 Rendered component
  */
-export function ExtensionAIControl({ className, disabled = false, value = '', placeholder = '', showButtonLabels = true, isTransparent = false, state = 'init', showGuideLine = false, error, requestsRemaining, showUpgradeMessage = false, upgradeUrl, wrapperRef, onChange, onSend, onStop, onClose, onUndo, onUpgrade, onTryAgain, }, ref) {
+export function ExtensionAIControl({ className, disabled = false, value = '', placeholder = '', showButtonLabels = true, isTransparent = false, state = 'init', showGuideLine = false, error, requestsRemaining, showUpgradeMessage = false, showFairUsageMessage = false, upgradeUrl, wrapperRef, onChange, onSend, onStop, onClose, onUndo, onUpgrade, onTryAgain, }, ref) {
     const loading = state === 'requesting' || state === 'suggesting';
     const [editRequest, setEditRequest] = useState(false);
     const [lastValue, setLastValue] = useState(value || null);
@@ -77,6 +77,9 @@ export function ExtensionAIControl({ className, disabled = false, value = '', pl
     let message = null;
     if (error?.message) {
         message = (_jsx(ErrorMessage, { error: error.message, code: error.code, onTryAgainClick: tryAgainHandler, onUpgradeClick: upgradeHandler, upgradeUrl: upgradeUrl }));
+    }
+    else if (showFairUsageMessage) {
+        message = _jsx(FairUsageLimitMessage, {});
     }
     else if (showUpgradeMessage) {
         message = (_jsx(UpgradeMessage, { requestsRemaining: requestsRemaining, onUpgradeClick: upgradeHandler, upgradeUrl: upgradeUrl }));

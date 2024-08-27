@@ -48,6 +48,12 @@ export default function Message({ severity, icon, showSidebarIcon, onSidebarIcon
  */
 export declare function GuidelineMessage(): React.ReactElement;
 /**
+ * React component to render a fair usage limit message.
+ *
+ * @return {React.ReactElement } - Message component.
+ */
+export declare function FairUsageLimitMessage(): React.ReactElement;
+/**
  * React component to render an upgrade message for free tier users
  *
  * @param {number} requestsRemaining - Number of requests remaining.
