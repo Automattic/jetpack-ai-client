@@ -32,6 +32,7 @@ export function mapAiFeatureResponseToAiFeatureProps(response) {
         nextTier: response['next-tier'],
         tierPlansEnabled: !!response['tier-plans-enabled'],
         costs: response.costs,
+        featuresControl: response['features-control'],
     };
 }
 const actions = {

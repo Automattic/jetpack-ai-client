@@ -53,6 +53,14 @@ export type TierProp = {
 export type TierLimitProp = TierUnlimitedProps['limit'] | TierFreeProps['limit'] | Tier100Props['limit'] | Tier200Props['limit'] | Tier500Props['limit'] | Tier750Props['limit'] | Tier1000Props['limit'];
 export type TierSlugProp = TierUnlimitedProps['slug'] | TierFreeProps['slug'] | Tier100Props['slug'] | Tier200Props['slug'] | Tier500Props['slug'] | Tier750Props['slug'] | Tier1000Props['slug'];
 export type TierValueProp = TierUnlimitedProps['value'] | TierFreeProps['value'] | Tier100Props['value'] | Tier200Props['value'] | Tier500Props['value'] | Tier750Props['value'] | Tier1000Props['value'];
+export type FeatureControl = {
+    enabled: boolean;
+    'min-jetpack-version': string;
+    [key: string]: FeatureControl | boolean | string;
+};
+export type FeaturesControl = {
+    [key: string]: FeatureControl;
+};
 export type AiFeatureProps = {
     hasFeature: boolean;
     isOverLimit: boolean;
@@ -75,6 +83,7 @@ export type AiFeatureProps = {
             logo: number;
         };
     };
+    featuresControl?: FeaturesControl;
 };
 export type AiFeatureStateProps = AiFeatureProps & {
     _meta?: {
@@ -157,6 +166,7 @@ export type AiAssistantFeatureEndpointResponseProps = {
             logo: number;
         };
     };
+    'features-control'?: FeaturesControl;
 };
 export type SaveLogo = (logo: Logo) => Promise<{
     mediaId: number;

@@ -77,6 +77,7 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
                     logo: number;
                 };
             };
+            featuresControl?: import("./types.js").FeaturesControl;
             _meta?: {
                 isRequesting: boolean;
                 asyncRequestCountdown: number;
