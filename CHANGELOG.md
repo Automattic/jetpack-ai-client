@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.17.1-alpha] - unreleased
+
+This is an alpha version! The changes listed here are not final.
+
+### Changed
+- Updated package dependencies.
+
 ## [0.17.0] - 2024-09-02
 ### Added
 - AI Client: Add FeaturesControl to ai-assistant-feature response parsing. [#39168]
@@ -397,6 +404,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
+[0.17.1-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.17.0...v0.17.1-alpha
 [0.17.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.16.4...v0.17.0
 [0.16.4]: https://github.com/Automattic/jetpack-ai-client/compare/v0.16.3...v0.16.4
 [0.16.3]: https://github.com/Automattic/jetpack-ai-client/compare/v0.16.2...v0.16.3
