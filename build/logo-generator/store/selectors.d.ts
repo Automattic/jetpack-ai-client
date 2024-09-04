@@ -115,5 +115,12 @@ declare const selectors: {
      * @return {string}                       The context value.
      */
     getContext(state: LogoGeneratorStateProp): string;
+    /**
+     * Get tier plans enabled status.
+     *
+     * @param {LogoGeneratorStateProp} state - The app state tree.
+     * @return {boolean}                      The tier plans enabled status.
+     */
+    getTierPlansEnabled(state: LogoGeneratorStateProp): boolean;
 };
 export default selectors;

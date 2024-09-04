@@ -17,7 +17,7 @@ import useRequestErrors from './use-request-errors.js';
 const debug = debugFactory('jetpack-ai-calypso:use-logo-generator');
 const useLogoGenerator = () => {
     const { setSelectedLogoIndex, setIsSavingLogoToLibrary, setIsApplyingLogo, setIsRequestingImage, setIsEnhancingPrompt, increaseAiAssistantRequestsCount, addLogoToHistory, setContext, } = useDispatch(STORE_NAME);
-    const { logos, selectedLogoIndex, selectedLogo, siteDetails, isSavingLogoToLibrary, isApplyingLogo, isEnhancingPrompt, isBusy, isRequestingImage, getAiAssistantFeature, requireUpgrade, context, } = useSelect(select => {
+    const { logos, selectedLogoIndex, selectedLogo, siteDetails, isSavingLogoToLibrary, isApplyingLogo, isEnhancingPrompt, isBusy, isRequestingImage, getAiAssistantFeature, requireUpgrade, context, tierPlansEnabled, } = useSelect(select => {
         const selectors = select(STORE_NAME);
         return {
             logos: selectors.getLogos(),
@@ -32,6 +32,7 @@ const useLogoGenerator = () => {
             getAiAssistantFeature: selectors.getAiAssistantFeature,
             requireUpgrade: selectors.getRequireUpgrade(),
             context: selectors.getContext(),
+            tierPlansEnabled: selectors.getTierPlansEnabled(),
         };
     }, []);
     const { setFirstLogoPromptFetchError, setEnhancePromptFetchError, setLogoFetchError, setSaveToLibraryError, setLogoUpdateError, } = useRequestErrors();
@@ -281,6 +282,7 @@ User request:${prompt}`;
         getAiAssistantFeature,
         requireUpgrade,
         context,
+        tierPlansEnabled,
     };
 };
 export default useLogoGenerator;

@@ -19,6 +19,7 @@ import useLogoGenerator from '../hooks/use-logo-generator.js';
 import useRequestErrors from '../hooks/use-request-errors.js';
 import { isLogoHistoryEmpty, clearDeletedMedia } from '../lib/logo-storage.js';
 import { STORE_NAME } from '../store/index.js';
+// import { FairUsageNotice } from './fair-usage-notice.js';
 import { FeatureFetchFailureScreen } from './feature-fetch-failure-screen.js';
 import { FirstLoadScreen } from './first-load-screen.js';
 import { HistoryCarousel } from './history-carousel.js';
@@ -39,7 +40,7 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
     const requestedFeatureData = useRef(false);
     const [needsFeature, setNeedsFeature] = useState(false);
     const [needsMoreRequests, setNeedsMoreRequests] = useState(false);
-    const { selectedLogo, getAiAssistantFeature, generateFirstPrompt, generateLogo, setContext } = useLogoGenerator();
+    const { selectedLogo, getAiAssistantFeature, generateFirstPrompt, generateLogo, setContext, tierPlansEnabled, } = useLogoGenerator();
     const { featureFetchError, firstLogoPromptFetchError, clearErrors } = useRequestErrors();
     const siteId = siteDetails?.ID;
     const [logoAccepted, setLogoAccepted] = useState(false);
@@ -74,17 +75,19 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
             const promptCreationCost = 1;
             const currentLimit = feature?.currentTier?.value || 0;
             const currentUsage = feature?.usagePeriod?.requestsCount || 0;
-            const isUnlimited = currentLimit === 1;
+            const isUnlimited = !tierPlansEnabled ? currentLimit > 0 : currentLimit === 1;
             const hasNoNextTier = !feature?.nextTier; // If there is no next tier, the user cannot upgrade.
             // The user needs an upgrade immediately if they have no logos and not enough requests remaining for one prompt and one logo generation.
             const siteNeedsMoreRequests = !isUnlimited &&
                 !hasNoNextTier &&
                 !hasHistory &&
-                currentLimit - currentUsage < logoCost + promptCreationCost;
+                (tierPlansEnabled
+                    ? currentLimit - currentUsage < logoCost + promptCreationCost
+                    : currentLimit < currentUsage);
             // If the site requires an upgrade, show the upgrade screen immediately.
-            setNeedsFeature(!feature?.hasFeature ?? true);
+            setNeedsFeature(currentLimit === 0);
             setNeedsMoreRequests(siteNeedsMoreRequests);
-            if (!feature?.hasFeature || siteNeedsMoreRequests) {
+            if (currentLimit === 0 || siteNeedsMoreRequests) {
                 setLoadingState(null);
                 return;
             }

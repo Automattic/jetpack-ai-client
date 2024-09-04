@@ -140,6 +140,7 @@ export type Selectors = {
     getSaveToLibraryError(): RequestError;
     getLogoUpdateError(): RequestError;
     getContext(): string;
+    getTierPlansEnabled(): boolean;
 };
 export type AiAssistantFeatureEndpointResponseProps = {
     'is-enabled': boolean;

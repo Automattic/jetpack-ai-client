@@ -42,5 +42,6 @@ declare const useLogoGenerator: () => {
     getAiAssistantFeature: (siteId?: string) => Partial<import("../store/types.js").AiFeatureProps>;
     requireUpgrade: boolean;
     context: string;
+    tierPlansEnabled: boolean;
 };
 export default useLogoGenerator;
