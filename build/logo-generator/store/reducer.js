@@ -2,7 +2,7 @@
  * Types & Constants
  */
 import { DEFAULT_LOGO_COST } from '../constants.js';
-import { ACTION_INCREASE_AI_ASSISTANT_REQUESTS_COUNT, ACTION_REQUEST_AI_ASSISTANT_FEATURE, ACTION_SET_AI_ASSISTANT_FEATURE_REQUIRE_UPGRADE, ACTION_STORE_AI_ASSISTANT_FEATURE, ASYNC_REQUEST_COUNTDOWN_INIT_VALUE, FREE_PLAN_REQUESTS_LIMIT, UNLIMITED_PLAN_REQUESTS_LIMIT, ACTION_SET_TIER_PLANS_ENABLED, ACTION_SET_SITE_DETAILS, ACTION_SET_SELECTED_LOGO_INDEX, ACTION_ADD_LOGO_TO_HISTORY, ACTION_SAVE_SELECTED_LOGO, ACTION_SET_IS_SAVING_LOGO_TO_LIBRARY, ACTION_SET_IS_REQUESTING_IMAGE, ACTION_SET_IS_APPLYING_LOGO, ACTION_SET_IS_ENHANCING_PROMPT, ACTION_SET_SITE_HISTORY, ACTION_SET_FEATURE_FETCH_ERROR, ACTION_SET_FIRST_LOGO_PROMPT_FETCH_ERROR, ACTION_SET_ENHANCE_PROMPT_FETCH_ERROR, ACTION_SET_LOGO_FETCH_ERROR, ACTION_SET_SAVE_TO_LIBRARY_ERROR, ACTION_SET_LOGO_UPDATE_ERROR, ACTION_SET_CONTEXT, } from './constants.js';
+import { ACTION_INCREASE_AI_ASSISTANT_REQUESTS_COUNT, ACTION_REQUEST_AI_ASSISTANT_FEATURE, ACTION_SET_AI_ASSISTANT_FEATURE_REQUIRE_UPGRADE, ACTION_STORE_AI_ASSISTANT_FEATURE, ASYNC_REQUEST_COUNTDOWN_INIT_VALUE, FREE_PLAN_REQUESTS_LIMIT, UNLIMITED_PLAN_REQUESTS_LIMIT, ACTION_SET_TIER_PLANS_ENABLED, ACTION_SET_SITE_DETAILS, ACTION_SET_SELECTED_LOGO_INDEX, ACTION_ADD_LOGO_TO_HISTORY, ACTION_SAVE_SELECTED_LOGO, ACTION_SET_IS_SAVING_LOGO_TO_LIBRARY, ACTION_SET_IS_REQUESTING_IMAGE, ACTION_SET_IS_APPLYING_LOGO, ACTION_SET_IS_ENHANCING_PROMPT, ACTION_SET_SITE_HISTORY, ACTION_SET_FEATURE_FETCH_ERROR, ACTION_SET_FIRST_LOGO_PROMPT_FETCH_ERROR, ACTION_SET_ENHANCE_PROMPT_FETCH_ERROR, ACTION_SET_LOGO_FETCH_ERROR, ACTION_SET_SAVE_TO_LIBRARY_ERROR, ACTION_SET_LOGO_UPDATE_ERROR, ACTION_SET_CONTEXT, ACTION_SET_IS_LOADING_HISTORY, } from './constants.js';
 import INITIAL_STATE from './initial-state.js';
 /**
  * Reducer for the Logo Generator store.
@@ -28,6 +28,7 @@ import INITIAL_STATE from './initial-state.js';
  * @param {Array< { url: string; description: string; mediaId?: number } >} action.history               - The logo history
  * @param {RequestError}                                                    action.error                 - The error to set
  * @param {string}                                                          action.context               - The context where the tool is being used
+ * @param {boolean}                                                         action.isLoadingHistory      - Whether the history is being loaded
  * @return {LogoGeneratorStateProp} The new state
  */
 export default function reducer(state = INITIAL_STATE, action) {
@@ -286,6 +287,14 @@ export default function reducer(state = INITIAL_STATE, action) {
                 _meta: {
                     ...(state._meta ?? {}),
                     context: action.context,
+                },
+            };
+        case ACTION_SET_IS_LOADING_HISTORY:
+            return {
+                ...state,
+                _meta: {
+                    ...(state._meta ?? {}),
+                    isLoadingHistory: action.isLoadingHistory,
                 },
             };
     }

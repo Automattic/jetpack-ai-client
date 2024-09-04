@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This is an alpha version! The changes listed here are not final.
 
+### Added
+- AI Client: add placeholders for Logo Generator modal commponents
+
 ### Changed
 - AI Logo generator: add over quota notice, handle disabling tiers on checkout
 - Updated package dependencies.

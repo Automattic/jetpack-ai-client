@@ -1,4 +1,4 @@
-import { jsx as _jsx } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 /**
  * External dependencies
  */
@@ -8,13 +8,14 @@ import clsx from 'clsx';
 /**
  * Internal dependencies
  */
+import loader from '../assets/images/loader.gif';
 import { EVENT_NAVIGATE } from '../constants.js';
 import useLogoGenerator from '../hooks/use-logo-generator.js';
 import './history-carousel.scss';
 export const HistoryCarousel = () => {
     const { tracks } = useAnalytics();
     const { recordEvent: recordTracksEvent } = tracks;
-    const { logos, selectedLogo, setSelectedLogoIndex, context } = useLogoGenerator();
+    const { logos, selectedLogo, setSelectedLogoIndex, context, isLoadingHistory } = useLogoGenerator();
     const handleClick = (index) => {
         recordTracksEvent(EVENT_NAVIGATE, {
             context,
@@ -30,7 +31,7 @@ export const HistoryCarousel = () => {
         }
         return thumbnailURL.toString();
     };
-    return (_jsx("div", { className: "jetpack-ai-logo-generator__carousel", children: logos.map((logo, index) => (_jsx(Button, { className: clsx('jetpack-ai-logo-generator__carousel-logo', {
-                'is-selected': logo.url === selectedLogo.url,
-            }), onClick: () => handleClick(index), children: _jsx("img", { src: thumbnailFrom(logo.url), alt: logo.description }) }, logo.url))) }));
+    return (_jsxs("div", { className: "jetpack-ai-logo-generator__carousel", children: [!logos.length && isLoadingHistory && (_jsx(Button, { disabled: true, className: clsx('jetpack-ai-logo-generator__carousel-logo'), children: _jsx("img", { height: "48", width: "48", src: loader, alt: 'loading' }) })), logos.map((logo, index) => (_jsx(Button, { className: clsx('jetpack-ai-logo-generator__carousel-logo', {
+                    'is-selected': logo.url === selectedLogo.url,
+                }), onClick: () => handleClick(index), children: _jsx("img", { src: thumbnailFrom(logo.url), alt: logo.description }) }, logo.url)))] }));
 };

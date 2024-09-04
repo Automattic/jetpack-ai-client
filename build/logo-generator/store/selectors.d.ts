@@ -122,5 +122,12 @@ declare const selectors: {
      * @return {boolean}                      The tier plans enabled status.
      */
     getTierPlansEnabled(state: LogoGeneratorStateProp): boolean;
+    /**
+     * Get tier plans enabled status.
+     *
+     * @param {LogoGeneratorStateProp} state - The app state tree.
+     * @return {boolean}                      The loading logo history status.
+     */
+    getIsLoadingHistory(state: LogoGeneratorStateProp): boolean;
 };
 export default selectors;

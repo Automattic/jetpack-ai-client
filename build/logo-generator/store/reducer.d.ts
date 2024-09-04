@@ -24,6 +24,7 @@ import type { SiteDetails } from '../types.js';
  * @param {Array< { url: string; description: string; mediaId?: number } >} action.history               - The logo history
  * @param {RequestError}                                                    action.error                 - The error to set
  * @param {string}                                                          action.context               - The context where the tool is being used
+ * @param {boolean}                                                         action.isLoadingHistory      - Whether the history is being loaded
  * @return {LogoGeneratorStateProp} The new state
  */
 export default function reducer(state: LogoGeneratorStateProp, action: {
@@ -51,6 +52,7 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
     }>;
     error?: RequestError;
     context?: string;
+    isLoadingHistory?: boolean;
 }): {
     features: {
         aiAssistantFeature: {
@@ -98,6 +100,7 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
         saveToLibraryError?: RequestError;
         logoUpdateError?: RequestError;
         context: string;
+        isLoadingHistory: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
     history: import("./types.js").Logo[];
@@ -120,6 +123,7 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
         saveToLibraryError?: RequestError;
         logoUpdateError?: RequestError;
         context: string;
+        isLoadingHistory: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
     features: {
@@ -138,6 +142,7 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
         saveToLibraryError?: RequestError;
         logoUpdateError?: RequestError;
         context?: string;
+        isLoadingHistory?: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
     features: {
@@ -158,6 +163,7 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
         saveToLibraryError?: RequestError;
         logoUpdateError?: RequestError;
         context?: string;
+        isLoadingHistory?: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
     features: {
@@ -178,6 +184,7 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
         saveToLibraryError?: RequestError;
         logoUpdateError?: RequestError;
         context?: string;
+        isLoadingHistory?: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
     features: {
@@ -198,6 +205,7 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
         saveToLibraryError?: RequestError;
         logoUpdateError?: RequestError;
         context?: string;
+        isLoadingHistory?: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
     features: {
@@ -218,6 +226,7 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
         saveToLibraryError?: RequestError;
         logoUpdateError?: RequestError;
         context?: string;
+        isLoadingHistory?: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
     features: {
@@ -238,6 +247,7 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
         saveToLibraryError?: RequestError;
         logoUpdateError?: RequestError;
         context?: string;
+        isLoadingHistory?: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
     features: {
@@ -258,6 +268,7 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
         saveToLibraryError?: RequestError;
         logoUpdateError?: RequestError;
         context?: string;
+        isLoadingHistory?: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
     features: {
@@ -278,6 +289,7 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
         saveToLibraryError?: RequestError;
         logoUpdateError?: RequestError;
         context?: string;
+        isLoadingHistory?: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
     features: {
@@ -298,6 +310,7 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
         logoFetchError?: RequestError;
         logoUpdateError?: RequestError;
         context?: string;
+        isLoadingHistory?: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
     features: {
@@ -318,6 +331,7 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
         logoFetchError?: RequestError;
         saveToLibraryError?: RequestError;
         context?: string;
+        isLoadingHistory?: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
     features: {
@@ -338,6 +352,28 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
         logoFetchError?: RequestError;
         saveToLibraryError?: RequestError;
         logoUpdateError?: RequestError;
+        isLoadingHistory?: boolean;
+    };
+    siteDetails?: SiteDetails | Record<string, never>;
+    features: {
+        aiAssistantFeature?: AiFeatureStateProps;
+    };
+    history: import("./types.js").Logo[];
+    selectedLogoIndex: number;
+} | {
+    _meta: {
+        isLoadingHistory: boolean;
+        isSavingLogoToLibrary?: boolean;
+        isApplyingLogo?: boolean;
+        isRequestingImage?: boolean;
+        isEnhancingPrompt?: boolean;
+        featureFetchError?: RequestError;
+        firstLogoPromptFetchError?: RequestError;
+        enhancePromptFetchError?: RequestError;
+        logoFetchError?: RequestError;
+        saveToLibraryError?: RequestError;
+        logoUpdateError?: RequestError;
+        context?: string;
     };
     siteDetails?: SiteDetails | Record<string, never>;
     features: {

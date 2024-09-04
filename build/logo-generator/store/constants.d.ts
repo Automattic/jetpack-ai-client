@@ -33,6 +33,7 @@ export declare const ACTION_SAVE_SELECTED_LOGO = "SAVE_SELECTED_LOGO";
 export declare const ACTION_SET_IS_REQUESTING_IMAGE = "SET_IS_REQUESTING_IMAGE";
 export declare const ACTION_SET_IS_ENHANCING_PROMPT = "SET_IS_ENHANCING_PROMPT";
 export declare const ACTION_SET_SITE_HISTORY = "SET_SITE_HISTORY";
+export declare const ACTION_SET_IS_LOADING_HISTORY = "SET_IS_LOADING_HISTORY";
 /**
  * Logo generator error actions
  */

@@ -43,5 +43,7 @@ declare const useLogoGenerator: () => {
     requireUpgrade: boolean;
     context: string;
     tierPlansEnabled: boolean;
+    isLoadingHistory: boolean;
+    setIsLoadingHistory: any;
 };
 export default useLogoGenerator;

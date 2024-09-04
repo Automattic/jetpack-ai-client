@@ -16,8 +16,8 @@ import { STORE_NAME } from '../store/index.js';
 import useRequestErrors from './use-request-errors.js';
 const debug = debugFactory('jetpack-ai-calypso:use-logo-generator');
 const useLogoGenerator = () => {
-    const { setSelectedLogoIndex, setIsSavingLogoToLibrary, setIsApplyingLogo, setIsRequestingImage, setIsEnhancingPrompt, increaseAiAssistantRequestsCount, addLogoToHistory, setContext, } = useDispatch(STORE_NAME);
-    const { logos, selectedLogoIndex, selectedLogo, siteDetails, isSavingLogoToLibrary, isApplyingLogo, isEnhancingPrompt, isBusy, isRequestingImage, getAiAssistantFeature, requireUpgrade, context, tierPlansEnabled, } = useSelect(select => {
+    const { setSelectedLogoIndex, setIsSavingLogoToLibrary, setIsApplyingLogo, setIsRequestingImage, setIsEnhancingPrompt, increaseAiAssistantRequestsCount, addLogoToHistory, setContext, setIsLoadingHistory, } = useDispatch(STORE_NAME);
+    const { logos, selectedLogoIndex, selectedLogo, siteDetails, isSavingLogoToLibrary, isApplyingLogo, isEnhancingPrompt, isBusy, isRequestingImage, getAiAssistantFeature, requireUpgrade, context, tierPlansEnabled, isLoadingHistory, } = useSelect(select => {
         const selectors = select(STORE_NAME);
         return {
             logos: selectors.getLogos(),
@@ -33,6 +33,7 @@ const useLogoGenerator = () => {
             requireUpgrade: selectors.getRequireUpgrade(),
             context: selectors.getContext(),
             tierPlansEnabled: selectors.getTierPlansEnabled(),
+            isLoadingHistory: selectors.getIsLoadingHistory(),
         };
     }, []);
     const { setFirstLogoPromptFetchError, setEnhancePromptFetchError, setLogoFetchError, setSaveToLibraryError, setLogoUpdateError, } = useRequestErrors();
@@ -283,6 +284,8 @@ User request:${prompt}`;
         requireUpgrade,
         context,
         tierPlansEnabled,
+        isLoadingHistory,
+        setIsLoadingHistory,
     };
 };
 export default useLogoGenerator;

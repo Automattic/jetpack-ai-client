@@ -101,5 +101,9 @@ declare const actions: {
         type: string;
         context: string;
     };
+    setIsLoadingHistory(isLoadingHistory: boolean): {
+        type: string;
+        isLoadingHistory: boolean;
+    };
 };
 export default actions;

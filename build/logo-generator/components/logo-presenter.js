@@ -74,6 +74,9 @@ const UseOnSiteButton = ({ onApplyLogo, }) => {
 const LogoLoading = () => {
     return (_jsxs(_Fragment, { children: [_jsx(ImageLoader, { className: "jetpack-ai-logo-generator-modal-presenter__logo" }), _jsx("span", { className: "jetpack-ai-logo-generator-modal-presenter__loading-text", children: __('Generating new logo…', 'jetpack-ai-client') })] }));
 };
+const LogoFetching = () => {
+    return (_jsxs(_Fragment, { children: [_jsx(ImageLoader, { className: "jetpack-ai-logo-generator-modal-presenter__logo" }), _jsx("span", { className: "jetpack-ai-logo-generator-modal-presenter__loading-text", children: __('Fetching previous logos…', 'jetpack-ai-client') })] }));
+};
 const LogoReady = ({ siteId, logo, onApplyLogo }) => {
     return (_jsxs(_Fragment, { children: [_jsx("img", { src: logo.url, alt: logo.description, className: "jetpack-ai-logo-generator-modal-presenter__logo" }), _jsxs("div", { className: "jetpack-ai-logo-generator-modal-presenter__action-wrapper", children: [_jsx("span", { className: "jetpack-ai-logo-generator-modal-presenter__description", children: logo.description }), _jsxs("div", { className: "jetpack-ai-logo-generator-modal-presenter__actions", children: [_jsx(SaveInLibraryButton, { siteId: siteId }), _jsx(UseOnSiteButton, { onApplyLogo: onApplyLogo })] })] })] }));
 };
@@ -83,11 +86,12 @@ const LogoUpdated = ({ logo }) => {
 export const LogoPresenter = ({ logo = null, loading = false, onApplyLogo, logoAccepted = false, siteId, }) => {
     const { isRequestingImage } = useLogoGenerator();
     const { saveToLibraryError, logoUpdateError } = useRequestErrors();
-    if (!logo) {
-        return null;
-    }
     let logoContent;
-    if (loading || isRequestingImage) {
+    if (!logo) {
+        debug('No logo provided, history still loading or logo being generated');
+        logoContent = _jsx(LogoFetching, {});
+    }
+    else if (loading || isRequestingImage) {
         logoContent = _jsx(LogoLoading, {});
     }
     else if (logoAccepted) {

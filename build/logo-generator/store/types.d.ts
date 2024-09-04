@@ -112,6 +112,7 @@ export type LogoGeneratorStateProp = {
         saveToLibraryError?: RequestError;
         logoUpdateError?: RequestError;
         context: string;
+        isLoadingHistory: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
     features: {
@@ -141,6 +142,7 @@ export type Selectors = {
     getLogoUpdateError(): RequestError;
     getContext(): string;
     getTierPlansEnabled(): boolean;
+    getIsLoadingHistory(): boolean;
 };
 export type AiAssistantFeatureEndpointResponseProps = {
     'is-enabled': boolean;

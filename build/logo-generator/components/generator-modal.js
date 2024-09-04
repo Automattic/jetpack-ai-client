@@ -32,7 +32,7 @@ const debug = debugFactory('jetpack-ai-calypso:generator-modal');
 export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDetails, context, placement, }) => {
     const { tracks } = useAnalytics();
     const { recordEvent: recordTracksEvent } = tracks;
-    const { setSiteDetails, fetchAiAssistantFeature, loadLogoHistory } = useDispatch(STORE_NAME);
+    const { setSiteDetails, fetchAiAssistantFeature, loadLogoHistory, setIsLoadingHistory } = useDispatch(STORE_NAME);
     const { getIsRequestingAiAssistantFeature } = select(STORE_NAME);
     const [loadingState, setLoadingState] = useState(null);
     const [initialPrompt, setInitialPrompt] = useState();
@@ -91,12 +91,14 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
                 setLoadingState(null);
                 return;
             }
+            setIsLoadingHistory(true);
             // Load the logo history and clear any deleted media.
             await clearDeletedMedia(String(siteId));
             loadLogoHistory(siteId);
             // If there is any logo, we do not need to generate a first logo again.
             if (!isLogoHistoryEmpty(String(siteId))) {
                 setLoadingState(null);
+                setIsLoadingHistory(false);
                 return;
             }
             // If the site does not require an upgrade and has no logos stored, generate the first prompt based on the site's data.
@@ -105,6 +107,7 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
         catch (error) {
             debug('Error fetching feature', error);
             setLoadingState(null);
+            setIsLoadingHistory(false);
         }
     }, [
         feature,
@@ -128,6 +131,7 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
         setNeedsMoreRequests(false);
         clearErrors();
         setLogoAccepted(false);
+        setIsLoadingHistory(false);
         recordTracksEvent(EVENT_MODAL_CLOSE, { context, placement });
     };
     const handleApplyLogo = (mediaId) => {
