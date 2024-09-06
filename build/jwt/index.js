@@ -21,7 +21,6 @@ export default async function requestJwt({ apiNonce, siteId, expirationTime, } =
     apiNonce = apiNonce || window.JP_CONNECTION_INITIAL_STATE.apiNonce;
     siteId = siteId || window.JP_CONNECTION_INITIAL_STATE.siteSuffix;
     expirationTime = expirationTime || JWT_TOKEN_EXPIRATION_TIME;
-    const isSimple = isSimpleSite();
     // Trying to pick the token from localStorage
     const token = localStorage.getItem(JWT_TOKEN_ID);
     let tokenData = null;
@@ -38,6 +37,7 @@ export default async function requestJwt({ apiNonce, siteId, expirationTime, } =
         return tokenData;
     }
     let data;
+    const isSimple = isSimpleSite();
     if (!isSimple) {
         data = await apiFetch({
             /*

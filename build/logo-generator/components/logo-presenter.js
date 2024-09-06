@@ -84,6 +84,7 @@ const LogoUpdated = ({ logo }) => {
     return (_jsxs(_Fragment, { children: [_jsx("img", { src: logo.url, alt: logo.description, className: "jetpack-ai-logo-generator-modal-presenter__logo" }), _jsxs("div", { className: "jetpack-ai-logo-generator-modal-presenter__success-wrapper", children: [_jsx(Icon, { icon: _jsx(CheckIcon, {}) }), _jsx("span", { children: __('Your new logo was set to the block!', 'jetpack-ai-client') })] })] }));
 };
 export const LogoPresenter = ({ logo = null, loading = false, onApplyLogo, logoAccepted = false, siteId, }) => {
+    // eslint-disable-next-line @wordpress/no-unused-vars-before-return -- @todo Start extending jetpack-js-tools/eslintrc/react in eslintrc, then we can remove this disable comment.
     const { isRequestingImage } = useLogoGenerator();
     const { saveToLibraryError, logoUpdateError } = useRequestErrors();
     let logoContent;
