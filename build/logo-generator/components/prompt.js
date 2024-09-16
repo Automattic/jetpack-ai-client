@@ -74,7 +74,7 @@ export const Prompt = ({ initialPrompt = '' }) => {
     };
     const onPromptPaste = (event) => {
         event.preventDefault();
-        const selection = window.getSelection();
+        const selection = event.currentTarget.ownerDocument.getSelection();
         if (!selection || !selection.rangeCount) {
             return;
         }
