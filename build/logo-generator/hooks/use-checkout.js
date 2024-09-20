@@ -17,18 +17,27 @@ export const useCheckout = () => {
             tierPlansEnabled: selectors.getAiAssistantFeature().tierPlansEnabled,
         };
     }, []);
+    const isJetpackSite = !isAtomicSite() && !isSimpleSite();
+    const redirectSource = isJetpackSite
+        ? 'jetpack-ai-upgrade-url-for-jetpack-sites'
+        : 'jetpack-ai-yearly-tier-upgrade-nudge';
+    /**
+     * Determine the post-checkout URL for non-Jetpack sites
+     */
+    const siteFragment = getSiteFragment();
+    const wpcomRedirectToURL = `https://wordpress.com/home/${siteFragment}`;
     /**
      * Use the Jetpack redirect URL to open the checkout page
      */
-    const wpcomCheckoutUrl = new URL(`https://jetpack.com/redirect/`);
-    wpcomCheckoutUrl.searchParams.set('source', 'jetpack-ai-yearly-tier-upgrade-nudge');
-    wpcomCheckoutUrl.searchParams.set('site', getSiteFragment());
-    wpcomCheckoutUrl.searchParams.set('path', tierPlansEnabled ? `jetpack_ai_yearly:-q-${nextTier?.limit}` : 'jetpack_ai_yearly');
-    /**
-     * Open the product interstitial page
-     */
-    const jetpackCheckoutUrl = `${window?.Jetpack_Editor_Initial_State?.adminUrl}admin.php?redirect_to_referrer=1&page=my-jetpack#/add-jetpack-ai`;
-    const nextTierCheckoutURL = isAtomicSite() || isSimpleSite() ? wpcomCheckoutUrl.toString() : jetpackCheckoutUrl;
+    const checkoutUrl = new URL(`https://jetpack.com/redirect/`);
+    checkoutUrl.searchParams.set('source', redirectSource);
+    checkoutUrl.searchParams.set('site', siteFragment);
+    checkoutUrl.searchParams.set('path', tierPlansEnabled ? `jetpack_ai_yearly:-q-${nextTier?.limit}` : 'jetpack_ai_yearly');
+    // For Jetpack sites, the redirect_to parameter is handled by the Jetpack redirect source
+    if (!isJetpackSite) {
+        checkoutUrl.searchParams.set('query', `redirect_to=${encodeURIComponent(wpcomRedirectToURL)}`);
+    }
+    const nextTierCheckoutURL = checkoutUrl.toString();
     debug('Next tier checkout URL: ', nextTierCheckoutURL);
     return {
         nextTierCheckoutURL,
