@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This is an alpha version! The changes listed here are not final.
 
 ### Changed
+- AI Client: don't send a default style to jetpack-ai-image endpoint, default is handled in backend and we need to not send it until we're ready for it to be a user option
 - Jetpack AI: point upgrade links and buttons to checkout instead of product interstitial.
 - Logo generator: Get selection from the prompt's document rather than the global `window`.
 
