@@ -29,7 +29,7 @@ import { UpgradeScreen } from './upgrade-screen.js';
 import { VisitSiteBanner } from './visit-site-banner.js';
 import './generator-modal.scss';
 const debug = debugFactory('jetpack-ai-calypso:generator-modal');
-export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDetails, context, placement, }) => {
+export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDetails, context, placement, showStyleSelector, }) => {
     const { tracks } = useAnalytics();
     const { recordEvent: recordTracksEvent } = tracks;
     const { setSiteDetails, fetchAiAssistantFeature, loadLogoHistory, setIsLoadingHistory } = useDispatch(STORE_NAME);
@@ -181,7 +181,7 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
         body = (_jsx(UpgradeScreen, { onCancel: closeModal, upgradeURL: upgradeURL, reason: needsFeature ? 'feature' : 'requests' }));
     }
     else {
-        body = (_jsxs(_Fragment, { children: [!logoAccepted && _jsx(Prompt, { initialPrompt: initialPrompt }), _jsx(LogoPresenter, { logo: selectedLogo, onApplyLogo: handleApplyLogo, logoAccepted: logoAccepted, siteId: String(siteId) }), logoAccepted ? (_jsxs("div", { className: "jetpack-ai-logo-generator__accept", children: [_jsx(VisitSiteBanner, {}), _jsx("div", { className: "jetpack-ai-logo-generator__accept-actions", children: _jsx(Button, { variant: "primary", onClick: closeModal, children: __('Close', 'jetpack-ai-client') }) })] })) : (_jsxs(_Fragment, { children: [_jsx(HistoryCarousel, {}), _jsx("div", { className: "jetpack-ai-logo-generator__footer", children: _jsxs(Button, { variant: "link", className: "jetpack-ai-logo-generator__feedback-button", href: "https://jetpack.com/redirect/?source=jetpack-ai-feedback", target: "_blank", onClick: handleFeedbackClick, children: [_jsx("span", { children: __('Provide feedback', 'jetpack-ai-client') }), _jsx(Icon, { icon: external, className: "icon" })] }) })] }))] }));
+        body = (_jsxs(_Fragment, { children: [!logoAccepted && (_jsx(Prompt, { initialPrompt: initialPrompt, showStyleSelector: showStyleSelector })), _jsx(LogoPresenter, { logo: selectedLogo, onApplyLogo: handleApplyLogo, logoAccepted: logoAccepted, siteId: String(siteId) }), logoAccepted ? (_jsxs("div", { className: "jetpack-ai-logo-generator__accept", children: [_jsx(VisitSiteBanner, {}), _jsx("div", { className: "jetpack-ai-logo-generator__accept-actions", children: _jsx(Button, { variant: "primary", onClick: closeModal, children: __('Close', 'jetpack-ai-client') }) })] })) : (_jsxs(_Fragment, { children: [_jsx(HistoryCarousel, {}), _jsx("div", { className: "jetpack-ai-logo-generator__footer", children: _jsxs(Button, { variant: "link", className: "jetpack-ai-logo-generator__feedback-button", href: "https://jetpack.com/redirect/?source=jetpack-ai-feedback", target: "_blank", onClick: handleFeedbackClick, children: [_jsx("span", { children: __('Provide feedback', 'jetpack-ai-client') }), _jsx(Icon, { icon: external, className: "icon" })] }) })] }))] }));
     }
     return (_jsx(_Fragment, { children: isOpen && (_jsx(Modal, { className: "jetpack-ai-logo-generator-modal", onRequestClose: closeModal, shouldCloseOnClickOutside: false, shouldCloseOnEsc: false, title: __('Jetpack AI Logo Generator', 'jetpack-ai-client'), children: _jsx("div", { className: clsx('jetpack-ai-logo-generator-modal__body', {
                     'notice-modal': needsFeature || needsMoreRequests || featureFetchError || firstLogoPromptFetchError,

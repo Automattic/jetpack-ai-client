@@ -1,6 +1,7 @@
 /**
  * Types
  */
+import type { ImageStyle } from '../../hooks/use-image-generator/constants.js';
 import type { Logo, SaveLogo } from '../store/types.js';
 declare const useLogoGenerator: () => {
     logos: Logo[];
@@ -15,8 +16,9 @@ declare const useLogoGenerator: () => {
     generateFirstPrompt: () => Promise<string>;
     saveLogo: SaveLogo;
     applyLogo: () => Promise<void>;
-    generateImage: ({ prompt, }: {
+    generateImage: ({ prompt, style, }: {
         prompt: string;
+        style?: ImageStyle | null;
     }) => Promise<{
         data: Array<{
             url: string;
@@ -26,8 +28,9 @@ declare const useLogoGenerator: () => {
         prompt: string;
     }) => Promise<string>;
     storeLogo: (logo: Logo) => void;
-    generateLogo: ({ prompt }: {
+    generateLogo: ({ prompt, style, }: {
         prompt: string;
+        style?: ImageStyle | null;
     }) => Promise<void>;
     setIsEnhancingPrompt: any;
     setIsRequestingImage: any;
@@ -45,5 +48,6 @@ declare const useLogoGenerator: () => {
     tierPlansEnabled: boolean;
     isLoadingHistory: boolean;
     setIsLoadingHistory: any;
+    getImageStyles: () => object;
 };
 export default useLogoGenerator;

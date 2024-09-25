@@ -17,6 +17,7 @@ export interface GeneratorModalProps {
     onReload: () => void;
     context: string;
     placement: string;
+    showStyleSelector?: boolean;
 }
 export interface LogoPresenterProps {
     logo?: Logo;

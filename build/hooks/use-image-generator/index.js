@@ -7,6 +7,7 @@ import debugFactory from 'debug';
  */
 import askQuestionSync from '../../ask-question/sync.js';
 import requestJwt from '../../jwt/index.js';
+import { IMAGE_STYLE_LABELS } from './constants.js';
 const debug = debugFactory('ai-client:use-image-generator');
 /**
  * Cut the post content on a given lenght so the total length of the prompt is not longer than 4000 characters.
@@ -195,10 +196,20 @@ const useImageGenerator = () => {
             return Promise.reject(error);
         }
     };
+    /**
+     * Get available styles.
+     *
+     * @return {object} with the styles {key:label} for the image generation.
+     */
+    const getImageStyles = function () {
+        return IMAGE_STYLE_LABELS;
+    };
     return {
         generateImage,
         generateImageWithStableDiffusion,
         generateImageWithParameters: executeImageGeneration,
+        getImageStyles,
     };
 };
 export default useImageGenerator;
+export * from './constants.js';

@@ -1,5 +1,7 @@
-/// <reference types="react" resolution-mode="require"/>
 import './prompt.scss';
-export declare const Prompt: React.FC<{
+type PromptProps = {
     initialPrompt?: string;
-}>;
+    showStyleSelector?: boolean;
+};
+export declare const Prompt: ({ initialPrompt, showStyleSelector }: PromptProps) => import("react/jsx-runtime").JSX.Element;
+export {};

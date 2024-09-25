@@ -8,6 +8,7 @@ export declare const EVENT_USE = "jetpack_ai_logo_generator_use";
 export declare const EVENT_NAVIGATE = "jetpack_ai_logo_generator_navigate";
 export declare const EVENT_FEEDBACK = "jetpack_ai_logo_generator_feedback";
 export declare const EVENT_UPGRADE = "jetpack_ai_upgrade_button";
+export declare const EVENT_SWITCH_STYLE = "jetpack_ai_logo_generator_switch_style";
 export declare const EVENT_PLACEMENT_QUICK_LINKS = "quick_links";
 export declare const EVENT_PLACEMENT_INPUT_FOOTER = "input_footer";
 export declare const EVENT_PLACEMENT_FREE_USER_SCREEN = "free_user_screen";

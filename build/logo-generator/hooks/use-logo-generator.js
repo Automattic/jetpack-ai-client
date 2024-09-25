@@ -37,7 +37,7 @@ const useLogoGenerator = () => {
         };
     }, []);
     const { setFirstLogoPromptFetchError, setEnhancePromptFetchError, setLogoFetchError, setSaveToLibraryError, setLogoUpdateError, } = useRequestErrors();
-    const { generateImageWithParameters } = useImageGenerator();
+    const { generateImageWithParameters, getImageStyles } = useImageGenerator();
     const { saveToMediaLibrary } = useSaveToMediaLibrary();
     const { ID = null, name = null, description = null } = siteDetails || {};
     const siteId = ID ? String(ID) : null;
@@ -127,7 +127,7 @@ For example: user's prompt: A logo for an ice cream shop. Returned prompt: A log
             throw error;
         }
     };
-    const generateImage = useCallback(async function ({ prompt, }) {
+    const generateImage = useCallback(async function ({ prompt, style = null, }) {
         setLogoFetchError(null);
         try {
             const tokenData = await requestJwt();
@@ -148,6 +148,7 @@ User request:${prompt}`;
                 prompt: imageGenerationPrompt,
                 feature: 'jetpack-ai-logo-generator',
                 response_format: 'b64_json',
+                style: style || '', // backend expects an empty string if no style is provided
             };
             const data = await generateImageWithParameters(body);
             return data;
@@ -212,7 +213,7 @@ User request:${prompt}`;
         addLogoToHistory(logo);
         stashLogo({ ...logo, siteId: String(siteId) });
     }, [siteId, addLogoToHistory, stashLogo]);
-    const generateLogo = useCallback(async function ({ prompt }) {
+    const generateLogo = useCallback(async function ({ prompt, style, }) {
         debug('Generating logo for site');
         setIsRequestingImage(true);
         try {
@@ -222,7 +223,7 @@ User request:${prompt}`;
             increaseAiAssistantRequestsCount(logoGenerationCost);
             let image;
             try {
-                image = await generateImage({ prompt });
+                image = await generateImage({ prompt, style });
                 if (!image || !image.data.length) {
                     throw new Error('No image returned');
                 }
@@ -286,6 +287,7 @@ User request:${prompt}`;
         tierPlansEnabled,
         isLoadingHistory,
         setIsLoadingHistory,
+        getImageStyles,
     };
 };
 export default useLogoGenerator;
