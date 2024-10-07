@@ -37,7 +37,7 @@ const useLogoGenerator = () => {
         };
     }, []);
     const { setFirstLogoPromptFetchError, setEnhancePromptFetchError, setLogoFetchError, setSaveToLibraryError, setLogoUpdateError, } = useRequestErrors();
-    const { generateImageWithParameters, getImageStyles } = useImageGenerator();
+    const { generateImageWithParameters } = useImageGenerator();
     const { saveToMediaLibrary } = useSaveToMediaLibrary();
     const { ID = null, name = null, description = null } = siteDetails || {};
     const siteId = ID ? String(ID) : null;
@@ -254,6 +254,8 @@ User request:${prompt}`;
             setIsRequestingImage(false);
         }
     }, [logoGenerationCost, increaseAiAssistantRequestsCount, saveLogo, storeLogo, generateImage]);
+    const logoGeneratorControl = aiAssistantFeatureData?.featuresControl?.['logo-generator'];
+    const imageStyles = logoGeneratorControl?.styles;
     return {
         logos,
         selectedLogoIndex,
@@ -287,7 +289,7 @@ User request:${prompt}`;
         tierPlansEnabled,
         isLoadingHistory,
         setIsLoadingHistory,
-        getImageStyles,
+        imageStyles,
     };
 };
 export default useLogoGenerator;

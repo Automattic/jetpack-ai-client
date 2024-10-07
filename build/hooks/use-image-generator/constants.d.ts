@@ -16,24 +16,8 @@ export declare const IMAGE_STYLE_3D_MODEL = "3d-model";
 export declare const IMAGE_STYLE_PIXEL_ART = "pixel-art";
 export declare const IMAGE_STYLE_TEXTURE = "texture";
 export declare const IMAGE_STYLE_MONTY_PYTHON = "monty-python";
-export declare const IMAGE_STYLE_LABELS: {
-    enhance: string;
-    anime: string;
-    photographic: string;
-    "digital-art": string;
-    comicbook: string;
-    "fantasy-art": string;
-    "analog-film": string;
-    neonpunk: string;
-    isometric: string;
-    lowpoly: string;
-    origami: string;
-    "line-art": string;
-    "craft-clay": string;
-    cinematic: string;
-    "3d-model": string;
-    "pixel-art": string;
-    texture: string;
-    "monty-python": string;
+export type ImageStyle = typeof IMAGE_STYLE_ENHANCE | typeof IMAGE_STYLE_ANIME | typeof IMAGE_STYLE_PHOTOGRAPHIC | typeof IMAGE_STYLE_DIGITAL_ART | typeof IMAGE_STYLE_COMICBOOK | typeof IMAGE_STYLE_FANTASY_ART | typeof IMAGE_STYLE_ANALOG_FILM | typeof IMAGE_STYLE_NEONPUNK | typeof IMAGE_STYLE_ISOMETRIC | typeof IMAGE_STYLE_LOWPOLY | typeof IMAGE_STYLE_ORIGAMI | typeof IMAGE_STYLE_LINE_ART | typeof IMAGE_STYLE_CRAFT_CLAY | typeof IMAGE_STYLE_CINEMATIC | typeof IMAGE_STYLE_3D_MODEL | typeof IMAGE_STYLE_PIXEL_ART | typeof IMAGE_STYLE_TEXTURE | typeof IMAGE_STYLE_MONTY_PYTHON;
+export type ImageStyleObject = {
+    label: string;
+    value: ImageStyle;
 };
-export type ImageStyle = keyof typeof IMAGE_STYLE_LABELS;

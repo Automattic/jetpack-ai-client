@@ -1,7 +1,7 @@
 /**
  * Types
  */
-import type { ImageStyle } from '../../hooks/use-image-generator/constants.js';
+import type { ImageStyle, ImageStyleObject } from '../../hooks/use-image-generator/constants.js';
 import type { Logo, SaveLogo } from '../store/types.js';
 declare const useLogoGenerator: () => {
     logos: Logo[];
@@ -48,6 +48,6 @@ declare const useLogoGenerator: () => {
     tierPlansEnabled: boolean;
     isLoadingHistory: boolean;
     setIsLoadingHistory: any;
-    getImageStyles: () => object;
+    imageStyles: ImageStyleObject[];
 };
 export default useLogoGenerator;
