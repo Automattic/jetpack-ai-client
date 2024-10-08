@@ -13,6 +13,10 @@ This is an alpha version! The changes listed here are not final.
 - AI Client: remove provision of image styles via flag prop and internal definition, take it from ai-assistant-feature payload now
 - Updated package dependencies.
 
+## [0.20.1] - 2024-10-07
+### Changed
+- Updated package dependencies. [#39594]
+
 ## [0.20.0] - 2024-09-30
 ### Added
 - AI Client: add support for showStyleSelector on logo generator and use-image-generator [#39530]
@@ -427,7 +431,8 @@ This is an alpha version! The changes listed here are not final.
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
-[0.21.0-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.20.0...v0.21.0-alpha
+[0.21.0-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.20.1...v0.21.0-alpha
+[0.20.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.20.0...v0.20.1
 [0.20.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.19.0...v0.20.0
 [0.19.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.18.1...v0.19.0
 [0.18.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.18.0...v0.18.1
