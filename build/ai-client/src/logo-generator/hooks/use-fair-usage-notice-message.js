@@ -2,6 +2,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { useSelect } from '@wordpress/data';
 import { createInterpolateElement } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
+import getRedirectUrl from '../../../../components/tools/jp-redirect/index.js';
 /**
  * Internal dependencies
  */
@@ -35,8 +36,11 @@ const useFairUsageNoticeMessage = () => {
     const nextUsagePeriodStartDateString = getFormattedUsagePeriodStartDate(usagePeriod);
     // Get the proper template based on the presence of the next usage period start date.
     const fairUsageNoticeMessage = getFairUsageNoticeMessage(nextUsagePeriodStartDateString);
+    const upgradeInfoUrl = getRedirectUrl('ai-logo-generator-fair-usage-policy', {
+        anchor: 'jetpack-ai-usage-limit',
+    });
     const fairUsageNoticeMessageElement = createInterpolateElement(fairUsageNoticeMessage, {
-        link: (_jsx("a", { href: "https://jetpack.com/redirect/?source=ai-logo-generator-fair-usage-policy", target: "_blank", rel: "noreferrer" })),
+        link: _jsx("a", { href: upgradeInfoUrl, target: "_blank", rel: "noreferrer" }),
     });
     return fairUsageNoticeMessageElement;
 };
