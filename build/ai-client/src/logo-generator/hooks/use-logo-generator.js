@@ -43,6 +43,8 @@ const useLogoGenerator = () => {
     const siteId = ID ? String(ID) : null;
     const aiAssistantFeatureData = getAiAssistantFeature(siteId);
     const logoGenerationCost = aiAssistantFeatureData?.costs?.['jetpack-ai-logo-generator']?.logo;
+    const logoGeneratorControl = aiAssistantFeatureData?.featuresControl?.['logo-generator'];
+    const imageStyles = logoGeneratorControl?.styles;
     const generateFirstPrompt = useCallback(async function () {
         setFirstLogoPromptFetchError(null);
         increaseAiAssistantRequestsCount();
@@ -254,8 +256,6 @@ User request:${prompt}`;
             setIsRequestingImage(false);
         }
     }, [logoGenerationCost, increaseAiAssistantRequestsCount, saveLogo, storeLogo, generateImage]);
-    const logoGeneratorControl = aiAssistantFeatureData?.featuresControl?.['logo-generator'];
-    const imageStyles = logoGeneratorControl?.styles;
     return {
         logos,
         selectedLogoIndex,

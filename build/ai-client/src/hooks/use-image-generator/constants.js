@@ -17,3 +17,5 @@ export const IMAGE_STYLE_3D_MODEL = '3d-model';
 export const IMAGE_STYLE_PIXEL_ART = 'pixel-art';
 export const IMAGE_STYLE_TEXTURE = 'texture';
 export const IMAGE_STYLE_MONTY_PYTHON = 'monty-python';
+export const IMAGE_STYLE_AUTO = 'auto';
+export const IMAGE_STYLE_NONE = 'none';

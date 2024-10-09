@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This is an alpha version! The changes listed here are not final.
 
+### Added
+- AI Client - Logo generator: add image styles 'auto' and 'none'. Order styles so those are on top in the dropdown selector
+
 ### Changed
 - AI Client: change upgrade copy edit and redirect URL
 - AI Client: remove provision of image styles via flag prop and internal definition, take it from ai-assistant-feature payload now
