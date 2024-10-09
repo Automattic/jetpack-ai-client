@@ -3,12 +3,10 @@
  */
 import { isAtomicSite, isSimpleSite, getSiteFragment, } from '@automattic/jetpack-shared-extension-utils';
 import { useSelect } from '@wordpress/data';
-import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
 import { STORE_NAME } from '../store/index.js';
-const debug = debugFactory('ai-client:logo-generator:use-checkout');
 export const useCheckout = () => {
     const { nextTier, tierPlansEnabled } = useSelect(select => {
         const selectors = select(STORE_NAME);
@@ -38,7 +36,6 @@ export const useCheckout = () => {
         checkoutUrl.searchParams.set('query', `redirect_to=${encodeURIComponent(wpcomRedirectToURL)}`);
     }
     const nextTierCheckoutURL = checkoutUrl.toString();
-    debug('Next tier checkout URL: ', nextTierCheckoutURL);
     return {
         nextTierCheckoutURL,
         hasNextTier: !!nextTier,

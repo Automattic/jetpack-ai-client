@@ -31,7 +31,7 @@ export const HistoryCarousel = () => {
         }
         return thumbnailURL.toString();
     };
-    return (_jsxs("div", { className: "jetpack-ai-logo-generator__carousel", children: [!logos.length && isLoadingHistory && (_jsx(Button, { disabled: true, className: clsx('jetpack-ai-logo-generator__carousel-logo'), children: _jsx("img", { height: "48", width: "48", src: loader, alt: 'loading' }) })), logos.map((logo, index) => (_jsx(Button, { className: clsx('jetpack-ai-logo-generator__carousel-logo', {
+    return (_jsxs("div", { className: "jetpack-ai-logo-generator__carousel", children: [!logos.length && isLoadingHistory && (_jsx(Button, { disabled: true, className: clsx('jetpack-ai-logo-generator__carousel-logo'), children: _jsx("img", { height: "48", width: "48", src: loader, alt: 'loading' }) })), !logos.length && !isLoadingHistory && _jsx("div", { children: "\u00A0" }), logos.map((logo, index) => (_jsx(Button, { className: clsx('jetpack-ai-logo-generator__carousel-logo', {
                     'is-selected': logo.url === selectedLogo.url,
                 }), onClick: () => handleClick(index), children: _jsx("img", { src: thumbnailFrom(logo.url), alt: logo.description }) }, logo.url)))] }));
 };
