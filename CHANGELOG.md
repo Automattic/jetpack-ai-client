@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Added
 - AI Client - Logo generator: add image styles 'auto' and 'none'. Order styles so those are on top in the dropdown selector
+- AI Client: add prompt processing and style guess function for logo generator
 
 ### Changed
 - AI Client: change plans limit to use and accept new 3000 value

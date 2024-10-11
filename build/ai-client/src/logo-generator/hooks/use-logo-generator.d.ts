@@ -49,5 +49,6 @@ declare const useLogoGenerator: () => {
     isLoadingHistory: boolean;
     setIsLoadingHistory: any;
     imageStyles: ImageStyleObject[];
+    guessStyle: (prompt: string) => Promise<ImageStyle | null>;
 };
 export default useLogoGenerator;

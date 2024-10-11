@@ -5,6 +5,10 @@ export const ERROR_CONTEXT_TOO_LARGE = 'error_context_too_large';
 export const ERROR_NETWORK = 'error_network';
 export const ERROR_UNCLEAR_PROMPT = 'error_unclear_prompt';
 export const ERROR_RESPONSE = 'error_response';
+export const ROLE_SYSTEM = 'system';
+export const ROLE_USER = 'user';
+export const ROLE_ASSISTANT = 'assistant';
+export const ROLE_JETPACK_AI = 'jetpack-ai';
 /*
  * Hook constants
  */

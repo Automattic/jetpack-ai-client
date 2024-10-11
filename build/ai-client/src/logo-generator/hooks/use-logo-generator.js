@@ -7,6 +7,7 @@ import { useCallback } from 'react';
 /**
  * Internal dependencies
  */
+import askQuestionSync from '../../ask-question/sync.js';
 import useImageGenerator from '../../hooks/use-image-generator/index.js';
 import useSaveToMediaLibrary from '../../hooks/use-save-to-media-library/index.js';
 import requestJwt from '../../jwt/index.js';
@@ -129,12 +130,47 @@ For example: user's prompt: A logo for an ice cream shop. Returned prompt: A log
             throw error;
         }
     };
+    const guessStyle = useCallback(async function (prompt) {
+        setLogoFetchError(null);
+        if (!imageStyles || !imageStyles.length) {
+            return null;
+        }
+        const messages = [
+            {
+                role: 'jetpack-ai',
+                context: {
+                    type: 'ai-assistant-guess-logo-style',
+                    request: prompt,
+                    name,
+                    description,
+                },
+            },
+        ];
+        try {
+            const style = await askQuestionSync(messages, { feature: 'jetpack-ai-logo-generator' });
+            if (!style) {
+                return null;
+            }
+            const styleObject = imageStyles.find(({ value }) => value === style);
+            if (!styleObject) {
+                return null;
+            }
+            return styleObject.value;
+        }
+        catch (error) {
+            debug('Error guessing style', error);
+            Promise.reject(error);
+        }
+    }, [imageStyles, name, description]);
     const generateImage = useCallback(async function ({ prompt, style = null, }) {
         setLogoFetchError(null);
         try {
             const tokenData = await requestJwt();
             if (!tokenData || !tokenData.token) {
                 throw new Error('No token provided');
+            }
+            if (style === 'auto') {
+                throw new Error('Auto style is not supported');
             }
             debug('Generating image with prompt', prompt);
             const imageGenerationPrompt = `I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:
@@ -148,6 +184,21 @@ The image should contain a single icon, without variations, color palettes or di
 User request:${prompt}`;
             const body = {
                 prompt: imageGenerationPrompt,
+                // if style is set prompt is reworked at backend with messages
+                messages: style
+                    ? [
+                        {
+                            role: 'jetpack-ai',
+                            context: {
+                                type: 'ai-assistant-generate-logo',
+                                request: prompt,
+                                name,
+                                description,
+                                style,
+                            },
+                        },
+                    ]
+                    : [],
                 feature: 'jetpack-ai-logo-generator',
                 response_format: 'b64_json',
                 style: style || '', // backend expects an empty string if no style is provided
@@ -159,7 +210,7 @@ User request:${prompt}`;
             setLogoFetchError(error);
             throw error;
         }
-    }, []);
+    }, [name, description]);
     const saveLogo = useCallback(async (logo) => {
         setSaveToLibraryError(null);
         try {
@@ -290,6 +341,7 @@ User request:${prompt}`;
         isLoadingHistory,
         setIsLoadingHistory,
         imageStyles,
+        guessStyle,
     };
 };
 export default useLogoGenerator;

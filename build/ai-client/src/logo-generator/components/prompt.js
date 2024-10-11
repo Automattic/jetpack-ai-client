@@ -13,7 +13,7 @@ import { useCallback, useEffect, useState, useRef } from 'react';
  */
 import { IMAGE_STYLE_NONE, IMAGE_STYLE_AUTO } from '../../hooks/use-image-generator/constants.js';
 import AiIcon from '../assets/icons/ai.js';
-import { EVENT_GENERATE, MINIMUM_PROMPT_LENGTH, EVENT_UPGRADE, EVENT_PLACEMENT_INPUT_FOOTER, EVENT_SWITCH_STYLE, } from '../constants.js';
+import { EVENT_GENERATE, MINIMUM_PROMPT_LENGTH, EVENT_UPGRADE, EVENT_PLACEMENT_INPUT_FOOTER, EVENT_SWITCH_STYLE, EVENT_GUESS_STYLE, } from '../constants.js';
 import { useCheckout } from '../hooks/use-checkout.js';
 import useLogoGenerator from '../hooks/use-logo-generator.js';
 import useRequestErrors from '../hooks/use-request-errors.js';
@@ -32,7 +32,7 @@ export const Prompt = ({ initialPrompt = '' }) => {
     const [showStyleSelector, setShowStyleSelector] = useState(false);
     const [style, setStyle] = useState(null);
     const [styles, setStyles] = useState([]);
-    const { generateLogo, enhancePrompt, setIsEnhancingPrompt, isBusy, isEnhancingPrompt, site, getAiAssistantFeature, requireUpgrade, context, tierPlansEnabled, imageStyles, } = useLogoGenerator();
+    const { generateLogo, enhancePrompt, setIsEnhancingPrompt, isBusy, isEnhancingPrompt, site, getAiAssistantFeature, requireUpgrade, context, tierPlansEnabled, imageStyles, guessStyle, } = useLogoGenerator();
     const enhancingLabel = __('Enhancing…', 'jetpack-ai-client');
     const enhanceLabel = __('Enhance prompt', 'jetpack-ai-client');
     const enhanceButtonLabel = isEnhancingPrompt ? enhancingLabel : enhanceLabel;
@@ -88,9 +88,20 @@ export const Prompt = ({ initialPrompt = '' }) => {
         }
     }, [imageStyles]);
     const onGenerate = useCallback(async () => {
-        // shouldn't tool be "logo-generator" to be more specific?
-        recordTracksEvent(EVENT_GENERATE, { context, tool: 'image', style });
-        generateLogo({ prompt, style });
+        debug(context);
+        if (style === IMAGE_STYLE_AUTO) {
+            setIsEnhancingPrompt(true);
+            recordTracksEvent(EVENT_GUESS_STYLE, { context, tool: 'image' });
+            const guessedStyle = (await guessStyle(prompt)) || IMAGE_STYLE_NONE;
+            setStyle(guessedStyle);
+            recordTracksEvent(EVENT_GENERATE, { context, tool: 'image', style: guessedStyle });
+            setIsEnhancingPrompt(false);
+            generateLogo({ prompt, style: guessedStyle });
+        }
+        else {
+            recordTracksEvent(EVENT_GENERATE, { context, tool: 'image', style });
+            generateLogo({ prompt, style });
+        }
     }, [context, generateLogo, prompt, style]);
     const onPromptInput = (event) => {
         setPrompt(event.target.textContent || '');
@@ -123,7 +134,7 @@ export const Prompt = ({ initialPrompt = '' }) => {
             onGenerate();
         }
     };
-    return (_jsxs("div", { className: "jetpack-ai-logo-generator__prompt", children: [_jsxs("div", { className: "jetpack-ai-logo-generator__prompt-header", children: [_jsx("div", { className: "jetpack-ai-logo-generator__prompt-label", children: __('Describe your site:', 'jetpack-ai-client') }), _jsx("div", { className: "jetpack-ai-logo-generator__prompt-actions", children: _jsxs(Button, { variant: "link", disabled: isBusy || requireUpgrade || !hasPrompt, onClick: onEnhance, children: [_jsx(AiIcon, {}), enhanceButtonLabel] }) }), showStyleSelector && (_jsx(SelectControl, { __nextHasNoMarginBottom: true, value: style, options: styles, onChange: updateStyle }))] }), _jsxs("div", { className: "jetpack-ai-logo-generator__prompt-query", children: [_jsx("div", { role: "textbox", tabIndex: 0, ref: inputRef, contentEditable: !isBusy && !requireUpgrade, 
+    return (_jsxs("div", { className: "jetpack-ai-logo-generator__prompt", children: [_jsxs("div", { className: "jetpack-ai-logo-generator__prompt-header", children: [_jsx("div", { className: "jetpack-ai-logo-generator__prompt-label", children: __('Describe your site:', 'jetpack-ai-client') }), _jsx("div", { className: "jetpack-ai-logo-generator__prompt-actions", children: _jsxs(Button, { variant: "link", disabled: isBusy || requireUpgrade || !hasPrompt, onClick: onEnhance, children: [_jsx(AiIcon, {}), enhanceButtonLabel] }) }), showStyleSelector && (_jsx(SelectControl, { __nextHasNoMarginBottom: true, value: style, options: styles, onChange: updateStyle, disabled: isBusy || requireUpgrade }))] }), _jsxs("div", { className: "jetpack-ai-logo-generator__prompt-query", children: [_jsx("div", { role: "textbox", tabIndex: 0, ref: inputRef, contentEditable: !isBusy && !requireUpgrade, 
                         // The content editable div is expected to be updated by the enhance prompt, so warnings are suppressed
                         suppressContentEditableWarning: true, className: "prompt-query__input", onInput: onPromptInput, onPaste: onPromptPaste, onKeyDown: onKeyDown, "data-placeholder": __('Describe your site or simply ask for a logo specifying some details about it', 'jetpack-ai-client') }), _jsx(Button, { variant: "primary", className: "jetpack-ai-logo-generator__prompt-submit", onClick: onGenerate, disabled: isBusy || requireUpgrade || !hasPrompt, children: __('Generate', 'jetpack-ai-client') })] }), _jsxs("div", { className: "jetpack-ai-logo-generator__prompt-footer", children: [!isUnlimited && !requireUpgrade && (_jsxs("div", { className: "jetpack-ai-logo-generator__prompt-requests", children: [_jsx("div", { children: sprintf(
                                 // translators: %u is the number of requests

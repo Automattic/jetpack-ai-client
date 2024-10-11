@@ -7,8 +7,13 @@ export declare const ERROR_NETWORK: "error_network";
 export declare const ERROR_UNCLEAR_PROMPT: "error_unclear_prompt";
 export declare const ERROR_RESPONSE: "error_response";
 export type SuggestionErrorCode = typeof ERROR_SERVICE_UNAVAILABLE | typeof ERROR_QUOTA_EXCEEDED | typeof ERROR_MODERATION | typeof ERROR_CONTEXT_TOO_LARGE | typeof ERROR_NETWORK | typeof ERROR_UNCLEAR_PROMPT | typeof ERROR_RESPONSE;
+export declare const ROLE_SYSTEM: "system";
+export declare const ROLE_USER: "user";
+export declare const ROLE_ASSISTANT: "assistant";
+export declare const ROLE_JETPACK_AI: "jetpack-ai";
+export type RoleType = typeof ROLE_SYSTEM | typeof ROLE_USER | typeof ROLE_ASSISTANT | typeof ROLE_JETPACK_AI;
 export type PromptItemProps = {
-    role: 'system' | 'user' | 'assistant' | 'jetpack-ai';
+    role: RoleType;
     content?: string;
     context?: object;
 };
