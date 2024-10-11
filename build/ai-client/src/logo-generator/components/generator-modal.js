@@ -40,7 +40,7 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
     const requestedFeatureData = useRef(false);
     const [needsFeature, setNeedsFeature] = useState(false);
     const [needsMoreRequests, setNeedsMoreRequests] = useState(false);
-    const { selectedLogo, getAiAssistantFeature, generateFirstPrompt, generateLogo, setContext, tierPlansEnabled, site, } = useLogoGenerator();
+    const { selectedLogo, getAiAssistantFeature, generateFirstPrompt, generateLogo, setContext, tierPlansEnabled, site, requireUpgrade, } = useLogoGenerator();
     const { featureFetchError, firstLogoPromptFetchError, clearErrors } = useRequestErrors();
     const siteId = siteDetails?.ID;
     const [logoAccepted, setLogoAccepted] = useState(false);
@@ -73,9 +73,10 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
             const hasHistory = !isLogoHistoryEmpty(String(siteId));
             const logoCost = feature?.costs?.['jetpack-ai-logo-generator']?.logo ?? DEFAULT_LOGO_COST;
             const promptCreationCost = 1;
-            const currentLimit = feature?.currentTier?.value || 0;
+            const currentLimit = feature?.currentTier?.limit || 0;
+            const currentValue = feature?.currentTier?.value || 0;
             const currentUsage = feature?.usagePeriod?.requestsCount || 0;
-            const isUnlimited = !tierPlansEnabled ? currentLimit > 0 : currentLimit === 1;
+            const isUnlimited = !tierPlansEnabled ? currentValue > 0 : currentValue === 1;
             const hasNoNextTier = !feature?.nextTier; // If there is no next tier, the user cannot upgrade.
             // The user needs an upgrade immediately if they have no logos and not enough requests remaining for one prompt and one logo generation.
             const siteNeedsMoreRequests = !isUnlimited &&
@@ -97,6 +98,13 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
             loadLogoHistory(siteId);
             // If there is any logo, we do not need to generate a first logo again.
             if (hasHistory) {
+                setLoadingState(null);
+                setIsLoadingHistory(false);
+                return;
+            }
+            // if site requires an upgrade, just return and set loaders to null,
+            // prompt component will take over the situation
+            if (requireUpgrade) {
                 setLoadingState(null);
                 setIsLoadingHistory(false);
                 return;
@@ -126,6 +134,7 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
         clearDeletedMedia,
         isLogoHistoryEmpty,
         siteId,
+        requireUpgrade,
     ]);
     const handleModalOpen = useCallback(async () => {
         setContext(context);

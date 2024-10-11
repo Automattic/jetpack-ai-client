@@ -15,7 +15,7 @@ export declare const ENDPOINT_AI_ASSISTANT_FEATURE = "/wpcom/v2/jetpack-ai/ai-as
  * New AI Assistant feature async request
  */
 export declare const FREE_PLAN_REQUESTS_LIMIT = 20;
-export declare const UNLIMITED_PLAN_REQUESTS_LIMIT = 999999999;
+export declare const UNLIMITED_PLAN_REQUESTS_LIMIT = 3000;
 export declare const ASYNC_REQUEST_COUNTDOWN_INIT_VALUE = 3;
 export declare const NEW_ASYNC_REQUEST_TIMER_INTERVAL = 5000;
 export declare const ACTION_DECREASE_NEW_ASYNC_REQUEST_COUNTDOWN = "DECREASE_NEW_ASYNC_REQUEST_COUNTDOWN";

@@ -13,6 +13,7 @@ This is an alpha version! The changes listed here are not final.
 - AI Client - Logo generator: add image styles 'auto' and 'none'. Order styles so those are on top in the dropdown selector
 
 ### Changed
+- AI Client: change plans limit to use and accept new 3000 value
 - AI Client: change upgrade copy edit and redirect URL
 - AI Client: if site details show empty or default, do not trigger a logo generation, use empty placeholders
 - AI Client: remove provision of image styles via flag prop and internal definition, take it from ai-assistant-feature payload now
