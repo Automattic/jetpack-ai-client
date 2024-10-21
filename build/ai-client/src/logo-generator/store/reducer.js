@@ -236,6 +236,16 @@ export default function reducer(state = INITIAL_STATE, action) {
         case ACTION_SET_FEATURE_FETCH_ERROR:
             return {
                 ...state,
+                features: {
+                    ...state.features,
+                    aiAssistantFeature: {
+                        ...state?.features?.aiAssistantFeature,
+                        _meta: {
+                            ...state?.features?.aiAssistantFeature?._meta,
+                            isRequesting: false,
+                        },
+                    },
+                },
                 _meta: {
                     ...(state._meta ?? {}),
                     featureFetchError: action.error,

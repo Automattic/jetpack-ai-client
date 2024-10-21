@@ -172,6 +172,7 @@ export type AiAssistantFeatureEndpointResponseProps = {
         };
     };
     'features-control'?: FeaturesControl;
+    data?: string;
 };
 export type SaveLogo = (logo: Logo) => Promise<{
     mediaId: number;

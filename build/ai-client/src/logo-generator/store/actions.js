@@ -56,6 +56,9 @@ const actions = {
                     path: '/wpcom/v2/jetpack-ai/ai-assistant-feature',
                     query: 'force=wpcom',
                 });
+                if (response.data) {
+                    throw new Error('Failed to fetch');
+                }
                 // Store the feature in the store.
                 dispatch(actions.storeAiAssistantFeature(mapAiFeatureResponseToAiFeatureProps(response)));
             }

@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - AI Client: add types for AI assistant feature payload data branch featuresControl
 
+### Fixed
+- AI Client: fix initial state being mapped even when fetch fails, making the default state nonsensical
+
 ## [0.21.0] - 2024-10-14
 ### Added
 - AI Client: Add image styles 'auto' and 'none' to the logo generator. Order styles so those are on top in the dropdown selector. [#39689]

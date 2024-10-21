@@ -214,6 +214,38 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
     history: import("./types.js").Logo[];
     selectedLogoIndex: number;
 } | {
+    features: {
+        aiAssistantFeature: {
+            _meta: {
+                isRequesting: boolean;
+                asyncRequestCountdown: number;
+                asyncRequestTimerId: number;
+                isRequestingImage: boolean;
+            };
+            hasFeature: boolean;
+            isOverLimit: boolean;
+            requestsCount: number;
+            requestsLimit: number;
+            requireUpgrade: boolean;
+            errorMessage?: string;
+            errorCode?: string;
+            upgradeType: import("./types.js").UpgradeTypeProp;
+            currentTier?: import("./types.js").TierProp;
+            usagePeriod?: {
+                currentStart: string;
+                nextStart: string;
+                requestsCount: number;
+            };
+            nextTier?: import("./types.js").TierProp;
+            tierPlansEnabled?: boolean;
+            costs?: {
+                'jetpack-ai-logo-generator': {
+                    logo: number;
+                };
+            };
+            featuresControl?: import("./types.js").FeaturesControl;
+        };
+    };
     _meta: {
         featureFetchError: RequestError;
         isSavingLogoToLibrary?: boolean;
@@ -229,9 +261,6 @@ export default function reducer(state: LogoGeneratorStateProp, action: {
         isLoadingHistory?: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
-    features: {
-        aiAssistantFeature?: AiFeatureStateProps;
-    };
     history: import("./types.js").Logo[];
     selectedLogoIndex: number;
 } | {

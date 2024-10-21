@@ -70,7 +70,7 @@ export const Prompt = ({ initialPrompt = '' }) => {
         }
     }, [prompt]);
     useEffect(() => {
-        if (imageStyles.length > 0) {
+        if (imageStyles && imageStyles.length > 0) {
             // Sort styles to have "None" and "Auto" first
             setStyles([
                 imageStyles.find(({ value }) => value === IMAGE_STYLE_NONE),
