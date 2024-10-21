@@ -32,6 +32,12 @@ const INITIAL_STATE = {
                 asyncRequestTimerId: 0,
                 isRequestingImage: false,
             },
+            featuresControl: {
+                'logo-generator': {
+                    enabled: false,
+                    styles: [],
+                },
+            },
         },
     },
     history: [],

@@ -59,11 +59,9 @@ export type LogoGeneratorFeatureControl = FeatureControl & {
 };
 export type FeatureControl = {
     enabled: boolean;
-    'min-jetpack-version': string;
-    [key: string]: FeatureControl | LogoGeneratorFeatureControl | boolean | string;
 };
 export type FeaturesControl = {
-    [key: string]: FeatureControl;
+    [key: string]: FeatureControl | LogoGeneratorFeatureControl;
 };
 export type AiFeatureProps = {
     hasFeature: boolean;
