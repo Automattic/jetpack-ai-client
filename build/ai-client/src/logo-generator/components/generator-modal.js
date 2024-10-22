@@ -29,7 +29,7 @@ import { UpgradeScreen } from './upgrade-screen.js';
 import { VisitSiteBanner } from './visit-site-banner.js';
 import './generator-modal.scss';
 const debug = debugFactory('jetpack-ai-calypso:generator-modal');
-export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDetails, context, placement, }) => {
+export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload = null, siteDetails, context, placement, }) => {
     const { tracks } = useAnalytics();
     const { recordEvent: recordTracksEvent } = tracks;
     const { setSiteDetails, fetchAiAssistantFeature, loadLogoHistory, setIsLoadingHistory } = useDispatch(STORE_NAME);
@@ -41,7 +41,7 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
     const [needsFeature, setNeedsFeature] = useState(false);
     const [needsMoreRequests, setNeedsMoreRequests] = useState(false);
     const { selectedLogo, getAiAssistantFeature, generateFirstPrompt, generateLogo, setContext, tierPlansEnabled, site, requireUpgrade, } = useLogoGenerator();
-    const { featureFetchError, firstLogoPromptFetchError, clearErrors } = useRequestErrors();
+    const { featureFetchError, setFeatureFetchError, firstLogoPromptFetchError, clearErrors } = useRequestErrors();
     const siteId = siteDetails?.ID;
     const [logoAccepted, setLogoAccepted] = useState(false);
     const { nextTierCheckoutURL: upgradeURL } = useCheckout();
@@ -70,6 +70,13 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
      */
     const initializeModal = useCallback(async () => {
         try {
+            if (!siteId) {
+                throw new Error('Site ID is missing');
+            }
+            if (!feature?.featuresControl?.['logo-generator']?.enabled) {
+                setFeatureFetchError('Failed to fetch feature data');
+                throw new Error('Failed to fetch feature data');
+            }
             const hasHistory = !isLogoHistoryEmpty(String(siteId));
             const logoCost = feature?.costs?.['jetpack-ai-logo-generator']?.logo ?? DEFAULT_LOGO_COST;
             const promptCreationCost = 1;
@@ -135,6 +142,7 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
         isLogoHistoryEmpty,
         siteId,
         requireUpgrade,
+        setFeatureFetchError,
     ]);
     const handleModalOpen = useCallback(async () => {
         setContext(context);
@@ -153,6 +161,14 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
         setIsLoadingHistory(false);
         recordTracksEvent(EVENT_MODAL_CLOSE, { context, placement });
     };
+    const handleReload = useCallback(() => {
+        if (!onReload) {
+            return;
+        }
+        closeModal();
+        requestedFeatureData.current = false;
+        onReload();
+    }, [onReload, closeModal]);
     const handleApplyLogo = (mediaId) => {
         setLogoAccepted(true);
         onApplyLogo?.(mediaId);
@@ -177,7 +193,7 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
     // Handles modal opening logic
     useEffect(() => {
         // While the modal is not open, the siteId is not set, or the feature data is not available, do nothing.
-        if (!isOpen || !siteId || !feature?.costs) {
+        if (!isOpen) {
             return;
         }
         // Prevent multiple calls of the handleModalOpen function
@@ -185,16 +201,13 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload, siteDet
             needsToHandleModalOpen.current = false;
             handleModalOpen();
         }
-    }, [isOpen, siteId, handleModalOpen, feature]);
+    }, [isOpen, handleModalOpen]);
     let body;
     if (loadingState) {
         body = _jsx(FirstLoadScreen, { state: loadingState });
     }
     else if (featureFetchError || firstLogoPromptFetchError) {
-        body = (_jsx(FeatureFetchFailureScreen, { onCancel: closeModal, onRetry: () => {
-                closeModal();
-                onReload?.();
-            } }));
+        body = (_jsx(FeatureFetchFailureScreen, { onCancel: closeModal, onRetry: onReload ? handleReload : null }));
     }
     else if (needsFeature || needsMoreRequests) {
         body = (_jsx(UpgradeScreen, { onCancel: closeModal, upgradeURL: upgradeURL, reason: needsFeature ? 'feature' : 'requests' }));

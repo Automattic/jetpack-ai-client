@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - AI Client: add types for AI assistant feature payload data branch featuresControl
+- AI Client: make reload handler prop optional as it still works in a fuzzy way. The error notice (modal) will instruct to reload the page when the optional prop is not provided
 
 ### Fixed
 - AI Client: fix initial state being mapped even when fetch fails, making the default state nonsensical
