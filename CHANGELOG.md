@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This is an alpha version! The changes listed here are not final.
 
+### Added
+- AI Client: export image generator hook constants
+
 ### Changed
 - AI Client: decouple prompt input as component and export it for reusability
 - AI Client: make reload handler prop optional as it still works in a fuzzy way. The error notice (modal) will instruct to reload the page when the optional prop is not provided
