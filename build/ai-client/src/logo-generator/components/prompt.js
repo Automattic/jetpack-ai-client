@@ -46,6 +46,7 @@ export const AiModalPromptInput = ({ prompt = '', setPrompt = () => { }, disable
             event.preventDefault();
             generateHandler();
         }
+        event.stopPropagation();
     };
     return (_jsxs("div", { className: "jetpack-ai-logo-generator__prompt-query", children: [_jsx("div", { role: "textbox", tabIndex: 0, ref: inputRef, contentEditable: !disabled, 
                 // The content editable div is expected to be updated by the enhance prompt, so warnings are suppressed
