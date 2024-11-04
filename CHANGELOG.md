@@ -5,15 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.24.1-alpha] - unreleased
-
-This is an alpha version! The changes listed here are not final.
-
+## [0.24.1] - 2024-11-04
 ### Added
-- Enable test coverage.
+- Enable test coverage. [#39961]
 
 ### Fixed
-- Jetpack AI: fix for the "Generate with AI" for images text box triggering P2 keyboard shortcuts
+- Jetpack AI: Fix for the "Generate with AI" for images text box triggering P2 keyboard shortcuts. [#39964]
 
 ## [0.24.0] - 2024-10-29
 ### Added
@@ -461,7 +458,7 @@ This is an alpha version! The changes listed here are not final.
 - Updated package dependencies. [#31659]
 - Updated package dependencies. [#31785]
 
-[0.24.1-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.24.0...v0.24.1-alpha
+[0.24.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.24.0...v0.24.1
 [0.24.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.23.0...v0.24.0
 [0.23.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.22.0...v0.23.0
 [0.22.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.21.0...v0.22.0
