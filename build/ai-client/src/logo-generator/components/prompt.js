@@ -21,9 +21,9 @@ import { FairUsageNotice } from './fair-usage-notice.js';
 import { UpgradeNudge } from './upgrade-nudge.js';
 import './prompt.scss';
 const debug = debugFactory('jetpack-ai-calypso:prompt-box');
-export const AiModalPromptInput = ({ prompt = '', setPrompt = () => { }, disabled = false, generateHandler = () => { }, placeholder = '', buttonLabel = '', }) => {
+export const AiModalPromptInput = ({ prompt = '', setPrompt = () => { }, disabled = false, generateHandler = () => { }, placeholder = '', buttonLabel = '', minPromptLength = null, }) => {
     const inputRef = useRef(null);
-    const hasPrompt = prompt?.length >= MINIMUM_PROMPT_LENGTH;
+    const hasPrompt = prompt?.length >= (minPromptLength === null ? MINIMUM_PROMPT_LENGTH : minPromptLength);
     const onPromptInput = (event) => {
         setPrompt(event.target.textContent || '');
     };
@@ -48,9 +48,22 @@ export const AiModalPromptInput = ({ prompt = '', setPrompt = () => { }, disable
         }
         event.stopPropagation();
     };
+    useEffect(() => {
+        // Update prompt text node when prop changes
+        if (inputRef.current && inputRef.current.textContent !== prompt) {
+            inputRef.current.textContent = prompt;
+        }
+    }, [prompt]);
+    // fix for contenteditable divs not being able to be cleared by the user
+    // as per default browser behavior
+    const onKeyUp = () => {
+        if (inputRef.current?.textContent === '') {
+            inputRef.current.innerHTML = '';
+        }
+    };
     return (_jsxs("div", { className: "jetpack-ai-logo-generator__prompt-query", children: [_jsx("div", { role: "textbox", tabIndex: 0, ref: inputRef, contentEditable: !disabled, 
                 // The content editable div is expected to be updated by the enhance prompt, so warnings are suppressed
-                suppressContentEditableWarning: true, className: "prompt-query__input", onInput: onPromptInput, onPaste: onPromptPaste, onKeyDown: onKeyDown, "data-placeholder": placeholder }), _jsx(Button, { variant: "primary", className: "jetpack-ai-logo-generator__prompt-submit", onClick: generateHandler, disabled: disabled || !hasPrompt, children: buttonLabel || __('Generate', 'jetpack-ai-client') })] }));
+                suppressContentEditableWarning: true, className: "prompt-query__input", onInput: onPromptInput, onPaste: onPromptPaste, onKeyDown: onKeyDown, onKeyUp: onKeyUp, "data-placeholder": placeholder }), _jsx(Button, { variant: "primary", className: "jetpack-ai-logo-generator__prompt-submit", onClick: generateHandler, disabled: disabled || !hasPrompt, children: buttonLabel || __('Generate', 'jetpack-ai-client') })] }));
 };
 export const Prompt = ({ initialPrompt = '' }) => {
     const { tracks } = useAnalytics();
