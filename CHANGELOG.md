@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - AI Client: split disabled prop to allow disabling input and action button separately
 
+### Changed
+- AI Client: fix prompt cursor to text when editable
+
 ## [0.24.3] - 2024-11-18
 ### Changed
 - AI Client: add effect on AiModalInputPrompt to update/set prompt on prop update [#40113]
