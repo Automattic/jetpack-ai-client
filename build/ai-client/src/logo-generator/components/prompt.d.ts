@@ -3,14 +3,14 @@ import './prompt.scss';
 type PromptProps = {
     initialPrompt?: string;
 };
-export declare const AiModalPromptInput: ({ prompt, setPrompt, disabled, generateHandler, placeholder, buttonLabel, minPromptLength, }: {
+export declare const AiModalPromptInput: ({ prompt, setPrompt, disabled, actionDisabled, generateHandler, placeholder, buttonLabel, }: {
     prompt: string;
     setPrompt: Dispatch<SetStateAction<string>>;
     disabled: boolean;
+    actionDisabled: boolean;
     generateHandler: () => void;
     placeholder?: string;
     buttonLabel?: string;
-    minPromptLength?: number;
 }) => import("react/jsx-runtime").JSX.Element;
 export declare const Prompt: ({ initialPrompt }: PromptProps) => import("react/jsx-runtime").JSX.Element;
 export {};
