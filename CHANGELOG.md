@@ -14,6 +14,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - AI Client: fix prompt cursor to text when editable
+- Updated package dependencies.
 
 ## [0.24.3] - 2024-11-18
 ### Changed
