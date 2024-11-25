@@ -5,16 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.25.0-alpha] - unreleased
-
-This is an alpha version! The changes listed here are not final.
-
+## [0.25.0] - 2024-11-25
 ### Added
-- AI Client: split disabled prop to allow disabling input and action button separately
+- AI Client: split disabled prop to allow disabling input and action button separately [#40210]
 
 ### Changed
-- AI Client: fix prompt cursor to text when editable
-- Updated package dependencies.
+- AI Client: fix prompt cursor to text when editable [#40247]
+- Updated package dependencies. [#40288]
 
 ## [0.24.3] - 2024-11-18
 ### Changed
@@ -474,7 +471,7 @@ This is an alpha version! The changes listed here are not final.
 - AI Client: stop using smart document visibility handling on the fetchEventSource library, so it does not restart the completion when changing tabs. [#32004]
 - Updated package dependencies. [#31468] [#31659] [#31785]
 
-[0.25.0-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.24.3...v0.25.0-alpha
+[0.25.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.24.3...v0.25.0
 [0.24.3]: https://github.com/Automattic/jetpack-ai-client/compare/v0.24.2...v0.24.3
 [0.24.2]: https://github.com/Automattic/jetpack-ai-client/compare/v0.24.1...v0.24.2
 [0.24.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.24.0...v0.24.1
