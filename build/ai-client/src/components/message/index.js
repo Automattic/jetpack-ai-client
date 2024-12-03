@@ -17,12 +17,6 @@ export const MESSAGE_SEVERITY_WARNING = 'warning';
 export const MESSAGE_SEVERITY_ERROR = 'error';
 export const MESSAGE_SEVERITY_SUCCESS = 'success';
 export const MESSAGE_SEVERITY_INFO = 'info';
-const messageSeverityTypes = [
-    MESSAGE_SEVERITY_WARNING,
-    MESSAGE_SEVERITY_ERROR,
-    MESSAGE_SEVERITY_SUCCESS,
-    MESSAGE_SEVERITY_INFO,
-];
 const messageIconsMap = {
     [MESSAGE_SEVERITY_INFO]: null,
     [MESSAGE_SEVERITY_WARNING]: null,

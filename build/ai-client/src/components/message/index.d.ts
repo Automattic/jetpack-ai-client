@@ -11,8 +11,7 @@ export declare const MESSAGE_SEVERITY_WARNING = "warning";
 export declare const MESSAGE_SEVERITY_ERROR = "error";
 export declare const MESSAGE_SEVERITY_SUCCESS = "success";
 export declare const MESSAGE_SEVERITY_INFO = "info";
-declare const messageSeverityTypes: readonly ["warning", "error", "success", "info"];
-export type MessageSeverityProp = (typeof messageSeverityTypes)[number] | null;
+export type MessageSeverityProp = typeof MESSAGE_SEVERITY_WARNING | typeof MESSAGE_SEVERITY_ERROR | typeof MESSAGE_SEVERITY_SUCCESS | typeof MESSAGE_SEVERITY_INFO | null;
 export type MessageProps = {
     icon?: React.ReactNode;
     severity?: MessageSeverityProp;
@@ -67,4 +66,3 @@ export declare function UpgradeMessage({ requestsRemaining, severity, onUpgradeC
  * @return {React.ReactElement } - Message component.
  */
 export declare function ErrorMessage({ error, code, onTryAgainClick, onUpgradeClick, upgradeUrl, }: ErrorMessageProps): React.ReactElement;
-export {};

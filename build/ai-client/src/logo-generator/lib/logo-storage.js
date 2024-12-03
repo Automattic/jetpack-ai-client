@@ -119,7 +119,7 @@ export async function clearDeletedMedia(siteId) {
             .filter(({ exists }) => !exists)
             .forEach(({ mediaId }) => removeLogo({ siteId, mediaId }));
     }
-    catch (error) {
+    catch {
         // Assume that the media exists if there was a network error and do nothing to avoid data loss.
     }
 }
