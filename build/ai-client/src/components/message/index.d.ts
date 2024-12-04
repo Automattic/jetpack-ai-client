@@ -37,32 +37,32 @@ export type ErrorMessageProps = {
  * React component to render a block message.
  *
  * @param {MessageProps} props - Component props.
- * @return {React.ReactElement }    Banner component.
+ * @return {React.ReactElement}    Banner component.
  */
 export default function Message({ severity, icon, showSidebarIcon, onSidebarIconClick, children, }: MessageProps): React.ReactElement;
 /**
  * React component to render a guideline message.
  *
- * @return {React.ReactElement } - Message component.
+ * @return {React.ReactElement} - Message component.
  */
 export declare function GuidelineMessage(): React.ReactElement;
 /**
  * React component to render a fair usage limit message.
  *
- * @return {React.ReactElement } - Message component.
+ * @return {React.ReactElement} - Message component.
  */
 export declare function FairUsageLimitMessage(): React.ReactElement;
 /**
  * React component to render an upgrade message for free tier users
  *
  * @param {number} requestsRemaining - Number of requests remaining.
- * @return {React.ReactElement } - Message component.
+ * @return {React.ReactElement} - Message component.
  */
 export declare function UpgradeMessage({ requestsRemaining, severity, onUpgradeClick, upgradeUrl, }: UpgradeMessageProps): React.ReactElement;
 /**
  * React component to render an error message
  *
  * @param {number} requestsRemaining - Number of requests remaining.
- * @return {React.ReactElement } - Message component.
+ * @return {React.ReactElement} - Message component.
  */
 export declare function ErrorMessage({ error, code, onTryAgainClick, onUpgradeClick, upgradeUrl, }: ErrorMessageProps): React.ReactElement;

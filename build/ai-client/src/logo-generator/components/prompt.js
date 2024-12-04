@@ -60,9 +60,9 @@ export const AiModalPromptInput = ({ prompt = '', setPrompt = () => { }, disable
             inputRef.current.innerHTML = '';
         }
     };
-    return (_jsxs("div", { className: "jetpack-ai-logo-generator__prompt-query", children: [_jsx("div", { role: "textbox", tabIndex: 0, ref: inputRef, contentEditable: !disabled, 
+    return (_jsxs("div", { className: "jetpack-ai-image-generator__prompt-query", children: [_jsx("div", { role: "textbox", tabIndex: 0, ref: inputRef, contentEditable: !disabled, 
                 // The content editable div is expected to be updated by the enhance prompt, so warnings are suppressed
-                suppressContentEditableWarning: true, className: "prompt-query__input", onInput: onPromptInput, onPaste: onPromptPaste, onKeyDown: onKeyDown, onKeyUp: onKeyUp, "data-placeholder": placeholder }), _jsx(Button, { variant: "primary", className: "jetpack-ai-logo-generator__prompt-submit", onClick: generateHandler, disabled: actionDisabled, children: buttonLabel || __('Generate', 'jetpack-ai-client') })] }));
+                suppressContentEditableWarning: true, className: "prompt-query__input", onInput: onPromptInput, onPaste: onPromptPaste, onKeyDown: onKeyDown, onKeyUp: onKeyUp, "data-placeholder": placeholder }), _jsx(Button, { variant: "primary", className: "jetpack-ai-image-generator__prompt-submit", onClick: generateHandler, disabled: actionDisabled, children: buttonLabel || __('Generate', 'jetpack-ai-client') })] }));
 };
 export const Prompt = ({ initialPrompt = '' }) => {
     const { tracks } = useAnalytics();
