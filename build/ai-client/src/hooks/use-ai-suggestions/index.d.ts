@@ -3,8 +3,7 @@
  */
 import type { AskQuestionOptionsArgProps } from '../../ask-question/index.js';
 import type SuggestionsEventSource from '../../suggestions-event-source/index.js';
-import type { PromptProp, SuggestionErrorCode } from '../../types.js';
-import type { RequestingStateProp } from '../../types.js';
+import type { PromptProp, SuggestionErrorCode, RequestingStateProp } from '../../types.js';
 export type RequestingErrorProps = {
     code: SuggestionErrorCode;
     message: string;
