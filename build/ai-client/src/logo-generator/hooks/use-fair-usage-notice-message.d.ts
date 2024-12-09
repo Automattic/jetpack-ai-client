@@ -1,3 +1,3 @@
-/// <reference types="react" resolution-mode="require"/>
-declare const useFairUsageNoticeMessage: () => import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>>;
+import { type Element } from '@wordpress/element';
+declare const useFairUsageNoticeMessage: () => Element;
 export default useFairUsageNoticeMessage;
