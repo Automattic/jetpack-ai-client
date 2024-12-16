@@ -1,4 +1,4 @@
-import type { AiFeatureStateProps, LogoGeneratorStateProp, RequestError } from './types.js';
+import type { AiFeatureStateProps, RequestError } from './types.js';
 import type { SiteDetails } from '../types.js';
 /**
  * Reducer for the Logo Generator store.
@@ -27,7 +27,7 @@ import type { SiteDetails } from '../types.js';
  * @param {boolean}                                                         action.isLoadingHistory      - Whether the history is being loaded
  * @return {LogoGeneratorStateProp} The new state
  */
-export default function reducer(state: LogoGeneratorStateProp, action: {
+export default function reducer(state: import("./types.js").LogoGeneratorStateProp, action: {
     type: string;
     feature?: AiFeatureStateProps;
     count?: number;
