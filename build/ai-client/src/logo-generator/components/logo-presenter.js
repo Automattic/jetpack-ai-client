@@ -10,6 +10,7 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
+import AiFeedbackThumbs from '../../components/ai-feedback/index.js';
 import CheckIcon from '../assets/icons/check.js';
 import LogoIcon from '../assets/icons/logo.js';
 import MediaIcon from '../assets/icons/media.js';
@@ -80,8 +81,31 @@ const LogoFetching = () => {
 const LogoEmpty = () => {
     return (_jsxs(_Fragment, { children: [_jsx("div", { style: { width: 0, height: '229px' } }), _jsx("span", { className: "jetpack-ai-logo-generator-modal-presenter__loading-text", children: __('Once you generate a logo, it will show up here', 'jetpack-ai-client') })] }));
 };
+const RateLogo = ({ disabled, ratedItem, onRate }) => {
+    const { logos, selectedLogo } = useLogoGenerator();
+    const savedRatings = logos
+        .filter(logo => logo.rating)
+        .reduce((acc, logo) => {
+        acc[logo.url] = logo.rating;
+        return acc;
+    }, {});
+    return (_jsx(AiFeedbackThumbs, { disabled: disabled, ratedItem: ratedItem, feature: "logo-generator", savedRatings: savedRatings, options: {
+            mediaLibraryId: selectedLogo.mediaId,
+            prompt: selectedLogo.description,
+        }, onRate: onRate }));
+};
 const LogoReady = ({ siteId, logo, onApplyLogo }) => {
-    return (_jsxs(_Fragment, { children: [_jsx("img", { src: logo.url, alt: logo.description, className: "jetpack-ai-logo-generator-modal-presenter__logo" }), _jsxs("div", { className: "jetpack-ai-logo-generator-modal-presenter__action-wrapper", children: [_jsx("span", { className: "jetpack-ai-logo-generator-modal-presenter__description", children: logo.description }), _jsxs("div", { className: "jetpack-ai-logo-generator-modal-presenter__actions", children: [_jsx(SaveInLibraryButton, { siteId: siteId }), _jsx(UseOnSiteButton, { onApplyLogo: onApplyLogo })] })] })] }));
+    const handleRateLogo = (rating) => {
+        // Update localStorage
+        updateLogo({
+            siteId,
+            url: logo.url,
+            newUrl: logo.url,
+            mediaId: logo.mediaId,
+            rating,
+        });
+    };
+    return (_jsxs(_Fragment, { children: [_jsx("img", { src: logo.url, alt: logo.description, className: "jetpack-ai-logo-generator-modal-presenter__logo" }), _jsxs("div", { className: "jetpack-ai-logo-generator-modal-presenter__action-wrapper", children: [_jsx("span", { className: "jetpack-ai-logo-generator-modal-presenter__description", children: logo.description }), _jsxs("div", { className: "jetpack-ai-logo-generator-modal-presenter__actions", children: [_jsx(SaveInLibraryButton, { siteId: siteId }), _jsx(UseOnSiteButton, { onApplyLogo: onApplyLogo }), _jsx(RateLogo, { ratedItem: logo.url, disabled: false, onRate: handleRateLogo })] })] })] }));
 };
 const LogoUpdated = ({ logo }) => {
     return (_jsxs(_Fragment, { children: [_jsx("img", { src: logo.url, alt: logo.description, className: "jetpack-ai-logo-generator-modal-presenter__logo" }), _jsxs("div", { className: "jetpack-ai-logo-generator-modal-presenter__success-wrapper", children: [_jsx(Icon, { icon: _jsx(CheckIcon, {}) }), _jsx("span", { children: __('Your new logo was set to the block!', 'jetpack-ai-client') })] })] }));

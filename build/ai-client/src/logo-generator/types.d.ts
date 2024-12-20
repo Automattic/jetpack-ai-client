@@ -78,6 +78,7 @@ export type UpdateInStorageProps = {
     url: Logo['url'];
     newUrl: Logo['url'];
     mediaId: Logo['mediaId'];
+    rating?: Logo['rating'];
 };
 export type RemoveFromStorageProps = {
     mediaId: Logo['mediaId'];

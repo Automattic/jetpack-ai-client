@@ -6,15 +6,15 @@ import { RemoveFromStorageProps, SaveToStorageProps, UpdateInStorageProps } from
 /**
  * Add an entry to the site's logo history.
  *
- * @param {SaveToStorageProps}             saveToStorageProps             - The properties to save to storage
- * @param {SaveToStorageProps.siteId}      saveToStorageProps.siteId      - The site ID
- * @param {SaveToStorageProps.url}         saveToStorageProps.url         - The URL of the logo
- * @param {SaveToStorageProps.description} saveToStorageProps.description - The description of the logo, based on the prompt used to generate it
- * @param {SaveToStorageProps.mediaId}     saveToStorageProps.mediaId     - The media ID of the logo on the backend
- *
+ * @param {SaveToStorageProps}               saveToStorageProps               - The properties to save to storage
+ * @param {SaveToStorageProps.siteId}        saveToStorageProps.siteId        - The site ID
+ * @param {SaveToStorageProps.url}           saveToStorageProps.url           - The URL of the logo
+ * @param {SaveToStorageProps.description}   saveToStorageProps.description   - The description of the logo, based on the prompt used to generate it
+ * @param {SaveToStorageProps.mediaId}       saveToStorageProps.mediaId       - The media ID of the logo on the backend
+ * @param {SaveToStorageProps.revisedPrompt} saveToStorageProps.revisedPrompt - The revised prompt of the logo
  * @return {Logo} The logo that was saved
  */
-export declare function stashLogo({ siteId, url, description, mediaId }: SaveToStorageProps): Logo;
+export declare function stashLogo({ siteId, url, description, mediaId, revisedPrompt, }: SaveToStorageProps): Logo;
 /**
  * Update an entry in the site's logo history.
  *
@@ -23,9 +23,10 @@ export declare function stashLogo({ siteId, url, description, mediaId }: SaveToS
  * @param {UpdateInStorageProps.url}     updateInStorageProps.url     - The URL of the logo to update
  * @param {UpdateInStorageProps.newUrl}  updateInStorageProps.newUrl  - The new URL of the logo
  * @param {UpdateInStorageProps.mediaId} updateInStorageProps.mediaId - The new media ID of the logo
+ * @param {UpdateInStorageProps.rating}  updateInStorageProps.rating  - The new rating of the logo
  * @return {Logo} The logo that was updated
  */
-export declare function updateLogo({ siteId, url, newUrl, mediaId }: UpdateInStorageProps): Logo;
+export declare function updateLogo({ siteId, url, newUrl, mediaId, rating }: UpdateInStorageProps): Logo;
 /**
  * Get the logo history for a site.
  *
