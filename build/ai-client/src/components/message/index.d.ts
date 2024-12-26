@@ -12,13 +12,20 @@ export declare const MESSAGE_SEVERITY_ERROR = "error";
 export declare const MESSAGE_SEVERITY_SUCCESS = "success";
 export declare const MESSAGE_SEVERITY_INFO = "info";
 export type MessageSeverityProp = typeof MESSAGE_SEVERITY_WARNING | typeof MESSAGE_SEVERITY_ERROR | typeof MESSAGE_SEVERITY_SUCCESS | typeof MESSAGE_SEVERITY_INFO | null;
+type RateProps = {
+    ratedItem?: string;
+    prompt?: string;
+    onRate?: (rating: string) => void;
+};
 export type MessageProps = {
     icon?: React.ReactNode;
     severity?: MessageSeverityProp;
-    showSidebarIcon?: boolean;
-    onSidebarIconClick?: () => void;
+    showAIFeedbackThumbs?: boolean;
     children: React.ReactNode;
-};
+} & RateProps;
+export type GuidelineMessageProps = {
+    showAIFeedbackThumbs?: boolean;
+} & RateProps;
 export type OnUpgradeClick = (event?: React.MouseEvent<HTMLButtonElement>) => void;
 export type UpgradeMessageProps = {
     requestsRemaining: number;
@@ -39,13 +46,14 @@ export type ErrorMessageProps = {
  * @param {MessageProps} props - Component props.
  * @return {React.ReactElement}    Banner component.
  */
-export default function Message({ severity, icon, showSidebarIcon, onSidebarIconClick, children, }: MessageProps): React.ReactElement;
+export default function Message({ severity, icon, showAIFeedbackThumbs, ratedItem, prompt, onRate, children, }: MessageProps): React.ReactElement;
 /**
  * React component to render a guideline message.
  *
+ * @param {GuidelineMessageProps} props - Component props.
  * @return {React.ReactElement} - Message component.
  */
-export declare function GuidelineMessage(): React.ReactElement;
+export declare function GuidelineMessage({ showAIFeedbackThumbs, ...props }: GuidelineMessageProps): React.ReactElement;
 /**
  * React component to render a fair usage limit message.
  *
@@ -66,3 +74,4 @@ export declare function UpgradeMessage({ requestsRemaining, severity, onUpgradeC
  * @return {React.ReactElement} - Message component.
  */
 export declare function ErrorMessage({ error, code, onTryAgainClick, onUpgradeClick, upgradeUrl, }: ErrorMessageProps): React.ReactElement;
+export {};

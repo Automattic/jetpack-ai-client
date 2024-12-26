@@ -5,7 +5,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { ExternalLink, Button } from '@wordpress/components';
 import { createInterpolateElement } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
-import { Icon, check, arrowRight } from '@wordpress/icons';
+import { Icon, check } from '@wordpress/icons';
 import clsx from 'clsx';
 /**
  * Internal dependencies
@@ -13,6 +13,7 @@ import clsx from 'clsx';
 import './style.scss';
 import errorExclamation from '../../icons/error-exclamation.js';
 import { ERROR_QUOTA_EXCEEDED } from '../../types.js';
+import AiFeedbackThumbs from '../ai-feedback/index.js';
 export const MESSAGE_SEVERITY_WARNING = 'warning';
 export const MESSAGE_SEVERITY_ERROR = 'error';
 export const MESSAGE_SEVERITY_SUCCESS = 'success';
@@ -29,8 +30,10 @@ const messageIconsMap = {
  * @param {MessageProps} props - Component props.
  * @return {React.ReactElement}    Banner component.
  */
-export default function Message({ severity = MESSAGE_SEVERITY_INFO, icon = null, showSidebarIcon = false, onSidebarIconClick = () => { }, children, }) {
-    return (_jsxs("div", { className: clsx('jetpack-ai-assistant__message', `jetpack-ai-assistant__message-severity-${severity}`), children: [(messageIconsMap[severity] || icon) && (_jsx(Icon, { icon: messageIconsMap[severity] || icon })), _jsx("div", { className: "jetpack-ai-assistant__message-content", children: children }), showSidebarIcon && (_jsx(Button, { className: "jetpack-ai-assistant__message-sidebar", onClick: onSidebarIconClick, children: _jsx(Icon, { size: 20, icon: arrowRight }) }))] }));
+export default function Message({ severity = MESSAGE_SEVERITY_INFO, icon = null, showAIFeedbackThumbs = false, ratedItem = '', prompt = '', onRate = () => { }, children, }) {
+    return (_jsxs("div", { className: clsx('jetpack-ai-assistant__message', `jetpack-ai-assistant__message-severity-${severity}`), children: [(messageIconsMap[severity] || icon) && (_jsx(Icon, { icon: messageIconsMap[severity] || icon })), _jsx("div", { className: "jetpack-ai-assistant__message-content", children: children }), showAIFeedbackThumbs && (_jsx(AiFeedbackThumbs, { disabled: false, ratedItem: ratedItem, feature: "ai-assistant", options: {
+                    prompt,
+                }, onRate: onRate }))] }));
 }
 /**
  * React component to render a learn more link.
@@ -43,10 +46,11 @@ function LearnMoreLink() {
 /**
  * React component to render a guideline message.
  *
+ * @param {GuidelineMessageProps} props - Component props.
  * @return {React.ReactElement} - Message component.
  */
-export function GuidelineMessage() {
-    return (_jsxs(Message, { children: [_jsx("span", { children: __('AI-generated content could be inaccurate or biased.', 'jetpack-ai-client') }), _jsx(LearnMoreLink, {})] }));
+export function GuidelineMessage({ showAIFeedbackThumbs = false, ...props }) {
+    return (_jsxs(Message, { showAIFeedbackThumbs: showAIFeedbackThumbs, ...props, children: [_jsx("span", { children: __('AI-generated content could be inaccurate or biased.', 'jetpack-ai-client') }), _jsx(LearnMoreLink, {})] }));
 }
 /**
  * React component to render a fair usage limit message.

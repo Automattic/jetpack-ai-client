@@ -26,6 +26,9 @@ export function ExtensionAIControl({ className, disabled = false, value = '', pl
     const [editRequest, setEditRequest] = useState(false);
     const [lastValue, setLastValue] = useState(value || null);
     const promptUserInputRef = useRef(null);
+    const isDone = value?.length <= 0 && state === 'done';
+    const [initialPlaceholder] = useState(placeholder);
+    const [prompt, setPrompt] = useState(null);
     // Pass the ref to forwardRef.
     useImperativeHandle(ref, () => promptUserInputRef.current);
     useEffect(() => {
@@ -33,8 +36,15 @@ export function ExtensionAIControl({ className, disabled = false, value = '', pl
             promptUserInputRef?.current?.focus();
         }
     }, [editRequest]);
+    useEffect(() => {
+        if (placeholder !== initialPlaceholder) {
+            // The prompt is used to determine if there was a toolbar action
+            setPrompt(placeholder);
+        }
+    }, [placeholder]);
     const sendHandler = useCallback(() => {
         setLastValue(value);
+        setPrompt(value);
         setEditRequest(false);
         onSend?.(value);
     }, [onSend, value]);
@@ -73,7 +83,7 @@ export function ExtensionAIControl({ className, disabled = false, value = '', pl
     }, {
         target: promptUserInputRef,
     });
-    const actions = (_jsx(_Fragment, { children: loading ? (_jsx(Button, { className: "jetpack-components-ai-control__controls-prompt_button", onClick: stopHandler, variant: "secondary", label: __('Stop request', 'jetpack-ai-client'), children: showButtonLabels ? __('Stop', 'jetpack-ai-client') : _jsx(Icon, { icon: closeSmall }) })) : (_jsxs(_Fragment, { children: [value?.length > 0 && (_jsx("div", { className: "jetpack-components-ai-control__controls-prompt_button_wrapper", children: _jsx(Button, { className: "jetpack-components-ai-control__controls-prompt_button", onClick: sendHandler, variant: "primary", disabled: !value?.length || disabled, label: __('Send request', 'jetpack-ai-client'), children: showButtonLabels ? (__('Generate', 'jetpack-ai-client')) : (_jsx(Icon, { icon: arrowUp })) }) })), value?.length <= 0 && state === 'done' && (_jsx("div", { className: "jetpack-components-ai-control__controls-prompt_button_wrapper", children: _jsxs(ButtonGroup, { children: [_jsx(Button, { className: "jetpack-components-ai-control__controls-prompt_button", label: __('Undo', 'jetpack-ai-client'), onClick: undoHandler, tooltipPosition: "top", children: _jsx(Icon, { icon: undo }) }), _jsx(Button, { className: "jetpack-components-ai-control__controls-prompt_button", label: __('Close', 'jetpack-ai-client'), onClick: closeHandler, variant: "tertiary", children: __('Close', 'jetpack-ai-client') })] }) }))] })) }));
+    const actions = (_jsx(_Fragment, { children: loading ? (_jsx(Button, { className: "jetpack-components-ai-control__controls-prompt_button", onClick: stopHandler, variant: "secondary", label: __('Stop request', 'jetpack-ai-client'), children: showButtonLabels ? __('Stop', 'jetpack-ai-client') : _jsx(Icon, { icon: closeSmall }) })) : (_jsxs(_Fragment, { children: [value?.length > 0 && (_jsx("div", { className: "jetpack-components-ai-control__controls-prompt_button_wrapper", children: _jsx(Button, { className: "jetpack-components-ai-control__controls-prompt_button", onClick: sendHandler, variant: "primary", disabled: !value?.length || disabled, label: __('Send request', 'jetpack-ai-client'), children: showButtonLabels ? (__('Generate', 'jetpack-ai-client')) : (_jsx(Icon, { icon: arrowUp })) }) })), isDone && (_jsx("div", { className: "jetpack-components-ai-control__controls-prompt_button_wrapper", children: _jsxs(ButtonGroup, { children: [_jsx(Button, { className: "jetpack-components-ai-control__controls-prompt_button", label: __('Undo', 'jetpack-ai-client'), onClick: undoHandler, tooltipPosition: "top", children: _jsx(Icon, { icon: undo }) }), _jsx(Button, { className: "jetpack-components-ai-control__controls-prompt_button", label: __('Close', 'jetpack-ai-client'), onClick: closeHandler, variant: "tertiary", children: __('Close', 'jetpack-ai-client') })] }) }))] })) }));
     let message = null;
     if (error?.message) {
         message = (_jsx(ErrorMessage, { error: error.message, code: error.code, onTryAgainClick: tryAgainHandler, onUpgradeClick: upgradeHandler, upgradeUrl: upgradeUrl }));
@@ -85,7 +95,7 @@ export function ExtensionAIControl({ className, disabled = false, value = '', pl
         message = (_jsx(UpgradeMessage, { requestsRemaining: requestsRemaining, onUpgradeClick: upgradeHandler, upgradeUrl: upgradeUrl }));
     }
     else if (showGuideLine) {
-        message = _jsx(GuidelineMessage, {});
+        message = isDone ? (_jsx(GuidelineMessage, { showAIFeedbackThumbs: true, ratedItem: 'ai-assistant', prompt: prompt })) : (_jsx(GuidelineMessage, {}));
     }
     return (_jsx(AIControl, { className: className, disabled: disabled || loading, value: value, placeholder: placeholder, isTransparent: isTransparent, state: state, onChange: changeHandler, actions: actions, message: message, promptUserInputRef: promptUserInputRef, wrapperRef: wrapperRef }));
 }
