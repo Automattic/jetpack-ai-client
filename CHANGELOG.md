@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - AI Client: Add thumbs feedback on AI Assistant
 
+### Changed
+- AI Client: Move prompt types and update thumbs feedback event
+
 ## [0.25.3] - 2024-12-23
 ### Added
 - Jetpack AI: Add thumbs up/down component to AI logo generator [#40610]

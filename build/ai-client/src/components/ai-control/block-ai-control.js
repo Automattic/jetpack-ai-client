@@ -23,7 +23,7 @@ const debug = debugFactory('jetpack-ai-client:block-ai-control');
  * @param {React.MutableRefObject} ref   - Ref to the component
  * @return {ReactElement}             Rendered component
  */
-export function BlockAIControl({ disabled = false, value = '', placeholder = '', showAccept = false, acceptLabel = __('Accept', 'jetpack-ai-client'), showButtonLabels = true, isTransparent = false, state = 'init', showGuideLine = false, customFooter = null, onChange, onSend, onStop, onAccept, onDiscard, showRemove = false, banner = null, error = null, }, ref) {
+export function BlockAIControl({ disabled = false, value = '', placeholder = '', showAccept = false, acceptLabel = __('Accept', 'jetpack-ai-client'), showButtonLabels = true, isTransparent = false, state = 'init', showGuideLine = false, customFooter = null, onChange, onSend, onStop, onAccept, onDiscard, showRemove = false, banner = null, error = null, lastAction, }, ref) {
     const loading = state === 'requesting' || state === 'suggesting';
     const [editRequest, setEditRequest] = useState(false);
     const [lastValue, setLastValue] = useState(value || null);
@@ -79,7 +79,12 @@ export function BlockAIControl({ disabled = false, value = '', placeholder = '',
     const message = showGuideLine &&
         !loading &&
         !editRequest &&
-        (customFooter || (_jsx(GuidelineMessage, { showAIFeedbackThumbs: true, ratedItem: 'ai-assistant', prompt: value })));
+        (customFooter || (_jsx(GuidelineMessage, { aiFeedbackThumbsOptions: {
+                showAIFeedbackThumbs: true,
+                ratedItem: 'ai-assistant',
+                prompt: lastAction,
+                block: 'ai-assistant',
+            } })));
     return (_jsx(AIControl, { disabled: disabled || loading, value: value, placeholder: placeholder, isTransparent: isTransparent, state: state, onChange: changeHandler, banner: banner, error: error, actions: actions, message: message, promptUserInputRef: promptUserInputRef }));
 }
 export default forwardRef(BlockAIControl);

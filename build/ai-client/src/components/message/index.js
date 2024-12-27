@@ -30,10 +30,17 @@ const messageIconsMap = {
  * @param {MessageProps} props - Component props.
  * @return {React.ReactElement}    Banner component.
  */
-export default function Message({ severity = MESSAGE_SEVERITY_INFO, icon = null, showAIFeedbackThumbs = false, ratedItem = '', prompt = '', onRate = () => { }, children, }) {
-    return (_jsxs("div", { className: clsx('jetpack-ai-assistant__message', `jetpack-ai-assistant__message-severity-${severity}`), children: [(messageIconsMap[severity] || icon) && (_jsx(Icon, { icon: messageIconsMap[severity] || icon })), _jsx("div", { className: "jetpack-ai-assistant__message-content", children: children }), showAIFeedbackThumbs && (_jsx(AiFeedbackThumbs, { disabled: false, ratedItem: ratedItem, feature: "ai-assistant", options: {
-                    prompt,
-                }, onRate: onRate }))] }));
+export default function Message({ severity = MESSAGE_SEVERITY_INFO, icon = null, aiFeedbackThumbsOptions = {
+    showAIFeedbackThumbs: false,
+    ratedItem: '',
+    prompt: '',
+    block: null,
+    onRate: () => { },
+}, children, }) {
+    return (_jsxs("div", { className: clsx('jetpack-ai-assistant__message', `jetpack-ai-assistant__message-severity-${severity}`), children: [(messageIconsMap[severity] || icon) && (_jsx(Icon, { icon: messageIconsMap[severity] || icon })), _jsx("div", { className: "jetpack-ai-assistant__message-content", children: children }), aiFeedbackThumbsOptions.showAIFeedbackThumbs && aiFeedbackThumbsOptions.prompt && (_jsx(AiFeedbackThumbs, { disabled: false, ratedItem: aiFeedbackThumbsOptions.ratedItem, feature: "ai-assistant", options: {
+                    prompt: aiFeedbackThumbsOptions.prompt,
+                    block: aiFeedbackThumbsOptions.block,
+                }, onRate: aiFeedbackThumbsOptions.onRate }))] }));
 }
 /**
  * React component to render a learn more link.
@@ -49,8 +56,14 @@ function LearnMoreLink() {
  * @param {GuidelineMessageProps} props - Component props.
  * @return {React.ReactElement} - Message component.
  */
-export function GuidelineMessage({ showAIFeedbackThumbs = false, ...props }) {
-    return (_jsxs(Message, { showAIFeedbackThumbs: showAIFeedbackThumbs, ...props, children: [_jsx("span", { children: __('AI-generated content could be inaccurate or biased.', 'jetpack-ai-client') }), _jsx(LearnMoreLink, {})] }));
+export function GuidelineMessage({ aiFeedbackThumbsOptions = {
+    showAIFeedbackThumbs: false,
+    ratedItem: '',
+    prompt: '',
+    block: null,
+    onRate: () => { },
+}, }) {
+    return (_jsxs(Message, { aiFeedbackThumbsOptions: aiFeedbackThumbsOptions, children: [_jsx("span", { children: __('AI-generated content could be inaccurate or biased.', 'jetpack-ai-client') }), _jsx(LearnMoreLink, {})] }));
 }
 /**
  * React component to render a fair usage limit message.

@@ -12,20 +12,22 @@ export declare const MESSAGE_SEVERITY_ERROR = "error";
 export declare const MESSAGE_SEVERITY_SUCCESS = "success";
 export declare const MESSAGE_SEVERITY_INFO = "info";
 export type MessageSeverityProp = typeof MESSAGE_SEVERITY_WARNING | typeof MESSAGE_SEVERITY_ERROR | typeof MESSAGE_SEVERITY_SUCCESS | typeof MESSAGE_SEVERITY_INFO | null;
-type RateProps = {
+type AiFeedbackThumbsOptions = {
+    showAIFeedbackThumbs?: boolean;
     ratedItem?: string;
     prompt?: string;
+    block?: string | null;
     onRate?: (rating: string) => void;
 };
 export type MessageProps = {
     icon?: React.ReactNode;
     severity?: MessageSeverityProp;
-    showAIFeedbackThumbs?: boolean;
+    aiFeedbackThumbsOptions?: AiFeedbackThumbsOptions;
     children: React.ReactNode;
-} & RateProps;
+};
 export type GuidelineMessageProps = {
-    showAIFeedbackThumbs?: boolean;
-} & RateProps;
+    aiFeedbackThumbsOptions?: AiFeedbackThumbsOptions;
+};
 export type OnUpgradeClick = (event?: React.MouseEvent<HTMLButtonElement>) => void;
 export type UpgradeMessageProps = {
     requestsRemaining: number;
@@ -46,14 +48,14 @@ export type ErrorMessageProps = {
  * @param {MessageProps} props - Component props.
  * @return {React.ReactElement}    Banner component.
  */
-export default function Message({ severity, icon, showAIFeedbackThumbs, ratedItem, prompt, onRate, children, }: MessageProps): React.ReactElement;
+export default function Message({ severity, icon, aiFeedbackThumbsOptions, children, }: MessageProps): React.ReactElement;
 /**
  * React component to render a guideline message.
  *
  * @param {GuidelineMessageProps} props - Component props.
  * @return {React.ReactElement} - Message component.
  */
-export declare function GuidelineMessage({ showAIFeedbackThumbs, ...props }: GuidelineMessageProps): React.ReactElement;
+export declare function GuidelineMessage({ aiFeedbackThumbsOptions, }: GuidelineMessageProps): React.ReactElement;
 /**
  * React component to render a fair usage limit message.
  *

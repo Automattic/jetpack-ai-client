@@ -21,14 +21,12 @@ import './style.scss';
  * @param {React.MutableRefObject}  ref   - Ref to the component
  * @return {ReactElement}                 Rendered component
  */
-export function ExtensionAIControl({ className, disabled = false, value = '', placeholder = '', showButtonLabels = true, isTransparent = false, state = 'init', showGuideLine = false, error, requestsRemaining, showUpgradeMessage = false, showFairUsageMessage = false, upgradeUrl, wrapperRef, onChange, onSend, onStop, onClose, onUndo, onUpgrade, onTryAgain, }, ref) {
+export function ExtensionAIControl({ className, disabled = false, value = '', placeholder = '', showButtonLabels = true, isTransparent = false, state = 'init', showGuideLine = false, error, requestsRemaining, showUpgradeMessage = false, showFairUsageMessage = false, upgradeUrl, wrapperRef, onChange, onSend, onStop, onClose, onUndo, onUpgrade, onTryAgain, lastAction, blockType, }, ref) {
     const loading = state === 'requesting' || state === 'suggesting';
     const [editRequest, setEditRequest] = useState(false);
     const [lastValue, setLastValue] = useState(value || null);
     const promptUserInputRef = useRef(null);
     const isDone = value?.length <= 0 && state === 'done';
-    const [initialPlaceholder] = useState(placeholder);
-    const [prompt, setPrompt] = useState(null);
     // Pass the ref to forwardRef.
     useImperativeHandle(ref, () => promptUserInputRef.current);
     useEffect(() => {
@@ -36,15 +34,8 @@ export function ExtensionAIControl({ className, disabled = false, value = '', pl
             promptUserInputRef?.current?.focus();
         }
     }, [editRequest]);
-    useEffect(() => {
-        if (placeholder !== initialPlaceholder) {
-            // The prompt is used to determine if there was a toolbar action
-            setPrompt(placeholder);
-        }
-    }, [placeholder]);
     const sendHandler = useCallback(() => {
         setLastValue(value);
-        setPrompt(value);
         setEditRequest(false);
         onSend?.(value);
     }, [onSend, value]);
@@ -95,7 +86,12 @@ export function ExtensionAIControl({ className, disabled = false, value = '', pl
         message = (_jsx(UpgradeMessage, { requestsRemaining: requestsRemaining, onUpgradeClick: upgradeHandler, upgradeUrl: upgradeUrl }));
     }
     else if (showGuideLine) {
-        message = isDone ? (_jsx(GuidelineMessage, { showAIFeedbackThumbs: true, ratedItem: 'ai-assistant', prompt: prompt })) : (_jsx(GuidelineMessage, {}));
+        message = isDone ? (_jsx(GuidelineMessage, { aiFeedbackThumbsOptions: {
+                showAIFeedbackThumbs: true,
+                ratedItem: 'ai-assistant',
+                prompt: lastAction,
+                block: blockType,
+            } })) : (_jsx(GuidelineMessage, {}));
     }
     return (_jsx(AIControl, { className: className, disabled: disabled || loading, value: value, placeholder: placeholder, isTransparent: isTransparent, state: state, onChange: changeHandler, actions: actions, message: message, promptUserInputRef: promptUserInputRef, wrapperRef: wrapperRef }));
 }

@@ -59,6 +59,7 @@ export default function AiFeedbackThumbs({ disabled = false, iconSize = 24, rate
                 mediaLibraryId: options.mediaLibraryId || null,
                 prompt: options.prompt || null,
                 revisedPrompt: options.revisedPrompt || null,
+                block: options.block || null,
             });
         }
     };
