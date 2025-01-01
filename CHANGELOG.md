@@ -13,6 +13,7 @@ This is an alpha version! The changes listed here are not final.
 - Updated package dependencies.
 
 ### Fixed
+- AI Client: add style parameter to first logo generator so it doesn't fall in a dall-e situation
 - Jetpack AI: Switch tracking data to camel_case to maintain Tracks' required property format
 
 ## [0.25.4] - 2024-12-30

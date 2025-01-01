@@ -55,7 +55,7 @@ export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload = null, 
             setInitialPrompt(prompt);
             // Then generate the logo based on the prompt.
             setLoadingState('generating');
-            await generateLogo({ prompt });
+            await generateLogo({ prompt, style: 'none' });
             setLoadingState(null);
         }
         catch (error) {
