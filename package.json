@@ -44,7 +44,7 @@
 	"main": "./build/index.js",
 	"types": "./build/index.d.ts",
 	"dependencies": {
-		"@automattic/jetpack-base-styles": "^0.6.41-alpha",
+		"@automattic/jetpack-base-styles": "^0.6.41",
 		"@automattic/jetpack-connection": "^0.36.4",
 		"@automattic/jetpack-shared-extension-utils": "^0.16.5-alpha",
 		"@microsoft/fetch-event-source": "2.0.1",
