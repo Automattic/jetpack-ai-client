@@ -6,7 +6,6 @@ export { default as SuggestionsEventSource } from './suggestions-event-source/in
 export { default as askQuestion } from './ask-question/index.js';
 export { default as askQuestionSync } from './ask-question/sync.js';
 export { default as transcribeAudio } from './audio-transcription/index.js';
-
 /*
  * Hooks
  */
@@ -20,37 +19,30 @@ export { default as useAudioValidation } from './hooks/use-audio-validation/inde
 export { default as useImageGenerator } from './hooks/use-image-generator/index.js';
 export { default as usePostContent } from './hooks/use-post-content.js';
 export * from './hooks/use-image-generator/constants.js';
-
 /*
  * Components: Icons
  */
 export * from './icons/index.js';
-
 /*
  * Components
  */
 export * from './components/index.js';
-
 /*
  * Contexts
  */
 export * from './data-flow/index.js';
-
 /*
  * Types
  */
 export * from './types.js';
-
 /*
  * Libs
  */
 export * from './libs/index.js';
-
 /*
  * Constants
  */
 export * from './constants.js';
-
 /*
  * Logo Generator
  */
