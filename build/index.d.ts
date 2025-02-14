@@ -20,3 +20,7 @@ export * from './types.js';
 export * from './libs/index.js';
 export * from './constants.js';
 export * from './logo-generator/index.js';
+/**
+ * Chrome AI
+ */
+export * from './chrome-ai/index.js';
