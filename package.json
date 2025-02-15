@@ -45,7 +45,7 @@
 	"types": "./build/index.d.ts",
 	"dependencies": {
 		"@automattic/jetpack-base-styles": "^0.6.42",
-		"@automattic/jetpack-components": "^0.66.1",
+		"@automattic/jetpack-components": "^0.67.0-alpha",
 		"@automattic/jetpack-connection": "^0.36.6",
 		"@automattic/jetpack-shared-extension-utils": "^0.17.1",
 		"@microsoft/fetch-event-source": "2.0.1",
