@@ -100,8 +100,8 @@ export default function useAiSuggestions({ prompt, autoRequest = false, askQuest
      */
     const handleDone = useCallback((event) => {
         closeEventSource();
-        const fullSuggestion = removeLlamaArtifact(event?.detail);
-        onDone?.(fullSuggestion);
+        const fullSuggestion = removeLlamaArtifact(event?.detail?.message ?? event?.detail);
+        onDone?.(fullSuggestion, event?.detail?.source === 'chromeAI');
         setRequestingState('done');
     }, [onDone]);
     const handleAnyError = useCallback((event) => {

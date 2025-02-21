@@ -18,7 +18,7 @@ type useAiSuggestionsOptions = {
     askQuestionOptions?: AskQuestionOptionsArgProps;
     initialRequestingState?: RequestingStateProp;
     onSuggestion?: (suggestion: string) => void;
-    onDone?: (content: string) => void;
+    onDone?: (content: string, skipRequestCount?: boolean) => void;
     onStop?: () => void;
     onError?: (error: RequestingErrorProps) => void;
     onAllErrors?: (error: RequestingErrorProps) => void;

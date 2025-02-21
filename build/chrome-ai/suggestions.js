@@ -43,7 +43,7 @@ export default class ChromeAISuggestionsEventSource extends EventTarget {
             this.dispatchEvent(new CustomEvent('suggestion', { detail: data.message }));
         }
         if (data.complete) {
-            this.dispatchEvent(new CustomEvent('done', { detail: data.message }));
+            this.dispatchEvent(new CustomEvent('done', { detail: { message: data.message, source: 'chromeAI' } }));
         }
     }
     processErrorEvent(e) {
