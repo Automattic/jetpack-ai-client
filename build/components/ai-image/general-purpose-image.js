@@ -27,7 +27,8 @@ const debug = debugFactory('jetpack-ai:general-purpose-image');
 export default function GeneralPurposeImage({ placement, onClose = () => { }, onSetImage = () => { }, }) {
     const [isFeaturedImageModalVisible, setIsFeaturedImageModalVisible] = useState(true);
     const siteType = useSiteType();
-    const postContent = usePostContent();
+    const { getPostContent } = usePostContent();
+    const postContent = getPostContent();
     const { saveToMediaLibrary } = useSaveToMediaLibrary();
     const { tracks } = useAnalytics();
     const { recordEvent } = tracks;

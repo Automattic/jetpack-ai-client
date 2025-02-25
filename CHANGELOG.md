@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This is an alpha version! The changes listed here are not final.
 
+### Added
+- AI Client: Move openBlockSidebar utility function
+
 ### Changed
 - AI Assistant: Add experimental functionality to test Chrome's built-in AI API with the AI excerpt
 

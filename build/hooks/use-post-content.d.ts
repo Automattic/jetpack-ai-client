@@ -1,5 +1,7 @@
 /**
  * Internal dependencies
  */
-declare const usePostContent: () => string;
+declare const usePostContent: () => {
+    getPostContent: () => string;
+};
 export default usePostContent;
