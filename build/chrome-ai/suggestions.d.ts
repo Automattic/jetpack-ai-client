@@ -8,6 +8,8 @@ type ChromeAISuggestionsEventSourceConstructorArgs = {
         feature?: 'ai-assistant-experimental' | string | undefined;
         sourceLanguage?: string;
         targetLanguage?: string;
+        tone?: string;
+        wordCount?: number;
         functions?: Array<object>;
         model?: AiModelTypeProp;
     };
@@ -30,6 +32,7 @@ export default class ChromeAISuggestionsEventSource extends EventTarget {
     processEvent(e: EventSourceMessage): void;
     processErrorEvent(e: any): void;
     translate(text: string, target: string, source?: string): Promise<void>;
-    summarize(text: string): Promise<string>;
+    private getSummarizerOptions;
+    summarize(text: string, tone?: string, wordCount?: number): Promise<void>;
 }
 export {};

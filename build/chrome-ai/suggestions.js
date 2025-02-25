@@ -24,7 +24,7 @@ export default class ChromeAISuggestionsEventSource extends EventTarget {
             this.translate(content, options.targetLanguage, options.sourceLanguage);
         }
         if (promptType === PROMPT_TYPE_SUMMARIZE) {
-            this.summarize(content);
+            this.summarize(content, options.tone, options.wordCount);
         }
     }
     async initEventSource() { }
@@ -39,7 +39,7 @@ export default class ChromeAISuggestionsEventSource extends EventTarget {
             this.processErrorEvent(err);
             return;
         }
-        if (e.event === 'translation') {
+        if (e.event === 'translation' || e.event === 'summary') {
             this.dispatchEvent(new CustomEvent('suggestion', { detail: data.message }));
         }
         if (data.complete) {
@@ -80,8 +80,48 @@ export default class ChromeAISuggestionsEventSource extends EventTarget {
             this.processErrorEvent(error);
         }
     }
-    // TODO
-    async summarize(text) {
-        return text;
+    // Helper function to format summarizer options
+    getSummarizerOptions(tone, wordCount) {
+        let sharedContext = `The summary you write should contain approximately ${wordCount ?? 50} words long. Strive for precision in word count without compromising clarity and significance`;
+        if (tone) {
+            sharedContext += `\n - Write with a ${tone} tone.\n`;
+        }
+        const options = {
+            sharedContext: sharedContext,
+            type: 'teaser',
+            format: 'plain-text',
+            length: 'medium',
+        };
+        return options;
+    }
+    // use the Chrome AI summarizer
+    async summarize(text, tone, wordCount) {
+        if (!('ai' in self) || !('summarizer' in self.ai)) {
+            return;
+        }
+        const available = (await self.ai.summarizer.capabilities()).available;
+        if (available === 'no') {
+            return;
+        }
+        const options = this.getSummarizerOptions(tone, wordCount);
+        const summarizer = await self.ai.summarizer.create(options);
+        if (available === 'after-download') {
+            await summarizer.ready;
+        }
+        try {
+            const context = `Write with a ${tone} tone.`;
+            const summary = await summarizer.summarize(text, { context: context });
+            this.processEvent({
+                id: '',
+                event: 'summary',
+                data: JSON.stringify({
+                    message: summary,
+                    complete: true,
+                }),
+            });
+        }
+        catch (error) {
+            this.processErrorEvent(error);
+        }
     }
 }
