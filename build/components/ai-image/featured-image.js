@@ -30,8 +30,7 @@ const debug = debugFactory('jetpack-ai-client:featured-image');
 export default function FeaturedImage({ busy, disabled, placement, onClose = () => { }, }) {
     const [isFeaturedImageModalVisible, setIsFeaturedImageModalVisible] = useState(placement === PLACEMENT_MEDIA_SOURCE_DROPDOWN);
     const siteType = useSiteType();
-    const { getPostContent } = usePostContent();
-    const postContent = getPostContent();
+    const { getPostContent, isEditedPostEmpty } = usePostContent();
     const { postTitle, postFeaturedMediaId, isEditorPanelOpened } = useSelect(select => {
         return {
             postTitle: select(editorStore).getEditedPostAttribute('title'),
@@ -81,9 +80,9 @@ export default function FeaturedImage({ busy, disabled, placement, onClose = () 
      * Handle the guess style for the image. It is reworked here to include the post content.
      */
     const handleGuessStyle = useCallback(userPrompt => {
-        const content = postTitle + '\n\n' + postContent;
+        const content = postTitle + '\n\n' + getPostContent();
         return guessStyle(userPrompt, 'featured-image-guess-style', content);
-    }, [postContent, postTitle, guessStyle]);
+    }, [postTitle, getPostContent, guessStyle]);
     const handleGenerate = useCallback(({ userPrompt, style, }) => {
         // track the generate image event
         recordEvent('jetpack_ai_featured_image_generation_generate_image', {
@@ -96,7 +95,7 @@ export default function FeaturedImage({ busy, disabled, placement, onClose = () 
         setIsFeaturedImageModalVisible(true);
         return processImageGeneration({
             userPrompt,
-            postContent: postTitle + '\n\n' + postContent,
+            postContent: postTitle + '\n\n' + getPostContent(),
             notEnoughRequests,
             style,
         }).catch(error => {
@@ -114,7 +113,7 @@ export default function FeaturedImage({ busy, disabled, placement, onClose = () 
         featuredImageActiveModel,
         siteType,
         processImageGeneration,
-        postContent,
+        getPostContent,
         notEnoughRequests,
         postTitle,
     ]);
@@ -139,7 +138,7 @@ export default function FeaturedImage({ busy, disabled, placement, onClose = () 
         setCurrent(() => images.length);
         processImageGeneration({
             userPrompt,
-            postContent: postTitle + '\n\n' + postContent,
+            postContent: postTitle + '\n\n' + getPostContent(),
             notEnoughRequests,
             style,
         }).catch(error => {
@@ -160,7 +159,7 @@ export default function FeaturedImage({ busy, disabled, placement, onClose = () 
         setCurrent,
         processImageGeneration,
         postTitle,
-        postContent,
+        getPostContent,
         notEnoughRequests,
         images,
     ]);
@@ -174,7 +173,7 @@ export default function FeaturedImage({ busy, disabled, placement, onClose = () 
         });
         processImageGeneration({
             userPrompt,
-            postContent: postTitle + '\n\n' + postContent,
+            postContent: postTitle + '\n\n' + getPostContent(),
             notEnoughRequests,
             style,
         }).catch(error => {
@@ -192,7 +191,7 @@ export default function FeaturedImage({ busy, disabled, placement, onClose = () 
         featuredImageActiveModel,
         siteType,
         processImageGeneration,
-        postContent,
+        getPostContent,
         notEnoughRequests,
         postTitle,
     ]);
@@ -262,7 +261,7 @@ export default function FeaturedImage({ busy, disabled, placement, onClose = () 
     ]);
     const generateAgainText = __('Generate another image', 'jetpack-ai-client');
     const generateText = __('Generate', 'jetpack-ai-client');
-    const hasContent = postContent.trim?.() || postTitle.trim?.() ? true : false;
+    const hasContent = !isEditedPostEmpty() || postTitle.trim?.() ? true : false;
     const hasPrompt = hasContent ? prompt.length >= 0 : prompt.length >= 3;
     const disableInput = notEnoughRequests || currentPointer?.generating || requireUpgrade;
     const disableAction = disableInput || (!hasContent && !hasPrompt);
@@ -275,5 +274,5 @@ export default function FeaturedImage({ busy, disabled, placement, onClose = () 
             currentImage?.generating ||
             currentImage?.libraryId === postFeaturedMediaId, children: __('Set as featured image', 'jetpack-ai-client') }));
     return (_jsxs(_Fragment, { children: [(placement === PLACEMENT_JETPACK_SIDEBAR ||
-                placement === PLACEMENT_DOCUMENT_SETTINGS) && (_jsxs(_Fragment, { children: [_jsx("p", { className: "jetpack-ai-assistant__help-text", children: __('Based on your post content.', 'jetpack-ai-client') }), _jsx(Button, { onClick: handleModalOpen, isBusy: busy, disabled: disabled || notEnoughRequests, variant: "secondary", __next40pxDefaultSize: true, children: __('Generate image', 'jetpack-ai-client') })] })), _jsx(AiImageModal, { postContent: hasContent, autoStart: hasContent && !postFeaturedMediaId, autoStartAction: handleFirstGenerate, images: images, currentIndex: current, title: __('Generate a featured image with AI', 'jetpack-ai-client'), cost: featuredImageCost, open: isFeaturedImageModalVisible, placement: placement, onClose: handleModalClose, onTryAgain: handleTryAgain, onGenerate: pointer?.current > 0 || postFeaturedMediaId ? handleRegenerate : handleGenerate, generating: currentPointer?.generating, notEnoughRequests: notEnoughRequests, requireUpgrade: requireUpgrade, upgradeDescription: upgradeDescription, currentLimit: requestsLimit, currentUsage: requestsCount, isUnlimited: isUnlimited, hasError: Boolean(currentPointer?.error), handlePreviousImage: handlePreviousImage, handleNextImage: handleNextImage, acceptButton: acceptButton, generateButtonLabel: pointer?.current > 0 ? generateAgainText : generateText, instructionsPlaceholder: __("Describe the featured image you'd like to create and select a style.", 'jetpack-ai-client'), imageStyles: imageStyles, onGuessStyle: handleGuessStyle, prompt: prompt, setPrompt: setPrompt, initialStyle: requestStyle, inputDisabled: disableInput, actionDisabled: disableAction })] }));
+                placement === PLACEMENT_DOCUMENT_SETTINGS) && (_jsxs(_Fragment, { children: [_jsx("p", { className: "jetpack-ai-assistant__help-text", children: __('Based on your post content.', 'jetpack-ai-client') }), _jsx(Button, { onClick: handleModalOpen, isBusy: busy, disabled: disabled || notEnoughRequests, variant: "secondary", __next40pxDefaultSize: true, children: __('Generate image', 'jetpack-ai-client') })] })), _jsx(AiImageModal, { autoStart: hasContent && !postFeaturedMediaId, autoStartAction: handleFirstGenerate, images: images, currentIndex: current, title: __('Generate a featured image with AI', 'jetpack-ai-client'), cost: featuredImageCost, open: isFeaturedImageModalVisible, placement: placement, onClose: handleModalClose, onTryAgain: handleTryAgain, onGenerate: pointer?.current > 0 || postFeaturedMediaId ? handleRegenerate : handleGenerate, generating: currentPointer?.generating, notEnoughRequests: notEnoughRequests, requireUpgrade: requireUpgrade, upgradeDescription: upgradeDescription, currentLimit: requestsLimit, currentUsage: requestsCount, isUnlimited: isUnlimited, hasError: Boolean(currentPointer?.error), handlePreviousImage: handlePreviousImage, handleNextImage: handleNextImage, acceptButton: acceptButton, generateButtonLabel: pointer?.current > 0 ? generateAgainText : generateText, instructionsPlaceholder: __("Describe the featured image you'd like to create and select a style.", 'jetpack-ai-client'), imageStyles: imageStyles, onGuessStyle: handleGuessStyle, prompt: prompt, setPrompt: setPrompt, initialStyle: requestStyle, inputDisabled: disableInput, actionDisabled: disableAction })] }));
 }

@@ -28,7 +28,6 @@ export default function GeneralPurposeImage({ placement, onClose = () => { }, on
     const [isFeaturedImageModalVisible, setIsFeaturedImageModalVisible] = useState(true);
     const siteType = useSiteType();
     const { getPostContent } = usePostContent();
-    const postContent = getPostContent();
     const { saveToMediaLibrary } = useSaveToMediaLibrary();
     const { tracks } = useAnalytics();
     const { recordEvent } = tracks;
@@ -65,7 +64,12 @@ export default function GeneralPurposeImage({ placement, onClose = () => { }, on
             site_type: siteType,
             style,
         });
-        processImageGeneration({ userPrompt, postContent, notEnoughRequests, style }).catch(error => {
+        processImageGeneration({
+            userPrompt,
+            postContent: getPostContent(),
+            notEnoughRequests,
+            style,
+        }).catch(error => {
             recordEvent('jetpack_ai_general_image_generation_error', {
                 placement,
                 error: error?.message,
@@ -80,7 +84,7 @@ export default function GeneralPurposeImage({ placement, onClose = () => { }, on
         generalImageActiveModel,
         siteType,
         processImageGeneration,
-        postContent,
+        getPostContent,
         notEnoughRequests,
     ]);
     const handleRegenerate = useCallback(({ userPrompt, style }) => {
@@ -93,7 +97,12 @@ export default function GeneralPurposeImage({ placement, onClose = () => { }, on
             style,
         });
         setCurrent(crrt => crrt + 1);
-        processImageGeneration({ userPrompt, postContent, notEnoughRequests, style }).catch(error => {
+        processImageGeneration({
+            userPrompt,
+            postContent: getPostContent(),
+            notEnoughRequests,
+            style,
+        }).catch(error => {
             recordEvent('jetpack_ai_general_image_generation_error', {
                 placement,
                 error: error?.message,
@@ -107,7 +116,7 @@ export default function GeneralPurposeImage({ placement, onClose = () => { }, on
         generalImageActiveModel,
         siteType,
         processImageGeneration,
-        postContent,
+        getPostContent,
         notEnoughRequests,
         setCurrent,
     ]);
@@ -120,7 +129,12 @@ export default function GeneralPurposeImage({ placement, onClose = () => { }, on
             site_type: siteType,
             style,
         });
-        processImageGeneration({ userPrompt, postContent, notEnoughRequests, style }).catch(error => {
+        processImageGeneration({
+            userPrompt,
+            postContent: getPostContent(),
+            notEnoughRequests,
+            style,
+        }).catch(error => {
             recordEvent('jetpack_ai_general_image_generation_error', {
                 placement,
                 error: error?.message,
@@ -134,7 +148,7 @@ export default function GeneralPurposeImage({ placement, onClose = () => { }, on
         generalImageActiveModel,
         siteType,
         processImageGeneration,
-        postContent,
+        getPostContent,
         notEnoughRequests,
     ]);
     const handleAccept = useCallback(() => {
@@ -181,5 +195,5 @@ export default function GeneralPurposeImage({ placement, onClose = () => { }, on
         __("Image generation costs %d requests per image. You don't have enough requests to generate another image.", 'jetpack-ai-client'), generalImageCost)
         : null;
     const acceptButton = (_jsx(Button, { onClick: handleAccept, variant: "primary", disabled: !currentImage?.image || currentImage?.generating, children: __('Insert image', 'jetpack-ai-client') }));
-    return (_jsx(AiImageModal, { postContent: true, images: images, currentIndex: current, title: __('Generate an image with AI', 'jetpack-ai-client'), cost: generalImageCost, open: isFeaturedImageModalVisible, placement: placement, onClose: handleModalClose, onTryAgain: handleTryAgain, onGenerate: pointer?.current > 0 ? handleRegenerate : handleGenerate, generating: currentPointer?.generating, notEnoughRequests: notEnoughRequests, requireUpgrade: requireUpgrade, upgradeDescription: upgradeDescription, currentLimit: requestsLimit, currentUsage: requestsCount, isUnlimited: isUnlimited, hasError: Boolean(currentPointer?.error), handlePreviousImage: handlePreviousImage, handleNextImage: handleNextImage, acceptButton: acceptButton, generateButtonLabel: pointer?.current > 0 ? generateAgainText : generateText, instructionsPlaceholder: __("Describe the image you'd like to create and select a style.", 'jetpack-ai-client'), imageStyles: imageStyles, onGuessStyle: guessStyle, prompt: prompt, setPrompt: setPrompt, inputDisabled: disableInput, actionDisabled: disableAction }));
+    return (_jsx(AiImageModal, { images: images, currentIndex: current, title: __('Generate an image with AI', 'jetpack-ai-client'), cost: generalImageCost, open: isFeaturedImageModalVisible, placement: placement, onClose: handleModalClose, onTryAgain: handleTryAgain, onGenerate: pointer?.current > 0 ? handleRegenerate : handleGenerate, generating: currentPointer?.generating, notEnoughRequests: notEnoughRequests, requireUpgrade: requireUpgrade, upgradeDescription: upgradeDescription, currentLimit: requestsLimit, currentUsage: requestsCount, isUnlimited: isUnlimited, hasError: Boolean(currentPointer?.error), handlePreviousImage: handlePreviousImage, handleNextImage: handleNextImage, acceptButton: acceptButton, generateButtonLabel: pointer?.current > 0 ? generateAgainText : generateText, instructionsPlaceholder: __("Describe the image you'd like to create and select a style.", 'jetpack-ai-client'), imageStyles: imageStyles, onGuessStyle: guessStyle, prompt: prompt, setPrompt: setPrompt, inputDisabled: disableInput, actionDisabled: disableAction }));
 }
