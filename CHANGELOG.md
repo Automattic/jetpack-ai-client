@@ -16,6 +16,7 @@ This is an alpha version! The changes listed here are not final.
 - AI Assistant: Add experimental functionality to test Chrome's built-in AI API with the AI excerpt
 - AI Client: Move showAiAssistantSection function to AI Client
 - AI Client: Refactor usePostContent hook to expose isEditedPostEmpty
+- Update package dependencies.
 
 ## [0.26.3] - 2025-02-24
 ### Changed
