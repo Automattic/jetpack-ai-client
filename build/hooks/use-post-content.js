@@ -21,9 +21,16 @@ const usePostContent = () => {
             isEditedPostEmpty: coreEditorSelect.isEditedPostEmpty,
         };
     }, []);
-    const getPostContent = useCallback(() => {
+    const getPostContent = useCallback((preprocess) => {
         const blocks = getBlocks();
-        return blocks?.length ? renderMarkdownFromHTML({ content: serialize(blocks) }) : '';
+        if (blocks.length === 0) {
+            return '';
+        }
+        let serialized = serialize(blocks);
+        if (preprocess && typeof preprocess === 'function') {
+            serialized = preprocess(serialized);
+        }
+        return serialized ? renderMarkdownFromHTML({ content: serialized }) : '';
     }, [getBlocks]);
     return { getPostContent, isEditedPostEmpty };
 };
