@@ -2,3 +2,4 @@ export { MarkdownToHTML, HTMLToMarkdown, renderHTMLFromMarkdown, renderMarkdownF
 export { mapActionToHumanText } from './map-action-to-human-text.js';
 export { openBlockSidebar } from './open-block-sidebar.js';
 export { showAiAssistantSection } from './show-ai-assistant-section.js';
+export { getAllBlocks } from './get-all-blocks.js';
