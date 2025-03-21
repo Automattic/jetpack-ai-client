@@ -13,6 +13,7 @@ This is an alpha version! The changes listed here are not final.
 - Update dependencies.
 
 ### Fixed
+- AI Client: Improved performance by optimizing state management in the AI feature hook to prevent unnecessary re-renders
 - AI Controls: Increase compatibility of buttons, preventing console warnings.
 
 ## [0.27.4] - 2025-03-18
