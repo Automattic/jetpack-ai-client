@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - Update dependencies.
 
+### Fixed
+- AI Controls: Increase compatibility of buttons, preventing console warnings.
+
 ## [0.27.4] - 2025-03-18
 ### Changed
 - Update package dependencies. [#42509]
