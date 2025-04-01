@@ -22,7 +22,7 @@ export default function useAiFeature(): {
         nextStart: string;
         requestsCount: number;
     };
-    nextTier?: import("@automattic/jetpack-shared-extension-utils/store/wordpress-com/types").TierProp;
+    nextTier?: import("@automattic/jetpack-shared-extension-utils/store/wordpress-com/types").TierProp | null;
     tierPlansEnabled?: boolean;
     costs?: {
         [key: string]: {

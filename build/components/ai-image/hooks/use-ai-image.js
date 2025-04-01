@@ -109,8 +109,8 @@ export default function useAiImage({ feature, type, cost, autoStart = true, prev
              */
             const generateImagePromise = generateImageWithParameters({
                 feature,
-                size: '1792x1024',
-                responseFormat: 'b64_json',
+                size: '1792x1024', // the size, when the generation happens with DALL-E-3
+                responseFormat: 'b64_json', // the response format, when the generation happens with DALL-E-3
                 messages: [
                     {
                         role: 'jetpack-ai',

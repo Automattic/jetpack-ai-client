@@ -48,7 +48,7 @@ export default function reducer(state = INITIAL_STATE, action) {
                         _meta: {
                             ...state?.features?.aiAssistantFeature?._meta,
                             isRequesting: true,
-                            asyncRequestCountdown: ASYNC_REQUEST_COUNTDOWN_INIT_VALUE,
+                            asyncRequestCountdown: ASYNC_REQUEST_COUNTDOWN_INIT_VALUE, // restore the countdown
                             asyncRequestTimerId: 0, // reset the timer id
                         },
                     },

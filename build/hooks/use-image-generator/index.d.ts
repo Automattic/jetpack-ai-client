@@ -10,7 +10,7 @@ declare const useImageGenerator: () => {
     generateImage: ({ feature, postContent, responseFormat, userPrompt, }: {
         feature: string;
         postContent: string;
-        responseFormat?: 'url' | 'b64_json';
+        responseFormat?: "url" | "b64_json";
         userPrompt?: string;
     }) => Promise<ImageGenerationResponse>;
     generateImageWithStableDiffusion: ({ feature, postContent, userPrompt, }: {

@@ -22,7 +22,7 @@ export default function useAiFeature() {
             requestsCount,
             requestsLimit,
             loading,
-            error: null,
+            error: null, // @todo: handle error at store level
             refresh: loadFeatures,
             increaseRequestsCount,
             dequeueAsyncRequest,

@@ -1,4 +1,3 @@
-/// <reference types="react" resolution-mode="require"/>
 import type { RequestingStateProp } from '../../types.js';
 import './style.scss';
 type AiAssistantModalProps = {

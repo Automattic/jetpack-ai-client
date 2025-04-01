@@ -72,10 +72,10 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
             errorCode?: string;
             upgradeType: import("./types.js").UpgradeTypeProp;
             currentTier?: import("./types.js").TierProp;
-            nextTier?: import("./types.js").TierProp;
+            nextTier?: import("./types.js").TierProp | null;
             tierPlansEnabled?: boolean;
             costs?: {
-                'jetpack-ai-logo-generator': {
+                "jetpack-ai-logo-generator": {
                     logo: number;
                 };
             };
@@ -103,7 +103,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
         isLoadingHistory: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
-    history: import("./types.js").Logo[];
+    history: Array<import("./types.js").Logo>;
     selectedLogoIndex: number;
 } | {
     history: {
@@ -148,7 +148,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: import("./types.js").Logo[];
+    history: Array<import("./types.js").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -169,7 +169,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: import("./types.js").Logo[];
+    history: Array<import("./types.js").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -190,7 +190,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: import("./types.js").Logo[];
+    history: Array<import("./types.js").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -211,7 +211,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: import("./types.js").Logo[];
+    history: Array<import("./types.js").Logo>;
     selectedLogoIndex: number;
 } | {
     features: {
@@ -236,10 +236,10 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
                 nextStart: string;
                 requestsCount: number;
             };
-            nextTier?: import("./types.js").TierProp;
+            nextTier?: import("./types.js").TierProp | null;
             tierPlansEnabled?: boolean;
             costs?: {
-                'jetpack-ai-logo-generator': {
+                "jetpack-ai-logo-generator": {
                     logo: number;
                 };
             };
@@ -261,7 +261,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
         isLoadingHistory?: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
-    history: import("./types.js").Logo[];
+    history: Array<import("./types.js").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -282,7 +282,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: import("./types.js").Logo[];
+    history: Array<import("./types.js").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -303,7 +303,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: import("./types.js").Logo[];
+    history: Array<import("./types.js").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -324,7 +324,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: import("./types.js").Logo[];
+    history: Array<import("./types.js").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -345,7 +345,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: import("./types.js").Logo[];
+    history: Array<import("./types.js").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -366,7 +366,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: import("./types.js").Logo[];
+    history: Array<import("./types.js").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -387,7 +387,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: import("./types.js").Logo[];
+    history: Array<import("./types.js").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -408,6 +408,6 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: import("./types.js").Logo[];
+    history: Array<import("./types.js").Logo>;
     selectedLogoIndex: number;
 };

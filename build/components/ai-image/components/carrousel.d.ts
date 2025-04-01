@@ -1,4 +1,3 @@
-/// <reference types="react" resolution-mode="require"/>
 import './carrousel.scss';
 export type CarrouselImageData = {
     image?: string;
