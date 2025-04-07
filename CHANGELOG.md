@@ -13,6 +13,9 @@ This is an alpha version! The changes listed here are not final.
 - Code: First pass of style coding standards.
 - Update package dependencies.
 
+### Fixed
+- Fixed TS type checking in the monorepo
+
 ## [0.27.6] - 2025-03-31
 ### Changed
 - Update dependencies. [#42678]
