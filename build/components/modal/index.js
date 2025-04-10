@@ -8,7 +8,7 @@ import { close } from '@wordpress/icons';
 /**
  * Internal dependencies
  */
-import AiStatusIndicator from '../ai-status-indicator/index.js';
+import AiStatusIndicator from "../ai-status-indicator/index.js";
 import './style.scss';
 const ModalHeader = ({ requestingState, onClose, title, }) => {
     return (_jsxs("div", { className: "ai-assistant-modal__header", children: [_jsxs("div", { className: "ai-assistant-modal__title-wrapper", children: [_jsx(AiStatusIndicator, { state: requestingState }), _jsx("h1", { className: "ai-assistant-modal__title", children: title })] }), _jsx(Button, { icon: close, label: __('Close', 'jetpack-ai-client'), onClick: onClose })] }));

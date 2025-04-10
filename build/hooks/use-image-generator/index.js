@@ -5,8 +5,8 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
-import askQuestionSync from '../../ask-question/sync.js';
-import requestJwt from '../../jwt/index.js';
+import askQuestionSync from "../../ask-question/sync.js";
+import requestJwt from "../../jwt/index.js";
 const debug = debugFactory('ai-client:use-image-generator');
 /**
  * Cut the post content on a given lenght so the total length of the prompt is not longer than 4000 characters.
@@ -202,4 +202,4 @@ const useImageGenerator = () => {
     };
 };
 export default useImageGenerator;
-export * from './constants.js';
+export * from "./constants.js";

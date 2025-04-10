@@ -6,7 +6,7 @@ import { __, sprintf } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import { STORE_NAME } from '../store/index.js';
+import { STORE_NAME } from "../store/index.js";
 const useFairUsageNoticeMessage = () => {
     const { usagePeriod } = useSelect(select => {
         const selectors = select(STORE_NAME);

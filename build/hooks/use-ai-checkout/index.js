@@ -3,7 +3,7 @@
  */
 import getRedirectUrl from '@automattic/jetpack-components/tools/jp-redirect';
 import { isAtomicSite, isSimpleSite, getSiteFragment, useAutosaveAndRedirect, } from '@automattic/jetpack-shared-extension-utils';
-import useAiFeature from '../use-ai-feature/index.js';
+import useAiFeature from "../use-ai-feature/index.js";
 const getWPComRedirectToURL = () => {
     const searchParams = new URLSearchParams(window.location.search);
     const site = getSiteFragment();

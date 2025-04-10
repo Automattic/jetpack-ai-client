@@ -1,7 +1,7 @@
 /**
  * Types
  */
-import type { SetSiteLogoProps, SetSiteLogoResponseProps } from '../types.js';
+import type { SetSiteLogoProps, SetSiteLogoResponseProps } from '../types.ts';
 /**
  * Set the site logo using a backend request.
  *

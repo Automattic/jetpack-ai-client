@@ -1,8 +1,8 @@
 /**
  * Types
  */
-import type { ImageStyle, ImageStyleObject } from '../../hooks/use-image-generator/constants.js';
-import type { Logo, SaveLogo } from '../store/types.js';
+import type { ImageStyle, ImageStyleObject } from '../../hooks/use-image-generator/constants.ts';
+import type { Logo, SaveLogo } from '../store/types.ts';
 declare const useLogoGenerator: () => {
     logos: Logo[];
     selectedLogoIndex: number;
@@ -42,7 +42,7 @@ declare const useLogoGenerator: () => {
     isSavingLogoToLibrary: boolean;
     isApplyingLogo: boolean;
     isBusy: boolean;
-    getAiAssistantFeature: (siteId?: string) => Partial<import("../store/types.js").AiFeatureProps>;
+    getAiAssistantFeature: (siteId?: string) => Partial<import("../store/types.ts").AiFeatureProps>;
     requireUpgrade: boolean;
     context: string;
     tierPlansEnabled: boolean;

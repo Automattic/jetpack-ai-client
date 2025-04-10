@@ -1,7 +1,7 @@
 /**
  * Types
  */
-import { DEFAULT_LOGO_COST } from '../constants.js';
+import { DEFAULT_LOGO_COST } from "../constants.js";
 const selectors = {
     /**
      * Return the AI Assistant feature.

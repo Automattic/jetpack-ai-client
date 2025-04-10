@@ -1,5 +1,5 @@
-import type { AiFeatureStateProps, RequestError } from './types.js';
-import type { SiteDetails } from '../types.js';
+import type { AiFeatureStateProps, RequestError } from './types.ts';
+import type { SiteDetails } from '../types.ts';
 /**
  * Reducer for the Logo Generator store.
  *
@@ -27,7 +27,7 @@ import type { SiteDetails } from '../types.js';
  * @param {boolean}                                                         action.isLoadingHistory      - Whether the history is being loaded
  * @return {LogoGeneratorStateProp} The new state
  */
-export default function reducer(state: import("./types.js").LogoGeneratorStateProp, action: {
+export default function reducer(state: import("./types.ts").LogoGeneratorStateProp, action: {
     type: string;
     feature?: AiFeatureStateProps;
     count?: number;
@@ -70,16 +70,16 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
             requestsLimit: number;
             errorMessage?: string;
             errorCode?: string;
-            upgradeType: import("./types.js").UpgradeTypeProp;
-            currentTier?: import("./types.js").TierProp;
-            nextTier?: import("./types.js").TierProp | null;
+            upgradeType: import("./types.ts").UpgradeTypeProp;
+            currentTier?: import("./types.ts").TierProp;
+            nextTier?: import("./types.ts").TierProp | null;
             tierPlansEnabled?: boolean;
             costs?: {
                 "jetpack-ai-logo-generator": {
                     logo: number;
                 };
             };
-            featuresControl?: import("./types.js").FeaturesControl;
+            featuresControl?: import("./types.ts").FeaturesControl;
             _meta?: {
                 isRequesting: boolean;
                 asyncRequestCountdown: number;
@@ -103,7 +103,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
         isLoadingHistory: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
-    history: Array<import("./types.js").Logo>;
+    history: Array<import("./types.ts").Logo>;
     selectedLogoIndex: number;
 } | {
     history: {
@@ -148,7 +148,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: Array<import("./types.js").Logo>;
+    history: Array<import("./types.ts").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -169,7 +169,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: Array<import("./types.js").Logo>;
+    history: Array<import("./types.ts").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -190,7 +190,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: Array<import("./types.js").Logo>;
+    history: Array<import("./types.ts").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -211,7 +211,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: Array<import("./types.js").Logo>;
+    history: Array<import("./types.ts").Logo>;
     selectedLogoIndex: number;
 } | {
     features: {
@@ -229,21 +229,21 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
             requireUpgrade: boolean;
             errorMessage?: string;
             errorCode?: string;
-            upgradeType: import("./types.js").UpgradeTypeProp;
-            currentTier?: import("./types.js").TierProp;
+            upgradeType: import("./types.ts").UpgradeTypeProp;
+            currentTier?: import("./types.ts").TierProp;
             usagePeriod?: {
                 currentStart: string;
                 nextStart: string;
                 requestsCount: number;
             };
-            nextTier?: import("./types.js").TierProp | null;
+            nextTier?: import("./types.ts").TierProp | null;
             tierPlansEnabled?: boolean;
             costs?: {
                 "jetpack-ai-logo-generator": {
                     logo: number;
                 };
             };
-            featuresControl?: import("./types.js").FeaturesControl;
+            featuresControl?: import("./types.ts").FeaturesControl;
         };
     };
     _meta: {
@@ -261,7 +261,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
         isLoadingHistory?: boolean;
     };
     siteDetails?: SiteDetails | Record<string, never>;
-    history: Array<import("./types.js").Logo>;
+    history: Array<import("./types.ts").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -282,7 +282,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: Array<import("./types.js").Logo>;
+    history: Array<import("./types.ts").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -303,7 +303,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: Array<import("./types.js").Logo>;
+    history: Array<import("./types.ts").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -324,7 +324,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: Array<import("./types.js").Logo>;
+    history: Array<import("./types.ts").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -345,7 +345,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: Array<import("./types.js").Logo>;
+    history: Array<import("./types.ts").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -366,7 +366,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: Array<import("./types.js").Logo>;
+    history: Array<import("./types.ts").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -387,7 +387,7 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: Array<import("./types.js").Logo>;
+    history: Array<import("./types.ts").Logo>;
     selectedLogoIndex: number;
 } | {
     _meta: {
@@ -408,6 +408,6 @@ export default function reducer(state: import("./types.js").LogoGeneratorStatePr
     features: {
         aiAssistantFeature?: AiFeatureStateProps;
     };
-    history: Array<import("./types.js").Logo>;
+    history: Array<import("./types.ts").Logo>;
     selectedLogoIndex: number;
 };

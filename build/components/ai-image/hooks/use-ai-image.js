@@ -8,14 +8,14 @@ import { cleanForSlug } from '@wordpress/url';
 /**
  * Internal dependencies
  */
-import askQuestionSync from '../../../ask-question/sync.js';
-import useAiFeature from '../../../hooks/use-ai-feature/index.js';
-import useImageGenerator from '../../../hooks/use-image-generator/index.js';
-import useSaveToMediaLibrary from '../../../hooks/use-save-to-media-library.js';
+import askQuestionSync from "../../../ask-question/sync.js";
+import useAiFeature from "../../../hooks/use-ai-feature/index.js";
+import useImageGenerator from "../../../hooks/use-image-generator/index.js";
+import useSaveToMediaLibrary from "../../../hooks/use-save-to-media-library.js";
 /**
  * Types
  */
-import { FEATURED_IMAGE_FEATURE_NAME, } from '../types.js';
+import { FEATURED_IMAGE_FEATURE_NAME, } from "../types.js";
 /**
  * Hook to get properties for AiImage
  *

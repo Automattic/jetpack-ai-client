@@ -1,5 +1,5 @@
-import type { AiFeatureProps, LogoGeneratorStateProp, Logo, RequestError } from './types.js';
-import type { SiteDetails } from '../types.js';
+import type { AiFeatureProps, LogoGeneratorStateProp, Logo, RequestError } from './types.ts';
+import type { SiteDetails } from '../types.ts';
 declare const selectors: {
     /**
      * Return the AI Assistant feature.

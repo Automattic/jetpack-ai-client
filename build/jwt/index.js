@@ -6,7 +6,7 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
-import apiFetch from '../api-fetch/index.js';
+import apiFetch from "../api-fetch/index.js";
 const debug = debugFactory('jetpack-ai-client:jwt');
 const JWT_TOKEN_ID = 'jetpack-ai-jwt';
 const JWT_TOKEN_EXPIRATION_TIME = 2 * 60 * 1000; // 2 minutes

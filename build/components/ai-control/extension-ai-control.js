@@ -11,8 +11,8 @@ import { forwardRef } from 'react';
 /**
  * Internal dependencies
  */
-import { GuidelineMessage, ErrorMessage, UpgradeMessage, FairUsageLimitMessage, } from '../message/index.js';
-import AIControl from './ai-control.js';
+import { GuidelineMessage, ErrorMessage, UpgradeMessage, FairUsageLimitMessage, } from "../message/index.js";
+import AIControl from "./ai-control.js";
 import './style.scss';
 /**
  * ExtensionAIControl component. Used by the AI Assistant inline extensions, adding logic and components to the base AIControl component.

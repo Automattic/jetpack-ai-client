@@ -6,7 +6,7 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
-import useAiSuggestions from '../use-ai-suggestions/index.js';
+import useAiSuggestions from "../use-ai-suggestions/index.js";
 const debug = debugFactory('jetpack-ai-client:use-transcription-post-processing');
 /**
  * Post-processing types.

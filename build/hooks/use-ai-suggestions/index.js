@@ -6,9 +6,9 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import askQuestion from '../../ask-question/index.js';
-import ChromeAIFactory from '../../chrome-ai/factory.js';
-import { ERROR_CONTEXT_TOO_LARGE, ERROR_MODERATION, ERROR_NETWORK, ERROR_QUOTA_EXCEEDED, ERROR_SERVICE_UNAVAILABLE, ERROR_UNCLEAR_PROMPT, ERROR_RESPONSE, } from '../../types.js';
+import askQuestion from "../../ask-question/index.js";
+import ChromeAIFactory from "../../chrome-ai/factory.js";
+import { ERROR_CONTEXT_TOO_LARGE, ERROR_MODERATION, ERROR_NETWORK, ERROR_QUOTA_EXCEEDED, ERROR_SERVICE_UNAVAILABLE, ERROR_UNCLEAR_PROMPT, ERROR_RESPONSE, } from "../../types.js";
 /**
  * Get the error data for a given error code.
  *

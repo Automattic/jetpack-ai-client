@@ -3,7 +3,7 @@ import './style.scss';
 /**
  * Types
  */
-import type { RequestingErrorProps, RequestingStateProp } from '../../types.js';
+import type { RequestingErrorProps, RequestingStateProp } from '../../types.ts';
 import type { ReactElement, MouseEvent } from 'react';
 type ExtensionAIControlProps = {
     className?: string;

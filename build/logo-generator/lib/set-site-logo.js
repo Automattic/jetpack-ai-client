@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import wpcomLimitedRequest from './wpcom-limited-request.js';
+import wpcomLimitedRequest from "./wpcom-limited-request.js";
 /**
  * Set the site logo using a backend request.
  *

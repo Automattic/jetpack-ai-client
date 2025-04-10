@@ -7,7 +7,7 @@ import './style.scss';
 /**
  * Types
  */
-import type { RequestingStateProp } from '../../types.js';
+import type { RequestingStateProp } from '../../types.ts';
 import type { ReactElement } from 'react';
 type AIControlProps = {
     className?: string;

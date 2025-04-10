@@ -1,5 +1,5 @@
-import { PromptProp } from '../types.js';
-import ChromeAISuggestionsEventSource from './suggestions.js';
+import { PromptProp } from '../types.ts';
+import ChromeAISuggestionsEventSource from './suggestions.ts';
 /**
  * This will return an instance of ChromeAISuggestionsEventSource or false.
  *

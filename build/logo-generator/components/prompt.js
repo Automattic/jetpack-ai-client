@@ -11,14 +11,14 @@ import { useCallback, useEffect, useState, useRef } from 'react';
 /**
  * Internal dependencies
  */
-import { IMAGE_STYLE_NONE, IMAGE_STYLE_AUTO } from '../../hooks/use-image-generator/constants.js';
-import AiIcon from '../assets/icons/ai.js';
-import { EVENT_GENERATE, MINIMUM_PROMPT_LENGTH, EVENT_UPGRADE, EVENT_PLACEMENT_INPUT_FOOTER, EVENT_SWITCH_STYLE, EVENT_GUESS_STYLE, } from '../constants.js';
-import { useCheckout } from '../hooks/use-checkout.js';
-import useLogoGenerator from '../hooks/use-logo-generator.js';
-import useRequestErrors from '../hooks/use-request-errors.js';
-import { FairUsageNotice } from './fair-usage-notice.js';
-import { UpgradeNudge } from './upgrade-nudge.js';
+import { IMAGE_STYLE_NONE, IMAGE_STYLE_AUTO } from "../../hooks/use-image-generator/constants.js";
+import AiIcon from "../assets/icons/ai.js";
+import { EVENT_GENERATE, MINIMUM_PROMPT_LENGTH, EVENT_UPGRADE, EVENT_PLACEMENT_INPUT_FOOTER, EVENT_SWITCH_STYLE, EVENT_GUESS_STYLE, } from "../constants.js";
+import { useCheckout } from "../hooks/use-checkout.js";
+import useLogoGenerator from "../hooks/use-logo-generator.js";
+import useRequestErrors from "../hooks/use-request-errors.js";
+import { FairUsageNotice } from "./fair-usage-notice.js";
+import { UpgradeNudge } from "./upgrade-nudge.js";
 import './prompt.scss';
 const debug = debugFactory('jetpack-ai-calypso:prompt-box');
 export const AiModalPromptInput = ({ prompt = '', setPrompt = () => { }, disabled = false, actionDisabled = false, generateHandler = () => { }, placeholder = '', buttonLabel = '', }) => {

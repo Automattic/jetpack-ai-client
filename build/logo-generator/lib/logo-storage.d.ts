@@ -1,8 +1,8 @@
 /**
  * Types
  */
-import { Logo } from '../store/types.js';
-import { RemoveFromStorageProps, SaveToStorageProps, UpdateInStorageProps } from '../types.js';
+import { Logo } from '../store/types.ts';
+import { RemoveFromStorageProps, SaveToStorageProps, UpdateInStorageProps } from '../types.ts';
 /**
  * Add an entry to the site's logo history.
  *

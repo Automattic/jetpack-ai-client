@@ -1,7 +1,7 @@
 /**
  * Types & Constants
  */
-import { ASYNC_REQUEST_COUNTDOWN_INIT_VALUE, FREE_PLAN_REQUESTS_LIMIT } from './constants.js';
+import { ASYNC_REQUEST_COUNTDOWN_INIT_VALUE, FREE_PLAN_REQUESTS_LIMIT } from "./constants.js";
 const INITIAL_STATE = {
     siteDetails: {},
     features: {

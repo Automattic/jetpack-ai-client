@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import apiFetch from '../../api-fetch/index.js';
+import apiFetch from "../../api-fetch/index.js";
 /**
  * Uses the media information to confirm it exists or not on the server.
  *

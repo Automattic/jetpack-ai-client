@@ -10,13 +10,13 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
-import { IMAGE_STYLE_NONE, IMAGE_STYLE_AUTO, } from '../../../hooks/use-image-generator/constants.js';
-import { AiModalPromptInput } from '../../../logo-generator/index.js';
-import AiModalFooter from '../../ai-modal-footer/index.js';
-import AiAssistantModal from '../../modal/index.js';
-import QuotaExceededMessage from '../../quota-exceeded-message/index.js';
-import Carrousel from './carrousel.js';
-import UsageCounter from './usage-counter.js';
+import { IMAGE_STYLE_NONE, IMAGE_STYLE_AUTO, } from "../../../hooks/use-image-generator/constants.js";
+import { AiModalPromptInput } from "../../../logo-generator/index.js";
+import AiModalFooter from "../../ai-modal-footer/index.js";
+import AiAssistantModal from "../../modal/index.js";
+import QuotaExceededMessage from "../../quota-exceeded-message/index.js";
+import Carrousel from "./carrousel.js";
+import UsageCounter from "./usage-counter.js";
 import './ai-image-modal.scss';
 const FEATURED_IMAGE_UPGRADE_PROMPT_PLACEMENT = 'ai-image-generator';
 const debug = debugFactory('jetpack-ai-client:ai-image-modal');

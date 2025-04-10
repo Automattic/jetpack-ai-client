@@ -1,10 +1,10 @@
 import React from 'react';
-import { ImageStyleObject, ImageStyle } from '../../../hooks/use-image-generator/constants.js';
+import { ImageStyleObject, ImageStyle } from '../../../hooks/use-image-generator/constants.ts';
 /**
  * Types
  */
-import { FEATURED_IMAGE_FEATURE_NAME, GENERAL_IMAGE_FEATURE_NAME } from '../types.js';
-import type { CarrouselImageData, CarrouselImages } from '../components/carrousel.js';
+import { FEATURED_IMAGE_FEATURE_NAME, GENERAL_IMAGE_FEATURE_NAME } from '../types.ts';
+import type { CarrouselImageData, CarrouselImages } from '../components/carrousel.tsx';
 type AiImageType = 'featured-image-generation' | 'general-image-generation';
 type AiImageFeature = typeof FEATURED_IMAGE_FEATURE_NAME | typeof GENERAL_IMAGE_FEATURE_NAME;
 export type ImageResponse = {

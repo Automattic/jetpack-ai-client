@@ -11,9 +11,9 @@ import clsx from 'clsx';
  * Internal dependencies
  */
 import './style.scss';
-import errorExclamation from '../../icons/error-exclamation.js';
-import { ERROR_QUOTA_EXCEEDED } from '../../types.js';
-import AiFeedbackThumbs from '../ai-feedback/index.js';
+import errorExclamation from "../../icons/error-exclamation.js";
+import { ERROR_QUOTA_EXCEEDED } from "../../types.js";
+import AiFeedbackThumbs from "../ai-feedback/index.js";
 export const MESSAGE_SEVERITY_WARNING = 'warning';
 export const MESSAGE_SEVERITY_ERROR = 'error';
 export const MESSAGE_SEVERITY_SUCCESS = 'success';

@@ -5,7 +5,7 @@ import debugFactory from 'debug';
 /*
  * Types & constants
  */
-import requestJwt from '../jwt/index.js';
+import requestJwt from "../jwt/index.js";
 const debug = debugFactory('jetpack-ai-client:ask-question-sync');
 /**
  * A function that asks a question without streaming.

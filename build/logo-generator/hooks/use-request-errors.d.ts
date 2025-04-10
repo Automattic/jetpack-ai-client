@@ -6,11 +6,11 @@ declare const useRequestErrors: () => {
     setSaveToLibraryError: any;
     setLogoUpdateError: any;
     clearErrors: () => void;
-    featureFetchError: import("../store/types.js").RequestError;
-    firstLogoPromptFetchError: import("../store/types.js").RequestError;
-    enhancePromptFetchError: import("../store/types.js").RequestError;
-    logoFetchError: import("../store/types.js").RequestError;
-    saveToLibraryError: import("../store/types.js").RequestError;
-    logoUpdateError: import("../store/types.js").RequestError;
+    featureFetchError: import("../store/types.ts").RequestError;
+    firstLogoPromptFetchError: import("../store/types.ts").RequestError;
+    enhancePromptFetchError: import("../store/types.ts").RequestError;
+    logoFetchError: import("../store/types.ts").RequestError;
+    saveToLibraryError: import("../store/types.ts").RequestError;
+    logoUpdateError: import("../store/types.ts").RequestError;
 };
 export default useRequestErrors;

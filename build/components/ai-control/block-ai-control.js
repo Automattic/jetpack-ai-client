@@ -12,8 +12,8 @@ import { forwardRef } from 'react';
 /**
  * Internal dependencies
  */
-import { GuidelineMessage } from '../message/index.js';
-import AIControl from './ai-control.js';
+import { GuidelineMessage } from "../message/index.js";
+import AIControl from "./ai-control.js";
 import './style.scss';
 const debug = debugFactory('jetpack-ai-client:block-ai-control');
 /**

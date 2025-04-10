@@ -7,7 +7,7 @@ import clsx from 'clsx';
 /**
  * Internal dependencies
  */
-import AiStatusIndicator from '../ai-status-indicator/index.js';
+import AiStatusIndicator from "../ai-status-indicator/index.js";
 import './style.scss';
 /**
  * Base AIControl component. Contains the main structure of the control component and slots for banner, error, actions and message.

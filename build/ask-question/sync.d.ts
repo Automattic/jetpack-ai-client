@@ -1,5 +1,5 @@
-import { AskQuestionOptionsArgProps } from './index.js';
-import type { PromptProp } from '../types.js';
+import { AskQuestionOptionsArgProps } from './index.ts';
+import type { PromptProp } from '../types.ts';
 /**
  * The response data from the AI assistant when doing a sync, not-streamed question.
  */

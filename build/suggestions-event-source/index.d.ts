@@ -2,7 +2,7 @@
  * External dependencies
  */
 import { EventSourceMessage } from '@microsoft/fetch-event-source';
-import type { AiModelTypeProp, PromptProp } from '../types.js';
+import type { AiModelTypeProp, PromptProp } from '../types.ts';
 type SuggestionsEventSourceConstructorArgs = {
     url?: string;
     question: PromptProp;

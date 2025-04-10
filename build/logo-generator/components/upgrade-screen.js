@@ -9,8 +9,8 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import { EVENT_PLACEMENT_FREE_USER_SCREEN, EVENT_UPGRADE } from '../constants.js';
-import useLogoGenerator from '../hooks/use-logo-generator.js';
+import { EVENT_PLACEMENT_FREE_USER_SCREEN, EVENT_UPGRADE } from "../constants.js";
+import useLogoGenerator from "../hooks/use-logo-generator.js";
 export const UpgradeScreen = ({ onCancel, upgradeURL, reason }) => {
     const { tracks } = useAnalytics();
     const { recordEvent: recordTracksEvent } = tracks;

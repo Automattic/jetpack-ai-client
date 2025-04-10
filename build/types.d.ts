@@ -19,18 +19,18 @@ export type PromptItemProps = {
 };
 export type PromptMessagesProp = Array<PromptItemProps>;
 export type PromptProp = PromptMessagesProp | string;
-export type { UseAiContextOptions } from './data-flow/use-ai-context.js';
-export type { RequestingErrorProps } from './hooks/use-ai-suggestions/index.js';
-export type { UseAudioTranscriptionProps, UseAudioTranscriptionReturn, } from './hooks/use-audio-transcription/index.js';
-export type { UseTranscriptionPostProcessingProps, UseTranscriptionPostProcessingReturn, PostProcessingAction, } from './hooks/use-transcription-post-processing/index.js';
-export type { UseAudioValidationReturn, ValidatedAudioInformation, } from './hooks/use-audio-validation/index.js';
-export { TRANSCRIPTION_POST_PROCESSING_ACTION_SIMPLE_DRAFT } from './hooks/use-transcription-post-processing/index.js';
+export type { UseAiContextOptions } from './data-flow/use-ai-context.ts';
+export type { RequestingErrorProps } from './hooks/use-ai-suggestions/index.ts';
+export type { UseAudioTranscriptionProps, UseAudioTranscriptionReturn, } from './hooks/use-audio-transcription/index.ts';
+export type { UseTranscriptionPostProcessingProps, UseTranscriptionPostProcessingReturn, PostProcessingAction, } from './hooks/use-transcription-post-processing/index.ts';
+export type { UseAudioValidationReturn, ValidatedAudioInformation, } from './hooks/use-audio-validation/index.ts';
+export { TRANSCRIPTION_POST_PROCESSING_ACTION_SIMPLE_DRAFT } from './hooks/use-transcription-post-processing/index.ts';
 export declare const REQUESTING_STATES: readonly ["init", "requesting", "suggesting", "done", "error"];
 export type RequestingStateProp = (typeof REQUESTING_STATES)[number];
 export declare const AI_MODEL_GPT_3_5_Turbo_16K: "gpt-3.5-turbo-16k";
 export declare const AI_MODEL_GPT_4: "gpt-4";
 export type AiModelTypeProp = typeof AI_MODEL_GPT_3_5_Turbo_16K | typeof AI_MODEL_GPT_4;
-export type { RecordingState } from './hooks/use-media-recording/index.js';
+export type { RecordingState } from './hooks/use-media-recording/index.ts';
 export type CancelablePromise<T = void> = Promise<T> & {
     canceled?: boolean;
 };
@@ -45,7 +45,7 @@ export type Block = {
     originalContent?: string;
 };
 export type TranscriptionState = RecordingState | 'validating' | 'processing' | 'error';
-export type { RenderHTMLRules } from './libs/index.js';
+export type { RenderHTMLRules } from './libs/index.ts';
 export interface BlockEditorStore {
     selectors: {
         [key in keyof typeof BlockEditorSelectors]: (typeof BlockEditorSelectors)[key];

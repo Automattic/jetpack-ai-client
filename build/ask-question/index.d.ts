@@ -1,5 +1,5 @@
-import SuggestionsEventSource from '../suggestions-event-source/index.js';
-import type { AiModelTypeProp, PromptProp } from '../types.js';
+import SuggestionsEventSource from '../suggestions-event-source/index.ts';
+import type { AiModelTypeProp, PromptProp } from '../types.ts';
 export type AskQuestionOptionsArgProps = {
     postId?: number;
     fromCache?: boolean;

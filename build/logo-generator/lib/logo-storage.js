@@ -1,4 +1,4 @@
-import { mediaExists } from './media-exists.js';
+import { mediaExists } from "./media-exists.js";
 const MAX_LOGOS = 10;
 /**
  * Add an entry to the site's logo history.

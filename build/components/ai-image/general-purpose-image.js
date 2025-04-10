@@ -11,13 +11,13 @@ import debugFactory from 'debug';
  * Internal dependencies
  */
 import './style.scss';
-import useAiFeature from '../../hooks/use-ai-feature/index.js';
-import usePostContent from '../../hooks/use-post-content.js';
-import useSaveToMediaLibrary from '../../hooks/use-save-to-media-library.js';
-import AiImageModal from './components/ai-image-modal.js';
-import useAiImage from './hooks/use-ai-image.js';
-import useSiteType from './hooks/use-site-type.js';
-import { IMAGE_GENERATION_MODEL_STABLE_DIFFUSION, IMAGE_GENERATION_MODEL_DALL_E_3, GENERAL_IMAGE_FEATURE_NAME, } from './types.js';
+import useAiFeature from "../../hooks/use-ai-feature/index.js";
+import usePostContent from "../../hooks/use-post-content.js";
+import useSaveToMediaLibrary from "../../hooks/use-save-to-media-library.js";
+import AiImageModal from "./components/ai-image-modal.js";
+import useAiImage from "./hooks/use-ai-image.js";
+import useSiteType from "./hooks/use-site-type.js";
+import { IMAGE_GENERATION_MODEL_STABLE_DIFFUSION, IMAGE_GENERATION_MODEL_DALL_E_3, GENERAL_IMAGE_FEATURE_NAME, } from "./types.js";
 const debug = debugFactory('jetpack-ai:general-purpose-image');
 /**
  * GeneralPurposeImage component

@@ -5,7 +5,7 @@ import { useDispatch, useSelect } from '@wordpress/data';
 /**
  * Internal dependencies
  */
-import { STORE_NAME } from '../store/index.js';
+import { STORE_NAME } from "../store/index.js";
 const useRequestErrors = () => {
     const { setFeatureFetchError, setFirstLogoPromptFetchError, setEnhancePromptFetchError, setLogoFetchError, setSaveToLibraryError, setLogoUpdateError, } = useDispatch(STORE_NAME);
     const { featureFetchError, firstLogoPromptFetchError, enhancePromptFetchError, logoFetchError, saveToLibraryError, logoUpdateError, } = useSelect(select => {

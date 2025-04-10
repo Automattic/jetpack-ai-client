@@ -10,8 +10,8 @@ import clsx from 'clsx';
 /**
  * Internal dependencies
  */
-import AiFeedbackThumbs from '../../ai-feedback/index.js';
-import AiIcon from '../../ai-icon/index.js';
+import AiFeedbackThumbs from "../../ai-feedback/index.js";
+import AiIcon from "../../ai-icon/index.js";
 import './carrousel.scss';
 /**
  * BlankImage component

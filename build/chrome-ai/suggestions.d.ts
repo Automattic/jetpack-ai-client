@@ -1,5 +1,5 @@
 import { EventSourceMessage } from '@microsoft/fetch-event-source';
-import { AiModelTypeProp } from '../types.js';
+import { AiModelTypeProp } from '../types.ts';
 type ChromeAISuggestionsEventSourceConstructorArgs = {
     content: string;
     promptType: string;

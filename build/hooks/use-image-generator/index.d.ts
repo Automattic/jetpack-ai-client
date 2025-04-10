@@ -21,4 +21,4 @@ declare const useImageGenerator: () => {
     generateImageWithParameters: (parameters: object) => Promise<ImageGenerationResponse>;
 };
 export default useImageGenerator;
-export * from './constants.js';
+export * from './constants.ts';

@@ -6,7 +6,7 @@ import { useSelect } from '@wordpress/data';
 /**
  * Internal dependencies
  */
-import { STORE_NAME } from '../store/index.js';
+import { STORE_NAME } from "../store/index.js";
 export const useCheckout = () => {
     const { nextTier, tierPlansEnabled } = useSelect(select => {
         const selectors = select(STORE_NAME);

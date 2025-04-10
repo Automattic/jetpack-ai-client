@@ -5,7 +5,7 @@ import './style.scss';
 /**
  * Types
  */
-import type { SuggestionErrorCode } from '../../types.js';
+import type { SuggestionErrorCode } from '../../types.ts';
 import type React from 'react';
 export declare const MESSAGE_SEVERITY_WARNING = "warning";
 export declare const MESSAGE_SEVERITY_ERROR = "error";

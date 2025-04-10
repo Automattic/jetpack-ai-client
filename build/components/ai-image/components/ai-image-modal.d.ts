@@ -1,8 +1,8 @@
 /**
  * Internal dependencies
  */
-import { ImageStyleObject, ImageStyle } from '../../../hooks/use-image-generator/constants.js';
-import { CarrouselImages } from './carrousel.js';
+import { ImageStyleObject, ImageStyle } from '../../../hooks/use-image-generator/constants.ts';
+import { CarrouselImages } from './carrousel.tsx';
 import './ai-image-modal.scss';
 type AiImageModalProps = {
     title: string;

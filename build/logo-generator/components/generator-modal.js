@@ -12,20 +12,20 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 /**
  * Internal dependencies
  */
-import AiModalFooter from '../../components/ai-modal-footer/index.js';
-import { DEFAULT_LOGO_COST, EVENT_MODAL_OPEN, EVENT_FEEDBACK, EVENT_MODAL_CLOSE, EVENT_GENERATE, } from '../constants.js';
-import { useCheckout } from '../hooks/use-checkout.js';
-import useLogoGenerator from '../hooks/use-logo-generator.js';
-import useRequestErrors from '../hooks/use-request-errors.js';
-import { isLogoHistoryEmpty, clearDeletedMedia } from '../lib/logo-storage.js';
-import { STORE_NAME } from '../store/index.js';
-import { FeatureFetchFailureScreen } from './feature-fetch-failure-screen.js';
-import { FirstLoadScreen } from './first-load-screen.js';
-import { HistoryCarousel } from './history-carousel.js';
-import { LogoPresenter } from './logo-presenter.js';
-import { Prompt } from './prompt.js';
-import { UpgradeScreen } from './upgrade-screen.js';
-import { VisitSiteBanner } from './visit-site-banner.js';
+import AiModalFooter from "../../components/ai-modal-footer/index.js";
+import { DEFAULT_LOGO_COST, EVENT_MODAL_OPEN, EVENT_FEEDBACK, EVENT_MODAL_CLOSE, EVENT_GENERATE, } from "../constants.js";
+import { useCheckout } from "../hooks/use-checkout.js";
+import useLogoGenerator from "../hooks/use-logo-generator.js";
+import useRequestErrors from "../hooks/use-request-errors.js";
+import { isLogoHistoryEmpty, clearDeletedMedia } from "../lib/logo-storage.js";
+import { STORE_NAME } from "../store/index.js";
+import { FeatureFetchFailureScreen } from "./feature-fetch-failure-screen.js";
+import { FirstLoadScreen } from "./first-load-screen.js";
+import { HistoryCarousel } from "./history-carousel.js";
+import { LogoPresenter } from "./logo-presenter.js";
+import { Prompt } from "./prompt.js";
+import { UpgradeScreen } from "./upgrade-screen.js";
+import { VisitSiteBanner } from "./visit-site-banner.js";
 import './generator-modal.scss';
 const debug = debugFactory('jetpack-ai-calypso:generator-modal');
 export const GeneratorModal = ({ isOpen, onClose, onApplyLogo, onReload = null, siteDetails, context, placement, }) => {

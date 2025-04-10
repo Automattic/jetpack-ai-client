@@ -1,7 +1,7 @@
 /**
  * Types
  */
-import type { CheckMediaProps } from '../types.js';
+import type { CheckMediaProps } from '../types.ts';
 /**
  * Uses the media information to confirm it exists or not on the server.
  *

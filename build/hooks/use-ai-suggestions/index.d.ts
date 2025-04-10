@@ -1,9 +1,9 @@
 /**
  * Types & constants
  */
-import type { AskQuestionOptionsArgProps } from '../../ask-question/index.js';
-import type SuggestionsEventSource from '../../suggestions-event-source/index.js';
-import type { PromptProp, SuggestionErrorCode, RequestingStateProp } from '../../types.js';
+import type { AskQuestionOptionsArgProps } from '../../ask-question/index.ts';
+import type SuggestionsEventSource from '../../suggestions-event-source/index.ts';
+import type { PromptProp, SuggestionErrorCode, RequestingStateProp } from '../../types.ts';
 export type RequestingErrorProps = {
     code: SuggestionErrorCode;
     message: string;

@@ -2,7 +2,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
 /*
  * Internal dependencies
  */
-import { formatTime } from './lib/media.js';
+import { formatTime } from "./lib/media.js";
 /**
  * AudioDurationDisplay component.
  *

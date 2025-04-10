@@ -1,5 +1,5 @@
-import type { AiFeatureProps, AiAssistantFeatureEndpointResponseProps, Logo, RequestError } from './types.js';
-import type { SiteDetails } from '../types.js';
+import type { AiFeatureProps, AiAssistantFeatureEndpointResponseProps, Logo, RequestError } from './types.ts';
+import type { SiteDetails } from '../types.ts';
 /**
  * Map the response from the `sites/$site/ai-assistant-feature`
  * endpoint to the AI Assistant feature props.

@@ -6,7 +6,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import { ImageLoader } from './image-loader.js';
+import { ImageLoader } from "./image-loader.js";
 import './first-load-screen.scss';
 export const FirstLoadScreen = ({ state = 'loadingFeature' }) => {
     const loadingLabel = __('Loading…', 'jetpack-ai-client');

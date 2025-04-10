@@ -13,14 +13,14 @@ import debugFactory from 'debug';
  * Internal dependencies
  */
 import './style.scss';
-import { PLACEMENT_JETPACK_SIDEBAR, PLACEMENT_DOCUMENT_SETTINGS } from '../../constants.js';
-import useAiFeature from '../../hooks/use-ai-feature/index.js';
-import usePostContent from '../../hooks/use-post-content.js';
-import useSaveToMediaLibrary from '../../hooks/use-save-to-media-library.js';
-import AiImageModal from './components/ai-image-modal.js';
-import useAiImage from './hooks/use-ai-image.js';
-import useSiteType from './hooks/use-site-type.js';
-import { FEATURED_IMAGE_FEATURE_NAME, IMAGE_GENERATION_MODEL_STABLE_DIFFUSION, IMAGE_GENERATION_MODEL_DALL_E_3, PLACEMENT_MEDIA_SOURCE_DROPDOWN, } from './types.js';
+import { PLACEMENT_JETPACK_SIDEBAR, PLACEMENT_DOCUMENT_SETTINGS } from "../../constants.js";
+import useAiFeature from "../../hooks/use-ai-feature/index.js";
+import usePostContent from "../../hooks/use-post-content.js";
+import useSaveToMediaLibrary from "../../hooks/use-save-to-media-library.js";
+import AiImageModal from "./components/ai-image-modal.js";
+import useAiImage from "./hooks/use-ai-image.js";
+import useSiteType from "./hooks/use-site-type.js";
+import { FEATURED_IMAGE_FEATURE_NAME, IMAGE_GENERATION_MODEL_STABLE_DIFFUSION, IMAGE_GENERATION_MODEL_DALL_E_3, PLACEMENT_MEDIA_SOURCE_DROPDOWN, } from "./types.js";
 const debug = debugFactory('jetpack-ai-client:featured-image');
 /**
  * FeaturedImage component

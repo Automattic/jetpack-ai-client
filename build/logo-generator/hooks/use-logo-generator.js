@@ -7,14 +7,14 @@ import { useCallback } from 'react';
 /**
  * Internal dependencies
  */
-import askQuestionSync from '../../ask-question/sync.js';
-import useImageGenerator from '../../hooks/use-image-generator/index.js';
-import useSaveToMediaLibrary from '../../hooks/use-save-to-media-library/index.js';
-import requestJwt from '../../jwt/index.js';
-import { stashLogo } from '../lib/logo-storage.js';
-import { setSiteLogo } from '../lib/set-site-logo.js';
-import { STORE_NAME } from '../store/index.js';
-import useRequestErrors from './use-request-errors.js';
+import askQuestionSync from "../../ask-question/sync.js";
+import useImageGenerator from "../../hooks/use-image-generator/index.js";
+import useSaveToMediaLibrary from "../../hooks/use-save-to-media-library/index.js";
+import requestJwt from "../../jwt/index.js";
+import { stashLogo } from "../lib/logo-storage.js";
+import { setSiteLogo } from "../lib/set-site-logo.js";
+import { STORE_NAME } from "../store/index.js";
+import useRequestErrors from "./use-request-errors.js";
 const debug = debugFactory('jetpack-ai-calypso:use-logo-generator');
 const useLogoGenerator = () => {
     const { setSelectedLogoIndex, setIsSavingLogoToLibrary, setIsApplyingLogo, setIsRequestingImage, setIsEnhancingPrompt, increaseAiAssistantRequestsCount, addLogoToHistory, setContext, setIsLoadingHistory, } = useDispatch(STORE_NAME);

@@ -1,6 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { Notice } from '@wordpress/components';
-import useFairUsageNoticeMessage from '../hooks/use-fair-usage-notice-message.js';
+import useFairUsageNoticeMessage from "../hooks/use-fair-usage-notice-message.js";
 /**
  * The fair usage notice component.
  * @param {FairUsageNoticeProps}         props         - Fair usage notice component props.

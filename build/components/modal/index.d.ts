@@ -1,4 +1,4 @@
-import type { RequestingStateProp } from '../../types.js';
+import type { RequestingStateProp } from '../../types.ts';
 import './style.scss';
 type AiAssistantModalProps = {
     children: React.ReactNode;

@@ -12,9 +12,9 @@ import debugFactory from 'debug';
 /*
  * Internal dependencies
  */
-import useAICheckout from '../../hooks/use-ai-checkout/index.js';
-import useAiFeature from '../../hooks/use-ai-feature/index.js';
-import { LightNudge } from './light-nudge.js';
+import useAICheckout from "../../hooks/use-ai-checkout/index.js";
+import useAiFeature from "../../hooks/use-ai-feature/index.js";
+import { LightNudge } from "./light-nudge.js";
 import './style.scss';
 const debug = debugFactory('jetpack-ai-client:upgrade-prompt');
 /**

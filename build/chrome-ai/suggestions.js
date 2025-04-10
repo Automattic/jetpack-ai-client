@@ -1,7 +1,7 @@
-import { PROMPT_TYPE_CHANGE_LANGUAGE, PROMPT_TYPE_SUMMARIZE } from '../constants.js';
-import { getErrorData } from '../hooks/use-ai-suggestions/index.js';
-import { renderHTMLFromMarkdown, renderMarkdownFromHTML } from '../libs/markdown/index.js';
-import { ERROR_RESPONSE, ERROR_NETWORK } from '../types.js';
+import { PROMPT_TYPE_CHANGE_LANGUAGE, PROMPT_TYPE_SUMMARIZE } from "../constants.js";
+import { getErrorData } from "../hooks/use-ai-suggestions/index.js";
+import { renderHTMLFromMarkdown, renderMarkdownFromHTML } from "../libs/markdown/index.js";
+import { ERROR_RESPONSE, ERROR_NETWORK } from "../types.js";
 export default class ChromeAISuggestionsEventSource extends EventTarget {
     fullMessage;
     fullFunctionCall;

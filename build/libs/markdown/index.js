@@ -1,8 +1,8 @@
 /**
  * Internal dependencies
  */
-import HTMLToMarkdown from './html-to-markdown.js';
-import MarkdownToHTML, { fixes } from './markdown-to-html.js';
+import HTMLToMarkdown from "./html-to-markdown.js";
+import MarkdownToHTML, { fixes } from "./markdown-to-html.js";
 const defaultMarkdownConverter = new MarkdownToHTML();
 const defaultHTMLConverter = new HTMLToMarkdown();
 const renderHTMLFromMarkdown = ({ content, rules, extension, }) => {

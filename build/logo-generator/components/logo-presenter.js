@@ -10,16 +10,16 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
-import AiFeedbackThumbs from '../../components/ai-feedback/index.js';
-import CheckIcon from '../assets/icons/check.js';
-import LogoIcon from '../assets/icons/logo.js';
-import MediaIcon from '../assets/icons/media.js';
-import { EVENT_SAVE, EVENT_USE } from '../constants.js';
-import useLogoGenerator from '../hooks/use-logo-generator.js';
-import useRequestErrors from '../hooks/use-request-errors.js';
-import { updateLogo } from '../lib/logo-storage.js';
-import { STORE_NAME } from '../store/index.js';
-import { ImageLoader } from './image-loader.js';
+import AiFeedbackThumbs from "../../components/ai-feedback/index.js";
+import CheckIcon from "../assets/icons/check.js";
+import LogoIcon from "../assets/icons/logo.js";
+import MediaIcon from "../assets/icons/media.js";
+import { EVENT_SAVE, EVENT_USE } from "../constants.js";
+import useLogoGenerator from "../hooks/use-logo-generator.js";
+import useRequestErrors from "../hooks/use-request-errors.js";
+import { updateLogo } from "../lib/logo-storage.js";
+import { STORE_NAME } from "../store/index.js";
+import { ImageLoader } from "./image-loader.js";
 import './logo-presenter.scss';
 const debug = debugFactory('jetpack-ai-calypso:logo-presenter');
 const SaveInLibraryButton = ({ siteId }) => {
