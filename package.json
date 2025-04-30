@@ -48,7 +48,7 @@
 		"@automattic/jetpack-base-styles": "^0.7.2",
 		"@automattic/jetpack-components": "^0.72.6-alpha",
 		"@automattic/jetpack-connection": "^0.39.13-alpha",
-		"@automattic/jetpack-shared-extension-utils": "^0.19.1",
+		"@automattic/jetpack-shared-extension-utils": "^0.19.2-alpha",
 		"@microsoft/fetch-event-source": "2.0.1",
 		"@types/jest": "29.5.14",
 		"@types/react": "18.3.18",
