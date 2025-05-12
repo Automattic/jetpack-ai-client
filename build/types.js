@@ -33,3 +33,5 @@ export const REQUESTING_STATES = [
  */
 export const AI_MODEL_GPT_3_5_Turbo_16K = 'gpt-3.5-turbo-16k';
 export const AI_MODEL_GPT_4 = 'gpt-4';
+export const AI_MODEL_DEFAULT = 'default';
+export const AI_MODEL_GEMINI_NANO = 'gemini-nano';

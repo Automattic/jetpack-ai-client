@@ -3,7 +3,7 @@
  */
 import type { AskQuestionOptionsArgProps } from '../../ask-question/index.ts';
 import type SuggestionsEventSource from '../../suggestions-event-source/index.ts';
-import type { PromptProp, SuggestionErrorCode, RequestingStateProp } from '../../types.ts';
+import type { PromptProp, SuggestionErrorCode, RequestingStateProp, AiModelTypeProp } from '../../types.ts';
 export type RequestingErrorProps = {
     code: SuggestionErrorCode;
     message: string;
@@ -18,13 +18,14 @@ type useAiSuggestionsOptions = {
     askQuestionOptions?: AskQuestionOptionsArgProps;
     initialRequestingState?: RequestingStateProp;
     onSuggestion?: (suggestion: string) => void;
-    onDone?: (content: string, skipRequestCount?: boolean) => void;
+    onDone?: (content: string, skipRequestCount?: boolean, modelUsed?: AiModelTypeProp) => void;
     onStop?: () => void;
     onError?: (error: RequestingErrorProps) => void;
-    onAllErrors?: (error: RequestingErrorProps) => void;
+    onAllErrors?: (error: RequestingErrorProps, skipRequestCount?: boolean) => void;
 };
 type useAiSuggestionsProps = {
     suggestion: string;
+    model: AiModelTypeProp;
     error: RequestingErrorProps | undefined;
     requestingState: RequestingStateProp;
     eventSource: SuggestionsEventSource | undefined;

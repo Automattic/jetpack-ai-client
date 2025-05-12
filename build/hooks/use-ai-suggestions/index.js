@@ -8,7 +8,7 @@ import { __ } from '@wordpress/i18n';
  */
 import askQuestion from "../../ask-question/index.js";
 import ChromeAIFactory from "../../chrome-ai/factory.js";
-import { ERROR_CONTEXT_TOO_LARGE, ERROR_MODERATION, ERROR_NETWORK, ERROR_QUOTA_EXCEEDED, ERROR_SERVICE_UNAVAILABLE, ERROR_UNCLEAR_PROMPT, ERROR_RESPONSE, } from "../../types.js";
+import { ERROR_CONTEXT_TOO_LARGE, ERROR_MODERATION, ERROR_NETWORK, ERROR_QUOTA_EXCEEDED, ERROR_SERVICE_UNAVAILABLE, ERROR_UNCLEAR_PROMPT, ERROR_RESPONSE, AI_MODEL_DEFAULT, AI_MODEL_GEMINI_NANO, } from "../../types.js";
 /**
  * Get the error data for a given error code.
  *
@@ -75,6 +75,12 @@ export function removeLlamaArtifact(suggestion) {
 export default function useAiSuggestions({ prompt, autoRequest = false, askQuestionOptions = {}, initialRequestingState = 'init', onSuggestion, onDone, onStop, onError, onAllErrors, } = {}) {
     const [requestingState, setRequestingState] = useState(initialRequestingState);
     const [suggestion, setSuggestion] = useState('');
+    const [model, setModel] = useState(AI_MODEL_DEFAULT);
+    const modelRef = useRef(AI_MODEL_DEFAULT);
+    const setModelAndRef = (value) => {
+        setModel(value);
+        modelRef.current = value;
+    };
     const [error, setError] = useState();
     // Store the event source in a ref, so we can handle it if needed.
     const eventSourceRef = useRef(undefined);
@@ -101,11 +107,11 @@ export default function useAiSuggestions({ prompt, autoRequest = false, askQuest
     const handleDone = useCallback((event) => {
         closeEventSource();
         const fullSuggestion = removeLlamaArtifact(event?.detail?.message ?? event?.detail);
-        onDone?.(fullSuggestion, event?.detail?.source === 'chromeAI');
+        onDone?.(fullSuggestion, event?.detail?.source === 'chromeAI', modelRef.current);
         setRequestingState('done');
     }, [onDone]);
     const handleAnyError = useCallback((event) => {
-        onAllErrors?.(event?.detail);
+        onAllErrors?.(event?.detail, event?.detail?.source === 'chromeAI');
     }, [onAllErrors]);
     const handleError = useCallback((errorCode) => {
         eventSourceRef?.current?.close();
@@ -133,9 +139,11 @@ export default function useAiSuggestions({ prompt, autoRequest = false, askQuest
         // check if we can (or should) use Chrome AI
         const chromeAI = await ChromeAIFactory(promptArg);
         if (chromeAI !== false) {
+            setModelAndRef(AI_MODEL_GEMINI_NANO);
             eventSourceRef.current = chromeAI;
         }
         else {
+            setModelAndRef(AI_MODEL_DEFAULT);
             eventSourceRef.current = await askQuestion(promptArg, options);
         }
         if (!eventSourceRef?.current) {
@@ -231,6 +239,7 @@ export default function useAiSuggestions({ prompt, autoRequest = false, askQuest
     return {
         // Data
         suggestion,
+        model,
         error,
         requestingState,
         // Requests handlers
