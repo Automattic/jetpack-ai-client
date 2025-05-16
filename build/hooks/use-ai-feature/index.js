@@ -3,7 +3,7 @@
  */
 import { PLAN_TYPE_FREE, usePlanType as getPlanType, } from '@automattic/jetpack-shared-extension-utils';
 import { useDispatch, useSelect } from '@wordpress/data';
-import { useMemo } from '@wordpress/element';
+import { useMemo, useEffect } from '@wordpress/element';
 /**
  * Hook to get properties for AiFeature
  * @return {object} - Object containing properties for AiFeature.
@@ -12,6 +12,21 @@ export default function useAiFeature() {
     const data = useSelect(select => select('wordpress-com/plans').getAiAssistantFeature(), []);
     const loading = useSelect(select => select('wordpress-com/plans').getIsRequestingAiAssistantFeature(), []);
     const { fetchAiAssistantFeature: loadFeatures, increaseAiAssistantRequestsCount: increaseRequestsCount, dequeueAiAssistantFeatureAsyncRequest: dequeueAsyncRequest, } = useDispatch('wordpress-com/plans');
+    useEffect(() => {
+        if (!loading && data) {
+            // Check if the meta tag already exists
+            const existingMeta = document.querySelector('meta[http-equiv="origin-trial"]');
+            if (!existingMeta && data?.chromeAiTokens) {
+                // iterate through chromeAiTokens and create a meta tag for each one
+                Object.keys(data.chromeAiTokens).forEach(token => {
+                    const otMeta = document.createElement('meta');
+                    otMeta.httpEquiv = 'origin-trial';
+                    otMeta.content = data.chromeAiTokens[token];
+                    document.head.appendChild(otMeta);
+                });
+            }
+        }
+    }, [loading, data]);
     return useMemo(() => {
         const planType = getPlanType(data?.currentTier);
         const currentTierLimit = data?.currentTier?.limit || data?.requestsLimit;
