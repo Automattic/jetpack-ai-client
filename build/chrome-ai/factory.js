@@ -1,14 +1,6 @@
-import { getJetpackExtensionAvailability } from '@automattic/jetpack-shared-extension-utils';
 import { PROMPT_TYPE_CHANGE_LANGUAGE, PROMPT_TYPE_SUMMARIZE } from "../constants.js";
+import { isChromeAIAvailable } from "./get-availability.js";
 import ChromeAISuggestionsEventSource from "./suggestions.js";
-/**
- * Check for the feature flag.
- *
- * @return boolean
- */
-function shouldUseChromeAI() {
-    return getJetpackExtensionAvailability('ai-use-chrome-ai-sometimes').available === true;
-}
 /**
  * This will return an instance of ChromeAISuggestionsEventSource or false.
  *
@@ -16,7 +8,7 @@ function shouldUseChromeAI() {
  * @return ChromeAISuggestionsEventSource | bool
  */
 export default async function ChromeAIFactory(promptArg) {
-    if (!shouldUseChromeAI()) {
+    if (!isChromeAIAvailable()) {
         return false;
     }
     const context = {
