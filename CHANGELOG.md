@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - AI Assistant: propagate the AI model used in the AI requests
+- Update package dependencies.
 
 ## [0.29.0] - 2025-05-19
 ### Added
