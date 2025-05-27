@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This is an alpha version! The changes listed here are not final.
 
+### Changed
+- sass: Remove unnecessary `@import` of `@wordpress/base-styles`.
+
 ## [0.30.0] - 2025-05-26
 ### Changed
 - AI Assistant: Propagate the AI model used in the AI requests. [#43495]
