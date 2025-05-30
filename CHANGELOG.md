@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - sass: Remove unnecessary `@import` of `@wordpress/base-styles`.
+- Update package dependencies.
 - We've changed how we inject Chrome's built-in AI API tokens. It will be done from another script.
 
 ## [0.30.0] - 2025-05-26
