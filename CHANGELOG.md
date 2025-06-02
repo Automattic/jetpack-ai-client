@@ -5,14 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.31.0-alpha] - unreleased
-
-This is an alpha version! The changes listed here are not final.
-
+## [0.31.0] - 2025-06-02
 ### Changed
-- sass: Remove unnecessary `@import` of `@wordpress/base-styles`.
-- Update package dependencies.
-- We've changed how we inject Chrome's built-in AI API tokens. It will be done from another script.
+- Change how Chrome's built-in AI API tokens are injected. [#43682]
+- sass: Remove unnecessary `@import` of `@wordpress/base-styles`. [#43607]
+- Update package dependencies. [#43711]
 
 ## [0.30.0] - 2025-05-26
 ### Changed
@@ -630,7 +627,7 @@ This is an alpha version! The changes listed here are not final.
 - AI Client: stop using smart document visibility handling on the fetchEventSource library, so it does not restart the completion when changing tabs. [#32004]
 - Updated package dependencies. [#31468] [#31659] [#31785]
 
-[0.31.0-alpha]: https://github.com/Automattic/jetpack-ai-client/compare/v0.30.0...v0.31.0-alpha
+[0.31.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.30.0...v0.31.0
 [0.30.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.29.0...v0.30.0
 [0.29.0]: https://github.com/Automattic/jetpack-ai-client/compare/v0.28.1...v0.29.0
 [0.28.1]: https://github.com/Automattic/jetpack-ai-client/compare/v0.28.0...v0.28.1
