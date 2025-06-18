@@ -1,6 +1,8 @@
+import debugFactory from 'debug';
 import { PROMPT_TYPE_CHANGE_LANGUAGE, PROMPT_TYPE_SUMMARIZE } from "../constants.js";
 import { isChromeAIAvailable } from "./get-availability.js";
 import ChromeAISuggestionsEventSource from "./suggestions.js";
+const debug = debugFactory('ai-client:chrome-ai-factory');
 /**
  * This will return an instance of ChromeAISuggestionsEventSource or false.
  *
@@ -9,6 +11,7 @@ import ChromeAISuggestionsEventSource from "./suggestions.js";
  */
 export default async function ChromeAIFactory(promptArg) {
     if (!isChromeAIAvailable()) {
+        debug('Chrome AI is not available');
         return false;
     }
     const context = {
@@ -48,6 +51,7 @@ export default async function ChromeAIFactory(promptArg) {
     // Early return if the prompt type is not supported.
     if (!promptType.startsWith('ai-assistant-change-language') &&
         !promptType.startsWith('ai-content-lens')) {
+        debug('promptType is not supported');
         return false;
     }
     // If the languageDetector is not available, we can't use the translation or summary features—it's safer to fall back
@@ -55,10 +59,12 @@ export default async function ChromeAIFactory(promptArg) {
     if (!('LanguageDetector' in self) ||
         !self.LanguageDetector.create ||
         !self.LanguageDetector.availability) {
+        debug('LanguageDetector is not available');
         return false;
     }
     const languageDetectorAvailability = await self.LanguageDetector.availability();
     if (languageDetectorAvailability === 'unavailable') {
+        debug('LanguageDetector is unavailable');
         return false;
     }
     const detector = await self.LanguageDetector.create();
@@ -70,6 +76,7 @@ export default async function ChromeAIFactory(promptArg) {
         if (!('Translator' in self) ||
             !self.Translator.create ||
             !self.Translator.availability) {
+            debug('Translator is not available');
             return false;
         }
         const languageOpts = {
@@ -89,6 +96,7 @@ export default async function ChromeAIFactory(promptArg) {
         }
         const translationAvailability = await self.Translator.availability(languageOpts);
         if (translationAvailability === 'unavailable') {
+            debug('Translator is unavailable');
             return false;
         }
         const chromeAI = new ChromeAISuggestionsEventSource({
@@ -100,9 +108,11 @@ export default async function ChromeAIFactory(promptArg) {
     }
     if (promptType.startsWith('ai-content-lens')) {
         if (!('Summarizer' in self)) {
+            debug('Summarizer is not available');
             return false;
         }
         if (context.language && context.language !== 'en (English)') {
+            debug('Summary is not English');
             return false;
         }
         const confidences = await detector.detect(context.content);
@@ -113,6 +123,7 @@ export default async function ChromeAIFactory(promptArg) {
             // required for the translator to work at all, which is also
             // why en is the default language.
             if (confidence.confidence > 0.75 && confidence.detectedLanguage !== 'en') {
+                debug('Confidence for non-English content');
                 return false;
             }
         }

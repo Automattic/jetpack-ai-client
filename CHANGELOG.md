@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - AI Assistant: instrument code to A/B test Chrome AI API features
 
+### Fixed
+- The feature flag check was inverted
+
 ## [0.31.2] - 2025-06-16
 ### Changed
 - Update dependencies. [#43878]
