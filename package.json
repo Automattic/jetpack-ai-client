@@ -46,10 +46,10 @@
 	"types": "./build/index.d.ts",
 	"dependencies": {
 		"@automattic/jetpack-base-styles": "^1.0.0",
-		"@automattic/jetpack-components": "^1.1.3-alpha",
-		"@automattic/jetpack-connection": "^1.2.3-alpha",
+		"@automattic/jetpack-components": "^1.1.3",
+		"@automattic/jetpack-connection": "^1.2.3",
 		"@automattic/jetpack-explat": "workspace:*",
-		"@automattic/jetpack-shared-extension-utils": "^1.1.1-alpha",
+		"@automattic/jetpack-shared-extension-utils": "^1.1.1",
 		"@microsoft/fetch-event-source": "2.0.1",
 		"@types/jest": "30.0.0",
 		"@types/react": "18.3.23",
