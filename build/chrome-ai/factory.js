@@ -21,6 +21,7 @@ export default async function ChromeAIFactory(promptArg) {
     let promptType = '';
     let tone = null;
     let wordCount = null;
+    debug('promptArg', promptArg);
     if (Array.isArray(promptArg)) {
         for (let i = 0; i < promptArg.length; i++) {
             const prompt = promptArg[i];
@@ -48,6 +49,7 @@ export default async function ChromeAIFactory(promptArg) {
             }
         }
     }
+    debug('promptType', promptType);
     // Early return if the prompt type is not supported.
     if (!promptType.startsWith('ai-assistant-change-language') &&
         !promptType.startsWith('ai-content-lens')) {
@@ -69,6 +71,7 @@ export default async function ChromeAIFactory(promptArg) {
     }
     const detector = await self.LanguageDetector.create();
     if (languageDetectorAvailability !== 'available') {
+        debug('awaiting detector ready');
         await detector.ready;
     }
     if (promptType.startsWith('ai-assistant-change-language')) {
@@ -94,7 +97,9 @@ export default async function ChromeAIFactory(promptArg) {
                 break;
             }
         }
+        debug('languageOpts', languageOpts);
         const translationAvailability = await self.Translator.availability(languageOpts);
+        debug('translationAvailability', translationAvailability);
         if (translationAvailability === 'unavailable') {
             debug('Translator is unavailable');
             return false;
@@ -115,6 +120,7 @@ export default async function ChromeAIFactory(promptArg) {
             debug('Summary is not English');
             return false;
         }
+        debug('awaiting detector detect');
         const confidences = await detector.detect(context.content);
         // if it doesn't look like the content is in English, we can't use the summary feature
         for (const confidence of confidences) {
@@ -131,6 +137,7 @@ export default async function ChromeAIFactory(promptArg) {
             tone: tone,
             wordCount: wordCount,
         };
+        debug('summaryOpts', summaryOpts);
         return new ChromeAISuggestionsEventSource({
             content: context.content,
             promptType: PROMPT_TYPE_SUMMARIZE,

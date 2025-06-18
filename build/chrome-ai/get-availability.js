@@ -30,9 +30,6 @@ export async function isChromeAIAvailable() {
     debug('initialized explat');
     const { variationName } = await loadExperimentAssignment('calypso_jetpack_ai_gemini_api_202503_v1');
     debug('variationName', variationName);
-    if (variationName === 'control') {
-        return false;
-    }
-    return true;
+    return variationName === 'treatment';
 }
 export default isChromeAIAvailable;

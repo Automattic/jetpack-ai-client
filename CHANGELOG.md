@@ -13,6 +13,7 @@ This is an alpha version! The changes listed here are not final.
 - AI Assistant: instrument code to A/B test Chrome AI API features
 
 ### Fixed
+- Fix assignment group string expected
 - The feature flag check was inverted
 
 ## [0.31.2] - 2025-06-16
