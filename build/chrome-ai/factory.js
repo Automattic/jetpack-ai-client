@@ -10,7 +10,7 @@ const debug = debugFactory('ai-client:chrome-ai-factory');
  * @return ChromeAISuggestionsEventSource | bool
  */
 export default async function ChromeAIFactory(promptArg) {
-    if (!isChromeAIAvailable()) {
+    if (!(await isChromeAIAvailable())) {
         debug('Chrome AI is not available');
         return false;
     }
@@ -138,11 +138,13 @@ export default async function ChromeAIFactory(promptArg) {
             wordCount: wordCount,
         };
         debug('summaryOpts', summaryOpts);
-        return new ChromeAISuggestionsEventSource({
+        const chromeAiEventSourceOpts = {
             content: context.content,
             promptType: PROMPT_TYPE_SUMMARIZE,
             options: summaryOpts,
-        });
+        };
+        debug('chromeAiEventSourceOpts', chromeAiEventSourceOpts);
+        return new ChromeAISuggestionsEventSource(chromeAiEventSourceOpts);
     }
     return false;
 }

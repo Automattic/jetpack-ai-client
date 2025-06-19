@@ -15,6 +15,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Fixed
 - Fix assignment group string expected
+- Fix async function call on chrome experiment availability
 - The feature flag check was inverted
 
 ## [0.31.2] - 2025-06-16

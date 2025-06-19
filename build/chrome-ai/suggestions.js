@@ -1,7 +1,9 @@
+import debugFactory from 'debug';
 import { PROMPT_TYPE_CHANGE_LANGUAGE, PROMPT_TYPE_SUMMARIZE } from "../constants.js";
 import { getErrorData } from "../hooks/use-ai-suggestions/index.js";
 import { renderHTMLFromMarkdown, renderMarkdownFromHTML } from "../libs/markdown/index.js";
 import { ERROR_RESPONSE, ERROR_NETWORK } from "../types.js";
+const debug = debugFactory('ai-client:chrome-ai-suggestions');
 export default class ChromeAISuggestionsEventSource extends EventTarget {
     fullMessage;
     fullFunctionCall;
@@ -32,6 +34,7 @@ export default class ChromeAISuggestionsEventSource extends EventTarget {
     checkForUnclearPrompt() { }
     processEvent(e) {
         let data;
+        debug('processEvent', e);
         try {
             data = JSON.parse(e.data);
         }
@@ -47,6 +50,7 @@ export default class ChromeAISuggestionsEventSource extends EventTarget {
         }
     }
     processErrorEvent(e) {
+        debug('processErrorEvent', e);
         // Dispatch a generic network error event
         this.dispatchEvent(new CustomEvent(ERROR_NETWORK, { detail: e }));
         this.dispatchEvent(new CustomEvent(ERROR_RESPONSE, {
