@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - AI Assistant: instrument code to A/B test Chrome AI API features
+- Update package dependencies.
 
 ### Fixed
 - Fix assignment group string expected
