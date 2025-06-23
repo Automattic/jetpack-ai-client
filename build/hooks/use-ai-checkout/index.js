@@ -2,7 +2,8 @@
  * External dependencies
  */
 import getRedirectUrl from '@automattic/jetpack-components/tools/jp-redirect';
-import { isAtomicSite, isSimpleSite, getSiteFragment, useAutosaveAndRedirect, } from '@automattic/jetpack-shared-extension-utils';
+import { isWpcomPlatformSite, isSimpleSite } from '@automattic/jetpack-script-data';
+import { getSiteFragment, useAutosaveAndRedirect, } from '@automattic/jetpack-shared-extension-utils';
 import useAiFeature from "../use-ai-feature/index.js";
 const getWPComRedirectToURL = () => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -31,7 +32,7 @@ export default function useAICheckout() {
         site: getSiteFragment(),
         path: 'jetpack_ai_yearly',
     });
-    const checkoutUrl = isAtomicSite() || isSimpleSite() ? wpcomCheckoutUrl : jetpackCheckoutUrl;
+    const checkoutUrl = isWpcomPlatformSite() ? wpcomCheckoutUrl : jetpackCheckoutUrl;
     const { autosaveAndRedirect, isRedirecting } = useAutosaveAndRedirect(checkoutUrl);
     return {
         checkoutUrl,

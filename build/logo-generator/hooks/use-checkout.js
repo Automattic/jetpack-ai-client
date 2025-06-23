@@ -1,7 +1,8 @@
 /**
  * External dependencies
  */
-import { isAtomicSite, isSimpleSite, getSiteFragment, } from '@automattic/jetpack-shared-extension-utils';
+import { isWpcomPlatformSite } from '@automattic/jetpack-script-data';
+import { getSiteFragment } from '@automattic/jetpack-shared-extension-utils';
 import { useSelect } from '@wordpress/data';
 /**
  * Internal dependencies
@@ -15,7 +16,7 @@ export const useCheckout = () => {
             tierPlansEnabled: selectors.getAiAssistantFeature().tierPlansEnabled,
         };
     }, []);
-    const isJetpackSite = !isAtomicSite() && !isSimpleSite();
+    const isJetpackSite = !isWpcomPlatformSite();
     const redirectSource = isJetpackSite
         ? 'jetpack-ai-upgrade-url-for-jetpack-sites'
         : 'jetpack-ai-yearly-tier-upgrade-nudge';
