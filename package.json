@@ -48,7 +48,7 @@
 		"@automattic/jetpack-base-styles": "^1.0.1",
 		"@automattic/jetpack-components": "^1.1.5",
 		"@automattic/jetpack-connection": "^1.2.5",
-		"@automattic/jetpack-script-data": "^0.4.3",
+		"@automattic/jetpack-script-data": "^0.4.4-alpha",
 		"@automattic/jetpack-explat": "workspace:*",
 		"@automattic/jetpack-shared-extension-utils": "^1.2.0-alpha",
 		"@microsoft/fetch-event-source": "2.0.1",
