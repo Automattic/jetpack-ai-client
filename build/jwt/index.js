@@ -39,7 +39,7 @@ export default async function requestJwt({ apiNonce, siteId, expirationTime, } =
     let data;
     const isSimple = isSimpleSite();
     if (!isSimple) {
-        data = await apiFetch({
+        data = (await apiFetch({
             /*
              * This endpoint is registered in the Jetpack plugin.
              * Provably we should move it to another package, but for now it's here.
@@ -51,13 +51,13 @@ export default async function requestJwt({ apiNonce, siteId, expirationTime, } =
                 'X-WP-Nonce': apiNonce,
             },
             method: 'POST',
-        });
+        }));
     }
     else {
-        data = await apiFetch({
+        data = (await apiFetch({
             path: '/wpcom/v2/sites/' + siteId + '/jetpack-openai-query/jwt',
             method: 'POST',
-        });
+        }));
     }
     const newTokenData = {
         token: data.token,

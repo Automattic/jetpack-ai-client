@@ -1,9 +1,14 @@
 /**
  * External dependencies
  */
-import { initializeExPlat, loadExperimentAssignmentWithAuth } from '@automattic/jetpack-explat';
+import { initializeExPlat, createExPlatClient } from '@automattic/jetpack-explat';
 import { select } from '@wordpress/data';
+import { addQueryArgs } from '@wordpress/url';
 import debugFactory from 'debug';
+/**
+ * Internal dependencies
+ */
+import apiFetch from "../api-fetch/index.js";
 const debug = debugFactory('ai-client:chrome-ai-availability');
 /**
  * Get the AI Assistant feature.
@@ -14,6 +19,28 @@ function getAiAssistantFeature() {
     const { getAiAssistantFeature: getFeature } = select('wordpress-com/plans');
     return getFeature();
 }
+/**
+ * Fetch an experiment assignment.
+ *
+ * @param {boolean} asConnectedUser - Whether the user is connected.
+ * @return {Function} A function that fetches an experiment assignment.
+ */
+const fetchExperimentAssignmentWithConnectedUser = async ({ experimentName, }) => {
+    const params = {
+        experiment_name: experimentName,
+        anon_id: undefined,
+        as_connected_user: true,
+    };
+    debug('params', params);
+    const assignmentsRequestUrl = addQueryArgs('https://public-api.wordpress.com/wpcom/v2/experiments/0.1.0/assignments/jetpack', params);
+    debug('assignmentsRequestUrl', assignmentsRequestUrl);
+    return apiFetch({
+        url: assignmentsRequestUrl,
+        credentials: 'include',
+        mode: 'cors',
+        global: true,
+    });
+};
 /**
  * Check if Chrome AI can be enabled.
  *
@@ -27,7 +54,12 @@ export async function isChromeAIAvailable() {
         return false;
     }
     initializeExPlat();
-    debug('initialized explat');
+    const { loadExperimentAssignment: loadExperimentAssignmentWithAuth } = createExPlatClient({
+        fetchExperimentAssignment: fetchExperimentAssignmentWithConnectedUser,
+        getAnonId: async () => null,
+        logError: debug,
+        isDevelopmentMode: false,
+    });
     const { variationName } = await loadExperimentAssignmentWithAuth('calypso_jetpack_ai_gemini_api_202503_v1');
     debug('variationName', variationName);
     return variationName === 'treatment';
