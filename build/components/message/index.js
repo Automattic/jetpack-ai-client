@@ -28,7 +28,7 @@ const messageIconsMap = {
  * React component to render a block message.
  *
  * @param {MessageProps} props - Component props.
- * @return {React.ReactElement}    Banner component.
+ * @return {ReactElement}    Banner component.
  */
 export default function Message({ severity = MESSAGE_SEVERITY_INFO, icon = null, aiFeedbackThumbsOptions = {
     showAIFeedbackThumbs: false,
@@ -45,7 +45,7 @@ export default function Message({ severity = MESSAGE_SEVERITY_INFO, icon = null,
 /**
  * React component to render a learn more link.
  *
- * @return {React.ReactElement} - Learn more link component.
+ * @return {ReactElement} - Learn more link component.
  */
 function LearnMoreLink() {
     return (_jsx(ExternalLink, { href: "https://jetpack.com/redirect/?source=ai-guidelines", children: __('Learn more', 'jetpack-ai-client') }));
@@ -54,7 +54,7 @@ function LearnMoreLink() {
  * React component to render a guideline message.
  *
  * @param {GuidelineMessageProps} props - Component props.
- * @return {React.ReactElement} - Message component.
+ * @return {ReactElement} - Message component.
  */
 export function GuidelineMessage({ aiFeedbackThumbsOptions = {
     showAIFeedbackThumbs: false,
@@ -68,7 +68,7 @@ export function GuidelineMessage({ aiFeedbackThumbsOptions = {
 /**
  * React component to render a fair usage limit message.
  *
- * @return {React.ReactElement} - Message component.
+ * @return {ReactElement} - Message component.
  */
 export function FairUsageLimitMessage() {
     const message = __("You've reached this month's request limit, per our <link>fair usage policy</link>", 'jetpack-ai-client');
@@ -81,7 +81,7 @@ export function FairUsageLimitMessage() {
  * React component to render an upgrade message for free tier users
  *
  * @param {number} requestsRemaining - Number of requests remaining.
- * @return {React.ReactElement} - Message component.
+ * @return {ReactElement} - Message component.
  */
 export function UpgradeMessage({ requestsRemaining, severity, onUpgradeClick, upgradeUrl, }) {
     let messageSeverity = severity;
@@ -96,7 +96,7 @@ export function UpgradeMessage({ requestsRemaining, severity, onUpgradeClick, up
  * React component to render an error message
  *
  * @param {number} requestsRemaining - Number of requests remaining.
- * @return {React.ReactElement} - Message component.
+ * @return {ReactElement} - Message component.
  */
 export function ErrorMessage({ error, code, onTryAgainClick, onUpgradeClick, upgradeUrl, }) {
     const errorMessage = error || __('Something went wrong', 'jetpack-ai-client');

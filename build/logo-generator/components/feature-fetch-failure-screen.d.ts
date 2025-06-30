@@ -1,8 +1,8 @@
 /**
  * Types
  */
-import type React from 'react';
-export declare const FeatureFetchFailureScreen: React.FC<{
+import type { FC } from 'react';
+export declare const FeatureFetchFailureScreen: FC<{
     onCancel: () => void;
     onRetry?: () => void;
 }>;

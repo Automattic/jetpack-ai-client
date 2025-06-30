@@ -1,13 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-/**
- * External dependencies
- */
 import { Modal, Button } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { close } from '@wordpress/icons';
-/**
- * Internal dependencies
- */
 import AiStatusIndicator from "../ai-status-indicator/index.js";
 import './style.scss';
 const ModalHeader = ({ requestingState, onClose, title, }) => {
@@ -16,7 +10,7 @@ const ModalHeader = ({ requestingState, onClose, title, }) => {
 /**
  * AiAssistantModal component
  * @param {AiAssistantModalProps} props - The component properties.
- * @return {React.ReactElement} - rendered component.
+ * @return {ReactElement} - rendered component.
  */
 export default function AiAssistantModal({ children, handleClose, hideHeader = true, requestingState = 'init', title = __('AI Assistant', 'jetpack-ai-client'), maxWidth = 720, }) {
     return (_jsx(Modal, { __experimentalHideHeader: hideHeader, className: "ai-assistant-modal", shouldCloseOnClickOutside: false, onRequestClose: handleClose, children: _jsxs("div", { className: "ai-assistant-modal__content", style: { maxWidth }, children: [_jsx(ModalHeader, { requestingState: requestingState, onClose: handleClose, title: title }), _jsx("hr", { className: "ai-assistant-modal__divider" }), children] }) }));

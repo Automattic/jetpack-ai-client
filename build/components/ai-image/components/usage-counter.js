@@ -1,17 +1,11 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-/**
- * External dependencies
- */
 import { createInterpolateElement } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
-/**
- * Internal dependencies
- */
 import './usage-counter.scss';
 /**
  * UsageCounter component
  * @param {UsageCounterProps} props - The component properties.
- * @return {React.ReactElement} - rendered component.
+ * @return {ReactElement} - rendered component.
  */
 export default function UsageCounter({ currentLimit, currentUsage, cost }) {
     const requestsBalance = currentLimit - currentUsage;

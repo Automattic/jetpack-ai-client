@@ -1,4 +1,3 @@
-import React from 'react';
 import { ImageStyleObject, ImageStyle } from '../../../hooks/use-image-generator/constants.ts';
 /**
  * Types
@@ -34,14 +33,14 @@ type UseAiImageProps = {
  */
 export default function useAiImage({ feature, type, cost, autoStart, previousMediaId, }: UseAiImageProps): {
     current: number;
-    setCurrent: React.Dispatch<React.SetStateAction<number>>;
+    setCurrent: import("react").Dispatch<import("react").SetStateAction<number>>;
     processImageGeneration: ({ userPrompt, postContent, notEnoughRequests, style, }: ProcessImageGenerationProps) => Promise<ImageResponse>;
     handlePreviousImage: () => void;
     handleNextImage: () => void;
     currentImage: CarrouselImageData;
     currentPointer: CarrouselImageData;
     images: CarrouselImages;
-    pointer: React.MutableRefObject<number>;
+    pointer: import("react").MutableRefObject<number>;
     imageStyles: ImageStyleObject[];
     guessStyle: (prompt: string, requestType?: string, content?: string) => Promise<ImageStyle | null>;
 };

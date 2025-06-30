@@ -1,7 +1,4 @@
 import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
-/**
- * External dependencies
- */
 import { useAnalytics, PLAN_TYPE_UNLIMITED, usePlanType, } from '@automattic/jetpack-shared-extension-utils';
 import { Button } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
@@ -9,9 +6,6 @@ import { store as editorStore } from '@wordpress/editor';
 import { useCallback, useState } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 import debugFactory from 'debug';
-/**
- * Internal dependencies
- */
 import './style.scss';
 import { PLACEMENT_JETPACK_SIDEBAR, PLACEMENT_DOCUMENT_SETTINGS } from "../../constants.js";
 import useAiFeature from "../../hooks/use-ai-feature/index.js";
@@ -25,7 +19,7 @@ const debug = debugFactory('jetpack-ai-client:featured-image');
 /**
  * FeaturedImage component
  * @param {FeaturedImageProps} props - The component properties.
- * @return {React.ReactElement} - rendered component.
+ * @return {ReactElement} - rendered component.
  */
 export default function FeaturedImage({ busy, disabled, placement, onClose = () => { }, }) {
     const [isFeaturedImageModalVisible, setIsFeaturedImageModalVisible] = useState(placement === PLACEMENT_MEDIA_SOURCE_DROPDOWN);

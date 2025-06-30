@@ -18,7 +18,7 @@ import './style.scss';
  * ExtensionAIControl component. Used by the AI Assistant inline extensions, adding logic and components to the base AIControl component.
  *
  * @param {ExtensionAIControlProps} props - Component props
- * @param {React.MutableRefObject}  ref   - Ref to the component
+ * @param {MutableRefObject}        ref   - Ref to the component
  * @return {ReactElement}                 Rendered component
  */
 export function ExtensionAIControl({ className, disabled = false, value = '', placeholder = '', showButtonLabels = true, isTransparent = false, state = 'init', showGuideLine = false, error, requestsRemaining, showUpgradeMessage = false, showFairUsageMessage = false, upgradeUrl, wrapperRef, onChange, onSend, onStop, onClose, onUndo, onUpgrade, onTryAgain, lastAction, blockType, }, ref) {

@@ -1,9 +1,7 @@
-/**
- * Internal dependencies
- */
 import { ImageStyleObject, ImageStyle } from '../../../hooks/use-image-generator/constants.ts';
 import { CarrouselImages } from './carrousel.tsx';
 import './ai-image-modal.scss';
+import type { JSX } from 'react';
 type AiImageModalProps = {
     title: string;
     cost: number;
@@ -30,7 +28,7 @@ type AiImageModalProps = {
     hasError: boolean;
     handlePreviousImage: () => void;
     handleNextImage: () => void;
-    acceptButton: React.JSX.Element;
+    acceptButton: JSX.Element;
     autoStart?: boolean;
     autoStartAction?: ({ userPrompt, style }: {
         userPrompt?: string;
@@ -49,7 +47,7 @@ type AiImageModalProps = {
 /**
  * AiImageModal component
  * @param {AiImageModalProps} props - The component properties.
- * @return {React.ReactElement} - rendered component.
+ * @return {ReactElement} - rendered component.
  */
 export default function AiImageModal({ title, cost, open, images, currentIndex, onClose, onTryAgain, onGenerate, generating, notEnoughRequests, requireUpgrade, currentLimit, currentUsage, isUnlimited, upgradeDescription, hasError, handlePreviousImage, handleNextImage, acceptButton, autoStart, autoStartAction, instructionsPlaceholder, imageStyles, onGuessStyle, prompt, setPrompt, initialStyle, inputDisabled, actionDisabled, }: AiImageModalProps): import("react/jsx-runtime").JSX.Element;
 export {};

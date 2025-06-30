@@ -13,7 +13,7 @@ export const AiDataContext = createContext({});
  * AI Data Context Provider
  *
  * @param {AiDataContextProviderProps} props - Component props.
- * @return {React.ReactElement}                           Context provider.
+ * @return {ReactElement}                           Context provider.
  * @example
  * <AiDataContextProvider value={ value }>
  * 	{ children }

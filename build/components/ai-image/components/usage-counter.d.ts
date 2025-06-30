@@ -1,6 +1,3 @@
-/**
- * Internal dependencies
- */
 import './usage-counter.scss';
 type UsageCounterProps = {
     currentLimit: number;
@@ -10,7 +7,7 @@ type UsageCounterProps = {
 /**
  * UsageCounter component
  * @param {UsageCounterProps} props - The component properties.
- * @return {React.ReactElement} - rendered component.
+ * @return {ReactElement} - rendered component.
  */
 export default function UsageCounter({ currentLimit, currentUsage, cost }: UsageCounterProps): import("react/jsx-runtime").JSX.Element;
 export {};

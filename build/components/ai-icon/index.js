@@ -1,7 +1,4 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-/**
- * External dependencies
- */
 import { G, Path, SVG, Rect } from '@wordpress/components';
 import { Icon } from '@wordpress/icons';
 import { Defs } from '@wordpress/primitives';
@@ -9,7 +6,7 @@ export const AiSVG = (_jsxs(SVG, { width: "42", height: "42", viewBox: "0 0 42 4
 /**
  * AiIcon component
  * @param {string} className - The wrapper class name.
- * @return {React.ReactElement} The `AiIcon` component.
+ * @return {ReactElement} The `AiIcon` component.
  */
 export default function AiIcon({ className, size = 42 }) {
     return _jsx(Icon, { icon: AiSVG, width: size, height: size, className: className });

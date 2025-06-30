@@ -13,8 +13,8 @@ import { AiDataContextProvider } from "./index.js";
  * High Order Component that provides the
  * AI Assistant Data context to the wrapped component.
  *
- * @param {React.ReactElement} WrappedComponent - component to wrap.
- * @return {React.ReactElement} Wrapped component, with the AI Assistant Data context.
+ * @param {ReactElement} WrappedComponent - component to wrap.
+ * @return {ReactElement} Wrapped component, with the AI Assistant Data context.
  */
 const withAiDataProvider = createHigherOrderComponent((WrappedComponent) => {
     return props => {

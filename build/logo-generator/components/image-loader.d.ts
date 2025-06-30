@@ -1,7 +1,7 @@
 /**
  * Types
  */
-import type React from 'react';
-export declare const ImageLoader: React.FC<{
+import type { FC } from 'react';
+export declare const ImageLoader: FC<{
     className?: string;
 }>;

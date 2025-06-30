@@ -1,6 +1,6 @@
 import type { RequestingStateProp } from '../../types.ts';
 export type AiStatusIndicatorIconSize = 24 | 32 | 48 | 64;
-import type React from 'react';
+import type { ReactElement } from 'react';
 import './style.scss';
 export type AiStatusIndicatorProps = {
     state?: RequestingStateProp;
@@ -10,6 +10,6 @@ export type AiStatusIndicatorProps = {
  * AiStatusIndicator component.
  *
  * @param {AiStatusIndicatorProps} props - component props.
- * @return {React.ReactElement} - rendered component.
+ * @return {ReactElement} - rendered component.
  */
-export default function AiStatusIndicator({ state }: AiStatusIndicatorProps): React.ReactElement;
+export default function AiStatusIndicator({ state }: AiStatusIndicatorProps): ReactElement;

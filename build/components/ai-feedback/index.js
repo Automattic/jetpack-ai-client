@@ -25,7 +25,7 @@ function getFeatureAvailability(feature) {
  * AiFeedbackThumbs component.
  *
  * @param {AiFeedbackThumbsProps} props - component props.
- * @return {React.ReactElement} - rendered component.
+ * @return {ReactElement} - rendered component.
  */
 export default function AiFeedbackThumbs({ disabled = false, iconSize = 24, ratedItem = '', feature = '', savedRatings = {}, options = {}, onRate, }) {
     if (!getFeatureAvailability('ai-response-feedback')) {

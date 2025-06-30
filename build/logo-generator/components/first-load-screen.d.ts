@@ -1,5 +1,5 @@
-import React from 'react';
 import './first-load-screen.scss';
-export declare const FirstLoadScreen: React.FC<{
+import type { FC } from 'react';
+export declare const FirstLoadScreen: FC<{
     state?: 'loadingFeature' | 'analyzing' | 'generating';
 }>;

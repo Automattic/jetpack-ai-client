@@ -6,7 +6,7 @@ import './style.scss';
  * Types
  */
 import type { SuggestionErrorCode } from '../../types.ts';
-import type React from 'react';
+import type { MouseEvent, ReactElement, ReactNode } from 'react';
 export declare const MESSAGE_SEVERITY_WARNING = "warning";
 export declare const MESSAGE_SEVERITY_ERROR = "error";
 export declare const MESSAGE_SEVERITY_SUCCESS = "success";
@@ -20,15 +20,15 @@ type AiFeedbackThumbsOptions = {
     onRate?: (rating: string) => void;
 };
 export type MessageProps = {
-    icon?: React.ReactNode;
+    icon?: ReactNode;
     severity?: MessageSeverityProp;
     aiFeedbackThumbsOptions?: AiFeedbackThumbsOptions;
-    children: React.ReactNode;
+    children: ReactNode;
 };
 export type GuidelineMessageProps = {
     aiFeedbackThumbsOptions?: AiFeedbackThumbsOptions;
 };
-export type OnUpgradeClick = (event?: React.MouseEvent<HTMLButtonElement>) => void;
+export type OnUpgradeClick = (event?: MouseEvent<HTMLButtonElement>) => void;
 export type UpgradeMessageProps = {
     requestsRemaining: number;
     severity?: MessageSeverityProp;
@@ -46,34 +46,34 @@ export type ErrorMessageProps = {
  * React component to render a block message.
  *
  * @param {MessageProps} props - Component props.
- * @return {React.ReactElement}    Banner component.
+ * @return {ReactElement}    Banner component.
  */
-export default function Message({ severity, icon, aiFeedbackThumbsOptions, children, }: MessageProps): React.ReactElement;
+export default function Message({ severity, icon, aiFeedbackThumbsOptions, children, }: MessageProps): ReactElement;
 /**
  * React component to render a guideline message.
  *
  * @param {GuidelineMessageProps} props - Component props.
- * @return {React.ReactElement} - Message component.
+ * @return {ReactElement} - Message component.
  */
-export declare function GuidelineMessage({ aiFeedbackThumbsOptions, }: GuidelineMessageProps): React.ReactElement;
+export declare function GuidelineMessage({ aiFeedbackThumbsOptions, }: GuidelineMessageProps): ReactElement;
 /**
  * React component to render a fair usage limit message.
  *
- * @return {React.ReactElement} - Message component.
+ * @return {ReactElement} - Message component.
  */
-export declare function FairUsageLimitMessage(): React.ReactElement;
+export declare function FairUsageLimitMessage(): ReactElement;
 /**
  * React component to render an upgrade message for free tier users
  *
  * @param {number} requestsRemaining - Number of requests remaining.
- * @return {React.ReactElement} - Message component.
+ * @return {ReactElement} - Message component.
  */
-export declare function UpgradeMessage({ requestsRemaining, severity, onUpgradeClick, upgradeUrl, }: UpgradeMessageProps): React.ReactElement;
+export declare function UpgradeMessage({ requestsRemaining, severity, onUpgradeClick, upgradeUrl, }: UpgradeMessageProps): ReactElement;
 /**
  * React component to render an error message
  *
  * @param {number} requestsRemaining - Number of requests remaining.
- * @return {React.ReactElement} - Message component.
+ * @return {ReactElement} - Message component.
  */
-export declare function ErrorMessage({ error, code, onTryAgainClick, onUpgradeClick, upgradeUrl, }: ErrorMessageProps): React.ReactElement;
+export declare function ErrorMessage({ error, code, onTryAgainClick, onUpgradeClick, upgradeUrl, }: ErrorMessageProps): ReactElement;
 export {};

@@ -2,7 +2,7 @@ import './style.scss';
 /**
  * Types
  */
-import type React from 'react';
+import type { ReactElement } from 'react';
 type AiFeedbackThumbsProps = {
     disabled?: boolean;
     iconSize?: number;
@@ -21,7 +21,7 @@ type AiFeedbackThumbsProps = {
  * AiFeedbackThumbs component.
  *
  * @param {AiFeedbackThumbsProps} props - component props.
- * @return {React.ReactElement} - rendered component.
+ * @return {ReactElement} - rendered component.
  */
-export default function AiFeedbackThumbs({ disabled, iconSize, ratedItem, feature, savedRatings, options, onRate, }: AiFeedbackThumbsProps): React.ReactElement;
+export default function AiFeedbackThumbs({ disabled, iconSize, ratedItem, feature, savedRatings, options, onRate, }: AiFeedbackThumbsProps): ReactElement;
 export {};

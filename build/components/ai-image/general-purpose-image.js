@@ -1,15 +1,9 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-/**
- * External dependencies
- */
 import { useAnalytics, PLAN_TYPE_UNLIMITED, usePlanType, } from '@automattic/jetpack-shared-extension-utils';
 import { Button } from '@wordpress/components';
 import { useCallback, useState } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 import debugFactory from 'debug';
-/**
- * Internal dependencies
- */
 import './style.scss';
 import useAiFeature from "../../hooks/use-ai-feature/index.js";
 import usePostContent from "../../hooks/use-post-content.js";
@@ -22,7 +16,7 @@ const debug = debugFactory('jetpack-ai:general-purpose-image');
 /**
  * GeneralPurposeImage component
  * @param {GeneralPurposeImageProps} props - The component properties.
- * @return {React.ReactElement} - rendered component.
+ * @return {ReactElement} - rendered component.
  */
 export default function GeneralPurposeImage({ placement, onClose = () => { }, onSetImage = () => { }, }) {
     const [isFeaturedImageModalVisible, setIsFeaturedImageModalVisible] = useState(true);

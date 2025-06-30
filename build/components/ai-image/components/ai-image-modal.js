@@ -1,15 +1,9 @@
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
-/**
- * External dependencies
- */
 import { useAnalytics } from '@automattic/jetpack-shared-extension-utils';
 import { SelectControl } from '@wordpress/components';
 import { useCallback, useRef, useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import debugFactory from 'debug';
-/**
- * Internal dependencies
- */
 import { IMAGE_STYLE_NONE, IMAGE_STYLE_AUTO, } from "../../../hooks/use-image-generator/constants.js";
 import { AiModalPromptInput } from "../../../logo-generator/index.js";
 import AiModalFooter from "../../ai-modal-footer/index.js";
@@ -23,7 +17,7 @@ const debug = debugFactory('jetpack-ai-client:ai-image-modal');
 /**
  * AiImageModal component
  * @param {AiImageModalProps} props - The component properties.
- * @return {React.ReactElement} - rendered component.
+ * @return {ReactElement} - rendered component.
  */
 export default function AiImageModal({ title, cost, open, images, currentIndex = 0, onClose = null, onTryAgain = null, onGenerate = null, generating = false, notEnoughRequests = false, requireUpgrade = false, currentLimit = null, currentUsage = null, isUnlimited = false, upgradeDescription = null, hasError = false, handlePreviousImage = () => { }, handleNextImage = () => { }, acceptButton = null, autoStart = false, autoStartAction = null, instructionsPlaceholder = null, imageStyles = [], onGuessStyle = null, prompt = '', setPrompt = () => { }, initialStyle = null, inputDisabled = false, actionDisabled = false, }) {
     const { tracks } = useAnalytics();

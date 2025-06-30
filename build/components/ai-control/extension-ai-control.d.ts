@@ -1,10 +1,9 @@
-import React from 'react';
 import './style.scss';
 /**
  * Types
  */
 import type { RequestingErrorProps, RequestingStateProp } from '../../types.ts';
-import type { ReactElement, MouseEvent } from 'react';
+import type { MutableRefObject, ReactElement, MouseEvent } from 'react';
 type ExtensionAIControlProps = {
     className?: string;
     disabled?: boolean;
@@ -19,7 +18,7 @@ type ExtensionAIControlProps = {
     showUpgradeMessage?: boolean;
     showFairUsageMessage?: boolean;
     upgradeUrl?: string;
-    wrapperRef?: React.MutableRefObject<HTMLDivElement | null>;
+    wrapperRef?: MutableRefObject<HTMLDivElement | null>;
     onChange?: (newValue: string) => void;
     onSend?: (currentValue: string) => void;
     onStop?: () => void;
@@ -34,9 +33,9 @@ type ExtensionAIControlProps = {
  * ExtensionAIControl component. Used by the AI Assistant inline extensions, adding logic and components to the base AIControl component.
  *
  * @param {ExtensionAIControlProps} props - Component props
- * @param {React.MutableRefObject}  ref   - Ref to the component
+ * @param {MutableRefObject}        ref   - Ref to the component
  * @return {ReactElement}                 Rendered component
  */
-export declare function ExtensionAIControl({ className, disabled, value, placeholder, showButtonLabels, isTransparent, state, showGuideLine, error, requestsRemaining, showUpgradeMessage, showFairUsageMessage, upgradeUrl, wrapperRef, onChange, onSend, onStop, onClose, onUndo, onUpgrade, onTryAgain, lastAction, blockType, }: ExtensionAIControlProps, ref: React.MutableRefObject<HTMLInputElement>): ReactElement;
-declare const _default: React.ForwardRefExoticComponent<ExtensionAIControlProps & React.RefAttributes<HTMLInputElement>>;
+export declare function ExtensionAIControl({ className, disabled, value, placeholder, showButtonLabels, isTransparent, state, showGuideLine, error, requestsRemaining, showUpgradeMessage, showFairUsageMessage, upgradeUrl, wrapperRef, onChange, onSend, onStop, onClose, onUndo, onUpgrade, onTryAgain, lastAction, blockType, }: ExtensionAIControlProps, ref: MutableRefObject<HTMLInputElement>): ReactElement;
+declare const _default: import("react").ForwardRefExoticComponent<ExtensionAIControlProps & import("react").RefAttributes<HTMLInputElement>>;
 export default _default;

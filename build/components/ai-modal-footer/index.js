@@ -14,7 +14,7 @@ import './style.scss';
  * AiModalFooter component.
  *
  * @param {AiModalFooterProps} props - component props.
- * @return {React.ReactElement} - rendered component.
+ * @return {ReactElement} - rendered component.
  */
 export default function AiModalFooter({ onGuidelinesClick, onFeedbackClick, }) {
     const handleGuidelinesClick = useCallback(() => {

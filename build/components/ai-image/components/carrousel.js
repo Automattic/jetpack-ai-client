@@ -1,22 +1,16 @@
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
-/**
- * External dependencies
- */
 import { Spinner } from '@wordpress/components';
 import { useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { Icon, chevronLeft, chevronRight } from '@wordpress/icons';
 import clsx from 'clsx';
-/**
- * Internal dependencies
- */
 import AiFeedbackThumbs from "../../ai-feedback/index.js";
 import AiIcon from "../../ai-icon/index.js";
 import './carrousel.scss';
 /**
  * BlankImage component
  * @param {BlankImageProps} props - The component properties.
- * @return {React.ReactElement} - rendered component.
+ * @return {ReactElement} - rendered component.
  */
 function BlankImage({ children, isDotted = false, contentClassName = '' }) {
     const blankImage = (_jsx("img", { className: "ai-assistant-image__carrousel-image", src: "data:image/svg+xml,<svg viewBox='0 0 1 1' width='1024' height='768' xmlns='http://www.w3.org/2000/svg'><path d='M0 0 L1 0 L1 1 L0 1 L0 0 Z' fill='none' /></svg>", alt: "" }));
@@ -27,7 +21,7 @@ function BlankImage({ children, isDotted = false, contentClassName = '' }) {
 /**
  * Carrousel component
  * @param {CarrouselProps} props - The component properties.
- * @return {React.ReactElement} - rendered component.
+ * @return {ReactElement} - rendered component.
  */
 export default function Carrousel({ images, current, handlePreviousImage, handleNextImage, actions = null, }) {
     const [imageFeedbackDisabled, setImageFeedbackDisabled] = useState(false);

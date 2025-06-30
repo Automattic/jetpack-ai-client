@@ -1,4 +1,4 @@
 import './logo-presenter.scss';
 import type { LogoPresenterProps } from '../types.ts';
-import type React from 'react';
-export declare const LogoPresenter: React.FC<LogoPresenterProps>;
+import type { FC } from 'react';
+export declare const LogoPresenter: FC<LogoPresenterProps>;

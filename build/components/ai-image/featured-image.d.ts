@@ -1,6 +1,3 @@
-/**
- * Internal dependencies
- */
 import './style.scss';
 type FeaturedImageProps = {
     busy: boolean;
@@ -11,7 +8,7 @@ type FeaturedImageProps = {
 /**
  * FeaturedImage component
  * @param {FeaturedImageProps} props - The component properties.
- * @return {React.ReactElement} - rendered component.
+ * @return {ReactElement} - rendered component.
  */
 export default function FeaturedImage({ busy, disabled, placement, onClose, }: FeaturedImageProps): import("react/jsx-runtime").JSX.Element;
 export {};

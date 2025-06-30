@@ -2,13 +2,12 @@
  * External dependencies
  */
 import { PlainText } from '@wordpress/block-editor';
-import React from 'react';
 import './style.scss';
 /**
  * Types
  */
 import type { RequestingStateProp } from '../../types.ts';
-import type { ReactElement } from 'react';
+import type { MutableRefObject, ReactElement } from 'react';
 type AIControlProps = {
     className?: string;
     disabled?: boolean;
@@ -22,7 +21,7 @@ type AIControlProps = {
     actions?: ReactElement;
     message?: ReactElement;
     promptUserInputRef?: PlainText.Props['ref'];
-    wrapperRef?: React.MutableRefObject<HTMLDivElement | null>;
+    wrapperRef?: MutableRefObject<HTMLDivElement | null>;
 };
 /**
  * Base AIControl component. Contains the main structure of the control component and slots for banner, error, actions and message.
