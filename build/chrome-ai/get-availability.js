@@ -60,7 +60,7 @@ export async function isChromeAIAvailable() {
         logError: debug,
         isDevelopmentMode: false,
     });
-    const { variationName } = await loadExperimentAssignmentWithAuth('calypso_jetpack_ai_gemini_api_202503_v1');
+    const { variationName } = await loadExperimentAssignmentWithAuth('calypso_jetpack_ai_gemini_api_202503_v2');
     debug('variationName', variationName);
     return variationName === 'treatment';
 }
