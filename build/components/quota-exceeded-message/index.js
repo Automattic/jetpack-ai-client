@@ -33,7 +33,7 @@ const useFairUsageNoticeMessage = () => {
             nextUsagePeriodStartDate.getDate());
     };
     const getFairUsageNoticeMessage = resetDateString => {
-        const fairUsageMessage = __("You've reached this month's request limit, per our <link>fair usage policy</link>.", 'jetpack-ai-client');
+        const fairUsageMessage = __("You've reached this month's request limit, per our <link><span>fair usage policy</span></link>.", 'jetpack-ai-client');
         if (!resetDateString) {
             return fairUsageMessage;
         }
@@ -47,6 +47,7 @@ const useFairUsageNoticeMessage = () => {
     const fairUsageNoticeMessage = getFairUsageNoticeMessage(nextUsagePeriodStartDateString);
     const fairUsageNoticeMessageElement = createInterpolateElement(fairUsageNoticeMessage, {
         link: (_jsx("a", { href: "https://jetpack.com/redirect/?source=ai-assistant-fair-usage-policy", target: "_blank", rel: "noreferrer" })),
+        span: _jsx("span", {}),
     });
     return fairUsageNoticeMessageElement;
 };

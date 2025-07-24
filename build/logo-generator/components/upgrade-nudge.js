@@ -26,5 +26,5 @@ export const UpgradeNudge = () => {
     const handleUpgradeClick = () => {
         recordTracksEvent(EVENT_UPGRADE, { context, placement: EVENT_PLACEMENT_UPGRADE_PROMPT });
     };
-    return (_jsx("div", { className: "jetpack-upgrade-plan-banner", children: _jsxs("div", { className: "jetpack-upgrade-plan-banner__wrapper", children: [_jsxs("div", { children: [_jsx(Icon, { className: "jetpack-upgrade-plan-banner__icon", icon: warning }), _jsx("span", { className: "jetpack-upgrade-plan-banner__banner-description", children: upgradeMessage })] }), _jsx(Button, { href: checkoutUrl, target: "_blank", className: "is-primary", onClick: handleUpgradeClick, children: buttonText })] }) }));
+    return (_jsx("div", { className: "jetpack-upgrade-plan-banner", children: _jsxs("div", { className: "jetpack-upgrade-plan-banner__wrapper", children: [_jsxs("div", { children: [_jsx(Icon, { className: "jetpack-upgrade-plan-banner__icon", icon: warning }), _jsx("span", { className: "jetpack-upgrade-plan-banner__banner-description", children: upgradeMessage })] }), _jsx(Button, { href: checkoutUrl, target: "_blank", className: "is-primary", onClick: handleUpgradeClick, children: _jsx("span", { children: buttonText }) })] }) }));
 };

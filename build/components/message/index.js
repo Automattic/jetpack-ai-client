@@ -90,7 +90,7 @@ export function UpgradeMessage({ requestsRemaining, severity, onUpgradeClick, up
     }
     return (_jsxs(Message, { severity: messageSeverity, children: [_jsx("span", { children: sprintf(
                 // translators: %1$d: number of requests remaining
-                __('You have %1$d requests remaining.', 'jetpack-ai-client'), requestsRemaining) }), _jsx(Button, { variant: "link", onClick: onUpgradeClick, href: upgradeUrl, target: upgradeUrl ? '_blank' : null, children: __('Upgrade now', 'jetpack-ai-client') })] }));
+                __('You have %1$d requests remaining.', 'jetpack-ai-client'), requestsRemaining) }), _jsx(Button, { variant: "link", onClick: onUpgradeClick, href: upgradeUrl, target: upgradeUrl ? '_blank' : null, children: _jsx("span", { children: __('Upgrade now', 'jetpack-ai-client') }) })] }));
 }
 /**
  * React component to render an error message
@@ -102,5 +102,5 @@ export function ErrorMessage({ error, code, onTryAgainClick, onUpgradeClick, upg
     const errorMessage = error || __('Something went wrong', 'jetpack-ai-client');
     return (_jsxs(Message, { severity: MESSAGE_SEVERITY_ERROR, children: [_jsx("span", { children: sprintf(
                 // translators: %1$d: A dynamic error message
-                __('Error: %1$s', 'jetpack-ai-client'), errorMessage) }), code === ERROR_QUOTA_EXCEEDED ? (_jsx(Button, { variant: "link", onClick: onUpgradeClick, href: upgradeUrl, target: upgradeUrl ? '_blank' : null, children: __('Upgrade now', 'jetpack-ai-client') })) : (_jsx(Button, { variant: "link", onClick: onTryAgainClick, children: __('Try again', 'jetpack-ai-client') }))] }));
+                __('Error: %1$s', 'jetpack-ai-client'), errorMessage) }), code === ERROR_QUOTA_EXCEEDED ? (_jsx(Button, { variant: "link", onClick: onUpgradeClick, href: upgradeUrl, target: upgradeUrl ? '_blank' : null, children: _jsx("span", { children: __('Upgrade now', 'jetpack-ai-client') }) })) : (_jsx(Button, { variant: "link", onClick: onTryAgainClick, children: _jsx("span", { children: __('Try again', 'jetpack-ai-client') }) }))] }));
 }
