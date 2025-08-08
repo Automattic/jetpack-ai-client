@@ -91,12 +91,12 @@ const DefaultUpgradePrompt = ({ placement = null, description = null, useLightNu
             return (_jsx(Nudge, { buttonText: __('Contact Us', 'jetpack-ai-client'), description: description || contactUsDescription, className: 'jetpack-ai-upgrade-banner', checkoutUrl: contactHref, visible: true, align: null, title: null, context: null, goToCheckoutPage: handleContactUsClick, target: "_blank" }));
         }
         const upgradeDescription = createInterpolateElement(sprintf(
-        /* Translators: number of requests */
+        /* Translators: %d: the number of requests allowed */
         __('You have reached the requests limit for your current plan. <strong>Upgrade now to increase your requests limit to %d.</strong>', 'jetpack-ai-client'), nextTier.limit), {
             strong: _jsx("strong", {}),
         });
         return (_jsx(Nudge, { buttonText: sprintf(
-            /* Translators: number of requests */
+            /* Translators: %d: the number of requests */
             __('Upgrade to %d requests', 'jetpack-ai-client'), nextTier.limit), checkoutUrl: checkoutUrl, className: 'jetpack-ai-upgrade-banner', description: description || upgradeDescription, goToCheckoutPage: handleUpgradeClick, visible: true, align: 'center', title: null, context: null, target: "_blank" }));
     }
     return (_jsx(Nudge, { buttonText: __('Upgrade', 'jetpack-ai-client'), checkoutUrl: checkoutUrl, className: 'jetpack-ai-upgrade-banner', description: createInterpolateElement(__('Congratulations on exploring Jetpack AI and reaching the free requests limit! <strong>Upgrade now to keep using it.</strong>', 'jetpack-ai-client'), {
