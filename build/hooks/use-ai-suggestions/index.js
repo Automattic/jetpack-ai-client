@@ -40,7 +40,7 @@ export function getErrorData(errorCode) {
         case ERROR_MODERATION:
             return {
                 code: ERROR_MODERATION,
-                message: __('This request has been flagged by our moderation system. Please try to rephrase it and try again.', 'jetpack-ai-client'),
+                message: __('Our service provider OpenAI could not process your prompt due to a moderation system. Please try to rephrase it changing potentially problematic words and try again.', 'jetpack-ai-client'),
                 severity: 'info',
             };
         case ERROR_CONTEXT_TOO_LARGE:
