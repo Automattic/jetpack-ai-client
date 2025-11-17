@@ -1,6 +1,6 @@
 declare const usePostContent: () => {
     getPostContent: (preprocess?: (serialized: string) => string) => string;
-    isEditedPostEmpty: () => boolean;
+    isEditedPostEmpty: any;
     getSerializedPostContent: () => any;
 };
 export default usePostContent;
