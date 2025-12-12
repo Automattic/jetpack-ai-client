@@ -152,8 +152,8 @@ export default function GeneralPurposeImage({ placement, onClose = () => { }, on
             model: generalImageActiveModel,
             site_type: siteType,
         });
-        const setImage = image => {
-            onSetImage?.({ id: image.id, url: image.url });
+        const setImage = ({ id, url, mime }) => {
+            onSetImage?.({ id, url, mime });
             handleModalClose();
         };
         // If the image is already in the media library, use it directly, if it failed for some reason
@@ -162,11 +162,17 @@ export default function GeneralPurposeImage({ placement, onClose = () => { }, on
             setImage({
                 id: currentImage?.libraryId,
                 url: currentImage?.libraryUrl,
+                // Default to image/png for cached images (AI generates PNG)
+                mime: 'image/png',
             });
         }
         else {
             saveToMediaLibrary(currentImage?.image).then(image => {
-                setImage(image);
+                setImage({
+                    id: image.id,
+                    url: image.url,
+                    mime: image.mime,
+                });
             });
         }
     }, [

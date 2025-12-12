@@ -43,7 +43,11 @@ export default function useSaveToMediaLibrary() {
                             }
                             if (image) {
                                 debug('Image uploaded to media library', image);
-                                resolve(image);
+                                resolve({
+                                    id: image.id,
+                                    url: image.url,
+                                    mime: image.mime,
+                                });
                             }
                             setIsLoading(false);
                         },

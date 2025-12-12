@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - Update package dependencies.
 
+### Fixed
+- Fixed minification issue with production build.
+
 ## [0.33.24] - 2025-12-08
 ### Changed
 - Update dependencies. [#45553]
