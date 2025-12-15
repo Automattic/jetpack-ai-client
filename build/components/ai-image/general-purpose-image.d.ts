@@ -5,6 +5,7 @@ import './style.scss';
 type SetImageCallbackProps = {
     id: number;
     url: string;
+    mime?: string;
 };
 type GeneralPurposeImageProps = {
     placement: string;

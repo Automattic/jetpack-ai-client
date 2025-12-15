@@ -5,7 +5,7 @@ import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-run
 import { useAnalytics } from '@automattic/jetpack-shared-extension-utils';
 import { Button, Icon } from '@wordpress/components';
 import { useDispatch } from '@wordpress/data';
-import { __ } from '@wordpress/i18n';
+import { __, _x } from '@wordpress/i18n';
 import debugFactory from 'debug';
 /**
  * Internal dependencies
@@ -52,7 +52,7 @@ const SaveInLibraryButton = ({ siteId }) => {
             }
         }
     };
-    const savingLabel = __('Saving…', 'jetpack-ai-client');
+    const savingLabel = _x('Saving…', 'Logo save button', 'jetpack-ai-client');
     const savedLabel = __('Saved', 'jetpack-ai-client');
     return !saving && !saved ? (_jsxs(Button, { className: "jetpack-ai-logo-generator-modal-presenter__action", onClick: handleClick, children: [_jsx(Icon, { icon: _jsx(MediaIcon, {}) }), _jsx("span", { className: "action-text", children: __('Save in Library', 'jetpack-ai-client') })] })) : (_jsxs(Button, { className: "jetpack-ai-logo-generator-modal-presenter__action", children: [_jsx(Icon, { icon: saving ? _jsx(MediaIcon, {}) : _jsx(CheckIcon, {}) }), _jsx("span", { className: "action-text", children: saving ? savingLabel : savedLabel })] }));
 };
