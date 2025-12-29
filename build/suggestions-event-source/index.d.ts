@@ -13,6 +13,7 @@ type SuggestionsEventSourceConstructorArgs = {
         fromCache?: boolean;
         functions?: Array<object>;
         model?: AiModelTypeProp;
+        languageCode?: string;
     };
 };
 type FunctionCallProps = {

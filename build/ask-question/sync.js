@@ -1,9 +1,10 @@
 /**
  * External dependencies
  */
+import { select } from '@wordpress/data';
 import debugFactory from 'debug';
-/*
- * Types & constants
+/**
+ * Internal dependencies
  */
 import requestJwt from "../jwt/index.js";
 const debug = debugFactory('jetpack-ai-client:ask-question-sync');
@@ -25,6 +26,8 @@ const debug = debugFactory('jetpack-ai-client:ask-question-sync');
  * } );
  */
 export default async function askQuestionSync(question, options = {}) {
+    options.languageCode =
+        options.languageCode || select('core').getEntityRecord('root', 'site')?.language || 'en_US';
     debug('Asking question with no streaming: %o. options: %o', question, options);
     /**
      * The URL to the AI assistant query endpoint.

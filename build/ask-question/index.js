@@ -1,7 +1,11 @@
 /**
  * External dependencies
  */
+import { select } from '@wordpress/data';
 import debugFactory from 'debug';
+/**
+ * Internal dependencies
+ */
 import SuggestionsEventSource from "../suggestions-event-source/index.js";
 const debug = debugFactory('jetpack-ai-client:ask-question');
 /**
@@ -22,16 +26,25 @@ const debug = debugFactory('jetpack-ai-client:ask-question');
  *      // handle suggestionsEventSource
  *  } );
  */
-export default async function askQuestion(question, { postId = null, fromCache = false, feature, functions, model } = {}) {
+export default async function askQuestion(question, { postId = null, fromCache = false, feature, functions, model, languageCode, } = {}) {
+    const code = languageCode || select('core').getEntityRecord('root', 'site')?.language || 'en_US';
     debug('Asking question: %o. options: %o', question, {
         postId,
         fromCache,
         feature,
         functions,
         model,
+        languageCode: code,
     });
     return new SuggestionsEventSource({
         question,
-        options: { postId, feature, fromCache, functions, model },
+        options: {
+            postId,
+            feature,
+            fromCache,
+            functions,
+            model,
+            languageCode: code,
+        },
     });
 }

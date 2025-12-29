@@ -1,4 +1,10 @@
+/**
+ * Internal dependencies
+ */
 import SuggestionsEventSource from '../suggestions-event-source/index.ts';
+/**
+ * Types & constants
+ */
 import type { AiModelTypeProp, PromptProp } from '../types.ts';
 export type AskQuestionOptionsArgProps = {
     postId?: number;
@@ -10,6 +16,7 @@ export type AskQuestionOptionsArgProps = {
         arguments?: string;
         implementation?: Function;
     }>;
+    languageCode?: string;
 };
 /**
  * An asynchronous function that asks a question
@@ -29,4 +36,4 @@ export type AskQuestionOptionsArgProps = {
  *      // handle suggestionsEventSource
  *  } );
  */
-export default function askQuestion(question: PromptProp, { postId, fromCache, feature, functions, model }?: AskQuestionOptionsArgProps): Promise<SuggestionsEventSource>;
+export default function askQuestion(question: PromptProp, { postId, fromCache, feature, functions, model, languageCode, }?: AskQuestionOptionsArgProps): Promise<SuggestionsEventSource>;

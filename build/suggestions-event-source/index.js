@@ -100,6 +100,10 @@ export default class SuggestionsEventSource extends EventTarget {
             debug('Model: %o', options.model);
             bodyData.model = options.model;
         }
+        if (options?.languageCode?.length) {
+            debug('Language: %o', options.languageCode);
+            bodyData.languageCode = options.languageCode;
+        }
         // Clean the unclear prompt trigger flag
         this.errorUnclearPromptTriggered = false;
         await fetchEventSource(url, {
