@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - AI Assistant: Add site language code to AI request
 
+### Changed
+- Update package dependencies.
+
 ## [0.33.26] - 2025-12-22
 ### Changed
 - Update package dependencies. [#46362] [#46363]
