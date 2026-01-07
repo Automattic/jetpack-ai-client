@@ -42,9 +42,11 @@ export default async function askQuestionSync(question, options = {}) {
         return Promise.reject(error);
     }
     const messages = Array.isArray(question) ? { messages: question } : { question: question };
+    const { languageCode, ...otherOptions } = options;
     const body = {
         ...messages,
-        ...options,
+        ...otherOptions,
+        language_code: languageCode,
         stream: false,
     };
     const headers = {
