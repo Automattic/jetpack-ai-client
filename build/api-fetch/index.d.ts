@@ -6,7 +6,7 @@ import apiFetchMod from '@wordpress/api-fetch';
  * Types
  */
 import type { APIFetchOptions } from '@wordpress/api-fetch';
-declare const apiFetch: apiFetchMod.default;
+declare const apiFetch: apiFetchMod.ApiFetch;
 type ApiFetchType = typeof apiFetch extends Function ? typeof apiFetch : typeof apiFetchMod;
 type AugmentedAPIFetchOptions = APIFetchOptions & {
     global?: boolean;
