@@ -73,7 +73,7 @@ export function GuidelineMessage({ aiFeedbackThumbsOptions = {
 export function FairUsageLimitMessage() {
     const message = __("You've reached this month's request limit, per our <link>fair usage policy</link>", 'jetpack-ai-client');
     const element = createInterpolateElement(message, {
-        link: (_jsx(ExternalLink, { href: "https://jetpack.com/redirect/?source=ai-assistant-fair-usage-policy" })),
+        link: (_jsx(ExternalLink, { href: "https://jetpack.com/redirect/?source=ai-assistant-fair-usage-policy", children: null })),
     });
     return _jsx(Message, { severity: MESSAGE_SEVERITY_WARNING, children: element });
 }
