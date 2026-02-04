@@ -18,10 +18,10 @@ type useAiSuggestionsOptions = {
     askQuestionOptions?: AskQuestionOptionsArgProps;
     initialRequestingState?: RequestingStateProp;
     onSuggestion?: (suggestion: string) => void;
-    onDone?: (content: string, skipRequestCount?: boolean, modelUsed?: AiModelTypeProp) => void;
+    onDone?: (content: string, modelUsed?: AiModelTypeProp) => void;
     onStop?: () => void;
     onError?: (error: RequestingErrorProps) => void;
-    onAllErrors?: (error: RequestingErrorProps, skipRequestCount?: boolean) => void;
+    onAllErrors?: (error: RequestingErrorProps) => void;
 };
 type useAiSuggestionsProps = {
     suggestion: string;

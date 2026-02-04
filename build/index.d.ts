@@ -20,7 +20,3 @@ export * from './types.ts';
 export * from './libs/index.ts';
 export * from './constants.ts';
 export * from './logo-generator/index.ts';
-/**
- * Chrome AI
- */
-export * from './chrome-ai/index.ts';

@@ -30,8 +30,7 @@ export type RequestingStateProp = (typeof REQUESTING_STATES)[number];
 export declare const AI_MODEL_GPT_3_5_Turbo_16K: "gpt-3.5-turbo-16k";
 export declare const AI_MODEL_GPT_4: "gpt-4";
 export declare const AI_MODEL_DEFAULT: "default";
-export declare const AI_MODEL_GEMINI_NANO: "gemini-nano";
-export type AiModelTypeProp = typeof AI_MODEL_GPT_3_5_Turbo_16K | typeof AI_MODEL_GPT_4 | typeof AI_MODEL_GEMINI_NANO | typeof AI_MODEL_DEFAULT;
+export type AiModelTypeProp = typeof AI_MODEL_GPT_3_5_Turbo_16K | typeof AI_MODEL_GPT_4 | typeof AI_MODEL_DEFAULT;
 export type { RecordingState } from './hooks/use-media-recording/index.ts';
 export type CancelablePromise<T = void> = Promise<T> & {
     canceled?: boolean;
@@ -52,44 +51,4 @@ export interface BlockEditorStore {
     selectors: {
         [key in keyof typeof BlockEditorSelectors]: (typeof BlockEditorSelectors)[key];
     };
-}
-declare global {
-    interface Window {
-        LanguageDetector?: {
-            create: () => Promise<{
-                detect: (text: string) => Promise<{
-                    detectedLanguage: string;
-                    confidence: number;
-                }[]>;
-                ready: Promise<void>;
-            }>;
-            availability: () => Promise<'unavailable' | 'available' | 'downloadable' | 'downloading' | string>;
-        };
-        Translator?: {
-            create: (options: {
-                sourceLanguage: string;
-                targetLanguage: string;
-            }) => Promise<{
-                translate: (text: string) => Promise<string>;
-            }>;
-            availability: (options: {
-                sourceLanguage: string;
-                targetLanguage: string;
-            }) => Promise<'unavailable' | 'available' | 'downloadable' | 'downloading' | string>;
-        };
-        Summarizer?: {
-            availability: () => Promise<'unavailable' | 'available' | 'downloadable' | 'downloading' | string>;
-            create: (options: {
-                sharedContext?: string;
-                type?: string;
-                format?: string;
-                length?: string;
-            }) => Promise<{
-                ready: Promise<void>;
-                summarize: (text: string, summarizeOptions?: {
-                    context?: string;
-                }) => Promise<string>;
-            }>;
-        };
-    }
 }

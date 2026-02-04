@@ -47,7 +47,3 @@ export * from "./constants.js";
  * Logo Generator
  */
 export * from "./logo-generator/index.js";
-/**
- * Chrome AI
- */
-export * from "./chrome-ai/index.js";

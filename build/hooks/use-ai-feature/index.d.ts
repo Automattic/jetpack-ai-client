@@ -30,5 +30,4 @@ export default function useAiFeature(): {
         };
     };
     featuresControl?: import("@automattic/jetpack-shared-extension-utils/store/wordpress-com/types").FeaturesControl;
-    chromeAiTokens?: import("@automattic/jetpack-shared-extension-utils/store/wordpress-com/types").ChromeAiTokens;
 };
