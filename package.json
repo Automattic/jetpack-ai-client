@@ -34,7 +34,7 @@
 	},
 	"dependencies": {
 		"@automattic/jetpack-base-styles": "^1.0.15",
-		"@automattic/jetpack-components": "^1.4.10",
+		"@automattic/jetpack-components": "^1.4.11-alpha",
 		"@automattic/jetpack-connection": "^1.4.31",
 		"@automattic/jetpack-explat": "workspace:*",
 		"@automattic/jetpack-script-data": "^0.5.4",
