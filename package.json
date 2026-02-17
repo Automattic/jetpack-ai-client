@@ -1,6 +1,6 @@
 {
 	"name": "@automattic/jetpack-ai-client",
-	"version": "0.34.1-alpha",
+	"version": "0.34.2-alpha",
 	"private": false,
 	"description": "A JS client for consuming Jetpack AI services",
 	"homepage": "https://github.com/Automattic/jetpack/tree/HEAD/projects/js-packages/ai-client/#readme",
@@ -32,12 +32,12 @@
 		"watch": "tsc --watch --pretty"
 	},
 	"dependencies": {
-		"@automattic/jetpack-base-styles": "^1.0.16-alpha",
-		"@automattic/jetpack-components": "^1.4.13-alpha",
-		"@automattic/jetpack-connection": "^1.4.34-alpha",
+		"@automattic/jetpack-base-styles": "^1.0.17-alpha",
+		"@automattic/jetpack-components": "^1.4.14-alpha",
+		"@automattic/jetpack-connection": "^1.4.35-alpha",
 		"@automattic/jetpack-explat": "workspace:*",
 		"@automattic/jetpack-script-data": "^0.5.5-alpha",
-		"@automattic/jetpack-shared-extension-utils": "^1.4.12-alpha",
+		"@automattic/jetpack-shared-extension-utils": "^1.4.13-alpha",
 		"@microsoft/fetch-event-source": "2.0.1",
 		"@types/jest": "30.0.0",
 		"@types/react": "18.3.26",
