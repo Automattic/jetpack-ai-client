@@ -9,8 +9,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Automattic/jetpack.git",
-		"directory": "projects/js-packages/ai-client"
+		"url": "git+https://github.com/Automattic/jetpack-ai-client.git"
 	},
 	"license": "GPL-2.0-or-later",
 	"author": "Automattic",
@@ -37,7 +36,7 @@
 		"@automattic/jetpack-components": "^1.4.13-alpha",
 		"@automattic/jetpack-connection": "^1.4.34-alpha",
 		"@automattic/jetpack-explat": "workspace:*",
-		"@automattic/jetpack-script-data": "^0.5.4",
+		"@automattic/jetpack-script-data": "^0.5.5-alpha",
 		"@automattic/jetpack-shared-extension-utils": "^1.4.12-alpha",
 		"@microsoft/fetch-event-source": "2.0.1",
 		"@types/jest": "30.0.0",
