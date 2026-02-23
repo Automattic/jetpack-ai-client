@@ -32,7 +32,7 @@
 		"watch": "tsc --watch --pretty"
 	},
 	"dependencies": {
-		"@automattic/jetpack-base-styles": "^1.0.17",
+		"@automattic/jetpack-base-styles": "^1.0.18-alpha",
 		"@automattic/jetpack-components": "^1.4.16-alpha",
 		"@automattic/jetpack-connection": "^1.4.36",
 		"@automattic/jetpack-explat": "workspace:*",
