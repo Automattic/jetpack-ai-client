@@ -1,0 +1,41 @@
+import './style.scss';
+/**
+ * Types
+ */
+import type { RequestingErrorProps, RequestingStateProp } from '../../types.ts';
+import type { MutableRefObject, ReactElement, MouseEvent } from 'react';
+type ExtensionAIControlProps = {
+    className?: string;
+    disabled?: boolean;
+    value: string;
+    placeholder?: string;
+    showButtonLabels?: boolean;
+    isTransparent?: boolean;
+    state?: RequestingStateProp;
+    showGuideLine?: boolean;
+    error?: RequestingErrorProps;
+    requestsRemaining?: number;
+    showUpgradeMessage?: boolean;
+    showFairUsageMessage?: boolean;
+    upgradeUrl?: string;
+    wrapperRef?: MutableRefObject<HTMLDivElement | null>;
+    onChange?: (newValue: string) => void;
+    onSend?: (currentValue: string) => void;
+    onStop?: () => void;
+    onClose?: () => void;
+    onUndo?: () => void;
+    onUpgrade?: (event: MouseEvent<HTMLButtonElement>) => void;
+    onTryAgain?: () => void;
+    lastAction?: string;
+    blockType: string;
+};
+/**
+ * ExtensionAIControl component. Used by the AI Assistant inline extensions, adding logic and components to the base AIControl component.
+ *
+ * @param {ExtensionAIControlProps} props - Component props
+ * @param {MutableRefObject}        ref   - Ref to the component
+ * @return {ReactElement}                 Rendered component
+ */
+export declare function ExtensionAIControl({ className, disabled, value, placeholder, showButtonLabels, isTransparent, state, showGuideLine, error, requestsRemaining, showUpgradeMessage, showFairUsageMessage, upgradeUrl, wrapperRef, onChange, onSend, onStop, onClose, onUndo, onUpgrade, onTryAgain, lastAction, blockType }: ExtensionAIControlProps, ref: MutableRefObject<HTMLInputElement>): ReactElement;
+declare const _default: import("react").ForwardRefExoticComponent<ExtensionAIControlProps & import("react").RefAttributes<HTMLInputElement>>;
+export default _default;
