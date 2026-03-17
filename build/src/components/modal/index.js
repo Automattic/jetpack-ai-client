@@ -18,5 +18,5 @@ const ModalHeader = ({ requestingState, onClose, title, }) => {
  */
 export default function AiAssistantModal({ children, handleClose, hideHeader = true, requestingState = 'init', title = __('AI Assistant', 'jetpack-ai-client'), maxWidth = 720, }) {
     return (_jsx(Modal, { __experimentalHideHeader: hideHeader, className: "ai-assistant-modal", shouldCloseOnClickOutside: false, onRequestClose: handleClose, children: _jsxs("div", { className: "ai-assistant-modal__content", style: { maxWidth }, children: [
-                _jsx(ModalHeader, { requestingState: requestingState, onClose: handleClose, title: title }), _jsx("hr", { className: "ai-assistant-modal__divider" }), children] }) }));
+                _jsx(ModalHeader, { requestingState: requestingState, onClose: handleClose, title: title }), children] }) }));
 }
