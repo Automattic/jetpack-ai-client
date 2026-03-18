@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This is an alpha version! The changes listed here are not final.
 
+### Security
+- Fix polynomial ReDoS vulnerability in markdown-to-HTML paragraph renderer.
+
 ### Fixed
 - AI Assistant: Fix modal shaking when content streams in by correcting header margins and making the header sticky.
 
