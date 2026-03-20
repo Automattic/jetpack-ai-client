@@ -50,7 +50,7 @@ export default function useAiImage({ feature, type, cost, autoStart = true, prev
         });
     }, []);
     // the selec/useEffect combo...
-    const loadedMedia = useSelect((select) => select('core')?.getEntityRecord?.('postType', 'attachment', previousMediaId), [previousMediaId]);
+    const loadedMedia = useSelect(select => select('core')?.getEntityRecord?.('postType', 'attachment', previousMediaId), [previousMediaId]);
     useEffect(() => {
         if (loadedMedia) {
             updateImages({

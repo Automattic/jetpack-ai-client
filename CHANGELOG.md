@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Security
 - Fix polynomial ReDoS vulnerability in markdown-to-HTML paragraph renderer.
 
+### Changed
+- Update package dependencies.
+
 ### Fixed
 - AI Assistant: Fix modal shaking when content streams in by correcting header margins and making the header sticky.
 
