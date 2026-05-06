@@ -2,10 +2,11 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 /**
  * External dependencies
  */
-import { ExternalLink, Button } from '@wordpress/components';
+import { Button } from '@wordpress/components';
 import { createInterpolateElement } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 import { Icon, check } from '@wordpress/icons';
+import { Link } from '@wordpress/ui';
 import clsx from 'clsx';
 /**
  * Internal dependencies
@@ -48,7 +49,7 @@ export default function Message({ severity = MESSAGE_SEVERITY_INFO, icon = null,
  * @return {ReactElement} - Learn more link component.
  */
 function LearnMoreLink() {
-    return (_jsx(ExternalLink, { href: "https://jetpack.com/redirect/?source=ai-guidelines", children: __('Learn more', 'jetpack-ai-client') }));
+    return (_jsx(Link, { openInNewTab: true, href: "https://jetpack.com/redirect/?source=ai-guidelines", children: __('Learn more', 'jetpack-ai-client') }));
 }
 /**
  * React component to render a guideline message.
@@ -75,7 +76,7 @@ export function GuidelineMessage({ aiFeedbackThumbsOptions = {
 export function FairUsageLimitMessage() {
     const message = __("You've reached this month's request limit, per our <link>fair usage policy</link>", 'jetpack-ai-client');
     const element = createInterpolateElement(message, {
-        link: (_jsx(ExternalLink, { href: "https://jetpack.com/redirect/?source=ai-assistant-fair-usage-policy", children: null })),
+        link: (_jsx(Link, { openInNewTab: true, href: "https://jetpack.com/redirect/?source=ai-assistant-fair-usage-policy", children: null })),
     });
     return _jsx(Message, { severity: MESSAGE_SEVERITY_WARNING, children: element });
 }
