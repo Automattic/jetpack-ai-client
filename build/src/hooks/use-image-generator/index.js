@@ -130,7 +130,7 @@ const getStableDiffusionImageGenerationPrompt = async (postContent, userPrompt, 
 };
 const useImageGenerator = () => {
     const executeImageGeneration = async function (parameters) {
-        let token = '';
+        let token;
         try {
             token = (await requestJwt()).token;
         }

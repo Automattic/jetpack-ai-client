@@ -33,7 +33,7 @@ export default async function askQuestionSync(question, options = {}) {
      * The URL to the AI assistant query endpoint.
      */
     const URL = 'https://public-api.wordpress.com/wpcom/v2/jetpack-ai-query';
-    let token = null;
+    let token;
     try {
         token = (await requestJwt()).token;
     }

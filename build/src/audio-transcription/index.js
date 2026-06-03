@@ -18,7 +18,7 @@ const debug = debugFactory('jetpack-ai-client:audio-transcription');
 export default async function transcribeAudio(audio, feature, requestAbortSignal) {
     debug('Transcribing audio: %o. Feature: %o', audio, feature);
     // Get a token to use the transcription service
-    let token = '';
+    let token;
     try {
         token = (await requestJwt()).token;
     }
