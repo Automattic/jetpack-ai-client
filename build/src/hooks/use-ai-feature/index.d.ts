@@ -8,21 +8,21 @@ export default function useAiFeature(): {
     requireUpgrade: boolean;
     errorMessage?: string;
     errorCode?: string;
-    upgradeType: import("@automattic/jetpack-shared-extension-utils/store/wordpress-com/types").UpgradeTypeProp;
-    currentTier?: import("@automattic/jetpack-shared-extension-utils/store/wordpress-com/types").TierProp;
+    upgradeType: import("@automattic/jetpack-shared-extension-utils/store/wordpress-com").UpgradeTypeProp;
+    currentTier?: import("@automattic/jetpack-shared-extension-utils/store/wordpress-com").TierProp;
     usagePeriod?: {
         currentStart: string;
         nextStart: string;
         requestsCount: number;
     };
-    nextTier?: import("@automattic/jetpack-shared-extension-utils/store/wordpress-com/types").TierProp;
+    nextTier?: import("@automattic/jetpack-shared-extension-utils/store/wordpress-com").TierProp;
     tierPlansEnabled?: boolean;
     costs?: {
         [key: string]: {
             [key: string]: number;
         };
     };
-    featuresControl?: import("@automattic/jetpack-shared-extension-utils/store/wordpress-com/types").FeaturesControl;
+    featuresControl?: import("@automattic/jetpack-shared-extension-utils/store/wordpress-com").FeaturesControl;
     requestsCount: number;
     requestsLimit: number;
     loading: boolean;
