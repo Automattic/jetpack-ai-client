@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - Update package dependencies.
 
+### Fixed
+- AI guideline message: keep the "Learn more" link on a single line on narrow/mobile widths
+
 ## [0.34.28] - 2026-07-06
 ### Changed
 - Update package dependencies. [#50097] [#50183] [#50212]
