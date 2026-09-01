@@ -6,5 +6,5 @@ import type { ComponentType } from 'react';
  * @param {ReactElement} WrappedComponent - component to wrap.
  * @return {ReactElement} Wrapped component, with the AI Assistant Data context.
  */
-declare const withAiDataProvider: (Inner: ComponentType) => (props: any) => import("react/jsx-runtime").JSX.Element;
+declare const withAiDataProvider: (Inner: ComponentType) => (props: any) => import("react").JSX.Element;
 export default withAiDataProvider;

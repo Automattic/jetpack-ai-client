@@ -1,2 +1,2 @@
-declare const origamiPlane: import("react/jsx-runtime").JSX.Element;
+declare const origamiPlane: import("react").JSX.Element;
 export default origamiPlane;

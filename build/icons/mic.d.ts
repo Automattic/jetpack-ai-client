@@ -1,2 +1,2 @@
-declare const mic: import("react/jsx-runtime").JSX.Element;
+declare const mic: import("react").JSX.Element;
 export default mic;

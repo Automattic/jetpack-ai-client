@@ -1,4 +1,4 @@
-export declare const AiSVG: import("react/jsx-runtime").JSX.Element;
+export declare const AiSVG: import("react").JSX.Element;
 /**
  * AiIcon component
  * @param {string} className - The wrapper class name.
@@ -7,4 +7,4 @@ export declare const AiSVG: import("react/jsx-runtime").JSX.Element;
 export default function AiIcon({ className, size }: {
     className?: string;
     size?: number;
-}): import("react/jsx-runtime").JSX.Element;
+}): import("react").JSX.Element;

@@ -1,2 +1,2 @@
-declare const aiAssistant: import("react/jsx-runtime").JSX.Element;
+declare const aiAssistant: import("react").JSX.Element;
 export default aiAssistant;

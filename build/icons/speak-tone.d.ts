@@ -1,2 +1,2 @@
-declare const speakTone: import("react/jsx-runtime").JSX.Element;
+declare const speakTone: import("react").JSX.Element;
 export default speakTone;

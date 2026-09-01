@@ -9,5 +9,5 @@ type UsageCounterProps = {
  * @param {UsageCounterProps} props - The component properties.
  * @return {ReactElement} - rendered component.
  */
-export default function UsageCounter({ currentLimit, currentUsage, cost }: UsageCounterProps): import("react/jsx-runtime").JSX.Element;
+export default function UsageCounter({ currentLimit, currentUsage, cost }: UsageCounterProps): import("react").JSX.Element;
 export {};

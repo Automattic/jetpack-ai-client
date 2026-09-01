@@ -11,6 +11,6 @@ export declare const AiModalPromptInput: ({ prompt, setPrompt, disabled, actionD
     generateHandler: () => void;
     placeholder?: string;
     buttonLabel?: string;
-}) => import("react/jsx-runtime").JSX.Element;
-export declare const Prompt: ({ initialPrompt }: PromptProps) => import("react/jsx-runtime").JSX.Element;
+}) => import("react").JSX.Element;
+export declare const Prompt: ({ initialPrompt }: PromptProps) => import("react").JSX.Element;
 export {};

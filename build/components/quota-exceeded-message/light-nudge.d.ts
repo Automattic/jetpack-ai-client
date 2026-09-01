@@ -8,4 +8,4 @@ export declare const LightNudge: ({ title, description, buttonText, checkoutUrl,
     showButton?: boolean;
     target?: string;
     title: any;
-}) => import("react/jsx-runtime").JSX.Element;
+}) => import("react").JSX.Element;

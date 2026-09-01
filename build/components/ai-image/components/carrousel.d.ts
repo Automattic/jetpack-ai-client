@@ -24,5 +24,5 @@ type CarrouselProps = {
  * @param {CarrouselProps} props - The component properties.
  * @return {ReactElement} - rendered component.
  */
-export default function Carrousel({ images, current, handlePreviousImage, handleNextImage, actions, }: CarrouselProps): import("react/jsx-runtime").JSX.Element;
+export default function Carrousel({ images, current, handlePreviousImage, handleNextImage, actions, }: CarrouselProps): JSX.Element;
 export {};

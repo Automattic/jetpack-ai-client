@@ -17,5 +17,5 @@ type GeneralPurposeImageProps = {
  * @param {GeneralPurposeImageProps} props - The component properties.
  * @return {ReactElement} - rendered component.
  */
-export default function GeneralPurposeImage({ placement, onClose, onSetImage, }: GeneralPurposeImageProps): import("react/jsx-runtime").JSX.Element;
+export default function GeneralPurposeImage({ placement, onClose, onSetImage, }: GeneralPurposeImageProps): import("react").JSX.Element;
 export {};

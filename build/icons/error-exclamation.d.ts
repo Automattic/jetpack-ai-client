@@ -1,2 +1,2 @@
-declare const errorExclamation: import("react/jsx-runtime").JSX.Element;
+declare const errorExclamation: import("react").JSX.Element;
 export default errorExclamation;

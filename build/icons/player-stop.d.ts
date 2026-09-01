@@ -1,2 +1,2 @@
-declare const playerStop: import("react/jsx-runtime").JSX.Element;
+declare const playerStop: import("react").JSX.Element;
 export default playerStop;

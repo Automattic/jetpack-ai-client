@@ -7,5 +7,5 @@ type FairUsageNoticeProps = {
  * @param {FairUsageNoticeProps.variant} props.variant - The variant of the notice to render.
  * @return the Notice component with the fair usage message.
  */
-export declare const FairUsageNotice: ({ variant }: FairUsageNoticeProps) => import("react/jsx-runtime").JSX.Element;
+export declare const FairUsageNotice: ({ variant }: FairUsageNoticeProps) => import("react").JSX.Element;
 export {};

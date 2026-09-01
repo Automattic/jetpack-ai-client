@@ -10,5 +10,5 @@ type FeaturedImageProps = {
  * @param {FeaturedImageProps} props - The component properties.
  * @return {ReactElement} - rendered component.
  */
-export default function FeaturedImage({ busy, disabled, placement, onClose, }: FeaturedImageProps): import("react/jsx-runtime").JSX.Element;
+export default function FeaturedImage({ busy, disabled, placement, onClose, }: FeaturedImageProps): import("react").JSX.Element;
 export {};

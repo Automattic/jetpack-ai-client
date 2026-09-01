@@ -1,2 +1,2 @@
-declare const playerPlay: import("react/jsx-runtime").JSX.Element;
+declare const playerPlay: import("react").JSX.Element;
 export default playerPlay;

@@ -1,2 +1,2 @@
 import './upgrade-nudge.scss';
-export declare const UpgradeNudge: () => import("react/jsx-runtime").JSX.Element;
+export declare const UpgradeNudge: () => import("react").JSX.Element;

@@ -49,5 +49,5 @@ type AiImageModalProps = {
  * @param {AiImageModalProps} props - The component properties.
  * @return {ReactElement} - rendered component.
  */
-export default function AiImageModal({ title, cost, open, images, currentIndex, onClose, onTryAgain, onGenerate, generating, notEnoughRequests, requireUpgrade, currentLimit, currentUsage, isUnlimited, upgradeDescription, hasError, handlePreviousImage, handleNextImage, acceptButton, autoStart, autoStartAction, instructionsPlaceholder, imageStyles, onGuessStyle, prompt, setPrompt, initialStyle, inputDisabled, actionDisabled, }: AiImageModalProps): import("react/jsx-runtime").JSX.Element;
+export default function AiImageModal({ title, cost, open, images, currentIndex, onClose, onTryAgain, onGenerate, generating, notEnoughRequests, requireUpgrade, currentLimit, currentUsage, isUnlimited, upgradeDescription, hasError, handlePreviousImage, handleNextImage, acceptButton, autoStart, autoStartAction, instructionsPlaceholder, imageStyles, onGuessStyle, prompt, setPrompt, initialStyle, inputDisabled, actionDisabled, }: AiImageModalProps): JSX.Element;
 export {};

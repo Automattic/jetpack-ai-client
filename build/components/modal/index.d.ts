@@ -14,5 +14,5 @@ type AiAssistantModalProps = {
  * @param {AiAssistantModalProps} props - The component properties.
  * @return {ReactElement} - rendered component.
  */
-export default function AiAssistantModal({ children, handleClose, hideHeader, requestingState, title, maxWidth, }: AiAssistantModalProps): import("react/jsx-runtime").JSX.Element;
+export default function AiAssistantModal({ children, handleClose, hideHeader, requestingState, title, maxWidth, }: AiAssistantModalProps): import("react").JSX.Element;
 export {};
