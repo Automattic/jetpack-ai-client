@@ -32,7 +32,7 @@
 		"watch": "tsgo --watch --pretty"
 	},
 	"dependencies": {
-		"@automattic/jetpack-base-styles": "^1.2.11",
+		"@automattic/jetpack-base-styles": "^1.2.12-alpha",
 		"@automattic/jetpack-components": "^3.0.0",
 		"@automattic/jetpack-connection": "^2.4.1",
 		"@automattic/jetpack-explat": "workspace:*",
