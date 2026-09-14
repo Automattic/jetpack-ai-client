@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - Add a `jwt` subpath export so consumers can import `requestJwt` without the rest of the client.
 
+### Changed
+- Update package dependencies.
+
 ## [0.34.37] - 2026-09-09
 ### Changed
 - Update dependencies. [#51438]
