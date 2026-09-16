@@ -15,6 +15,9 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - Update package dependencies.
 
+### Fixed
+- Keep the AI image carousel arrows, the logo generator icons and the message icons colored now that @wordpress/icons 16 draws them as strokes.
+
 ## [0.34.37] - 2026-09-09
 ### Changed
 - Update dependencies. [#51438]
