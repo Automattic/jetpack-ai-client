@@ -40,7 +40,7 @@
 		"@automattic/jetpack-components": "^3.0.3-alpha",
 		"@automattic/jetpack-connection": "^2.5.1-alpha",
 		"@automattic/jetpack-explat": "workspace:*",
-		"@automattic/jetpack-script-data": "^0.6.6",
+		"@automattic/jetpack-script-data": "^0.6.7-alpha",
 		"@automattic/jetpack-shared-extension-utils": "^2.0.22-alpha",
 		"@microsoft/fetch-event-source": "2.0.1",
 		"@types/jest": "30.0.0",
