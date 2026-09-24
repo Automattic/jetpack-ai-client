@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - Update dependencies.
 
+### Removed
+- Remove unused dependency on `@automattic/jetpack-explat`, which does not exist outside the monorepo.
+
 ## [0.35.1] - 2026-09-21
 ### Changed
 - Update package dependencies. [#52187]
