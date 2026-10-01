@@ -12,6 +12,9 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - Update package dependencies.
 
+### Fixed
+- Logo generator: Stop the upgrade nudge's button colors from applying to other upgrade banners.
+
 ## [0.35.3] - 2026-09-29
 ### Changed
 - Update dependencies. [#52892]
