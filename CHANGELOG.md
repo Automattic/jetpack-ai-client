@@ -11,6 +11,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Changed
 - Update package dependencies.
+- Use WordPress Design System colors in the image and logo generator.
 
 ### Fixed
 - Logo generator: Stop the upgrade nudge's button colors from applying to other upgrade banners.
