@@ -38,7 +38,7 @@
 	"dependencies": {
 		"@automattic/jetpack-base-styles": "^1.2.18",
 		"@automattic/jetpack-components": "^4.1.0-alpha",
-		"@automattic/jetpack-connection": "^2.13.0",
+		"@automattic/jetpack-connection": "^2.13.1-alpha",
 		"@automattic/jetpack-script-data": "^0.6.10",
 		"@automattic/jetpack-shared-extension-utils": "^2.1.2-alpha",
 		"@microsoft/fetch-event-source": "2.0.1",
@@ -74,7 +74,7 @@
 		"@types/markdown-it": "14.2.0",
 		"@types/turndown": "5.0.6",
 		"@typescript/native-preview": "7.0.0-dev.20260707.2",
-		"jest": "30.5.1",
+		"jest": "30.5.2",
 		"storybook": "10.4.6",
 		"typescript": "6.0.3"
 	}
