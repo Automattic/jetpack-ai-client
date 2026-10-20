@@ -36,11 +36,11 @@
 		"watch": "tsgo --watch --pretty"
 	},
 	"dependencies": {
-		"@automattic/jetpack-base-styles": "^1.2.19-alpha",
-		"@automattic/jetpack-components": "^5.0.1-alpha",
-		"@automattic/jetpack-connection": "^2.13.2-alpha",
-		"@automattic/jetpack-script-data": "^0.6.11-alpha",
-		"@automattic/jetpack-shared-extension-utils": "^2.1.3-alpha",
+		"@automattic/jetpack-base-styles": "^1.2.19",
+		"@automattic/jetpack-components": "^5.0.1",
+		"@automattic/jetpack-connection": "^2.13.2",
+		"@automattic/jetpack-script-data": "^0.6.11",
+		"@automattic/jetpack-shared-extension-utils": "^2.1.3",
 		"@microsoft/fetch-event-source": "2.0.1",
 		"@types/jest": "30.0.0",
 		"@types/react": "18.3.31",
