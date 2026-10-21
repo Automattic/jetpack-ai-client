@@ -4,6 +4,7 @@ import { ImageStyleObject, ImageStyle } from '../../../hooks/use-image-generator
  */
 import { FEATURED_IMAGE_FEATURE_NAME, GENERAL_IMAGE_FEATURE_NAME } from '../types.ts';
 import type { CarrouselImageData, CarrouselImages } from '../components/carrousel.tsx';
+import type { RefObject } from 'react';
 type AiImageType = 'featured-image-generation' | 'general-image-generation';
 type AiImageFeature = typeof FEATURED_IMAGE_FEATURE_NAME | typeof GENERAL_IMAGE_FEATURE_NAME;
 export type ImageResponse = {
@@ -40,7 +41,7 @@ export default function useAiImage({ feature, type, cost, autoStart, previousMed
     currentImage: CarrouselImageData;
     currentPointer: CarrouselImageData;
     images: CarrouselImages;
-    pointer: import("react").MutableRefObject<number>;
+    pointer: RefObject<number>;
     imageStyles: ImageStyleObject[];
     guessStyle: (prompt: string, requestType?: string, content?: string) => Promise<ImageStyle | null>;
 };
