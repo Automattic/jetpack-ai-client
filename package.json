@@ -38,7 +38,7 @@
 	"dependencies": {
 		"@automattic/jetpack-base-styles": "^1.2.19",
 		"@automattic/jetpack-components": "^6.0.1-alpha",
-		"@automattic/jetpack-connection": "^2.14.0",
+		"@automattic/jetpack-connection": "^2.15.0-alpha",
 		"@automattic/jetpack-script-data": "^0.6.11",
 		"@automattic/jetpack-shared-extension-utils": "^2.1.4",
 		"@microsoft/fetch-event-source": "2.0.1",
