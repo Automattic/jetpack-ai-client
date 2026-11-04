@@ -3,10 +3,11 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
  * External dependencies
  */
 import { useAnalytics, getJetpackExtensionAvailability, } from '@automattic/jetpack-shared-extension-utils';
-import { Button, Tooltip } from '@wordpress/components';
+import { Button } from '@wordpress/components';
 import { useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { thumbsUp, thumbsDown } from '@wordpress/icons';
+import { Tooltip } from '@wordpress/ui';
 import clsx from 'clsx';
 /*
  * Internal dependencies
@@ -63,9 +64,11 @@ export default function AiFeedbackThumbs({ disabled = false, iconSize = 24, rate
             });
         }
     };
-    return (_jsxs("div", { className: "ai-assistant-feedback__selection", children: [_jsx(Tooltip, { text: __('I like this', 'jetpack-ai-client'), children: _jsx(Button, { disabled: disabled, icon: thumbsUp, onClick: () => rateAI(true), iconSize: iconSize, showTooltip: false, className: clsx({
-                        'ai-assistant-feedback__thumb-selected': checkThumb('thumbs-up'),
-                    }) }) }), _jsx(Tooltip, { text: __("I don't find this useful", 'jetpack-ai-client'), children: _jsx(Button, { disabled: disabled, icon: thumbsDown, onClick: () => rateAI(false), iconSize: iconSize, showTooltip: false, className: clsx({
-                        'ai-assistant-feedback__thumb-selected': checkThumb('thumbs-down'),
-                    }) }) })] }));
+    const likeLabel = __('I like this', 'jetpack-ai-client');
+    const dislikeLabel = __("I don't find this useful", 'jetpack-ai-client');
+    return (_jsxs("div", { className: "ai-assistant-feedback__selection", children: [_jsxs(Tooltip.Root, { children: [_jsx(Tooltip.Trigger, { render: _jsx(Button, { disabled: disabled, icon: thumbsUp, onClick: () => rateAI(true), iconSize: iconSize, "aria-label": likeLabel, showTooltip: false, className: clsx({
+                                'ai-assistant-feedback__thumb-selected': checkThumb('thumbs-up'),
+                            }) }) }), _jsx(Tooltip.Popup, { children: likeLabel })] }), _jsxs(Tooltip.Root, { children: [_jsx(Tooltip.Trigger, { render: _jsx(Button, { disabled: disabled, icon: thumbsDown, onClick: () => rateAI(false), iconSize: iconSize, "aria-label": dislikeLabel, showTooltip: false, className: clsx({
+                                'ai-assistant-feedback__thumb-selected': checkThumb('thumbs-down'),
+                            }) }) }), _jsx(Tooltip.Popup, { children: dislikeLabel })] })] }));
 }

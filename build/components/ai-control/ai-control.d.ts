@@ -1,13 +1,9 @@
-/**
- * External dependencies
- */
-import { PlainText } from '@wordpress/block-editor';
 import './style.scss';
 /**
  * Types
  */
 import type { RequestingStateProp } from '../../types.ts';
-import type { MutableRefObject, ReactElement } from 'react';
+import type { MutableRefObject, ReactElement, Ref } from 'react';
 type AIControlProps = {
     className?: string;
     disabled?: boolean;
@@ -20,7 +16,7 @@ type AIControlProps = {
     error?: ReactElement;
     actions?: ReactElement;
     message?: ReactElement;
-    promptUserInputRef?: PlainText.Props['ref'];
+    promptUserInputRef?: Ref<HTMLElement>;
     wrapperRef?: MutableRefObject<HTMLDivElement | null>;
 };
 /**
